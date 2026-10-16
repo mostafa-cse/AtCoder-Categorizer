@@ -15,6 +15,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`domino_tiling_chromatic_dp.md`](domino_tiling_chromatic_dp.md) | DP Technique | **domino_tiling_chromatic_dp.md** | 1 |
 | [`doubling_dp.md`](doubling_dp.md) | DP on Different Structures | **Doubling DP / Matrix Exponentiation on Modular Digit Transitions** | 1 |
 | [`dp_on_trees.md`](dp_on_trees.md) | Dp on Different Structures | **DP on Trees & Directed Acyclic Graphs (DAGs)** | 4 |
+| [`dp_range_transitions_prefix_sums.md`](dp_range_transitions_prefix_sums.md) | DP Technique | **dp_range_transitions_prefix_sums.md** | 1 |
 | [`dual_partition_subset_sum_bitset.md`](dual_partition_subset_sum_bitset.md) | DP Technique | **dual_partition_subset_sum_bitset.md** | 1 |
 | [`exchange_argument_dp.md`](exchange_argument_dp.md) | Classic DP | **Greedy Exchange Argument & Knapsack DP** | 1 |
 | [`expected_value_dp.md`](expected_value_dp.md) | Intro to DP | **Probability & Expected Value DP** | 2 |
@@ -30,6 +31,8 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`prefix_sum_partition_dp.md`](prefix_sum_partition_dp.md) | DP Technique | **prefix_sum_partition_dp.md** | 1 |
 | [`segment_tree_dp.md`](segment_tree_dp.md) | DP Optimizations | **Segment Tree Accelerated Range Knapsack DP** | 1 |
 | [`string_dp.md`](string_dp.md) | Classic DP | **Subsequence Matching DP / Automaton DP** | 1 |
+| [`three_resource_knapsack_search.md`](three_resource_knapsack_search.md) | DP Technique | **three_resource_knapsack_search.md** | 1 |
+| [`tsp_bitmask_asymmetric_metric.md`](tsp_bitmask_asymmetric_metric.md) | DP Technique | **tsp_bitmask_asymmetric_metric.md** | 1 |
 | [`unbounded_knapsack_min_cost.md`](unbounded_knapsack_min_cost.md) | DP Technique | **unbounded_knapsack_min_cost.md** | 1 |
 
 ---

@@ -266,3 +266,27 @@ This log tracks the rigorous evaluation of AtCoder problems, separating **high-v
 | [problem:AtCoder-abc012_4] | Bus Trip | 1166 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by Floyd-Warshall / Grid Diameter. |
 | [problem:AtCoder-abc423_e] | Sum of Subarrays | 1183 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine double-counting arithmetic formula. |
 | [problem:AtCoder-abc001_3] | Wind Direction | 1189 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Tedious angle-to-direction string mapping table. |
+
+| [problem:AtCoder-abc105_c] | Base -2 Number | 1204 | **SELECTED** | Math → Negative Base Division / Modulo Arithmetic | Selected: Archetype for Negative Base Division / Modulo Arithmetic. |
+| [problem:AtCoder-abc176_e] | Bomber | 1204 | **SELECTED** | Basics → Max Row/Col Intersection Overlap Filtering | Selected: Archetype for Max Row/Col Intersection Overlap Filtering. |
+| [problem:AtCoder-abc147_d] | Xor Sum 4 | 1205 | **SELECTED** | Math → Bitwise Independent Contribution Summation modulo 10^9+7 | Selected: Archetype for Bitwise Independent Contribution Summation modulo 10^9+7. |
+| [problem:AtCoder-abc157_d] | Friend Suggestions | 1208 | **SELECTED** | Data Structures → DSU Component Sizing with Mutual Exclusion | Selected: Archetype for DSU Component Sizing with Mutual Exclusion. |
+| [problem:AtCoder-abc200_d] | Happy Birthday! 2 | 1217 | **SELECTED** | Math → Pigeonhole Principle 2^N > 200 Modulo 200 Subset Collision | Selected: Archetype for Pigeonhole Principle 2^N > 200 Modulo 200 Subset Collision. |
+| [problem:AtCoder-abc089_d] | Practical Skill Test | 1220 | **SELECTED** | Data Structures → Modulo-D Strided Prefix Sums | Selected: Archetype for Modulo-D Strided Prefix Sums. |
+| [problem:AtCoder-arc074_a] | Chocolate Bar | 1223 | **SELECTED** | Basics → 3-Way Grid Rectangular Partitioning Casework | Selected: Archetype for 3-Way Grid Rectangular Partitioning Casework. |
+| [problem:AtCoder-abc198_d] | Send More Money | 1224 | **SELECTED** | Basics → Cryptarithmetic Permutation Search via std::next_permutation | Selected: Archetype for Cryptarithmetic Permutation Search via std::next_permutation. |
+| [problem:AtCoder-abc096_d] | Five, Five Everywhere | 1226 | **SELECTED** | Number Theory → Modulo-5 Arithmetic Residue Selection for Prime Subsets | Selected: Archetype for Modulo-5 Arithmetic Residue Selection for Prime Subsets. |
+| [problem:AtCoder-abc174_e] | Logs | 1227 | **SELECTED** | Basics → Binary Search on Answer / Greedy Chunk Division | Selected: Archetype for Binary Search on Answer / Greedy Chunk Division. |
+| [problem:AtCoder-abc390_e] | Vitamin Balance | 1227 | **SELECTED** | Dynamic Programming → 3-Resource Dual Knapsack DP with Monotonic Search | Selected: Archetype for 3-Resource Dual Knapsack DP with Monotonic Search. |
+| [problem:AtCoder-abc164_d] | Multiple of 2019 | 1232 | **SELECTED** | Math → Suffix Modulo 2019 Prefix Arithmetic (Coprime Base) | Selected: Archetype for Suffix Modulo 2019 Prefix Arithmetic (Coprime Base). |
+| [problem:AtCoder-abc054_c] | One-stroke Path | 1244 | **SELECTED** | Graph Theory → Hamiltonian Path Permutation DFS | Selected: Archetype for Hamiltonian Path Permutation DFS. |
+| [problem:AtCoder-abc032_c] | Columns | 1244 | **SELECTED** | Basics → Monotonic Subarray Product Window | Selected: Archetype for Monotonic Subarray Product Window. |
+| [problem:AtCoder-abc176_d] | Wizard in Maze | 1248 | **SELECTED** | Graph Theory → 0-1 BFS on 5x5 Warp Moves | Selected: Archetype for 0-1 BFS on 5x5 Warp Moves. |
+| [problem:AtCoder-abc179_d] | Leaping Tak | 1251 | **SELECTED** | Dynamic Programming → DP with Range Transitions Accelerated by Prefix Sums | Selected: Archetype for DP with Range Transitions Accelerated by Prefix Sums. |
+| [problem:AtCoder-arc083_a] | Sugar Water | 1255 | **SELECTED** | Basics → 2-Phase Feasible State Enumeration / Knapsack Density Maximization | Selected: Archetype for 2-Phase Feasible State Enumeration / Knapsack Density Maximization. |
+| [problem:AtCoder-abc180_e] | Traveling Salesman among Aerial Cities | 1256 | **SELECTED** | Dynamic Programming → TSP Bitmask DP with Asymmetric Metric | Selected: Archetype for TSP Bitmask DP with Asymmetric Metric. |
+| [problem:AtCoder-abc138_e] | Strings of Impurity | 1257 | **SELECTED** | Strings → Periodic String Subsequence Matching via Position Binary Search | Selected: Archetype for Periodic String Subsequence Matching via Position Binary Search. |
+| [problem:AtCoder-arc092_a] | 2D Plane 2N Points | 1268 | **SELECTED** | Graph Theory → Bipartite Matching / Greedy Sweepline on 2D Coordinates | Selected: Archetype for Bipartite Matching / Greedy Sweepline on 2D Coordinates. |
+| [problem:AtCoder-abc456_e] | Endless Holidays | 1214 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine schedule date arithmetic without reusable CP depth. |
+| [problem:AtCoder-abc477_e] | Wheel Distance | 1235 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Direct angular distance calculation. |
+| [problem:AtCoder-arc062_b] | AtCoDeer and Rock-Paper | 1256 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Trivial rock-paper parity constraint counting. |
