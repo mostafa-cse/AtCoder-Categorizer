@@ -10,6 +10,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`bitmask_dp.md`](bitmask_dp.md) | Bit Related DP | **Bitmask DP & Submask Enumeration** | 3 |
 | [`bitmask_dp_contiguous_blocks.md`](bitmask_dp_contiguous_blocks.md) | DP Technique | **bitmask_dp_contiguous_blocks.md** | 1 |
 | [`bitwise_digit_dp_upper_bound.md`](bitwise_digit_dp_upper_bound.md) | DP Technique | **bitwise_digit_dp_upper_bound.md** | 1 |
+| [`circular_segment_decomposition_dp.md`](circular_segment_decomposition_dp.md) | DP Technique | **circular_segment_decomposition_dp.md** | 1 |
 | [`coin_change_dual_exponential_bases.md`](coin_change_dual_exponential_bases.md) | DP Technique | **coin_change_dual_exponential_bases.md** | 1 |
 | [`color_segments_left_right_dp.md`](color_segments_left_right_dp.md) | DP Technique | **color_segments_left_right_dp.md** | 1 |
 | [`complement_graph_dp_subtraction.md`](complement_graph_dp_subtraction.md) | DP Technique | **complement_graph_dp_subtraction.md** | 1 |
@@ -24,15 +25,19 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`dp_on_trees.md`](dp_on_trees.md) | Dp on Different Structures | **DP on Trees & Directed Acyclic Graphs (DAGs)** | 4 |
 | [`dp_range_transitions_prefix_sums.md`](dp_range_transitions_prefix_sums.md) | DP Technique | **dp_range_transitions_prefix_sums.md** | 1 |
 | [`dual_partition_subset_sum_bitset.md`](dual_partition_subset_sum_bitset.md) | DP Technique | **dual_partition_subset_sum_bitset.md** | 1 |
+| [`edit_distance_sequence_alignment.md`](edit_distance_sequence_alignment.md) | DP Technique | **edit_distance_sequence_alignment.md** | 1 |
 | [`exchange_argument_dp.md`](exchange_argument_dp.md) | Classic DP | **Greedy Exchange Argument & Knapsack DP** | 1 |
 | [`expected_value_backward_induction_3d.md`](expected_value_backward_induction_3d.md) | DP Technique | **expected_value_backward_induction_3d.md** | 1 |
 | [`expected_value_dp.md`](expected_value_dp.md) | Intro to DP | **Probability & Expected Value DP** | 2 |
 | [`four_way_ray_dp_precomputation.md`](four_way_ray_dp_precomputation.md) | DP Technique | **four_way_ray_dp_precomputation.md** | 1 |
 | [`grid_dp.md`](grid_dp.md) | Classic DP | **Grid DP & Path Counting with Obstacles** | 1 |
+| [`grid_dp_manhattan_distance.md`](grid_dp_manhattan_distance.md) | DP Technique | **grid_dp_manhattan_distance.md** | 1 |
 | [`grid_strictly_increasing_paths_dag.md`](grid_strictly_increasing_paths_dag.md) | DP Technique | **grid_strictly_increasing_paths_dag.md** | 1 |
 | [`inclusion_exclusion_dp.md`](inclusion_exclusion_dp.md) | Classic DP | **Inclusion-Exclusion Principle & Combinatorics Grid DP** | 1 |
+| [`independent_xy_subset_sum_bitset.md`](independent_xy_subset_sum_bitset.md) | DP Technique | **independent_xy_subset_sum_bitset.md** | 1 |
 | [`interval_dp.md`](interval_dp.md) | Classic DP | **Interval DP & Range Merging** | 4 |
 | [`knapsack.md`](knapsack.md) | Intro to DP | **Knapsack DP & Dual State Inversion** | 2 |
+| [`knapsack_small_weight_variance.md`](knapsack_small_weight_variance.md) | DP Technique | **knapsack_small_weight_variance.md** | 1 |
 | [`lazy_segment_tree_dp.md`](lazy_segment_tree_dp.md) | DP Optimizations | **DP Optimization using Lazy Segment Tree** | 1 |
 | [`longest_increasing_subsequence.md`](longest_increasing_subsequence.md) | Classic DP | **Longest Bitonic Subsequence via Dual LIS** | 1 |
 | [`longest_nonoverlapping_common_substring_dp.md`](longest_nonoverlapping_common_substring_dp.md) | DP Technique | **longest_nonoverlapping_common_substring_dp.md** | 1 |
@@ -45,6 +50,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`set_cover_bitmask_dp.md`](set_cover_bitmask_dp.md) | DP Technique | **set_cover_bitmask_dp.md** | 1 |
 | [`string_dp.md`](string_dp.md) | Classic DP | **Subsequence Matching DP / Automaton DP** | 1 |
 | [`three_resource_knapsack_search.md`](three_resource_knapsack_search.md) | DP Technique | **three_resource_knapsack_search.md** | 1 |
+| [`tree_edge_frequencies_subset_sum.md`](tree_edge_frequencies_subset_sum.md) | DP Technique | **tree_edge_frequencies_subset_sum.md** | 1 |
 | [`tsp_bitmask_asymmetric_metric.md`](tsp_bitmask_asymmetric_metric.md) | DP Technique | **tsp_bitmask_asymmetric_metric.md** | 1 |
 | [`two_constraint_knapsack_dp.md`](two_constraint_knapsack_dp.md) | DP Technique | **two_constraint_knapsack_dp.md** | 1 |
 | [`unbounded_knapsack_min_cost.md`](unbounded_knapsack_min_cost.md) | DP Technique | **unbounded_knapsack_min_cost.md** | 1 |

@@ -364,3 +364,30 @@ This log tracks the rigorous evaluation of AtCoder problems, separating **high-v
 | [problem:AtCoder-abc457_e] | Crossing Table Cloth | 1428 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc simulation and table cloth coordinates. |
 | [problem:AtCoder-abc461_e] | E-liter | 1431 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine state simulation without generalizable CP algorithmic depth. |
 | [problem:AtCoder-abc441_f] | Must Buy | 1455 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc greedy item purchase simulation. |
+
+| [problem:AtCoder-arc108_c] | Keep Graph Connected | 1460 | **SELECTED** | Graph Theory → Spanning Tree Constructive Node Coloring | Selected: Archetype for Spanning Tree Constructive Node Coloring. |
+| [problem:AtCoder-abc186_e] | Throne | 1461 | **SELECTED** | Number Theory → Linear Congruence Equation via Extended Euclidean Algorithm | Selected: Archetype for Linear Congruence Equation via Extended Euclidean Algorithm. |
+| [problem:AtCoder-abc251_d] | At Most 3 | 1463 | **SELECTED** | Basics → Constructive Base-100 Representation for Additive Basis | Selected: Archetype for Constructive Base-100 Representation for Additive Basis. |
+| [problem:AtCoder-abc349_e] | Weighted Tic-Tac-Toe | 1464 | **SELECTED** | Game Theory → 3x3 Grid Minimax Game DP with Memoization | Selected: Archetype for 3x3 Grid Minimax Game DP with Memoization. |
+| [problem:AtCoder-abc285_e] | Work or Rest | 1466 | **SELECTED** | Dynamic Programming → Circular Segment Decomposition DP | Selected: Archetype for Circular Segment Decomposition DP. |
+| [problem:AtCoder-abc185_e] | Sequence Matching | 1468 | **SELECTED** | Dynamic Programming → Edit Distance / Sequence Alignment DP with Cost Function | Selected: Archetype for Edit Distance / Sequence Alignment DP with Cost Function. |
+| [problem:AtCoder-arc116_c] | Multiple Sequences | 1468 | **SELECTED** | Number Theory → Prime Factorization Combinatorics / Stars and Bars | Selected: Archetype for Prime Factorization Combinatorics / Stars and Bars. |
+| [problem:AtCoder-abc075_d] | Axis-Parallel Rectangle | 1470 | **SELECTED** | Basics → 2D Coordinate Selection O(N^4) Search for K Points | Selected: Archetype for 2D Coordinate Selection O(N^4) Search for K Points. |
+| [problem:AtCoder-arc073_b] | Simple Knapsack | 1477 | **SELECTED** | Dynamic Programming → Knapsack with Small Weight Variance [W, W+3] | Selected: Archetype for Knapsack with Small Weight Variance [W, W+3]. |
+| [problem:AtCoder-arc120_c] | Swaps 2 | 1478 | **SELECTED** | Data Structures → Invariant Value Coordinate Assignment + Fenwick Inversion Counting | Selected: Archetype for Invariant Value Coordinate Assignment + Fenwick Inversion Counting. |
+| [problem:AtCoder-abc290_e] | Make it Palindrome | 1485 | **SELECTED** | Basics → Two Pointers Contribution to Sum for Non-Matching Pairs | Selected: Archetype for Two Pointers Contribution to Sum for Non-Matching Pairs. |
+| [problem:AtCoder-abc123_d] | Cake 123 | 1489 | **SELECTED** | Basics → Priority Queue Top-K Sum of Three Arrays (Pruning to K) | Selected: Archetype for Priority Queue Top-K Sum of Three Arrays (Pruning to K). |
+| [problem:AtCoder-abc175_d] | Moving Piece | 1491 | **SELECTED** | Basics → Functional Graph Permutation Cycle Decomposition with Round Trips | Selected: Archetype for Functional Graph Permutation Cycle Decomposition with Round Trips. |
+| [problem:AtCoder-abc222_e] | Red and Blue Tree | 1491 | **SELECTED** | Dynamic Programming → Tree Edge Frequencies via DFS + Subset Sum Knapsack | Selected: Archetype for Tree Edge Frequencies via DFS + Subset Sum Knapsack. |
+| [problem:AtCoder-abc174_f] | Range Set Query | 1495 | **SELECTED** | Data Structures → Offline Range Distinct Elements Query using Fenwick Tree | Selected: Archetype for Offline Range Distinct Elements Query using Fenwick Tree. |
+| [problem:AtCoder-abc170_e] | Smart Infants | 1502 | **SELECTED** | Data Structures → Dual Multiset (Multiset of Multiset Maxima) Dynamic Maintenance | Selected: Archetype for Dual Multiset (Multiset of Multiset Maxima) Dynamic Maintenance. |
+| [problem:AtCoder-abc022_c] | Blue Bird | 1505 | **SELECTED** | Graph Theory → Shortest Cycle through Source via All-Pairs Shortest Path | Selected: Archetype for Shortest Cycle through Source via All-Pairs Shortest Path. |
+| [problem:AtCoder-abc133_e] | Virus Tree 2 | 1505 | **SELECTED** | Combinatorics → Distance-2 Tree Coloring Combinatorics via DFS | Selected: Archetype for Distance-2 Tree Coloring Combinatorics via DFS. |
+| [problem:AtCoder-abc210_d] | National Railway | 1507 | **SELECTED** | Dynamic Programming → 2D Grid DP Coordinate Manhattan Distance Transformation | Selected: Archetype for 2D Grid DP Coordinate Manhattan Distance Transformation. |
+| [problem:AtCoder-arc087_b] | FT Robot | 1508 | **SELECTED** | Dynamic Programming → Independent X/Y Coordinate Subset Sum Knapsack DP | Selected: Archetype for Independent X/Y Coordinate Subset Sum Knapsack DP. |
+| [problem:AtCoder-abc156_e] | Roaming | 1514 | **SELECTED** | Combinatorics → Stars and Bars Empty Boxes Combinatorics | Selected: Archetype for Stars and Bars Empty Boxes Combinatorics. |
+| [problem:AtCoder-abc189_e] | Rotate and Flip | 1526 | **SELECTED** | Math → 2D Affine Transformation Matrix Composition | Selected: Archetype for 2D Affine Transformation Matrix Composition. |
+| [problem:AtCoder-abc406_f] | Compare Tree Weights | 1470 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine tree weight query simulation. |
+| [problem:AtCoder-abc408_f] | Athletic | 1472 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc simulation without transferable CP algorithmic pattern. |
+| [problem:AtCoder-abc447_f] | Centipede Graph | 1480 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Graph casework without reusable CP algorithm. |
+| [problem:AtCoder-abc453_e] | Team Division | 1513 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine team division drill. |
