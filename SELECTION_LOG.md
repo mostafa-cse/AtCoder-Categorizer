@@ -290,3 +290,27 @@ This log tracks the rigorous evaluation of AtCoder problems, separating **high-v
 | [problem:AtCoder-abc456_e] | Endless Holidays | 1214 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine schedule date arithmetic without reusable CP depth. |
 | [problem:AtCoder-abc477_e] | Wheel Distance | 1235 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Direct angular distance calculation. |
 | [problem:AtCoder-arc062_b] | AtCoDeer and Rock-Paper | 1256 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Trivial rock-paper parity constraint counting. |
+
+| [problem:AtCoder-arc097_b] | Equals | 1270 | **SELECTED** | Data Structures → Permutation Position Cycles via DSU | Selected: Archetype for Permutation Position Cycles via DSU. |
+| [problem:AtCoder-abc184_d] | increment of coins | 1276 | **SELECTED** | Dynamic Programming → 3D Expected Value Backward Induction DP | Selected: Archetype for 3D Expected Value Backward Induction DP. |
+| [problem:AtCoder-abc196_d] | Hanjo | 1277 | **SELECTED** | Basics → Grid Domino Tiling Backtracking DFS | Selected: Archetype for Grid Domino Tiling Backtracking DFS. |
+| [problem:AtCoder-abc103_d] | Islands War | 1278 | **SELECTED** | Basics → Interval Scheduling / Right-Endpoint Greedy Cuts | Selected: Archetype for Interval Scheduling / Right-Endpoint Greedy Cuts. |
+| [problem:AtCoder-abc126_d] | Even Relation | 1279 | **SELECTED** | Graph Theory → Tree 2-Coloring via Edge Weight Parities | Selected: Archetype for Tree 2-Coloring via Edge Weight Parities. |
+| [problem:AtCoder-abc183_e] | Queen on Grid | 1288 | **SELECTED** | Dynamic Programming → 2D Grid DP with 3-Way Running Prefix Sums | Selected: Archetype for 2D Grid DP with 3-Way Running Prefix Sums. |
+| [problem:AtCoder-abc154_e] | Almost Everywhere Zero | 1298 | **SELECTED** | Dynamic Programming → Digit DP with Tight Flag and Non-Zero Count State | Selected: Archetype for Digit DP with Tight Flag and Non-Zero Count State. |
+| [problem:AtCoder-abc137_d] | Summer Vacation | 1313 | **SELECTED** | Basics → Reverse Time Greedy with Max-Heap Priority Queue | Selected: Archetype for Reverse Time Greedy with Max-Heap Priority Queue. |
+| [problem:AtCoder-abc201_d] | Game in Momotetsu World | 1317 | **SELECTED** | Game Theory → Minimax Game DP on 2D Grid | Selected: Archetype for Minimax Game DP on 2D Grid. |
+| [problem:AtCoder-abc106_d] | AtCoder Express 2 | 1319 | **SELECTED** | Data Structures → 2D Prefix Sums on Interval Endpoints [L, R] | Selected: Archetype for 2D Prefix Sums on Interval Endpoints [L, R]. |
+| [problem:AtCoder-abc134_e] | Sequence Decomposing | 1320 | **SELECTED** | Basics → Dilworth's Theorem / Minimum Decreasing Chains via Multiset Greedy | Selected: Archetype for Dilworth's Theorem / Minimum Decreasing Chains via Multiset Greedy. |
+| [problem:AtCoder-abc190_f] | Shift and Inversions | 1321 | **SELECTED** | Data Structures → Cyclic Shift Inversion Update via Fenwick Tree | Selected: Archetype for Cyclic Shift Inversion Update via Fenwick Tree. |
+| [problem:AtCoder-abc191_e] | Come Back Quickly | 1323 | **SELECTED** | Graph Theory → Multi-Source Dijkstra Shortest Cycle / Self-Loop Detection | Selected: Archetype for Multi-Source Dijkstra Shortest Cycle / Self-Loop Detection. |
+| [problem:AtCoder-abc021_c] | Shortest Path Count | 1324 | **SELECTED** | Graph Theory → BFS Shortest Path Counting on DAG | Selected: Archetype for BFS Shortest Path Counting on DAG. |
+| [problem:AtCoder-abc100_d] | Patisserie ABC | 1331 | **SELECTED** | Basics → 8-Sign Octant Projection for 3D Extremal Sums | Selected: Archetype for 8-Sign Octant Projection for 3D Extremal Sums. |
+| [problem:AtCoder-abc135_d] | Digits Parade | 1334 | **SELECTED** | Dynamic Programming → Digit DP Modulo 13 | Selected: Archetype for Digit DP Modulo 13. |
+| [problem:AtCoder-abc114_d] | 756 | 1337 | **SELECTED** | Number Theory → Prime Exponent Partitioning for Highly Composite Numbers | Selected: Archetype for Prime Exponent Partitioning for Highly Composite Numbers. |
+| [problem:AtCoder-abc126_e] | 1 or 2 | 1340 | **SELECTED** | Data Structures → System of Parity Constraints / DSU Component Count | Selected: Archetype for System of Parity Constraints / DSU Component Count. |
+| [problem:AtCoder-abc151_e] | Max-Min Sums | 1344 | **SELECTED** | Combinatorics → Combinatorial Contribution of Sorted Elements (Binomial Sums) | Selected: Archetype for Combinatorial Contribution of Sorted Elements (Binomial Sums). |
+| [problem:AtCoder-arc069_b] | Menagerie | 1344 | **SELECTED** | Basics → Circular Truth-Telling Consistency 4-Case Brute Force | Selected: Archetype for Circular Truth-Telling Consistency 4-Case Brute Force. |
+| [problem:AtCoder-abc014_3] | AtColor | 1276 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by Coordinate-Compressed Event Sweep / 1D Imos (abc188_d / typical90_ab). |
+| [problem:AtCoder-abc443_e] | Climbing Silver | 1301 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine staircase elevation tracking. |
+| [problem:AtCoder-abc016_4] | Line and Polygon | 1305 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Basic polygon line-segment cross-product intersection. |
