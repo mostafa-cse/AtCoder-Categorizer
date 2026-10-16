@@ -1,5 +1,5 @@
 {
-  "current_batch": "Batch 4 Part 2A: ABC Ladder (1345-1406) COMPLETED",
+  "current_batch": "Batch 4 Part 2B: ABC Ladder (1409-1459) COMPLETED",
   "status": "IN_PROGRESS",
   "total_evaluated_in_batch": 26,
   "selected_count": 26,
@@ -234,7 +234,27 @@
     "abc029_d",
     "abc142_e",
     "arc098_b",
-    "abc026_d"
+    "abc026_d",
+    "abc212_e",
+    "abc215_e",
+    "abc002_4",
+    "abc184_e",
+    "abc184_f",
+    "abc117_d",
+    "abc192_d",
+    "arc078_b",
+    "abc131_e",
+    "abc034_c",
+    "abc167_e",
+    "abc157_e",
+    "arc093_b",
+    "abc005_4",
+    "abc144_e",
+    "abc159_e",
+    "arc090_b",
+    "abc148_f",
+    "abc105_d",
+    "abc141_e"
   ],
-  "total_evaluated_in_curriculum": 230
+  "total_evaluated_in_curriculum": 250
 }

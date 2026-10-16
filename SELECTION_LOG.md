@@ -339,3 +339,28 @@ This log tracks the rigorous evaluation of AtCoder problems, separating **high-v
 | [problem:AtCoder-abc026_d] | Takahashi and Equation | 1406 | **SELECTED** | Math → Binary Search on Continuous Function f(t) = At + B sin(Ct) = 100 | Selected: Archetype for Binary Search on Continuous Function f(t) = At + B sin(Ct) = 100. |
 | [problem:AtCoder-abc478_e] | lt and le | 1376 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine comparative token check. |
 | [problem:AtCoder-arc072_a] | Sequence | 1409 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by Sign Flip Parity / Prefix Imbalance (abc125_d / abc027_b). |
+
+| [problem:AtCoder-abc212_e] | Safety Journey | 1410 | **SELECTED** | Dynamic Programming → Complement Graph DP / Total Sum Subtraction Trick | Selected: Archetype for Complement Graph DP / Total Sum Subtraction Trick. |
+| [problem:AtCoder-abc215_e] | Chain Contestant | 1413 | **SELECTED** | Dynamic Programming → Bitmask DP with Contiguous Element Tracking | Selected: Archetype for Bitmask DP with Contiguous Element Tracking. |
+| [problem:AtCoder-abc002_4] | Faction | 1418 | **SELECTED** | Basics → Maximum Clique via Bitmask Verification | Selected: Archetype for Maximum Clique via Bitmask Verification. |
+| [problem:AtCoder-abc184_e] | Third Avenue | 1418 | **SELECTED** | Graph Theory → Grid BFS with Teleporter Equivalence Class Clearance | Selected: Archetype for Grid BFS with Teleporter Equivalence Class Clearance. |
+| [problem:AtCoder-abc184_f] | Programming Contest | 1423 | **SELECTED** | Basics → Meet-in-the-Middle on Subset Sum N <= 40 | Selected: Archetype for Meet-in-the-Middle on Subset Sum N <= 40. |
+| [problem:AtCoder-abc117_d] | XXOR | 1423 | **SELECTED** | Dynamic Programming → Bitwise Digit DP with Upper Bound Constraint | Selected: Archetype for Bitwise Digit DP with Upper Bound Constraint. |
+| [problem:AtCoder-abc192_d] | Base n | 1425 | **SELECTED** | Math → Binary Search on Positional Notation Base with Overflow Guard | Selected: Archetype for Binary Search on Positional Notation Base with Overflow Guard. |
+| [problem:AtCoder-arc078_b] | Fennec VS. Snuke | 1431 | **SELECTED** | Graph Theory → Tree Multi-Source BFS Voronoi Territory Partition | Selected: Archetype for Tree Multi-Source BFS Voronoi Territory Partition. |
+| [problem:AtCoder-abc131_e] | Friendships | 1433 | **SELECTED** | Graph Theory → Star Graph Baseline with Redundant Edge Reduction | Selected: Archetype for Star Graph Baseline with Redundant Edge Reduction. |
+| [problem:AtCoder-abc034_c] | Grid Paths | 1440 | **SELECTED** | Combinatorics → Large Grid Path Combinations via Modular Inverse Factorials | Selected: Archetype for Large Grid Path Combinations via Modular Inverse Factorials. |
+| [problem:AtCoder-abc167_e] | Colorful Blocks | 1442 | **SELECTED** | Combinatorics → Adjacent Matching Constraints Combinatorics | Selected: Archetype for Adjacent Matching Constraints Combinatorics. |
+| [problem:AtCoder-abc157_e] | Simple String Queries | 1443 | **SELECTED** | Data Structures → Alphabet Frequency Fenwick Trees / Ordered Sets | Selected: Archetype for Alphabet Frequency Fenwick Trees / Ordered Sets. |
+| [problem:AtCoder-arc093_b] | Grid Components | 1445 | **SELECTED** | Basics → Split Half Grid with Isolated Dot Sprinkling | Selected: Archetype for Split Half Grid with Isolated Dot Sprinkling. |
+| [problem:AtCoder-abc005_4] | Takoyaki Plate | 1447 | **SELECTED** | Dynamic Programming → 2D Prefix Sums Subrectangle Optimization with Monotonic Envelope | Selected: Archetype for 2D Prefix Sums Subrectangle Optimization with Monotonic Envelope. |
+| [problem:AtCoder-abc144_e] | Gluttony | 1449 | **SELECTED** | Basics → Monotonic Binary Search on Multiplicative Work Allocation | Selected: Archetype for Monotonic Binary Search on Multiplicative Work Allocation. |
+| [problem:AtCoder-abc159_e] | Dividing Chocolate | 1450 | **SELECTED** | Basics → Bitmask Horizontal Cuts with Greedy Vertical Sweeping | Selected: Archetype for Bitmask Horizontal Cuts with Greedy Vertical Sweeping. |
+| [problem:AtCoder-arc090_b] | People on a Line | 1452 | **SELECTED** | Data Structures → Potentialized Disjoint Set Union (Weighted DSU) | Selected: Archetype for Potentialized Disjoint Set Union (Weighted DSU). |
+| [problem:AtCoder-abc148_f] | Playing Tag on Tree | 1457 | **SELECTED** | Graph Theory → Tree BFS Distances and Evader Leaf Reachability | Selected: Archetype for Tree BFS Distances and Evader Leaf Reachability. |
+| [problem:AtCoder-abc105_d] | Candy Distribution | 1458 | **SELECTED** | Math → Prefix Sum Modulo Frequency Matching | Selected: Archetype for Prefix Sum Modulo Frequency Matching. |
+| [problem:AtCoder-abc141_e] | Who Says a Pun? | 1459 | **SELECTED** | Dynamic Programming → Longest Common Non-Overlapping Substring DP | Selected: Archetype for Longest Common Non-Overlapping Substring DP. |
+| [problem:AtCoder-abc420_g] | sqrt(n²+n+X) | 1427 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine algebraic rearrangement drill without reusable CP algorithm. |
+| [problem:AtCoder-abc457_e] | Crossing Table Cloth | 1428 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc simulation and table cloth coordinates. |
+| [problem:AtCoder-abc461_e] | E-liter | 1431 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine state simulation without generalizable CP algorithmic depth. |
+| [problem:AtCoder-abc441_f] | Must Buy | 1455 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc greedy item purchase simulation. |

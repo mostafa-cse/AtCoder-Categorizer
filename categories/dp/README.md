@@ -8,8 +8,11 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 |---|---|---|---|
 | [`1d_dp.md`](1d_dp.md) | Intro to DP | **1D State Recurrences & State Machines** | 4 |
 | [`bitmask_dp.md`](bitmask_dp.md) | Bit Related DP | **Bitmask DP & Submask Enumeration** | 3 |
+| [`bitmask_dp_contiguous_blocks.md`](bitmask_dp_contiguous_blocks.md) | DP Technique | **bitmask_dp_contiguous_blocks.md** | 1 |
+| [`bitwise_digit_dp_upper_bound.md`](bitwise_digit_dp_upper_bound.md) | DP Technique | **bitwise_digit_dp_upper_bound.md** | 1 |
 | [`coin_change_dual_exponential_bases.md`](coin_change_dual_exponential_bases.md) | DP Technique | **coin_change_dual_exponential_bases.md** | 1 |
 | [`color_segments_left_right_dp.md`](color_segments_left_right_dp.md) | DP Technique | **color_segments_left_right_dp.md** | 1 |
+| [`complement_graph_dp_subtraction.md`](complement_graph_dp_subtraction.md) | DP Technique | **complement_graph_dp_subtraction.md** | 1 |
 | [`convex_hull_trick.md`](convex_hull_trick.md) | Convex Hull Trick (CHT) | **Convex Hull Trick (CHT) & DP Optimization** | 1 |
 | [`dag_minimum_ancestor_cost_dp.md`](dag_minimum_ancestor_cost_dp.md) | DP Technique | **dag_minimum_ancestor_cost_dp.md** | 1 |
 | [`digit_dp.md`](digit_dp.md) | Digit DP | **Digit DP & Prefix Bound Relaxation** | 1 |
@@ -32,7 +35,9 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`knapsack.md`](knapsack.md) | Intro to DP | **Knapsack DP & Dual State Inversion** | 2 |
 | [`lazy_segment_tree_dp.md`](lazy_segment_tree_dp.md) | DP Optimizations | **DP Optimization using Lazy Segment Tree** | 1 |
 | [`longest_increasing_subsequence.md`](longest_increasing_subsequence.md) | Classic DP | **Longest Bitonic Subsequence via Dual LIS** | 1 |
+| [`longest_nonoverlapping_common_substring_dp.md`](longest_nonoverlapping_common_substring_dp.md) | DP Technique | **longest_nonoverlapping_common_substring_dp.md** | 1 |
 | [`matrix_exponentiation.md`](matrix_exponentiation.md) | Dp on Different Structures | **Matrix Exponentiation DP** | 1 |
+| [`prefix_sum_2d_rectangle_envelope.md`](prefix_sum_2d_rectangle_envelope.md) | DP Technique | **prefix_sum_2d_rectangle_envelope.md** | 1 |
 | [`prefix_sum_dp.md`](prefix_sum_dp.md) | DP Optimizations | **Prefix Sum Optimized DP** | 3 |
 | [`prefix_sum_partition_dp.md`](prefix_sum_partition_dp.md) | DP Technique | **prefix_sum_partition_dp.md** | 1 |
 | [`queen_grid_dp_prefix_sums.md`](queen_grid_dp_prefix_sums.md) | DP Technique | **queen_grid_dp_prefix_sums.md** | 1 |
