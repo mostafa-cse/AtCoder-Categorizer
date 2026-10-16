@@ -91,4 +91,35 @@ dp[l][r] = sum(a[l..r]) + min_{l <= k < r} (dp[l][k] + dp[k+1][r]). Prefix sums 
 
 ---
 
-[Back to Dynamic Programming (DP) Index](README.md) | [Back to Master Categories](../../README.md)
+
+### Pick Two (`[problem:AtCoder-typical90_s]`)
+
+- **Role**: *Interval DP / Elimination and Outer Pairing*
+- **Rating**: `2100` (★6) | **Contest**: [`typical90`](https://atcoder.jp/contests/typical90/tasks/typical90_s)
+- **Full Analysis**: [AtCoder-typical90_s Analysis](../../analysis/AtCoder-typical90_s.md)
+
+#### Problem Statement & Task
+2N integers are arranged in a row. Repeatedly remove an adjacent pair (x, y) with cost |x - y| until all numbers are removed. Find minimum total cost.
+
+#### Core Invariant & Observation
+For an interval [l, r] of even length, either the boundary elements l and r are matched together at cost |A[l] - A[r]| + dp[l+1][r-1], or the interval decomposes into two independent sub-eliminations dp[l][k] + dp[k+1][r].
+
+#### Algorithmic Formulation
+1. dp[l][r]: min cost to eliminate subarray A[l..r].
+2. Base: dp[i][i+1] = |A[i] - A[i+1]|.
+3. Loop len from 4 to 2N by 2:
+   - Loop l from 1 to 2N - len + 1, r = l + len - 1:
+     - dp[l][r] = |A[l] - A[r]| + dp[l+1][r-1]
+     - for k in l+1..r-2 step 2: dp[l][r] = min(dp[l][r], dp[l][k] + dp[k+1][r])
+4. Output dp[1][2N].
+
+**Complexity**: `Time: O((2N)^3) = O(N^3), Space: O(N^2).`  
+**Editorial Alignment**: Interval dynamic programming with boundary pairing and split-point relaxation.  
+
+#### What This Teaches & Reusable Pattern
+- **Skill Taught**: Interval DP formulation for nested reduction problems and optimal pairing structures.
+- **Reusable Pattern**: `Boundary Pairing & Split Interval DP.`
+
+---
+
+[Back to Dynamic Programming (DP) Index](README.md) |

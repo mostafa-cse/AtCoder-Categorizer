@@ -65,4 +65,32 @@ Transforming quadratic inner-loop search into dynamic range queries via data str
 
 ---
 
-[Back to Data Structures (DS) Index](README.md) | [Back to Master Categories](../../README.md)
+
+### Crossing Segments (`[problem:AtCoder-typical90_q]`)
+
+- **Role**: *Circle Chord Intersection Counting via Fenwick Tree*
+- **Rating**: `2450` (★7) | **Contest**: [`typical90`](https://atcoder.jp/contests/typical90/tasks/typical90_q)
+- **Full Analysis**: [AtCoder-typical90_q Analysis](../../analysis/AtCoder-typical90_q.md)
+
+#### Problem Statement & Task
+N vertices arranged circularly 1..N. M chords connect pairs (L_i, R_i). Count pairs of chords that intersect strictly inside the circle.
+
+#### Core Invariant & Observation
+Total chord pairs = C(M, 2). Non-intersecting chords are either completely disjoint (R1 <= L2 or R2 <= L1) or one strictly contains the other (L1 <= L2 < R2 <= R1). Counting containment and disjointness via Fenwick Tree gives intersecting count by subtraction.
+
+#### Algorithmic Formulation
+1. Sort chords by L_i ascending (and R_i descending).
+2. Count completely disjoint chords using prefix counts of R.
+3. Count nested chords using Fenwick tree range query on R.
+4. Subtract non-intersecting pairs from M*(M-1)/2.
+
+**Complexity**: `Time: O(M log N), Space: O(N + M).`  
+**Editorial Alignment**: Interval endpoint alternation counting using Fenwick Tree.  
+
+#### What This Teaches & Reusable Pattern
+- **Skill Taught**: Circular endpoint topology, range intersection counting, and Fenwick tree point-add range-query acceleration.
+- **Reusable Pattern**: `Fenwick Tree Endpoint Alternation Inversion.`
+
+---
+
+[Back to Data Structures (DS) Index](README.md) |

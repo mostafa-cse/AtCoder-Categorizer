@@ -11,6 +11,13 @@ A structured, topic-wise curriculum catalog of high-value AtCoder problems class
 
 # Basics
 
+## Backtracking & Recursion
+
+### Recursive Backtracking & Prefix Balance Invariant
+
+- [problem:AtCoder-typical90_b] **Encyclopedia of Parentheses** (Rating: 800, ★3) — *Print all valid parentheses strings of length N in lexicographical order. N <= 16....*
+
+
 ## Binary Search
 
 ### Binary Search on Answer / Greedy Feasibility
@@ -20,6 +27,27 @@ A structured, topic-wise curriculum catalog of high-value AtCoder problems class
 ---
 
 # Data Structures (DS)
+
+## Segment Tree / Fenwick Tree
+
+### Dynamic Coordinate Compression + Lazy Segment Tree
+
+- [problem:AtCoder-typical90_ac] **Long Bricks** (Rating: 1750, ★5) — *W-wide ground (W <= 10^9). N bricks fall in order. Brick i spans [L_i, R_i], lands on top of existing bricks i...*
+
+
+## Prefix Sums & Difference Arrays
+
+### 2D Imos Method / 2D Difference Array
+
+- [problem:AtCoder-typical90_ab] **Cluttered Paper** (Rating: 1300, ★4) — *N axis-aligned sheets of paper are placed on a 1000 x 1000 grid. Each rectangle covers [lx, rx) x [ly, ry). Fo...*
+
+
+## Segment Tree / Fenwick Tree
+
+### Circle Chord Intersection Counting via Fenwick Tree
+
+- [problem:AtCoder-typical90_q] **Crossing Segments** (Rating: 2450, ★7) — *N vertices arranged circularly 1..N. M chords connect pairs (L_i, R_i). Count pairs of chords that intersect s...*
+
 
 ## Disjoint Set Union (DSU)
 
@@ -36,6 +64,27 @@ A structured, topic-wise curriculum catalog of high-value AtCoder problems class
 ---
 
 # Dynamic Programming (DP)
+
+## Classic DP
+
+### Interval DP / Elimination and Outer Pairing
+
+- [problem:AtCoder-typical90_s] **Pick Two** (Rating: 2100, ★6) — *2N integers are arranged in a row. Repeatedly remove an adjacent pair (x, y) with cost |x - y| until all numbe...*
+
+
+## Classic DP
+
+### Subsequence Matching DP / Automaton DP
+
+- [problem:AtCoder-typical90_h] **AtCounter** (Rating: 1150, ★4) — *Given string S of length N, count the number of subsequences equal to 'atcoder' modulo 10^9+7....*
+
+
+## DP on Different Structures
+
+### Doubling DP / Matrix Exponentiation on Modular Digit Transitions
+
+- [problem:AtCoder-typical90_e] **Restricted Digits** (Rating: 2400, ★7) — *Count N-digit positive integers (N <= 10^18) whose digits are chosen from a set of K non-zero digits and are d...*
+
 
 ## Intro to DP
 
@@ -143,6 +192,27 @@ A structured, topic-wise curriculum catalog of high-value AtCoder problems class
 
 # Graph Theory
 
+## Trees
+
+### Bipartite 2-Coloring of Trees & Pigeonhole Independent Set
+
+- [problem:AtCoder-typical90_z] **Independent Set on a Tree** (Rating: 1200, ★4) — *Given a tree with N vertices (N even), find an independent set of size exactly N / 2....*
+
+
+## Directed Graphs
+
+### Strongly Connected Components (SCC) / Tarjan & Kosaraju
+
+- [problem:AtCoder-typical90_u] **Come Back in One Piece** (Rating: 1750, ★5) — *Given a directed graph with N vertices and M edges, count the number of pairs of vertices (u, v) with u < v su...*
+
+
+## Shortest Paths
+
+### Dual-Source Dijkstra / Intermediate Node Shortest Path
+
+- [problem:AtCoder-typical90_m] **Passing** (Rating: 1350, ★5) — *Given a weighted undirected graph with N vertices and M edges, for each vertex k from 1 to N, find the length ...*
+
+
 ## Connected Components
 
 ### Disjoint Set Union (DSU) / Connected Component Cliques
@@ -154,5 +224,60 @@ A structured, topic-wise curriculum catalog of high-value AtCoder problems class
 ### Tree Diameter / Double BFS-DFS
 
 - [problem:AtCoder-typical90_c] **Longest Circular Road** (Rating: 1100) — *Adding an edge between two vertices u and v creates a cycle of length dist(u, v) + 1. Maximize this cycle length.*
+
+---
+
+
+# Strings
+
+## Greedy on Strings
+
+### Next-Occurrence Array / Lexicographically Smallest Subsequence
+
+- [problem:AtCoder-typical90_f] **Smallest Subsequence** (Rating: 1500, ★5) — *Given string S of length N, find the lexicographically smallest subsequence of length K....*
+
+---
+
+
+# Geometry
+
+## Angular Sweep / Polar Angles
+
+### Polar Angle Sort + Binary Search for Opposite Vector
+
+- [problem:AtCoder-typical90_i] **Three Point Angle** (Rating: 2100, ★6) — *Given N points in 2D plane (N <= 2000), choose three distinct points p_j, p_i, p_k to maximize the angle betwe...*
+
+---
+
+
+# Combinatorics
+
+## Stars and Bars & Combinatorial Bounds
+
+### Spacing Constraint Combinatorics + Harmonic Series O(N log N)
+
+- [problem:AtCoder-typical90_o] **Don't be too close** (Rating: 2150, ★6) — *For each k from 1 to N, count non-empty subsets of {1, 2, ..., N} such that any two chosen elements have absol...*
+
+---
+
+
+# Math
+
+## Search Space Invariants & Bounds
+
+### Digit Product Value Compression & Inverse Search
+
+- [problem:AtCoder-typical90_y] **Digit Product Equation** (Rating: 2400, ★7) — *Find the number of positive integers m <= N (N <= 10^11) satisfying m - f(m) = B, where f(m) is the product of...*
+
+---
+
+
+# Number Theory
+
+## Prime Numbers & Sieve
+
+### Modified Sieve of Eratosthenes / Prime Factor Multiplicity
+
+- [problem:AtCoder-typical90_ad] **K Factors** (Rating: 1400, ★5) — *Count integers in the range [2, N] (N <= 10^7) that have at least K distinct prime factors....*
 
 ---

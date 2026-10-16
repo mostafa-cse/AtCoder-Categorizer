@@ -1,6 +1,6 @@
 {
-  "current_batch": "Batch 1: Educational DP Contest (dp_a through dp_z)",
-  "status": "COMPLETED",
+  "current_batch": "Batch 2 Part 1: Typical90 Problems 001 to 030",
+  "status": "IN_PROGRESS",
   "total_evaluated_in_batch": 26,
   "selected_count": 26,
   "rejected_count": 0,
@@ -30,6 +30,25 @@
     "dp_w",
     "dp_x",
     "dp_y",
-    "dp_z"
-  ]
+    "dp_z",
+    "typical90_a",
+    "typical90_ab",
+    "typical90_ac",
+    "typical90_ad",
+    "typical90_b",
+    "typical90_c",
+    "typical90_e",
+    "typical90_f",
+    "typical90_h",
+    "typical90_i",
+    "typical90_l",
+    "typical90_m",
+    "typical90_o",
+    "typical90_q",
+    "typical90_s",
+    "typical90_u",
+    "typical90_y",
+    "typical90_z"
+  ],
+  "total_evaluated_in_curriculum": 44
 }
