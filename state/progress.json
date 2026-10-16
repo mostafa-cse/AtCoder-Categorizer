@@ -1,5 +1,5 @@
 {
-  "current_batch": "Batch 3 Part 2: ABC Ladder (970-1090) COMPLETED",
+  "current_batch": "Batch 3 Complete: ABC Band 1 (800-1199) FINISHED",
   "status": "IN_PROGRESS",
   "total_evaluated_in_batch": 26,
   "selected_count": 26,
@@ -147,7 +147,32 @@
     "abc140_d",
     "abc194_d",
     "abc194_e",
-    "abc115_d"
+    "abc115_d",
+    "arc100_a",
+    "arc084_a",
+    "abc035_c",
+    "abc182_e",
+    "abc099_c",
+    "abc129_d",
+    "arc097_a",
+    "arc091_b",
+    "abc192_e",
+    "abc165_c",
+    "abc124_d",
+    "abc112_c",
+    "abc198_e",
+    "arc064_a",
+    "abc121_d",
+    "arc081_b",
+    "abc132_d",
+    "abc188_e",
+    "abc109_d",
+    "abc179_e",
+    "abc070_d",
+    "abc208_d",
+    "abc146_d",
+    "abc181_e",
+    "abc125_c"
   ],
-  "total_evaluated_in_curriculum": 143
+  "total_evaluated_in_curriculum": 168
 }

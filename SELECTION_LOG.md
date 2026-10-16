@@ -232,3 +232,37 @@ This log tracks the rigorous evaluation of AtCoder problems, separating **high-v
 | [problem:AtCoder-abc464_e] | Fill-Rect Query | 1075 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Simple 2D grid cell marking. |
 | [problem:AtCoder-arc068_b] | Card Eater | 1084 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Parity check on duplicate card counts. |
 | [problem:AtCoder-arc061_a] | Many Formulas | 1089 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by Bitmask Partition Enumeration (abc197_c). |
+
+| [problem:AtCoder-arc100_a] | Linear Approximation | 1089 | **SELECTED** | Math → 1D L1-Norm / Absolute Deviation Median Minimization | Selected: Archetype for 1D L1-Norm / Absolute Deviation Median Minimization. |
+| [problem:AtCoder-arc084_a] | Snuke Festival | 1096 | **SELECTED** | Basics → Dual Binary Search on Middle Anchor / Triplet Counting | Selected: Archetype for Dual Binary Search on Middle Anchor / Triplet Counting. |
+| [problem:AtCoder-abc035_c] | Othello | 1096 | **SELECTED** | Data Structures → 1D Parity Difference Array (Imos Mod 2) | Selected: Archetype for 1D Parity Difference Array (Imos Mod 2). |
+| [problem:AtCoder-abc182_e] | Akari | 1098 | **SELECTED** | Basics → 4-Way Linear Beam Propagation on Grids | Selected: Archetype for 4-Way Linear Beam Propagation on Grids. |
+| [problem:AtCoder-abc099_c] | Strange Bank | 1101 | **SELECTED** | Dynamic Programming → Coin Change / Minimum Steps with Dual Exponential Bases | Selected: Archetype for Coin Change / Minimum Steps with Dual Exponential Bases. |
+| [problem:AtCoder-abc129_d] | Lamp | 1103 | **SELECTED** | Dynamic Programming → 4-Directional Prefix Ray DP Precomputation | Selected: Archetype for 4-Directional Prefix Ray DP Precomputation. |
+| [problem:AtCoder-arc097_a] | K-th Substring | 1108 | **SELECTED** | Strings → Bounded-Length Substring Generation for Small K-th Ranking | Selected: Archetype for Bounded-Length Substring Generation for Small K-th Ranking. |
+| [problem:AtCoder-arc091_b] | Remainder Reminder | 1129 | **SELECTED** | Math → Periodic Remainder Block Counting | Selected: Archetype for Periodic Remainder Block Counting. |
+| [problem:AtCoder-abc192_e] | Train | 1135 | **SELECTED** | Graph Theory → Periodic Departure Schedule Dijkstra | Selected: Archetype for Periodic Departure Schedule Dijkstra. |
+| [problem:AtCoder-abc165_c] | Many Requirements | 1136 | **SELECTED** | Basics → Monotonic Non-Decreasing Sequence Generation via DFS | Selected: Archetype for Monotonic Non-Decreasing Sequence Generation via DFS. |
+| [problem:AtCoder-abc124_d] | Handstand | 1138 | **SELECTED** | Basics → Run-Length Compression Sliding Window Expansion | Selected: Archetype for Run-Length Compression Sliding Window Expansion. |
+| [problem:AtCoder-abc112_c] | Pyramid | 1147 | **SELECTED** | Basics → Center Parameter Brute Force with Positive Reference Anchor | Selected: Archetype for Center Parameter Brute Force with Positive Reference Anchor. |
+| [problem:AtCoder-abc198_e] | Unique Color | 1161 | **SELECTED** | Graph Theory → Tree Path Ancestor Frequency Stack Backtracking | Selected: Archetype for Tree Path Ancestor Frequency Stack Backtracking. |
+| [problem:AtCoder-arc064_a] | Boxes and Candies | 1164 | **SELECTED** | Basics → Adjacent Pair Overlap Forward Greedy Reduction | Selected: Archetype for Adjacent Pair Overlap Forward Greedy Reduction. |
+| [problem:AtCoder-abc121_d] | XOR World | 1164 | **SELECTED** | Math → Period-4 Prefix XOR Invariant | Selected: Archetype for Period-4 Prefix XOR Invariant. |
+| [problem:AtCoder-arc081_b] | Coloring Dominoes | 1165 | **SELECTED** | Dynamic Programming → Domino Tiling Chromatic Transition DP | Selected: Archetype for Domino Tiling Chromatic Transition DP. |
+| [problem:AtCoder-abc132_d] | Blue and Red Balls | 1167 | **SELECTED** | Combinatorics → Alternating Block Partitioning via Stars and Bars | Selected: Archetype for Alternating Block Partitioning via Stars and Bars. |
+| [problem:AtCoder-abc188_e] | Peddler | 1170 | **SELECTED** | Dynamic Programming → DAG Topological Minimum Ancestor Cost DP | Selected: Archetype for DAG Topological Minimum Ancestor Cost DP. |
+| [problem:AtCoder-abc109_d] | Make Them Even | 1172 | **SELECTED** | Basics → Snake Path Parity Propagation | Selected: Archetype for Snake Path Parity Propagation. |
+| [problem:AtCoder-abc179_e] | Sequence Sum | 1175 | **SELECTED** | Math → Periodic Orbit Prefix Sum Acceleration | Selected: Archetype for Periodic Orbit Prefix Sum Acceleration. |
+| [problem:AtCoder-abc070_d] | Transit Tree Path | 1182 | **SELECTED** | Graph Theory → Fixed Transit Vertex Root-Referenced Tree Distances | Selected: Archetype for Fixed Transit Vertex Root-Referenced Tree Distances. |
+| [problem:AtCoder-abc208_d] | Shortest Path Queries 2 | 1190 | **SELECTED** | Graph Theory → Floyd-Warshall Intermediate Vertex State Accumulation | Selected: Archetype for Floyd-Warshall Intermediate Vertex State Accumulation. |
+| [problem:AtCoder-abc146_d] | Coloring Edges on Tree | 1192 | **SELECTED** | Graph Theory → Greedy Edge Coloring of Trees via Maximum Degree Bound | Selected: Archetype for Greedy Edge Coloring of Trees via Maximum Degree Bound. |
+| [problem:AtCoder-abc181_e] | Transformable Teacher | 1193 | **SELECTED** | Data Structures → Prefix-Suffix Parity Split with Binary Search Insertion | Selected: Archetype for Prefix-Suffix Parity Split with Binary Search Insertion. |
+| [problem:AtCoder-abc125_c] | GCD on Blackboard | 1197 | **SELECTED** | Data Structures → Prefix and Suffix GCD Arrays (Exclusion Technique) | Selected: Archetype for Prefix and Suffix GCD Arrays (Exclusion Technique). |
+| [problem:AtCoder-abc031_c] | Game | 1106 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine O(N^2) greedy choice simulation. |
+| [problem:AtCoder-abc019_3] | Odd Factor | 1129 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Trivial odd-part division while (x % 2 == 0) x /= 2. |
+| [problem:AtCoder-abc080_c] | Shopping Street | 1130 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by small bitmask brute force (2^10). |
+| [problem:AtCoder-abc474_e] | One Time Coupon | 1153 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Elementary array discount application. |
+| [problem:AtCoder-abc006_3] | Humans and Animals | 1158 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Crane-turtle linear Diophantine casework. |
+| [problem:AtCoder-abc012_4] | Bus Trip | 1166 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by Floyd-Warshall / Grid Diameter. |
+| [problem:AtCoder-abc423_e] | Sum of Subarrays | 1183 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine double-counting arithmetic formula. |
+| [problem:AtCoder-abc001_3] | Wind Direction | 1189 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Tedious angle-to-direction string mapping table. |

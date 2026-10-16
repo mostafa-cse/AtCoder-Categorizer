@@ -8,13 +8,17 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 |---|---|---|---|
 | [`1d_dp.md`](1d_dp.md) | Intro to DP | **1D State Recurrences & State Machines** | 4 |
 | [`bitmask_dp.md`](bitmask_dp.md) | Bit Related DP | **Bitmask DP & Submask Enumeration** | 3 |
+| [`coin_change_dual_exponential_bases.md`](coin_change_dual_exponential_bases.md) | DP Technique | **coin_change_dual_exponential_bases.md** | 1 |
 | [`convex_hull_trick.md`](convex_hull_trick.md) | Convex Hull Trick (CHT) | **Convex Hull Trick (CHT) & DP Optimization** | 1 |
+| [`dag_minimum_ancestor_cost_dp.md`](dag_minimum_ancestor_cost_dp.md) | DP Technique | **dag_minimum_ancestor_cost_dp.md** | 1 |
 | [`digit_dp.md`](digit_dp.md) | Digit DP | **Digit DP & Prefix Bound Relaxation** | 1 |
+| [`domino_tiling_chromatic_dp.md`](domino_tiling_chromatic_dp.md) | DP Technique | **domino_tiling_chromatic_dp.md** | 1 |
 | [`doubling_dp.md`](doubling_dp.md) | DP on Different Structures | **Doubling DP / Matrix Exponentiation on Modular Digit Transitions** | 1 |
 | [`dp_on_trees.md`](dp_on_trees.md) | Dp on Different Structures | **DP on Trees & Directed Acyclic Graphs (DAGs)** | 4 |
 | [`dual_partition_subset_sum_bitset.md`](dual_partition_subset_sum_bitset.md) | DP Technique | **dual_partition_subset_sum_bitset.md** | 1 |
 | [`exchange_argument_dp.md`](exchange_argument_dp.md) | Classic DP | **Greedy Exchange Argument & Knapsack DP** | 1 |
 | [`expected_value_dp.md`](expected_value_dp.md) | Intro to DP | **Probability & Expected Value DP** | 2 |
+| [`four_way_ray_dp_precomputation.md`](four_way_ray_dp_precomputation.md) | DP Technique | **four_way_ray_dp_precomputation.md** | 1 |
 | [`grid_dp.md`](grid_dp.md) | Classic DP | **Grid DP & Path Counting with Obstacles** | 1 |
 | [`inclusion_exclusion_dp.md`](inclusion_exclusion_dp.md) | Classic DP | **Inclusion-Exclusion Principle & Combinatorics Grid DP** | 1 |
 | [`interval_dp.md`](interval_dp.md) | Classic DP | **Interval DP & Range Merging** | 4 |
