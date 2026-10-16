@@ -11,6 +11,41 @@ A structured, topic-wise curriculum catalog of high-value AtCoder problems class
 
 # Basics
 
+## Bitwise Independence
+
+### Bitwise Independence & Bit-by-Bit Brute Force Verification
+
+- [problem:AtCoder-typical90_ch] **Snuke's Favorite Arrays** (Rating: 1750, ★5) — *N items (N <= 12). Q conditions: A_{x} | A_{y} | A_{z} = w. Count arrays satisfying all conditions modulo 9982...*
+
+
+## Complement Counting & Run-Length
+
+### Complement Counting via Run-Length Encoding
+
+- [problem:AtCoder-typical90_cf] **There are two types of characters** (Rating: 800, ★3) — *String S of length N with 'o' and 'x'. Count pairs (l, r) with 1 <= l < r <= N such that substring S[l..r] con...*
+
+
+## Greedy & Invariants
+
+### Corner-First Unique Determinism / 2x2 Subgrid Elimination
+
+- [problem:AtCoder-typical90_ca] **Two by Two** (Rating: 850, ★3) — *H x W matrices A and B. In one operation, add +-1 to any 2x2 subgrid. Can A be transformed to B, and what is t...*
+
+
+## Backtracking & Recursion
+
+### Grid Simple Cycle Search via DFS Backtracking (Small N <= 16)
+
+- [problem:AtCoder-typical90_bt] **Loop Railway Plan** (Rating: 1350, ★4) — *H x W grid with empty cells '.' and walls '#' (H, W <= 16, H*W <= 16). Find a simple cycle of length >= 3 trav...*
+
+
+## Bitmask Enumeration & Pruning
+
+### Subgrid Dimension Reduction / Row Bitmask with Column Frequency Counting
+
+- [problem:AtCoder-typical90_bk] **Monochromatic Subgrid** (Rating: 1250, ★4) — *H x W grid (H <= 8, W <= 10^4). Select a subset of rows and columns such that all cells in the subgrid have th...*
+
+
 ## Ternary Search & Optimization
 
 ### Discrete Golden-Section / Fibonacci Search on Unimodal Functions
@@ -63,6 +98,34 @@ A structured, topic-wise curriculum catalog of high-value AtCoder problems class
 
 # Data Structures (DS)
 
+## Square Root Decomposition
+
+### Square Root Decomposition on Graph Vertex Degrees (Heavy-Light)
+
+- [problem:AtCoder-typical90_ce] **Colorful Graph** (Rating: 2300, ★6) — *Graph with N, M <= 2*10^5. Q <= 2*10^5 queries: given (x, y), print color of vertex x, then color x and all it...*
+
+
+## Prefix Sums & Difference Arrays
+
+### 2D Prefix Sums for Bounded Window Maximization
+
+- [problem:AtCoder-typical90_cc] **Friendly Group** (Rating: 1750, ★5) — *N students with height A_i <= 5000 and weight B_i <= 5000. Find maximum students in a group with max_A - min_A...*
+
+
+## Disjoint Set Union (DSU) & Fenwick Tree
+
+### Alternating Difference Prefix Sums & Interval DSU Reachability
+
+- [problem:AtCoder-typical90_bp] **Paired Information** (Rating: 1750, ★5) — *Array A of length N. Q queries: (0) told A_x + A_{x+1} = V; (1) given (x, y, v), if A_x = v, determine value o...*
+
+
+## Prefix Sums & Difference Arrays
+
+### Difference Array Local Perturbation for O(1) Range Update Inconvenience
+
+- [problem:AtCoder-typical90_bl] **Uplift** (Rating: 800, ★3) — *Array A of length N. Total inconvenience is sum_{i=1}^{N-1} |A_{i+1} - A_i|. Q queries: add V to range [L, R]....*
+
+
 ## Bitset Optimization
 
 ### Batch Bitset Acceleration on DAG Reachability Queries
@@ -113,6 +176,20 @@ A structured, topic-wise curriculum catalog of high-value AtCoder problems class
 ---
 
 # Dynamic Programming (DP)
+
+## DP Optimizations
+
+### Two Pointers with Fenwick Tree Inversions + Prefix Sum Accelerated Partition DP
+
+- [problem:AtCoder-typical90_ck] **Partitions and Inversions** (Rating: 2600, ★7) — *Partition array A of length N into contiguous subarrays such that each subarray contains at most K inversions....*
+
+
+## Dp on Different Structures
+
+### Tree Component Partition DP with 3 Characteristic States
+
+- [problem:AtCoder-typical90_bu] **We Need Both a and b** (Rating: 1800, ★5) — *Tree with N vertices, each vertex labeled 'a' or 'b'. Delete a subset of edges to partition the tree into comp...*
+
 
 ## Classic DP
 
@@ -276,6 +353,34 @@ A structured, topic-wise curriculum catalog of high-value AtCoder problems class
 
 # Graph Theory
 
+## Shortest Paths & Binary Search
+
+### Monotonicity of Floyd-Warshall Distance & Dual Binary Search
+
+- [problem:AtCoder-typical90_ci] **Chokudai's Demand** (Rating: 1850, ★5) — *Complete graph with N <= 40 vertices. Some edges have unknown weight X. Count number of integer values of X >=...*
+
+
+## Bipartite Matching & Network Flow
+
+### Bipartite Matching on Geometric Directional Lattice via Dinic / Hopcroft-Karp
+
+- [problem:AtCoder-typical90_by] **Planes on a 2D Plane** (Rating: 2600, ★7) — *N points A_i, N destination points B_j. Each point A_i must move to a unique destination B_j along one of 8 co...*
+
+
+## Topological Sort
+
+### K Distinct Topological Sorts via Kahn Backtracking
+
+- [problem:AtCoder-typical90_bs] **Fuzzy Priority** (Rating: 2550, ★7) — *Given a DAG with N vertices and M edges, output K distinct topological sort permutations, or output -1 if fewe...*
+
+
+## Reverse Graph & BFS
+
+### Reverse Topological / Reverse Graph BFS Ordering
+
+- [problem:AtCoder-typical90_bj] **Paint All** (Rating: 2100, ★6) — *N balls initially white. Ball i can be painted black if ball A_i or B_i is already painted black, or unconditi...*
+
+
 ## Functional Graphs
 
 ### Cycle Detection & Periodicity on Functional Graphs (Rho Algorithm)
@@ -392,6 +497,13 @@ A structured, topic-wise curriculum catalog of high-value AtCoder problems class
 
 # Combinatorics
 
+## Inclusion-Exclusion Principle
+
+### Inclusion-Exclusion on Bitwise Constraints
+
+- [problem:AtCoder-typical90_cb] **Let's Share Bit** (Rating: 2200, ★6) — *N bitmasks A_1, ..., A_N in [0, 2^D - 1] (N <= 20, D <= 60). Count integers x in [0, 2^D - 1] such that (x & A...*
+
+
 ## Stars and Bars & Combinatorial Bounds
 
 ### Spacing Constraint Combinatorics + Harmonic Series O(N log N)
@@ -402,6 +514,41 @@ A structured, topic-wise curriculum catalog of high-value AtCoder problems class
 
 
 # Math
+
+## Pigeonhole Principle
+
+### Pigeonhole Principle Collision Search on Subset Sums
+
+- [problem:AtCoder-typical90_cj] **Similar but Different Ways** (Rating: 2150, ★6) — *N <= 88 cards with values A_i <= 88. Q incompatible pairs. Find TWO distinct valid subsets of cards having ide...*
+
+
+## Arithmetic Series & Digit Ranges
+
+### Digit-Length Interval Partition & Arithmetic Series Summation
+
+- [problem:AtCoder-typical90_cd] **Counting Numbers** (Rating: 850, ★3) — *For each integer x in [L, R] (L, R <= 10^18), write x down x times. Count total digits written modulo 99824435...*
+
+
+## Invariants & Monoids
+
+### Binary Positional Weight Invariant on String Rewriting
+
+- [problem:AtCoder-typical90_bv] **ABC String 2** (Rating: 2100, ★6) — *String of length N over {'a', 'b', 'c'}. Operation replaces 'b' with 'aa' and 'c' with 'bb'. Total operations ...*
+
+
+## Optimization & Medians
+
+### Manhattan Median Principle / Dimension Separation L1 Minimization
+
+- [problem:AtCoder-typical90_br] **Plant Planning** (Rating: 1200, ★4) — *Given N factories at coordinates (X_i, Y_i), choose plant location (x, y) to minimize the sum of Manhattan dis...*
+
+
+## Probability & Expected Value
+
+### Linearity of Expectation on Inversions
+
+- [problem:AtCoder-typical90_bn] **Various Arrays** (Rating: 1550, ★5) — *N independent random variables A_i chosen uniformly from [L_i, R_i]. Find the expected number of inversions (p...*
+
 
 ## Linear Algebra & Basis
 

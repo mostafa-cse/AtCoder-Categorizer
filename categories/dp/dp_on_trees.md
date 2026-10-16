@@ -92,4 +92,32 @@ For each node, children values can be preprocessed into prefix and suffix cumula
 
 ---
 
-[Back to Dynamic Programming (DP) Index](README.md) | [Back to Master Categories](../../README.md)
+
+### We Need Both a and b (`[problem:AtCoder-typical90_bu]`)
+
+- **Role**: *Tree Component Partition DP with 3 Characteristic States*
+- **Rating**: `1800` (★5) | **Contest**: [`typical90`](https://atcoder.jp/contests/typical90/tasks/typical90_bu)
+- **Full Analysis**: [AtCoder-typical90_bu Analysis](../../analysis/AtCoder-typical90_bu.md)
+
+#### Problem Statement & Task
+Tree with N vertices, each vertex labeled 'a' or 'b'. Delete a subset of edges to partition the tree into components such that EVERY component contains BOTH 'a' and 'b'. Count valid edge deletions modulo 10^9+7.
+
+#### Core Invariant & Observation
+For each child v of u, we can either CUT edge (u, v) (requiring child component to be valid: dp[v][2]), or KEEP edge (u, v) (merging child component into u's component). Use product rule to combine child states.
+
+#### Algorithmic Formulation
+1. Post-order DFS tree DP.
+2. For leaf: set dp[leaf][label] = 1, others 0.
+3. For node u with children v: combine product of (cut + keep) transitions.
+4. Output dp[root][2].
+
+**Complexity**: `Time: O(N), Space: O(N).`  
+**Editorial Alignment**: Tree component partition dynamic programming with 3 component states.  
+
+#### What This Teaches & Reusable Pattern
+- **Skill Taught**: Connected component subtree DP, edge cut/keep branch combination, and modular state invariants.
+- **Reusable Pattern**: `Tree Component Partition DP.`
+
+---
+
+[Back to Dynamic Programming (DP) Index](README.md) |

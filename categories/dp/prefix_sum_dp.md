@@ -67,4 +67,33 @@ If S[i-1] == '<', j must be greater than previous element's rank k. If '>', j mu
 
 ---
 
-[Back to Dynamic Programming (DP) Index](README.md) | [Back to Master Categories](../../README.md)
+
+### Partitions and Inversions (`[problem:AtCoder-typical90_ck]`)
+
+- **Role**: *Two Pointers with Fenwick Tree Inversions + Prefix Sum Accelerated Partition DP*
+- **Rating**: `2600` (★7) | **Contest**: [`typical90`](https://atcoder.jp/contests/typical90/tasks/typical90_ck)
+- **Full Analysis**: [AtCoder-typical90_ck Analysis](../../analysis/AtCoder-typical90_ck.md)
+
+#### Problem Statement & Task
+Partition array A of length N into contiguous subarrays such that each subarray contains at most K inversions. Count valid partitions modulo 10^9+7.
+
+#### Core Invariant & Observation
+Transition is dp[r] = sum_{j = L[r] - 1}^{r - 1} dp[j]. This is a contiguous range sum of DP values, evaluated in O(1) via prefix sums of dp!
+
+#### Algorithmic Formulation
+1. Coordinate compress A.
+2. Maintain two-pointer window [l, r] with Fenwick Tree counting inversions.
+3. For each r: expand r, add inversions. While inversions > K: shrink l, subtract inversions.
+4. dp[r] = (pref[r - 1] - pref[l - 2]) % MOD.
+5. Output dp[N].
+
+**Complexity**: `Time: O(N log N), Space: O(N).`  
+**Editorial Alignment**: Two pointers with Fenwick tree inversion maintenance and prefix-sum accelerated partition DP.  
+
+#### What This Teaches & Reusable Pattern
+- **Skill Taught**: Sliding window dynamic inversion maintenance, prefix sum DP acceleration, and contiguous partition transitions.
+- **Reusable Pattern**: `Two Pointers with Fenwick Tree Inversions + Prefix Sum DP.`
+
+---
+
+[Back to Dynamic Programming (DP) Index](README.md) |
