@@ -461,3 +461,56 @@ This log tracks the rigorous evaluation of AtCoder problems, separating **high-v
 | [problem:AtCoder-abc452_f] | Interval Inversion Count | 1630 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine interval casework. |
 | [problem:AtCoder-abc413_f] | No Passage | 1635 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc grid passage drill. |
 | [problem:AtCoder-abc402_f] | Path to Integer | 1645 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine path digit evaluation drill. |
+
+| [problem:AtCoder-abc054_d] | Mixing Experiment | 1655 | **SELECTED** | Dynamic Programming → 2-Ratio Knapsack DP / Ratio Reduction to Target GCD | Selected: Archetype for 2-Ratio Knapsack DP / Ratio Reduction to Target GCD. |
+| [problem:AtCoder-arc035_c] | Traffic Conditions in AtCoder Kingdom | 1655 | **SELECTED** | Graph Theory → Online All-Pairs Shortest Path Incremental Edge Addition | Selected: Archetype for Online All-Pairs Shortest Path Incremental Edge Addition. |
+| [problem:AtCoder-abc040_d] | Road Aging Countermeasures | 1656 | **SELECTED** | Data Structures → Offline Query Sorting with Disjoint Set Union Sweep-Line | Selected: Archetype for Offline Query Sorting with Disjoint Set Union Sweep-Line. |
+| [problem:AtCoder-abc118_d] | Match Matching | 1657 | **SELECTED** | Dynamic Programming → Unbounded Knapsack for Lexicographically Largest Number | Selected: Archetype for Unbounded Knapsack for Lexicographically Largest Number. |
+| [problem:AtCoder-abc224_e] | Integers on Grid | 1657 | **SELECTED** | Dynamic Programming → Group-by-Value DP on Grids with Row/Column Maximum Buffering | Selected: Archetype for Group-by-Value DP on Grids with Row/Column Maximum Buffering. |
+| [problem:AtCoder-abc057_d] | Maximum Average Sets | 1658 | **SELECTED** | Math → Greedy Top Elements Average + Combinatorics on Boundary Frequency | Selected: Archetype for Greedy Top Elements Average + Combinatorics on Boundary Frequency. |
+| [problem:AtCoder-abc263_e] | Sugoroku 3 | 1659 | **SELECTED** | Dynamic Programming → Expected Value DP with Self-Loop Formula + Range Sum Acceleration | Selected: Archetype for Expected Value DP with Self-Loop Formula + Range Sum Acceleration. |
+| [problem:AtCoder-abc244_f] | Shortest Good Path | 1661 | **SELECTED** | Graph Theory → Shortest Path on Graph with Bitmask Parities (0-1 BFS) | Selected: Archetype for Shortest Path on Graph with Bitmask Parities (0-1 BFS). |
+| [problem:AtCoder-abc162_e] | Sum of gcd of Tuples | 1662 | **SELECTED** | Number Theory → Inclusion-Exclusion Multiple Counting from K down to 1 | Selected: Archetype for Inclusion-Exclusion Multiple Counting from K down to 1. |
+| [problem:AtCoder-abc166_f] | Three Variables Game | 1668 | **SELECTED** | Basics → Greedy Lookahead with Invariant Sum Constrained State | Selected: Archetype for Greedy Lookahead with Invariant Sum Constrained State. |
+| [problem:AtCoder-abc271_f] | XOR on Grid Path | 1669 | **SELECTED** | Basics → Meet-in-the-Middle on 2D Grid Paths | Selected: Archetype for Meet-in-the-Middle on 2D Grid Paths. |
+| [problem:AtCoder-abc041_d] | Footrace | 1670 | **SELECTED** | Dynamic Programming → Topological Ordering Count via Bitmask DP | Selected: Archetype for Topological Ordering Count via Bitmask DP. |
+| [problem:AtCoder-abc136_e] | Max GCD | 1670 | **SELECTED** | Number Theory → Sum-Invariant Divisor Analysis on Array GCD | Selected: Archetype for Sum-Invariant Divisor Analysis on Array GCD. |
+| [problem:AtCoder-abc151_f] | Enclose All | 1671 | **SELECTED** | Geometry → Minimum Enclosing Circle: Pair and Triple Circumcircle Search | Selected: Archetype for Minimum Enclosing Circle: Pair and Triple Circumcircle Search. |
+| [problem:AtCoder-abc130_e] | Common Subsequence | 1676 | **SELECTED** | Dynamic Programming → 2D DP Counting Common Subsequences with 2D Prefix Sums | Selected: Archetype for 2D DP Counting Common Subsequences with 2D Prefix Sums. |
+| [problem:AtCoder-abc246_f] | typewriter | 1677 | **SELECTED** | Combinatorics → Principle of Inclusion-Exclusion (PIE) on Keyboard Key Sets | Selected: Archetype for Principle of Inclusion-Exclusion (PIE) on Keyboard Key Sets. |
+| [problem:AtCoder-arc061_b] | Snuke's Coloring | 1682 | **SELECTED** | Data Structures → Sparse Grid 3x3 Window Counting via Coordinate Hash Map | Selected: Archetype for Sparse Grid 3x3 Window Counting via Coordinate Hash Map. |
+| [problem:AtCoder-abc031_d] | Goroawase | 1688 | **SELECTED** | Basics → Digit String Length Partition Search | Selected: Archetype for Digit String Length Partition Search. |
+| [problem:AtCoder-abc219_e] | Moat | 1690 | **SELECTED** | Basics → Bitmask Grid Shapes with Connectivity (DSU) and Hole-Free (Outer BFS) Checking | Selected: Archetype for Bitmask Grid Shapes with Connectivity (DSU) and Hole-Free (Outer BFS) Checking. |
+| [problem:AtCoder-abc260_e] | At Least One | 1692 | **SELECTED** | Basics → Two Pointers / Sliding Window on Multi-Interval Coverage | Selected: Archetype for Two Pointers / Sliding Window on Multi-Interval Coverage. |
+| [problem:AtCoder-abc201_e] | Xor Distances | 1694 | **SELECTED** | Graph Theory → Tree XOR Distances Bit-by-Bit Counting via Root DFS | Selected: Archetype for Tree XOR Distances Bit-by-Bit Counting via Root DFS. |
+| [problem:AtCoder-arc022_3] | Romeo and Juliet | 1694 | **SELECTED** | Graph Theory → Tree Diameter Endpoints via 2-Pass BFS/DFS | Selected: Archetype for Tree Diameter Endpoints via 2-Pass BFS/DFS. |
+| [problem:AtCoder-abc110_d] | Factorization | 1695 | **SELECTED** | Number Theory → Prime Factorization + Stars and Bars on Exponents | Selected: Archetype for Prime Factorization + Stars and Bars on Exponents. |
+| [problem:AtCoder-abc143_e] | Travel by Car | 1695 | **SELECTED** | Graph Theory → Dual Floyd-Warshall (Distance Reachability then Refuel Count) | Selected: Archetype for Dual Floyd-Warshall (Distance Reachability then Refuel Count). |
+| [problem:AtCoder-abc006_4] | Playing Cards Insertion Sort | 1696 | **SELECTED** | Dynamic Programming → Minimum Card Insertions = N - LIS(A) via Patience Sorting | Selected: Archetype for Minimum Card Insertions = N - LIS(A) via Patience Sorting. |
+| [problem:AtCoder-abc247_f] | Cards | 1697 | **SELECTED** | Dynamic Programming → Functional Graph Permutation Cycle Decomposition + Lucas Numbers | Selected: Archetype for Functional Graph Permutation Cycle Decomposition + Lucas Numbers. |
+| [problem:AtCoder-abc169_f] | Knapsack for All Subsets | 1698 | **SELECTED** | Dynamic Programming → 3-Choice State Dynamic Programming on Subsets of Subsets | Selected: Archetype for 3-Choice State Dynamic Programming on Subsets of Subsets. |
+| [problem:AtCoder-arc162_c] | Mex Game on Tree | 1655 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc Mex game simulation drill. |
+| [problem:AtCoder-abc379_f] | Buildings 2 | 1659 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine building visibility casework. |
+| [problem:AtCoder-agc063_b] | Insert 1, 2, 3, ... | 1663 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc array insertion simulation. |
+| [problem:AtCoder-abc401_f] | Add One Edge 3 | 1666 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine tree diameter casework. |
+| [problem:AtCoder-abc331_f] | Palindrome Query | 1666 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine palindrome hash query drill. |
+| [problem:AtCoder-keyence2019_d] | Double Landscape | 1670 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc grid row/column max simulation. |
+| [problem:AtCoder-abc382_e] | Expansion Packs | 1671 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine expansion packs expected value. |
+| [problem:AtCoder-abc313_e] | Duplicate | 1672 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc duplicate run-length simulation. |
+| [problem:AtCoder-abc301_e] | Pac-Takahashi | 1673 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine Pac-Man candy collection drill. |
+| [problem:AtCoder-abc315_f] | Shortcuts | 1674 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Simple penalty skip DP. |
+| [problem:AtCoder-abc433_e] | Max Matrix 2 | 1674 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc max matrix casework. |
+| [problem:AtCoder-arc186_b] | Typical Permutation Descriptor | 1677 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc permutation descriptor drill. |
+| [problem:AtCoder-abc225_e] | 7 | 1678 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Angle interval scheduling drill. |
+| [problem:AtCoder-abc377_e] | Permute K times 2 | 1685 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine permutation cycle exponentiation. |
+| [problem:AtCoder-agc009_b] | Tournament | 1685 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Tournament tree depth drill. |
+| [problem:AtCoder-arc221_a] | Two Arithmetic Progressions | 1686 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Simple AP casework. |
+| [problem:AtCoder-arc129_c] | Multiple of 7 | 1687 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc multiple of 7 construction. |
+| [problem:AtCoder-abc335_f] | Hop Sugoroku | 1690 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine hop sugoroku square root decomposition drill. |
+| [problem:AtCoder-abc423_f] | Loud Cicada | 1691 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc loud cicada drill. |
+| [problem:AtCoder-arc202_a] | Merge and Increment | 1691 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc merge simulation. |
+| [problem:AtCoder-abc013_3] | 節制 | 1692 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine calorie math casework. |
+| [problem:AtCoder-arc027_3] | 最高のトッピングにしような | 1692 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by 2-constraint knapsack archetypes. |
+| [problem:AtCoder-abc468_f] | Chmax | 1693 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine Chmax casework. |
+| [problem:AtCoder-abc467_e] | Adjacent Sums (hard) | 1694 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Adjacent sums drill. |
+| [problem:AtCoder-arc145_c] | Split and Maximize | 1697 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Split and maximize drill. |
