@@ -12,6 +12,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`digit_dp.md`](digit_dp.md) | Digit DP | **Digit DP & Prefix Bound Relaxation** | 1 |
 | [`doubling_dp.md`](doubling_dp.md) | DP on Different Structures | **Doubling DP / Matrix Exponentiation on Modular Digit Transitions** | 1 |
 | [`dp_on_trees.md`](dp_on_trees.md) | Dp on Different Structures | **DP on Trees & Directed Acyclic Graphs (DAGs)** | 4 |
+| [`dual_partition_subset_sum_bitset.md`](dual_partition_subset_sum_bitset.md) | DP Technique | **dual_partition_subset_sum_bitset.md** | 1 |
 | [`exchange_argument_dp.md`](exchange_argument_dp.md) | Classic DP | **Greedy Exchange Argument & Knapsack DP** | 1 |
 | [`expected_value_dp.md`](expected_value_dp.md) | Intro to DP | **Probability & Expected Value DP** | 2 |
 | [`grid_dp.md`](grid_dp.md) | Classic DP | **Grid DP & Path Counting with Obstacles** | 1 |
@@ -22,6 +23,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`longest_increasing_subsequence.md`](longest_increasing_subsequence.md) | Classic DP | **Longest Bitonic Subsequence via Dual LIS** | 1 |
 | [`matrix_exponentiation.md`](matrix_exponentiation.md) | Dp on Different Structures | **Matrix Exponentiation DP** | 1 |
 | [`prefix_sum_dp.md`](prefix_sum_dp.md) | DP Optimizations | **Prefix Sum Optimized DP** | 3 |
+| [`prefix_sum_partition_dp.md`](prefix_sum_partition_dp.md) | DP Technique | **prefix_sum_partition_dp.md** | 1 |
 | [`segment_tree_dp.md`](segment_tree_dp.md) | DP Optimizations | **Segment Tree Accelerated Range Knapsack DP** | 1 |
 | [`string_dp.md`](string_dp.md) | Classic DP | **Subsequence Matching DP / Automaton DP** | 1 |
 

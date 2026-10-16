@@ -125,3 +125,74 @@ This log tracks the rigorous evaluation of AtCoder problems, separating **high-v
 | [problem:AtCoder-typical90_bz] | Easy Graph Problem (Typical90 #078) | 200 (★2) | **REJECTED** | Basics → Adjacency Degree Counting | REJECTED: Counting vertices with exactly one neighbor of smaller index. Elementary edge loop simulation. |
 | [problem:AtCoder-typical90_cg] | Multiplication 085 (Typical90 #085) | 1150 (★4) | **REJECTED** | Number Theory → Divisor Triple Enumeration | REJECTED: 2-variable nested loop over precomputed divisor list of K <= 10^12. Routine trial divisor enumeration. |
 | [problem:AtCoder-typical90_cl] | Tenkei90's Last Problem (Typical90 #090) | 2650 (★7) | **REJECTED** | Math → Berlekamp-Massey / Advanced Linear Recurrence | REJECTED: Overly specialized contest finale; heavy linear recurrence algebra not suitable for general CP archetypes. |
+
+| [problem:AtCoder-abc168_d] | .. (Double Dots) | 804 | **SELECTED** | Graph Theory → Shortest Path Tree / BFS Parent Reconstruction | Selected: Archetype for Shortest Path Tree / BFS Parent Reconstruction. |
+| [problem:AtCoder-abc197_c] | ORXOR | 809 | **SELECTED** | Basics → Bitmask Partition Enumeration / Contiguous Splitting | Selected: Archetype for Bitmask Partition Enumeration / Contiguous Splitting. |
+| [problem:AtCoder-abc148_e] | Double Factorial | 818 | **SELECTED** | Math → Legendre's Formula on Double Factorial / p-adic Valuation | Selected: Archetype for Legendre's Formula on Double Factorial / p-adic Valuation. |
+| [problem:AtCoder-abc141_d] | Powerful Discount Tickets | 823 | **SELECTED** | Data Structures → Max-Heap Greedy Reduction | Selected: Archetype for Max-Heap Greedy Reduction. |
+| [problem:AtCoder-abc003_3] | AtCoder Programming Course | 824 | **SELECTED** | Basics → Greedy Sorting on Floating Point Recurrence | Selected: Archetype for Greedy Sorting on Floating Point Recurrence. |
+| [problem:AtCoder-abc142_d] | Disjoint Set of Common Divisors | 827 | **SELECTED** | Number Theory → Coprime Divisor Selection via Prime Factorization of GCD | Selected: Archetype for Coprime Divisor Selection via Prime Factorization of GCD. |
+| [problem:AtCoder-abc197_d] | Opposite | 831 | **SELECTED** | Geometry → 2D Point Rotation around Center via Complex Numbers | Selected: Archetype for 2D Point Rotation around Center via Complex Numbers. |
+| [problem:AtCoder-abc204_d] | Cooking | 832 | **SELECTED** | Dynamic Programming → Dual Partition Subset Sum via Bitset Optimization | Selected: Archetype for Dual Partition Subset Sum via Bitset Optimization. |
+| [problem:AtCoder-abc125_d] | Flipping Signs | 833 | **SELECTED** | Math → Sign Flip Parity Invariant | Selected: Archetype for Sign Flip Parity Invariant. |
+| [problem:AtCoder-abc076_c] | Dubious Document 2 | 846 | **SELECTED** | Strings → Rightmost Match Lexicographical Minimization | Selected: Archetype for Rightmost Match Lexicographical Minimization. |
+| [problem:AtCoder-arc080_b] | Grid Coloring | 852 | **SELECTED** | Basics → Snake / Boustrophedon Connected Fill | Selected: Archetype for Snake / Boustrophedon Connected Fill. |
+| [problem:AtCoder-abc027_b] | Island Bridges | 855 | **SELECTED** | Math → Prefix Imbalance Minimum Cuts | Selected: Archetype for Prefix Imbalance Minimum Cuts. |
+| [problem:AtCoder-abc130_d] | Enough Array | 865 | **SELECTED** | Basics → Monotonic Subarray Sum Threshold Counting | Selected: Archetype for Monotonic Subarray Sum Threshold Counting. |
+| [problem:AtCoder-arc095_b] | Binomial Coefficients | 867 | **SELECTED** | Math → Binomial Coefficient Unimodality Maximization | Selected: Archetype for Binomial Coefficient Unimodality Maximization. |
+| [problem:AtCoder-abc178_d] | Redistribution | 875 | **SELECTED** | Dynamic Programming → Prefix Sum Transition Acceleration on Partition DP | Selected: Archetype for Prefix Sum Transition Acceleration on Partition DP. |
+| [problem:AtCoder-abc160_d] | Line++ | 879 | **SELECTED** | Graph Theory → Shortcut Distance Closed Form Enumeration | Selected: Archetype for Shortcut Distance Closed Form Enumeration. |
+| [problem:AtCoder-abc206_d] | KAIBUNsyo | 879 | **SELECTED** | Data Structures → Equivalence Relation Component Collapse via DSU | Selected: Archetype for Equivalence Relation Component Collapse via DSU. |
+| [problem:AtCoder-abc127_d] | Integer Cards | 887 | **SELECTED** | Basics → Two-Array Ascending/Descending Greedy Replacement | Selected: Archetype for Two-Array Ascending/Descending Greedy Replacement. |
+| [problem:AtCoder-abc174_c] | Repsept | 902 | **SELECTED** | Math → Pigeonhole Cycle Detection on Linear Congruence Sequence | Selected: Archetype for Pigeonhole Cycle Detection on Linear Congruence Sequence. |
+| [problem:AtCoder-abc138_d] | Ki | 920 | **SELECTED** | Data Structures → Tree Subtree Imos / Prefix Sum DFS Propagation | Selected: Archetype for Tree Subtree Imos / Prefix Sum DFS Propagation. |
+| [problem:AtCoder-abc134_d] | Preparing Boxes | 926 | **SELECTED** | Math → Reverse Multiples Harmonic Greedy / Back-Substitution | Selected: Archetype for Reverse Multiples Harmonic Greedy / Back-Substitution. |
+| [problem:AtCoder-arc065_a] | Daydream | 930 | **SELECTED** | Strings → Reverse Greedy Suffix Parsing / Ambiguity Inversion | Selected: Archetype for Reverse Greedy Suffix Parsing / Ambiguity Inversion. |
+| [problem:AtCoder-abc172_c] | Tsundoku | 930 | **SELECTED** | Basics → Dual Monotonic Prefix Sum Optimization | Selected: Archetype for Dual Monotonic Prefix Sum Optimization. |
+| [problem:AtCoder-abc188_d] | Snuke Prime | 933 | **SELECTED** | Data Structures → Coordinate-Compressed Event Sweep / Imos Method | Selected: Archetype for Coordinate-Compressed Event Sweep / Imos Method. |
+| [problem:AtCoder-abc133_d] | Rain Flows into Dams | 938 | **SELECTED** | Math → Odd Cycle Telescoping Alternating Sum | Selected: Archetype for Odd Cycle Telescoping Alternating Sum. |
+| [problem:AtCoder-abc110_c] | String Transformation | 949 | **SELECTED** | Strings → Alphabet Bijection / Isomorphism Verification | Selected: Archetype for Alphabet Bijection / Isomorphism Verification. |
+| [problem:AtCoder-abc079_d] | Wall | 949 | **SELECTED** | Graph Theory → Digit Transformation Graph via Floyd-Warshall | Selected: Archetype for Digit Transformation Graph via Floyd-Warshall. |
+| [problem:AtCoder-abc085_d] | Katana Thrower | 954 | **SELECTED** | Basics → Threshold-Bounded Greedy Consumption | Selected: Archetype for Threshold-Bounded Greedy Consumption. |
+| [problem:AtCoder-abc151_d] | Maze Master | 959 | **SELECTED** | Graph Theory → All-Pairs Grid BFS / Grid Maze Diameter | Selected: Archetype for All-Pairs Grid BFS / Grid Maze Diameter. |
+| [problem:AtCoder-abc172_d] | Sum of Divisors | 963 | **SELECTED** | Math → Divisor Contribution Summation / Order-of-Summation Swap | Selected: Archetype for Divisor Contribution Summation / Order-of-Summation Swap. |
+| [problem:AtCoder-abc202_d] | aab aba baa | 966 | **SELECTED** | Combinatorics → Lexicographical K-th Permutation via Combinatorial Branching | Selected: Archetype for Lexicographical K-th Permutation via Combinatorial Branching. |
+| [problem:AtCoder-abc051_c] | Back and Forth | 968 | **SELECTED** | Basics → Disjoint Grid Paths Outer Boundary Routing | Selected: Archetype for Disjoint Grid Paths Outer Boundary Routing. |
+| [problem:AtCoder-abc064_d] | Insertion | 969 | **SELECTED** | Data Structures → Prefix Balance Minimization for Valid Bracket Completion | Selected: Archetype for Prefix Balance Minimization for Valid Bracket Completion. |
+| [problem:AtCoder-abc035_b] | Drone | 804 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine Manhattan displacement simulation and parity casework on wildcards. |
+| [problem:AtCoder-abc128_c] | Switches | 805 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by Bitmask Partition Enumeration (abc197_c) and complete search archetypes. |
+| [problem:AtCoder-abc061_c] | Big Array | 808 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine frequency array prefix accumulation. |
+| [problem:AtCoder-abc011_3] | 123 subtraction | 810 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Routine small grid/line 1D BFS reachability with obstacles. |
+| [problem:AtCoder-abc006_2] | Tribonacci Sequence | 813 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Elementary linear modular recurrence loop. |
+| [problem:AtCoder-abc026_c] | Takahashi's Salary | 820 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Elementary post-order DFS subtree aggregation. |
+| [problem:AtCoder-arc103_a] | /\/\/\/ | 826 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine frequency map top-2 conflict casework. |
+| [problem:AtCoder-abc016_3] | Friend of Friends | 830 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Elementary 2-hop unweighted BFS on tiny N=10 graph. |
+| [problem:AtCoder-abc473_d] | Coefficient Stair | 838 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Basic arithmetic iteration over coefficients. |
+| [problem:AtCoder-abc463_d] | Maximize the Gap | 838 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine difference evaluation on sorted array. |
+| [problem:AtCoder-abc465_d] | X to Y | 839 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Direct operation simulation without transferable algorithmic depth. |
+| [problem:AtCoder-abc005_3] | Takoyaki Sales | 840 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Duplicate of two pointers interval matching (subsumed by abc130_d / abc172_c). |
+| [problem:AtCoder-abc476_d] | Automat | 860 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Elementary string token parsing and state tracking. |
+| [problem:AtCoder-abc048_b] | Between a and b ... | 861 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Elementary floor division prefix arithmetic. |
+| [problem:AtCoder-abc440_d] | Forbidden List 2 | 863 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Simple array exclusion lookup. |
+| [problem:AtCoder-abc193_d] | Poker | 866 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Tedious card game casework enumeration. |
+| [problem:AtCoder-abc113_c] | ID | 878 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine grouping by key, sorting, and printf padding formatting. |
+| [problem:AtCoder-abc054_b] | Template Matching | 893 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Naive 2D subgrid substring matching loops. |
+| [problem:AtCoder-abc038_c] | Monotonous | 894 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by Two Pointers counting archetype (abc130_d). |
+| [problem:AtCoder-abc040_c] | Pillars | 896 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Identical transition to Frog 1 (dp_a). |
+| [problem:AtCoder-abc057_c] | Digits in Multiplication | 904 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Trial division divisor factorization up to sqrt(N). |
+| [problem:AtCoder-abc084_c] | Special Trains | 908 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine timetable progression simulation. |
+| [problem:AtCoder-abc015_3] | Takahashi's XOR | 912 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by Bitmask Partition Enumeration (abc197_c). |
+| [problem:AtCoder-abc037_c] | Total Sum | 915 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Elementary 1D sliding window sum. |
+| [problem:AtCoder-abc028_d] | Random Numbers | 920 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Basic 3-element probability casework. |
+| [problem:AtCoder-abc449_d] | Make Target 2 | 927 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Elementary string target matching. |
+| [problem:AtCoder-abc195_d] | Shipping Center | 945 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by Two-Array Ascending/Descending Greedy Replacement (abc127_d). |
+| [problem:AtCoder-abc477_d] | Masking Tape | 946 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Simple interval overlap casework. |
+| [problem:AtCoder-arc101_a] | Candles | 947 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by Two Pointers / window enumeration on sorted line. |
+| [problem:AtCoder-arc066_a] | Lining Up | 952 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Parity check on absolute difference frequencies. |
+| [problem:AtCoder-abc447_e] | Divide Graph | 955 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Direct graph edge connectivity test. |
+| [problem:AtCoder-abc036_c] | Compression | 956 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by standard Coordinate Compression archetypes. |
+| [problem:AtCoder-abc163_d] | Sum of Large Numbers | 960 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by arithmetic range summation math. |
+| [problem:AtCoder-abc476_e] | Min-Max Swap | 964 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Simple array swap simulation. |
+| [problem:AtCoder-arc102_a] | Triangular Relationship | 966 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by modular residue counting. |
+| [problem:AtCoder-abc473_e] | K-Divisible Subarrays | 966 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by prefix sum modulo frequency map. |
+| [problem:AtCoder-arc067_a] | Factors of Factorial | 967 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by Legendre's formula / prime factorization. |
