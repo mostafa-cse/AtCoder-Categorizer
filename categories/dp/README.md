@@ -26,6 +26,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`prefix_sum_partition_dp.md`](prefix_sum_partition_dp.md) | DP Technique | **prefix_sum_partition_dp.md** | 1 |
 | [`segment_tree_dp.md`](segment_tree_dp.md) | DP Optimizations | **Segment Tree Accelerated Range Knapsack DP** | 1 |
 | [`string_dp.md`](string_dp.md) | Classic DP | **Subsequence Matching DP / Automaton DP** | 1 |
+| [`unbounded_knapsack_min_cost.md`](unbounded_knapsack_min_cost.md) | DP Technique | **unbounded_knapsack_min_cost.md** | 1 |
 
 ---
 

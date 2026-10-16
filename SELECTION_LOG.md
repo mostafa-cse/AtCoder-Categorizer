@@ -196,3 +196,39 @@ This log tracks the rigorous evaluation of AtCoder problems, separating **high-v
 | [problem:AtCoder-arc102_a] | Triangular Relationship | 966 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by modular residue counting. |
 | [problem:AtCoder-abc473_e] | K-Divisible Subarrays | 966 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by prefix sum modulo frequency map. |
 | [problem:AtCoder-arc067_a] | Factors of Factorial | 967 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by Legendre's formula / prime factorization. |
+
+| [problem:AtCoder-abc147_c] | HonestOrUnkind2 | 977 | **SELECTED** | Basics → Bitmask Truth Assignment Consistency Verification | Selected: Archetype for Bitmask Truth Assignment Consistency Verification. |
+| [problem:AtCoder-abc084_d] | 2017-like Number | 980 | **SELECTED** | Number Theory → Sieve of Eratosthenes + Prefix Sum Query Filtering | Selected: Archetype for Sieve of Eratosthenes + Prefix Sum Query Filtering. |
+| [problem:AtCoder-abc161_d] | Lunlun Number | 991 | **SELECTED** | Basics → Digit BFS Queue Generation / Monotonic Transition | Selected: Archetype for Digit BFS Queue Generation / Monotonic Transition. |
+| [problem:AtCoder-abc088_d] | Grid Repainting | 999 | **SELECTED** | Graph Theory → Grid BFS Shortest Path / Free Cell Maximization | Selected: Archetype for Grid BFS Shortest Path / Free Cell Maximization. |
+| [problem:AtCoder-abc145_d] | Knight | 1009 | **SELECTED** | Combinatorics → 2-Vector Linear Combination + Modular Binomial Combinatorics | Selected: Archetype for 2-Vector Linear Combination + Modular Binomial Combinatorics. |
+| [problem:AtCoder-abc156_d] | Bouquet | 1014 | **SELECTED** | Combinatorics → Total Subsets minus Forbidden Combinations (Fermat Mod Inv) | Selected: Archetype for Total Subsets minus Forbidden Combinations (Fermat Mod Inv). |
+| [problem:AtCoder-abc153_e] | Crested Ibis vs Monster | 1015 | **SELECTED** | Dynamic Programming → Unbounded Knapsack / Minimum Cost Target Reachability | Selected: Archetype for Unbounded Knapsack / Minimum Cost Target Reachability. |
+| [problem:AtCoder-abc112_d] | Partition | 1025 | **SELECTED** | Number Theory → Maximum GCD of Sum Partition / Divisor Feasibility | Selected: Archetype for Maximum GCD of Sum Partition / Divisor Feasibility. |
+| [problem:AtCoder-abc170_d] | Not Divisible | 1033 | **SELECTED** | Number Theory → Sieve Divisor Elimination / Multiples Marking | Selected: Archetype for Sieve Divisor Elimination / Multiples Marking. |
+| [problem:AtCoder-abc160_e] | Red and Green Apples | 1036 | **SELECTED** | Basics → Top-(X+Y) Greedy Unification via Candidate Filtering | Selected: Archetype for Top-(X+Y) Greedy Unification via Candidate Filtering. |
+| [problem:AtCoder-abc114_c] | 755 | 1045 | **SELECTED** | Basics → Digit Recursion / 3-Branch DFS Enumeration | Selected: Archetype for Digit Recursion / 3-Branch DFS Enumeration. |
+| [problem:AtCoder-abc152_d] | Handstand 2 | 1045 | **SELECTED** | Math → First-Last Digit Pair Frequency Matrix Double Counting | Selected: Archetype for First-Last Digit Pair Frequency Matrix Double Counting. |
+| [problem:AtCoder-abc185_f] | Range Xor Query | 1053 | **SELECTED** | Data Structures → Point Update Range XOR Query on Fenwick Tree | Selected: Archetype for Point Update Range XOR Query on Fenwick Tree. |
+| [problem:AtCoder-abc178_e] | Dist Max | 1054 | **SELECTED** | Math → 45-degree Coordinate Rotation for Manhattan Maxima | Selected: Archetype for 45-degree Coordinate Rotation for Manhattan Maxima. |
+| [problem:AtCoder-abc177_e] | Coprime | 1057 | **SELECTED** | Number Theory → Pairwise Coprime via Smallest Prime Factor (SPF) Sieve | Selected: Archetype for Pairwise Coprime via Smallest Prime Factor (SPF) Sieve. |
+| [problem:AtCoder-arc067_b] | Walk and Teleport | 1060 | **SELECTED** | Basics → Adjacent Greedy Transition / Cost Comparison | Selected: Archetype for Adjacent Greedy Transition / Cost Comparison. |
+| [problem:AtCoder-abc166_e] | This Message Will Self-Destruct in 5s | 1062 | **SELECTED** | Basics → Algebraic Rearrangement Hash Frequency Match | Selected: Archetype for Algebraic Rearrangement Hash Frequency Match. |
+| [problem:AtCoder-abc191_c] | Digital Graffiti | 1063 | **SELECTED** | Geometry → Corner Vertices 2x2 Topological Counting on Grids | Selected: Archetype for Corner Vertices 2x2 Topological Counting on Grids. |
+| [problem:AtCoder-abc075_c] | Bridge | 1067 | **SELECTED** | Graph Theory → Cut-Edge / Bridge Detection via DFS / DSU Edge Removal | Selected: Archetype for Cut-Edge / Bridge Detection via DFS / DSU Edge Removal. |
+| [problem:AtCoder-abc140_d] | Face Produces Unhappiness | 1074 | **SELECTED** | Basics → Run-Length Inversion / Boundary Reduction Greedy | Selected: Archetype for Run-Length Inversion / Boundary Reduction Greedy. |
+| [problem:AtCoder-abc194_d] | Journey | 1078 | **SELECTED** | Math → Coupon Collector's Problem / Geometric Distribution Linearity of Expectation | Selected: Archetype for Coupon Collector's Problem / Geometric Distribution Linearity of Expectation. |
+| [problem:AtCoder-abc194_e] | Mex Min | 1088 | **SELECTED** | Data Structures → Sliding Window Frequency Tracking / Minimum Missing Non-Negative | Selected: Archetype for Sliding Window Frequency Tracking / Minimum Missing Non-Negative. |
+| [problem:AtCoder-abc115_d] | Christmas | 1088 | **SELECTED** | Basics → Recursive Burger Fractal Binary Search / Tree Size Division | Selected: Archetype for Recursive Burger Fractal Binary Search / Tree Size Division. |
+| [problem:AtCoder-abc471_e] | Sum of Square of Sum | 990 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine algebraic identity prefix expansion. |
+| [problem:AtCoder-abc030_c] | Airplane Flights | 1000 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by two pointers monotonic schedule simulation. |
+| [problem:AtCoder-abc479_e] | Cut and Add | 1000 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Elementary array splicing simulation. |
+| [problem:AtCoder-abc470_c] | Inc, Dec, Xor | 1006 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Elementary bitwise casework. |
+| [problem:AtCoder-abc024_c] | Ethnic Movement | 1007 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Greedy interval boundary clamping. |
+| [problem:AtCoder-abc472_e] | Odd Cycle | 1029 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by bipartite checking / 2-coloring DSU. |
+| [problem:AtCoder-abc468_e] | Sum of Average | 1038 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Basic arithmetic mean range calculations. |
+| [problem:AtCoder-abc039_d] | Image Denoising | 1039 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Grid erosion and dilation morphological simulation. |
+| [problem:AtCoder-abc403_d] | Forbidden Difference | 1052 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by DSU / frequency map matchings. |
+| [problem:AtCoder-abc464_e] | Fill-Rect Query | 1075 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Simple 2D grid cell marking. |
+| [problem:AtCoder-arc068_b] | Card Eater | 1084 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Parity check on duplicate card counts. |
+| [problem:AtCoder-arc061_a] | Many Formulas | 1089 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by Bitmask Partition Enumeration (abc197_c). |
