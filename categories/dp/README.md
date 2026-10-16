@@ -9,9 +9,11 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`1d_dp.md`](1d_dp.md) | Intro to DP | **1D State Recurrences & State Machines** | 4 |
 | [`bitmask_dp.md`](bitmask_dp.md) | Bit Related DP | **Bitmask DP & Submask Enumeration** | 3 |
 | [`coin_change_dual_exponential_bases.md`](coin_change_dual_exponential_bases.md) | DP Technique | **coin_change_dual_exponential_bases.md** | 1 |
+| [`color_segments_left_right_dp.md`](color_segments_left_right_dp.md) | DP Technique | **color_segments_left_right_dp.md** | 1 |
 | [`convex_hull_trick.md`](convex_hull_trick.md) | Convex Hull Trick (CHT) | **Convex Hull Trick (CHT) & DP Optimization** | 1 |
 | [`dag_minimum_ancestor_cost_dp.md`](dag_minimum_ancestor_cost_dp.md) | DP Technique | **dag_minimum_ancestor_cost_dp.md** | 1 |
 | [`digit_dp.md`](digit_dp.md) | Digit DP | **Digit DP & Prefix Bound Relaxation** | 1 |
+| [`digit_dp_counting_occurrences.md`](digit_dp_counting_occurrences.md) | DP Technique | **digit_dp_counting_occurrences.md** | 1 |
 | [`digit_dp_modulo_13.md`](digit_dp_modulo_13.md) | DP Technique | **digit_dp_modulo_13.md** | 1 |
 | [`digit_dp_tight_nonzero_count.md`](digit_dp_tight_nonzero_count.md) | DP Technique | **digit_dp_tight_nonzero_count.md** | 1 |
 | [`domino_tiling_chromatic_dp.md`](domino_tiling_chromatic_dp.md) | DP Technique | **domino_tiling_chromatic_dp.md** | 1 |
@@ -24,6 +26,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`expected_value_dp.md`](expected_value_dp.md) | Intro to DP | **Probability & Expected Value DP** | 2 |
 | [`four_way_ray_dp_precomputation.md`](four_way_ray_dp_precomputation.md) | DP Technique | **four_way_ray_dp_precomputation.md** | 1 |
 | [`grid_dp.md`](grid_dp.md) | Classic DP | **Grid DP & Path Counting with Obstacles** | 1 |
+| [`grid_strictly_increasing_paths_dag.md`](grid_strictly_increasing_paths_dag.md) | DP Technique | **grid_strictly_increasing_paths_dag.md** | 1 |
 | [`inclusion_exclusion_dp.md`](inclusion_exclusion_dp.md) | Classic DP | **Inclusion-Exclusion Principle & Combinatorics Grid DP** | 1 |
 | [`interval_dp.md`](interval_dp.md) | Classic DP | **Interval DP & Range Merging** | 4 |
 | [`knapsack.md`](knapsack.md) | Intro to DP | **Knapsack DP & Dual State Inversion** | 2 |
@@ -34,9 +37,11 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`prefix_sum_partition_dp.md`](prefix_sum_partition_dp.md) | DP Technique | **prefix_sum_partition_dp.md** | 1 |
 | [`queen_grid_dp_prefix_sums.md`](queen_grid_dp_prefix_sums.md) | DP Technique | **queen_grid_dp_prefix_sums.md** | 1 |
 | [`segment_tree_dp.md`](segment_tree_dp.md) | DP Optimizations | **Segment Tree Accelerated Range Knapsack DP** | 1 |
+| [`set_cover_bitmask_dp.md`](set_cover_bitmask_dp.md) | DP Technique | **set_cover_bitmask_dp.md** | 1 |
 | [`string_dp.md`](string_dp.md) | Classic DP | **Subsequence Matching DP / Automaton DP** | 1 |
 | [`three_resource_knapsack_search.md`](three_resource_knapsack_search.md) | DP Technique | **three_resource_knapsack_search.md** | 1 |
 | [`tsp_bitmask_asymmetric_metric.md`](tsp_bitmask_asymmetric_metric.md) | DP Technique | **tsp_bitmask_asymmetric_metric.md** | 1 |
+| [`two_constraint_knapsack_dp.md`](two_constraint_knapsack_dp.md) | DP Technique | **two_constraint_knapsack_dp.md** | 1 |
 | [`unbounded_knapsack_min_cost.md`](unbounded_knapsack_min_cost.md) | DP Technique | **unbounded_knapsack_min_cost.md** | 1 |
 
 ---
