@@ -1,25 +1,31 @@
-# 📚 AtCoder Topic & Category Directory
+# 📚 AtCoder Problem Categories Directory
 
-This directory organizes curated AtCoder problems into dedicated domain `.md` files.
-Each category file breaks problems down into **Subtopics** and **Topics / Skills** under our 3-tier curriculum taxonomy.
-
-## 📂 Available Category Files
-
-| Category / Domain | File | Problems Curated | Core Topics Covered |
-|---|---|---|---|
-| ⚡ **Basics** | [`Basics.md`](Basics.md) | 2 | Binary Search on Answer, Dual Index Mapping (Value-to-Position & Position-to-Value)... |
-| 🌲 **Data Structures (DS)** | [`Data_Structures.md`](Data_Structures.md) | 3 | Hybrid Two-Stage Buffer (Queue + Min-Heap), Grid Connectivity, Point Update Range XOR Query... |
-| 🧩 **Dynamic Programming (DP)** | [`Dynamic_Programming.md`](Dynamic_Programming.md) | 21 | Tree DP with Subtree Rerooting without Division, Digit DP with Remainder State, Grid DP... |
-| ♟️ **Game Theory** | [`Game_Theory.md`](Game_Theory.md) | 1 | Sprague-Grundy... |
-| 🕸️ **Graph Theory** | [`Graph_Theory.md`](Graph_Theory.md) | 4 | Cycle Detection, Disjoint Set Union (DSU), Tree Diameter... |
-| 🔢 **Number Theory** | [`Number_Theory.md`](Number_Theory.md) | 2 | Cubic-Root Prime Factorization (N = p^2 * q), Modular Linear Congruence... |
-| 🔤 **Strings** | [`Strings.md`](Strings.md) | 1 | Next-Occurrence Array... |
+This directory organizes curated AtCoder problems into dedicated domain folders and skill-specific `.md` files.
+All problems inside these files teach **reusable competitive programming techniques and algorithms**, completely filtering out trivial logic-building and syntax simulations.
 
 ---
 
-## 🎯 Problem Selection Filter
+## 📁 Category Folders & Topic Markdown Files
 
-All problems inside these `.md` files meet the strict learning criteria:
-1. **Teaches generalizable algorithms** (e.g. Tree DP, CHT, DSU, Fenwick Tree, Binary Search).
-2. **Eliminates trivial logic-building** (e.g. routine string checks, array toggle simulation, basic math case work).
-3. **Includes complete step-by-step analysis** and code templates in [`../analysis/`](../analysis/).
+| Tag / Domain | Directory | Topic `.md` Files | Total Curated Problems |
+|---|---|---|---|
+| **Dynamic Programming (DP)** | [`dp/`](dp/) | [`1d_dp.md`](dp/1d_dp.md)<br>[`knapsack.md`](dp/knapsack.md)<br>[`interval_dp.md`](dp/interval_dp.md)<br>[`prefix_sum_dp.md`](dp/prefix_sum_dp.md)<br>[`bitmask_dp.md`](dp/bitmask_dp.md)<br>[`dp_on_trees.md`](dp/dp_on_trees.md)<br>[`digit_dp.md`](dp/digit_dp.md)<br>[`convex_hull_trick.md`](dp/convex_hull_trick.md) | 15 |
+| **Graph Theory** | [`graph_theory/`](graph_theory/) | [`connected_components_dsu.md`](graph_theory/connected_components_dsu.md)<br>[`tree_diameter.md`](graph_theory/tree_diameter.md)<br>[`shortest_paths_dijkstra.md`](graph_theory/shortest_paths_dijkstra.md)<br>[`topological_sort_cycles.md`](graph_theory/topological_sort_cycles.md) | 4 |
+| **Data Structures (DS)** | [`data_structures/`](data_structures/) | [`online_grid_dsu.md`](data_structures/online_grid_dsu.md)<br>[`fenwick_segment_tree.md`](data_structures/fenwick_segment_tree.md)<br>[`priority_queue_buffers.md`](data_structures/priority_queue_buffers.md) | 4 |
+| **Basics & Search** | [`basics/`](basics/) | [`binary_search_on_answer.md`](basics/binary_search_on_answer.md)<br>[`dual_index_mapping.md`](basics/dual_index_mapping.md) | 2 |
+| **Game Theory** | [`game_theory/`](game_theory/) | [`sprague_grundy_impartial_games.md`](game_theory/sprague_grundy_impartial_games.md) | 1 |
+| **Number Theory** | [`number_theory/`](number_theory/) | [`modular_linear_congruence.md`](number_theory/modular_linear_congruence.md)<br>[`cubic_root_prime_factorization.md`](number_theory/cubic_root_prime_factorization.md) | 2 |
+| **Strings** | [`strings/`](strings/) | [`lexicographically_smallest_subsequence.md`](strings/lexicographically_smallest_subsequence.md) | 1 |
+
+---
+
+## 🔬 Problem Evaluation Methodology
+Every problem categorized across these `.md` files is evaluated under the strict 6-step protocol:
+1. **Read**: Statement, limits, types, and constraints.
+2. **Analyze**: Identify hidden mathematical observations, monotonicity, subproblem independence.
+3. **Solve**: Formulate an optimal algorithm with proven time and space complexity.
+4. **Identify Tag & Topics**: Map to the standard 3-tier taxonomy.
+5. **Read Editorial**: Verify against official and community approaches.
+6. **Finalize**: Archive in dedicated topic `.md` file, update selection log, and provide individual analysis.
+
+[Back to Main Repository](../../README.md)
