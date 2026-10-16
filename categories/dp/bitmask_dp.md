@@ -15,7 +15,7 @@ Dynamic programming where subsets of elements are represented as integer bitmask
 
 ### 1. Matching (`[problem:AtCoder-dp_o]`)
 
-- **Role**: *Bipartite Matching Bitmask DP*
+- **Role**: *Bitmask DP*
 - **Rating**: `1650` | **Contest**: [`dp`](https://atcoder.jp/contests/dp/tasks/dp_o)
 - **Full Analysis**: [AtCoder-dp_o Analysis](../../analysis/AtCoder-dp_o.md)
 
@@ -42,7 +42,7 @@ By iterating masks by popcount or sequentially from 0 to 2^N - 1, we eliminate t
 
 ### 2. Grouping (`[problem:AtCoder-dp_u]`)
 
-- **Role**: *O(3^N) Submask Partition DP*
+- **Role**: *Bitmask DP / O(3^N) Submask Enumeration*
 - **Rating**: `1850` | **Contest**: [`dp`](https://atcoder.jp/contests/dp/tasks/dp_u)
 - **Full Analysis**: [AtCoder-dp_u Analysis](../../analysis/AtCoder-dp_u.md)
 

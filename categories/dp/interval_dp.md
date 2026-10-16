@@ -2,20 +2,46 @@
 
 - **Tag / Domain**: `Dynamic Programming (DP)`
 - **Subtopic**: `Classic DP`
-- **Total Curated Problems**: 2
+- **Total Curated Problems**: 3
 
 ---
 
 ## 💡 Topic Overview
-Subproblems defined over contiguous intervals [l, r], solved by increasing interval length. Covers minimax game intervals and optimal split-point merges.
+Subproblems defined over contiguous intervals [l, r], solved by increasing interval length. Covers minimax game intervals, LCS backtracking, and optimal split-point merges.
 
 ---
 
 ## 🏆 Curated High-Value Problems
 
-### 1. Deque (`[problem:AtCoder-dp_l]`)
+### 1. LCS (`[problem:AtCoder-dp_f]`)
 
-- **Role**: *Minimax Game Interval DP*
+- **Role**: *Longest Common Subsequence & Backtracking*
+- **Rating**: `1250` | **Contest**: [`dp`](https://atcoder.jp/contests/dp/tasks/dp_f)
+- **Full Analysis**: [AtCoder-dp_f Analysis](../../analysis/AtCoder-dp_f.md)
+
+#### Problem Statement & Task
+Given two strings s and t, find and print the actual string corresponding to their Longest Common Subsequence.
+
+#### Core Invariant & Observation
+Standard 2D table computes optimal lengths. The sequence itself is uniquely extracted by tracing back from (len(s), len(t)) following optimal transition choices.
+
+#### Algorithmic Formulation
+1. Compute dp[i][j]: if s[i-1] == t[j-1] -> dp[i-1][j-1]+1; else max(dp[i-1][j], dp[i][j-1]).
+2. Traceback: if s[i-1] == t[j-1]: append s[i-1], i--, j--; else if dp[i-1][j] >= dp[i][j-1]: i--; else j--.
+3. Reverse characters.
+
+**Complexity**: `Time: O(|s| * |t|), Space: O(|s| * |t|).`  
+**Editorial Alignment**: Full 2D DP matrix traceback.  
+
+#### What This Teaches & Reusable Pattern
+- **Skill Taught**: State path reconstruction and multi-dimensional backtracking.
+- **Reusable Pattern**: `Optimal decision matrix traceback.`
+
+---
+
+### 2. Deque (`[problem:AtCoder-dp_l]`)
+
+- **Role**: *Interval DP / Range DP / Matrix Chain Multiplication (MCM)*
 - **Rating**: `1400` | **Contest**: [`dp`](https://atcoder.jp/contests/dp/tasks/dp_l)
 - **Full Analysis**: [AtCoder-dp_l Analysis](../../analysis/AtCoder-dp_l.md)
 
@@ -23,7 +49,7 @@ Subproblems defined over contiguous intervals [l, r], solved by increasing inter
 Two players remove numbers from either end of an array. Player 1 maximizes X - Y, Player 2 minimizes it.
 
 #### Core Invariant & Observation
-The game is zero-sum. Negation accounts for player alternation: your score advantage equals your choice minus the opponent's optimal advantage from the remainder.
+Zero-sum game with symmetric negation: your advantage equals your chosen element minus opponent's optimal advantage from remaining subinterval.
 
 #### Algorithmic Formulation
 1. Base: dp[i][i] = a_i.
@@ -39,9 +65,9 @@ The game is zero-sum. Negation accounts for player alternation: your score advan
 
 ---
 
-### 2. Slimes (`[problem:AtCoder-dp_n]`)
+### 3. Slimes (`[problem:AtCoder-dp_n]`)
 
-- **Role**: *Matrix Chain Multiplication / Split-Point Range DP*
+- **Role**: *Interval DP / Range DP / Matrix Chain Multiplication (MCM)*
 - **Rating**: `1600` | **Contest**: [`dp`](https://atcoder.jp/contests/dp/tasks/dp_n)
 - **Full Analysis**: [AtCoder-dp_n Analysis](../../analysis/AtCoder-dp_n.md)
 

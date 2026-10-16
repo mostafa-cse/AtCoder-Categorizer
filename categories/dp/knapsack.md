@@ -7,7 +7,7 @@
 ---
 
 ## 💡 Topic Overview
-The knapsack paradigm, covering classic 0/1 knapsack with weight as state, and dual knapsack where weight capacity is astronomical and value is inverted into the state index.
+Classical 0/1 knapsack state compression and dual problem formulation (inverting value objective and capacity constraints).
 
 ---
 
@@ -15,33 +15,33 @@ The knapsack paradigm, covering classic 0/1 knapsack with weight as state, and d
 
 ### 1. Knapsack 1 (`[problem:AtCoder-dp_d]`)
 
-- **Role**: *0/1 Knapsack with 1D Memory Compression*
+- **Role**: *Knapsack and Basic Dynamic Programming*
 - **Rating**: `1150` | **Contest**: [`dp`](https://atcoder.jp/contests/dp/tasks/dp_d)
 - **Full Analysis**: [AtCoder-dp_d Analysis](../../analysis/AtCoder-dp_d.md)
 
 #### Problem Statement & Task
-Maximize value of items with total weight <= W (W <= 10^5, N <= 100).
+Given N items with weights w_i and values v_i, choose items with total weight <= W (W <= 10^5) maximizing total value.
 
 #### Core Invariant & Observation
-Looping weight downwards from W to w_i ensures each item is included at most once in a 1D DP array.
+By iterating weight downwards from W to w_i, 1D array space is sufficient without using an item multiple times.
 
 #### Algorithmic Formulation
-1. dp[0..W] = 0.
+1. Initialize dp[0..W] = 0.
 2. For each item (w_i, v_i): for cap from W down to w_i: dp[cap] = max(dp[cap], dp[cap - w_i] + v_i).
 3. Result is max(dp).
 
 **Complexity**: `Time: O(N * W), Space: O(W).`  
-**Editorial Alignment**: Standard 1D reverse-iteration 0/1 Knapsack.  
+**Editorial Alignment**: Textbook 0/1 Knapsack with 1D memory compression.  
 
 #### What This Teaches & Reusable Pattern
-- **Skill Taught**: 0/1 Knapsack state optimization and 1D space reduction technique.
+- **Skill Taught**: Reverse-order state traversal to prevent unbounded repetition in subset selection.
 - **Reusable Pattern**: `1D space-optimized 0/1 knapsack.`
 
 ---
 
 ### 2. Knapsack 2 (`[problem:AtCoder-dp_e]`)
 
-- **Role**: *Dual Knapsack / Value as State*
+- **Role**: *Knapsack Dual State / Value as State*
 - **Rating**: `1450` | **Contest**: [`dp`](https://atcoder.jp/contests/dp/tasks/dp_e)
 - **Full Analysis**: [AtCoder-dp_e Analysis](../../analysis/AtCoder-dp_e.md)
 

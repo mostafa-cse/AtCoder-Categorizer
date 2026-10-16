@@ -1,4 +1,4 @@
-# 📖 Digit DP
+# 📖 Digit DP & Prefix Bound Relaxation
 
 - **Tag / Domain**: `Dynamic Programming (DP)`
 - **Subtopic**: `Digit DP`
@@ -7,7 +7,7 @@
 ---
 
 ## 💡 Topic Overview
-Constructing numbers digit by digit from most significant to least significant, maintaining prefix equality bounds (tight constraint) and modular properties.
+Constructing numbers digit-by-digit from most significant to least significant digit while maintaining tight upper-bound flags and modulo constraints.
 
 ---
 
@@ -15,7 +15,7 @@ Constructing numbers digit by digit from most significant to least significant, 
 
 ### 1. Digit Sum (`[problem:AtCoder-dp_s]`)
 
-- **Role**: *Canonical Digit DP with Remainder State*
+- **Role**: *Digit DP with Remainder State*
 - **Rating**: `1750` | **Contest**: [`dp`](https://atcoder.jp/contests/dp/tasks/dp_s)
 - **Full Analysis**: [AtCoder-dp_s Analysis](../../analysis/AtCoder-dp_s.md)
 

@@ -15,23 +15,23 @@ Foundational linear dynamic programming, bounded lookaheads, and categorical sta
 
 ### 1. Frog 1 (`[problem:AtCoder-dp_a]`)
 
-- **Role**: *Linear 1D DP with 2-Step Lookahead*
+- **Role**: *1D State Recurrence / Bounded Lookahead*
 - **Rating**: `600` | **Contest**: [`dp`](https://atcoder.jp/contests/dp/tasks/dp_a)
 - **Full Analysis**: [AtCoder-dp_a Analysis](../../analysis/AtCoder-dp_a.md)
 
 #### Problem Statement & Task
-Minimum jump cost to reach stone N jumping 1 or 2 stones.
+N stones are numbered 1 to N with heights h_i. Starting from stone 1, the frog can jump to stone i+1 or i+2 with cost |h_i - h_j|. Find minimum total cost to reach stone N.
 
 #### Core Invariant & Observation
-Arrival at stone i is strictly partitioned between i-1 and i-2.
+At stone i, arrival is possible exclusively from i-1 or i-2. The state depends only on local height differences and optimal prefix solutions. Space compresses to O(1).
 
 #### Algorithmic Formulation
-1. dp[1]=0, dp[2]=|h_2-h_1|.
-2. Loop i from 3 to N.
-3. Return dp[N].
+1. Initialize dp[1] = 0, dp[2] = |h_2 - h_1|.
+2. For i from 3 to N: dp[i] = min(dp[i-1] + |h_i - h_{i-1}|, dp[i-2] + |h_i - h_{i-2}|).
+3. Result is dp[N].
 
 **Complexity**: `Time: O(N), Space: O(1) rolling state.`  
-**Editorial Alignment**: Standard 1D forward relaxation.  
+**Editorial Alignment**: Standard 1D forward relaxation recurrence.  
 
 #### What This Teaches & Reusable Pattern
 - **Skill Taught**: Optimal substructure, state initialization, and memory-compressed transitions.
@@ -41,21 +41,23 @@ Arrival at stone i is strictly partitioned between i-1 and i-2.
 
 ### 2. Frog 2 (`[problem:AtCoder-dp_b]`)
 
-- **Role**: *1D DP with K-Step Lookahead*
+- **Role**: *1D DP with K-Step Transitions*
 - **Rating**: `700` | **Contest**: [`dp`](https://atcoder.jp/contests/dp/tasks/dp_b)
 - **Full Analysis**: [AtCoder-dp_b Analysis](../../analysis/AtCoder-dp_b.md)
 
 #### Problem Statement & Task
-Minimum jump cost jumping up to K stones.
+Similar to Frog 1, but the frog can jump up to K stones forward (from i to i+j for 1 <= j <= K). Find min cost to reach stone N.
 
 #### Core Invariant & Observation
-dp[i] = min_{1 <= j <= K} (dp[i-j] + |h_i - h_{i-j}|).
+Each state dp[i] is relaxed over a sliding window of the previous K states: dp[i] = min_{1 <= j <= K} (dp[i-j] + |h_i - h_{i-j}|).
 
 #### Algorithmic Formulation
-Push DP forward from i to i+step for step in 1..K.
+1. Set dp[1] = 0, others INF.
+2. For i from 1 to N-1: for step in 1..K with i+step <= N: dp[i+step] = min(dp[i+step], dp[i] + |h_{i+step} - h_i|).
+3. Result is dp[N].
 
 **Complexity**: `Time: O(N * K), Space: O(N).`  
-**Editorial Alignment**: Parameterized push-style relaxation.  
+**Editorial Alignment**: Standard push-based relaxation over parameterized lookahead.  
 
 #### What This Teaches & Reusable Pattern
 - **Skill Taught**: Parameterized transition loops and boundary-bounded relaxation.
@@ -65,21 +67,23 @@ Push DP forward from i to i+step for step in 1..K.
 
 ### 3. Vacation (`[problem:AtCoder-dp_c]`)
 
-- **Role**: *State-Machine Categorical DP*
+- **Role**: *Multi-State DP / Consecutive Constraints*
 - **Rating**: `900` | **Contest**: [`dp`](https://atcoder.jp/contests/dp/tasks/dp_c)
 - **Full Analysis**: [AtCoder-dp_c Analysis](../../analysis/AtCoder-dp_c.md)
 
 #### Problem Statement & Task
-Maximize vacation happiness without repeating the same activity two days in a row.
+Choose activities A, B, or C over N days maximizing happiness, with the constraint that Taro cannot do the same activity two days in a row.
 
 #### Core Invariant & Observation
-The last choice fully captures all history required by the constraint.
+Enforcing the constraint 'no two consecutive identical choices' requires augmenting the state with the identity of the last chosen activity.
 
 #### Algorithmic Formulation
-dp[i][A] = a_i + max(dp[i-1][B], dp[i-1][C]), symmetrically for B, C.
+1. State: dp[day][act] where act in {0, 1, 2}.
+2. dp[i][0] = a_i + max(dp[i-1][1], dp[i-1][2]), and symmetrically for 1 and 2.
+3. Return max_{act} dp[N][act].
 
-**Complexity**: `Time: O(N), Space: O(1).`  
-**Editorial Alignment**: 3-state Markov transition graph.  
+**Complexity**: `Time: O(N), Space: O(1) rolling state.`  
+**Editorial Alignment**: Classic 3-state Markov transition graph.  
 
 #### What This Teaches & Reusable Pattern
 - **Skill Taught**: State augmentation for path-dependent constraints and state-machine DP.

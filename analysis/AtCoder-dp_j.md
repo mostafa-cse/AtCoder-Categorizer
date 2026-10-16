@@ -1,11 +1,11 @@
 # Problem Analysis: AtCoder-dp_j — Sushi
 
 **Problem ID**: `AtCoder-dp_j`  
-**Contest**: `dp`  
-**Rating**: 1650  
+**Contest**: `dp` (Educational DP Contest)  
+**Rating / Difficulty**: 1650  
 **URL**: https://atcoder.jp/contests/dp/tasks/dp_j  
 **VJudge Tag**: `[problem:AtCoder-dp_j]`  
-**Category File**: [`../categories/Dynamic_Programming.md`](../categories/Dynamic_Programming.md)  
+**Category File**: [`../categories/dp/expected_value_dp.md`](../categories/dp/expected_value_dp.md)  
 
 - **Tag (Domain)**: `Dynamic Programming (DP)`  
 - **Subtopic**: `Intro to DP`  
@@ -14,28 +14,71 @@
 ---
 
 ## 1. Problem Statement & Key Idea
-N plates have 1, 2, or 3 sushi. Repeatedly pick a random plate until all sushi are eaten. Find expected number of operations.
+N plates have 1, 2, or 3 sushi. Repeatedly choose a random plate and eat one sushi if present. Find expected operations to empty all plates.
+
+**Core Idea**: Plate identity is irrelevant; state is the count of plates with 1, 2, and 3 sushi (c1, c2, c3). Picking an empty plate loops back to the same state (self-loop).
 
 ## 2. Core Observation & Invariant
-The plate identity does not matter! Only the count of plates having 1 sushi (c1), 2 sushi (c2), and 3 sushi (c3) determines the system state. Picking an empty plate loops back to the same state (self-loop), which can be eliminated algebraically.
+Self-loop equation E = 1 + sum(P_i E_i) + P_empty E solves algebraically: E = (N + c1*E1 + c2*E2 + c3*E3) / (c1 + c2 + c3).
 
 ## 3. Step-by-Step Algorithm
-1. State: dp[c1][c2][c3] = expected operations.
-2. E = 1 + (c1/N)*dp[c1-1][c2][c3] + (c2/N)*dp[c1+1][c2-1][c3] + (c3/N)*dp[c1][c2+1][c3-1] + (c0/N)*E.
-3. Solve for E: E * (1 - c0/N) = 1 + sum(...) => E = (N + c1*dp1 + c2*dp2 + c3*dp3) / (c1 + c2 + c3).
-4. Memoized DFS / 3D loop.
+1. Memoized 3D DP array: memo[c1][c2][c3].
+2. Compute recursively using the resolved self-loop formula.
+3. Base: memo[0][0][0] = 0.0.
 
 ## 4. Complexity Analysis
 Time: O(N^3), Space: O(N^3).
 
-## 5. Editorial Comparison & Alignment
+## 5. Complete C++ Solution
+```cpp
+#include <iostream>
+#include <vector>
+#include <iomanip>
+
+using namespace std;
+
+double memo[305][305][305];
+bool vis[305][305][305];
+int n;
+
+double solve(int c1, int c2, int c3) {
+    if (c1 == 0 && c2 == 0 && c3 == 0) return 0.0;
+    if (vis[c1][c2][c3]) return memo[c1][c2][c3];
+
+    double sum = n;
+    if (c1 > 0) sum += c1 * solve(c1 - 1, c2, c3);
+    if (c2 > 0) sum += c2 * solve(c1 + 1, c2 - 1, c3);
+    if (c3 > 0) sum += c3 * solve(c1, c2 + 1, c3 - 1);
+
+    vis[c1][c2][c3] = true;
+    return memo[c1][c2][c3] = sum / (c1 + c2 + c3);
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    if (!(cin >> n)) return 0;
+    int c1 = 0, c2 = 0, c3 = 0;
+    for (int i = 0; i < n; ++i) {
+        int a;
+        cin >> a;
+        if (a == 1) c1++;
+        else if (a == 2) c2++;
+        else if (a == 3) c3++;
+    }
+
+    cout << fixed << setprecision(12) << solve(c1, c2, c3) << "\n";
+    return 0;
+}
+```
+
+## 6. Editorial Comparison & Alignment
 Expected value recurrence with algebraic self-loop resolution.
 
-## 6. What This Problem Teaches
-State compression by value multiplicity and algebraic self-loop elimination in expected value DP.
-
-## 7. Reusable Competitive Programming Pattern
-`Self-loop elimination: E = (1 + \sum P_i E_i) / (1 - P_{self}).`
+## 7. What This Problem Teaches & Reusable Pattern
+- **Core Skill**: Multi-frequency state compression and algebraic self-loop elimination in expected value DP.
+- **Reusable Pattern**: `Self-loop elimination: E = (1 + \sum P_i E_i) / (1 - P_{self}).`
 
 ---
-Back to [Category: Dynamic Programming (DP)](../categories/Dynamic_Programming.md) | [Categories Index](../categories/README.md)
+Back to [Expected Value DP with Multi-Frequency States](../categories/dp/expected_value_dp.md) | [Categories Directory](../categories/README.md)
