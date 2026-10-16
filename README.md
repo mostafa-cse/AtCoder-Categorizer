@@ -31,12 +31,21 @@ Every problem in this repository undergoes the exhaustive evaluation pipeline:
 
 | File / Folder | Description |
 |---|---|
-| [`QUALITY_PROBLEMS_BY_TOPIC.md`](file:///c:/Users/m0stafakamal/Desktop/AtCoder%20Categorizer/QUALITY_PROBLEMS_BY_TOPIC.md) | Master VJudge-compatible workbook organized by Tag, Subtopic, and Topic. |
-| [`PROBLEM_ANALYSIS.md`](file:///c:/Users/m0stafakamal/Desktop/AtCoder%20Categorizer/PROBLEM_ANALYSIS.md) | In-depth breakdown covering Key Ideas, Invariants, Algorithms, Complexity, and Editorial comparisons. |
-| [`SELECTION_LOG.md`](file:///c:/Users/m0stafakamal/Desktop/AtCoder%20Categorizer/SELECTION_LOG.md) | Exhaustive evaluation audit log with status (`SELECTED` vs `REJECTED`) and rationales. |
-| [`taxonomy_3tier.json`](file:///c:/Users/m0stafakamal/Desktop/AtCoder%20Categorizer/taxonomy_3tier.json) | Canonical 3-Tier taxonomy mapping all 11 major algorithmic domains and 576 numbered skills. |
-| [`categorize_atcoder.py`](file:///c:/Users/m0stafakamal/Desktop/AtCoder%20Categorizer/categorize_atcoder.py) | Automated curriculum compiler that builds and updates all documentation files. |
-| [`data/atcoder_problems.db`](file:///c:/Users/m0stafakamal/Desktop/AtCoder%20Categorizer/data/atcoder_problems.db) | Full relational SQLite database of 9,782+ AtCoder problems. |
+| [`categories/`](categories/) | Category-specific `.md` files organized by domain (DP, Graph Theory, DS, etc.). |
+| ↳ [`categories/Dynamic_Programming.md`](categories/Dynamic_Programming.md) | 🧩 Dynamic Programming: Bitmask, Tree DP, CHT, Interval DP, Knapsack, Digit DP, etc. |
+| ↳ [`categories/Graph_Theory.md`](categories/Graph_Theory.md) | 🕸️ Graph Theory: Trees, Diameter, DSU, Dijkstra, Shortest Paths, Cycles. |
+| ↳ [`categories/Data_Structures.md`](categories/Data_Structures.md) | 🌲 Data Structures: Fenwick Tree, Segment Tree, Online DSU Grid Connectivity. |
+| ↳ [`categories/Basics.md`](categories/Basics.md) | ⚡ Basics & Search: Binary Search on Answer, Dual Mapping, Invariants. |
+| ↳ [`categories/Game_Theory.md`](categories/Game_Theory.md) | ♟️ Game Theory: Sprague-Grundy, Minimax, Backward Induction. |
+| ↳ [`categories/Number_Theory.md`](categories/Number_Theory.md) | 🔢 Number Theory: Extended GCD, Modular Congruences, Cubic-Root Factorization. |
+| ↳ [`categories/Strings.md`](categories/Strings.md) | 🔤 Strings: Next-Occurrence Array, Lexicographically Smallest Subsequences. |
+| [`analysis/`](analysis/) | Individual problem `.md` analyses with complete step-by-step breakdowns. |
+| [`QUALITY_PROBLEMS_BY_TOPIC.md`](QUALITY_PROBLEMS_BY_TOPIC.md) | Master VJudge-compatible workbook organized by Tag, Subtopic, and Topic. |
+| [`PROBLEM_ANALYSIS.md`](PROBLEM_ANALYSIS.md) | In-depth breakdown covering Key Ideas, Invariants, Algorithms, Complexity, and Editorial comparisons. |
+| [`SELECTION_LOG.md`](SELECTION_LOG.md) | Exhaustive evaluation audit log with status (`SELECTED` vs `REJECTED`) and rationales. |
+| [`taxonomy_3tier.json`](taxonomy_3tier.json) | Canonical 3-Tier taxonomy mapping all 11 major algorithmic domains and 576 numbered skills. |
+| [`categorize_atcoder.py`](categorize_atcoder.py) | Automated curriculum compiler that builds and updates all documentation files. |
+| [`data/atcoder_problems.db`](data/atcoder_problems.db) | Full relational SQLite database of 9,782+ AtCoder problems. |
 
 ---
 
