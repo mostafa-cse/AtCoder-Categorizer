@@ -427,3 +427,37 @@ This log tracks the rigorous evaluation of AtCoder problems, separating **high-v
 | [problem:AtCoder-abc409_f] | Connecting Points | 1580 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine point connection simulation. |
 | [problem:AtCoder-abc426_e] | Closest Moment | 1584 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc geometry calculation without general pattern. |
 | [problem:AtCoder-abc478_f] | Min-First Search | 1588 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Simple priority search without transferable paradigm. |
+
+| [problem:AtCoder-abc036_d] | Coloring | 1602 | **SELECTED** | Dynamic Programming → Tree DP: White or Black Coloring with No Adjacent Black Nodes | Selected: Archetype for Tree DP: White or Black Coloring with No Adjacent Black Nodes. |
+| [problem:AtCoder-arc043_b] | Difficulty | 1606 | **SELECTED** | Dynamic Programming → 4-Step Increasing Sequence with 2x Ratio via Coordinate Prefix Sums | Selected: Archetype for 4-Step Increasing Sequence with 2x Ratio via Coordinate Prefix Sums. |
+| [problem:AtCoder-abc017_3] | High Score | 1607 | **SELECTED** | Basics → Complementary Segment Imos / Minimum Cost Interval Piercing | Selected: Archetype for Complementary Segment Imos / Minimum Cost Interval Piercing. |
+| [problem:AtCoder-abc173_e] | Multiplication 4 | 1607 | **SELECTED** | Basics → Greedy Maximum Product of K Integers with Signed Extremum | Selected: Archetype for Greedy Maximum Product of K Integers with Signed Extremum. |
+| [problem:AtCoder-abc195_e] | Lucky 7 Battle | 1609 | **SELECTED** | Game Theory → Backward Game Theory DP modulo 7 with Controllable State Sets | Selected: Archetype for Backward Game Theory DP modulo 7 with Controllable State Sets. |
+| [problem:AtCoder-arc076_b] | Built? | 1615 | **SELECTED** | Graph Theory → Minimum Spanning Tree on 2D Points via Adjacent Coordinate Edges | Selected: Archetype for Minimum Spanning Tree on 2D Points via Adjacent Coordinate Edges. |
+| [problem:AtCoder-abc210_e] | Ring MST | 1618 | **SELECTED** | Graph Theory → Kruskal MST on Ring via Modular GCD Component Reduction | Selected: Archetype for Kruskal MST on Ring via Modular GCD Component Reduction. |
+| [problem:AtCoder-abc165_e] | Rotation Matching | 1620 | **SELECTED** | Basics → Constructive Distance Parity Partitioning on Circular Cycle | Selected: Archetype for Constructive Distance Parity Partitioning on Circular Cycle. |
+| [problem:AtCoder-abc203_d] | Pond | 1622 | **SELECTED** | Basics → 2D Subgrid Median via Binary Search on Answer + 2D Prefix Sums | Selected: Archetype for 2D Subgrid Median via Binary Search on Answer + 2D Prefix Sums. |
+| [problem:AtCoder-abc132_e] | Hopscotch Addict | 1625 | **SELECTED** | Graph Theory → Modulo-3 Expanded Graph Shortest Path BFS | Selected: Archetype for Modulo-3 Expanded Graph Shortest Path BFS. |
+| [problem:AtCoder-arc017_3] | Minimalist | 1625 | **SELECTED** | Basics → Meet-in-the-Middle on Subset Sum N <= 32 | Selected: Archetype for Meet-in-the-Middle on Subset Sum N <= 32. |
+| [problem:AtCoder-abc202_e] | Count Descendants | 1638 | **SELECTED** | Graph Theory → Euler Tour Subtree Range Query + Depth Coordinate Binary Search | Selected: Archetype for Euler Tour Subtree Range Query + Depth Coordinate Binary Search. |
+| [problem:AtCoder-abc025_c] | Twins and Tic-Tac-Toe | 1640 | **SELECTED** | Game Theory → Minimax Search on 3x3 Game Board with Known Payoff Functions | Selected: Archetype for Minimax Search on 3x3 Game Board with Known Payoff Functions. |
+| [problem:AtCoder-arc071_b] | ### | 1641 | **SELECTED** | Math → 2D Rectilinear Area Decomposition into 1D Coordinate Gaps | Selected: Archetype for 2D Rectilinear Area Decomposition into 1D Coordinate Gaps. |
+| [problem:AtCoder-arc033_3] | Data Structure | 1641 | **SELECTED** | Data Structures → Binary Lifting on Fenwick Tree for K-th Smallest Element | Selected: Archetype for Binary Lifting on Fenwick Tree for K-th Smallest Element. |
+| [problem:AtCoder-abc227_d] | Project Planning | 1643 | **SELECTED** | Basics → Binary Search on Answer with Capped Work Allocations min(A_i, P) | Selected: Archetype for Binary Search on Answer with Capped Work Allocations min(A_i, P). |
+| [problem:AtCoder-abc190_e] | Magical Ornament | 1645 | **SELECTED** | Graph Theory → Multi-Source BFS on K Targets + TSP Bitmask DP | Selected: Archetype for Multi-Source BFS on K Targets + TSP Bitmask DP. |
+| [problem:AtCoder-abc321_f] | #(subset sum = K) with Add and Erase | 1645 | **SELECTED** | Dynamic Programming → Dynamic 0-1 Knapsack with Rollback / Subtraction Undo | Selected: Archetype for Dynamic 0-1 Knapsack with Rollback / Subtraction Undo. |
+| [problem:AtCoder-arc088_b] | Wide Flip | 1646 | **SELECTED** | Basics → Central Boundary Invariant on Reversible Interval Flips | Selected: Archetype for Central Boundary Invariant on Reversible Interval Flips. |
+| [problem:AtCoder-abc196_e] | Filters | 1650 | **SELECTED** | Math → Composition of Clamping Intervals [L, R] with Linear Shift | Selected: Archetype for Composition of Clamping Intervals [L, R] with Linear Shift. |
+| [problem:AtCoder-abc282_e] | Choose Two and Eat One | 1604 | **SELECTED** | Graph Theory → Maximum Spanning Tree on Complete Graph with Modular Exponentiation | Selected: Archetype for Maximum Spanning Tree on Complete Graph with Modular Exponentiation. |
+| [problem:AtCoder-abc275_f] | Erase Subarrays | 1608 | **SELECTED** | Dynamic Programming → 2-State DP on Subarray Deletion to Match Target Sum | Selected: Archetype for 2-State DP on Subarray Deletion to Match Target Sum. |
+| [problem:AtCoder-abc440_e] | Cookies | 1603 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine cookies simulation drill. |
+| [problem:AtCoder-abc470_f] | Googol Swaps | 1604 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc swaps simulation without reusable pattern. |
+| [problem:AtCoder-abc427_f] | Not Adjacent | 1605 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Simple non-adjacent casework drill. |
+| [problem:AtCoder-abc431_f] | Almost Sorted 2 | 1613 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc sorting simulation. |
+| [problem:AtCoder-abc430_f] | Back and Forth Filling | 1615 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Grid filling casework without generalizable CP algorithm. |
+| [problem:AtCoder-abc433_f] | 1122 Subsequence 2 | 1617 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine subsequence drill. |
+| [problem:AtCoder-abc454_e] | LRUD Moving | 1627 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine LRUD moving simulation. |
+| [problem:AtCoder-abc477_f] | Count Cells in a Window | 1629 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc sliding window simulation. |
+| [problem:AtCoder-abc452_f] | Interval Inversion Count | 1630 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine interval casework. |
+| [problem:AtCoder-abc413_f] | No Passage | 1635 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc grid passage drill. |
+| [problem:AtCoder-abc402_f] | Path to Integer | 1645 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine path digit evaluation drill. |

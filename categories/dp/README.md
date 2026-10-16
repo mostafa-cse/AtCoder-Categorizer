@@ -43,11 +43,13 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`independent_xy_subset_sum_bitset.md`](independent_xy_subset_sum_bitset.md) | DP Technique | **independent_xy_subset_sum_bitset.md** | 1 |
 | [`interval_dp.md`](interval_dp.md) | Classic DP | **Interval DP & Range Merging** | 4 |
 | [`knapsack.md`](knapsack.md) | Intro to DP | **Knapsack DP & Dual State Inversion** | 2 |
+| [`knapsack_addition_and_rollback.md`](knapsack_addition_and_rollback.md) | DP Technique | **knapsack_addition_and_rollback.md** | 1 |
 | [`knapsack_small_weight_variance.md`](knapsack_small_weight_variance.md) | DP Technique | **knapsack_small_weight_variance.md** | 1 |
 | [`lazy_segment_tree_dp.md`](lazy_segment_tree_dp.md) | DP Optimizations | **DP Optimization using Lazy Segment Tree** | 1 |
 | [`longest_increasing_subsequence.md`](longest_increasing_subsequence.md) | Classic DP | **Longest Bitonic Subsequence via Dual LIS** | 1 |
 | [`longest_nonoverlapping_common_substring_dp.md`](longest_nonoverlapping_common_substring_dp.md) | DP Technique | **longest_nonoverlapping_common_substring_dp.md** | 1 |
 | [`matrix_exponentiation.md`](matrix_exponentiation.md) | Dp on Different Structures | **Matrix Exponentiation DP** | 1 |
+| [`multistep_increasing_ratio_dp.md`](multistep_increasing_ratio_dp.md) | DP Technique | **multistep_increasing_ratio_dp.md** | 1 |
 | [`order_dependent_knapsack_sorting.md`](order_dependent_knapsack_sorting.md) | DP Technique | **order_dependent_knapsack_sorting.md** | 1 |
 | [`prefix_sum_2d_rectangle_envelope.md`](prefix_sum_2d_rectangle_envelope.md) | DP Technique | **prefix_sum_2d_rectangle_envelope.md** | 1 |
 | [`prefix_sum_dp.md`](prefix_sum_dp.md) | DP Optimizations | **Prefix Sum Optimized DP** | 3 |
@@ -57,7 +59,9 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`set_cover_bitmask_dp.md`](set_cover_bitmask_dp.md) | DP Technique | **set_cover_bitmask_dp.md** | 1 |
 | [`shifted_zero_sum_knapsack_average.md`](shifted_zero_sum_knapsack_average.md) | DP Technique | **shifted_zero_sum_knapsack_average.md** | 1 |
 | [`string_dp.md`](string_dp.md) | Classic DP | **Subsequence Matching DP / Automaton DP** | 1 |
+| [`subarray_deletion_knapsack_dp.md`](subarray_deletion_knapsack_dp.md) | DP Technique | **subarray_deletion_knapsack_dp.md** | 1 |
 | [`three_resource_knapsack_search.md`](three_resource_knapsack_search.md) | DP Technique | **three_resource_knapsack_search.md** | 1 |
+| [`tree_dp_independent_set_coloring.md`](tree_dp_independent_set_coloring.md) | DP Technique | **tree_dp_independent_set_coloring.md** | 1 |
 | [`tree_edge_frequencies_subset_sum.md`](tree_edge_frequencies_subset_sum.md) | DP Technique | **tree_edge_frequencies_subset_sum.md** | 1 |
 | [`tsp_bitmask_asymmetric_metric.md`](tsp_bitmask_asymmetric_metric.md) | DP Technique | **tsp_bitmask_asymmetric_metric.md** | 1 |
 | [`two_constraint_knapsack_dp.md`](two_constraint_knapsack_dp.md) | DP Technique | **two_constraint_knapsack_dp.md** | 1 |
