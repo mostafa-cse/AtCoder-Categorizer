@@ -40,4 +40,32 @@ eg win(x - a).`
 
 ---
 
-[Back to Game Theory Index](README.md) | [Back to Master Categories](../../README.md)
+
+### VS AtCoder (`[problem:AtCoder-typical90_ae]`)
+
+- **Role**: *Sprague-Grundy Theorem on Multi-Pile Impartial Games*
+- **Rating**: `2150` (★6) | **Contest**: [`typical90`](https://atcoder.jp/contests/typical90/tasks/typical90_ae)
+- **Full Analysis**: [AtCoder-typical90_ae Analysis](../../analysis/AtCoder-typical90_ae.md)
+
+#### Problem Statement & Task
+N independent piles with white stones W_i <= 50 and blue stones B_i <= 50. Turn moves: (1) change (W, B) to (W - 1, B + W) if W >= 1; or (2) change (W, B) to (W, B - k) for 1 <= k <= B / 2 if B >= 2. Determine if First or Second player wins under optimal play.
+
+#### Core Invariant & Observation
+Precompute 2D Grundy values G[w][b] using minimum excluded value (mex) of all reachable transition states. Maximum blue stones reaches <= 50 + sum(1..50) = 1325. Precomputation runs in O(W * B^2) in < 0.05s.
+
+#### Algorithmic Formulation
+1. 2D array G[55][1500] = 0.
+2. Fill G[w][b] by increasing w and b using mex of transitions: (w - 1, b + w) and (w, b - k) for 1 <= k <= b / 2.
+3. Compute xor_sum = G[W_1][B_1] ^ ... ^ G[W_N][B_N].
+4. If xor_sum != 0 output 'First' else 'Second'.
+
+**Complexity**: `Time: O(W_max * B_max^2 + N), Space: O(W_max * B_max).`  
+**Editorial Alignment**: Sprague-Grundy theorem with 2D state mex precomputation.  
+
+#### What This Teaches & Reusable Pattern
+- **Skill Taught**: Multi-pile impartial game decomposition, 2D Grundy mex induction, and Nim-sum winning condition.
+- **Reusable Pattern**: `Sprague-Grundy Theorem with Mex Table Precomputation.`
+
+---
+
+[Back to Game Theory Index](README.md) |

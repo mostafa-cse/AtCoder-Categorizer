@@ -1,5 +1,5 @@
 {
-  "current_batch": "Batch 2 Part 1: Typical90 Problems 001 to 030",
+  "current_batch": "Batch 2 Part 2: Typical90 Problems 031 to 060",
   "status": "IN_PROGRESS",
   "total_evaluated_in_batch": 26,
   "selected_count": 26,
@@ -35,7 +35,29 @@
     "typical90_ab",
     "typical90_ac",
     "typical90_ad",
+    "typical90_ae",
+    "typical90_af",
+    "typical90_ah",
+    "typical90_ai",
+    "typical90_aj",
+    "typical90_ak",
+    "typical90_am",
+    "typical90_an",
+    "typical90_ao",
+    "typical90_ap",
+    "typical90_aq",
+    "typical90_ar",
+    "typical90_as",
+    "typical90_av",
+    "typical90_aw",
+    "typical90_ay",
     "typical90_b",
+    "typical90_ba",
+    "typical90_bb",
+    "typical90_be",
+    "typical90_bf",
+    "typical90_bg",
+    "typical90_bh",
     "typical90_c",
     "typical90_e",
     "typical90_f",
@@ -50,5 +72,5 @@
     "typical90_y",
     "typical90_z"
   ],
-  "total_evaluated_in_curriculum": 44
+  "total_evaluated_in_curriculum": 66
 }

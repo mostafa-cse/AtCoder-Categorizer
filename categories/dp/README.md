@@ -6,8 +6,8 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 
 | Topic File | Subtopic | Topic / Skill | Problems Count |
 |---|---|---|---|
-| [`1d_dp.md`](1d_dp.md) | Intro to DP | **1D State Recurrences & State Machines** | 3 |
-| [`bitmask_dp.md`](bitmask_dp.md) | Bit Related DP | **Bitmask DP & Submask Enumeration** | 2 |
+| [`1d_dp.md`](1d_dp.md) | Intro to DP | **1D State Recurrences & State Machines** | 4 |
+| [`bitmask_dp.md`](bitmask_dp.md) | Bit Related DP | **Bitmask DP & Submask Enumeration** | 3 |
 | [`convex_hull_trick.md`](convex_hull_trick.md) | Convex Hull Trick (CHT) | **Convex Hull Trick (CHT) & DP Optimization** | 1 |
 | [`digit_dp.md`](digit_dp.md) | Digit DP | **Digit DP & Prefix Bound Relaxation** | 1 |
 | [`doubling_dp.md`](doubling_dp.md) | DP on Different Structures | **Doubling DP / Matrix Exponentiation on Modular Digit Transitions** | 1 |
@@ -19,8 +19,10 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`interval_dp.md`](interval_dp.md) | Classic DP | **Interval DP & Range Merging** | 4 |
 | [`knapsack.md`](knapsack.md) | Intro to DP | **Knapsack DP & Dual State Inversion** | 2 |
 | [`lazy_segment_tree_dp.md`](lazy_segment_tree_dp.md) | DP Optimizations | **DP Optimization using Lazy Segment Tree** | 1 |
+| [`longest_increasing_subsequence.md`](longest_increasing_subsequence.md) | Classic DP | **Longest Bitonic Subsequence via Dual LIS** | 1 |
 | [`matrix_exponentiation.md`](matrix_exponentiation.md) | Dp on Different Structures | **Matrix Exponentiation DP** | 1 |
 | [`prefix_sum_dp.md`](prefix_sum_dp.md) | DP Optimizations | **Prefix Sum Optimized DP** | 2 |
+| [`segment_tree_dp.md`](segment_tree_dp.md) | DP Optimizations | **Segment Tree Accelerated Range Knapsack DP** | 1 |
 | [`string_dp.md`](string_dp.md) | Classic DP | **Subsequence Matching DP / Automaton DP** | 1 |
 
 ---

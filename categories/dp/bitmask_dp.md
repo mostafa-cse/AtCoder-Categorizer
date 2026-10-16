@@ -67,4 +67,33 @@ Iterating submasks via `sub = (sub - 1) & mask` visits each submask without redu
 
 ---
 
-[Back to Dynamic Programming (DP) Index](README.md) | [Back to Master Categories](../../README.md)
+
+### Simple Grouping (`[problem:AtCoder-typical90_as]`)
+
+- **Role**: *Minimax Subset Partition Bitmask DP with O(3^N) Submask Iteration*
+- **Rating**: `2150` (★6) | **Contest**: [`typical90`](https://atcoder.jp/contests/typical90/tasks/typical90_as)
+- **Full Analysis**: [AtCoder-typical90_as Analysis](../../analysis/AtCoder-typical90_as.md)
+
+#### Problem Statement & Task
+N points in 2D plane (N <= 15). Partition points into K non-empty groups. Cost of a group is the maximum squared distance between any pair of points in the group. Minimize the maximum cost among all K groups.
+
+#### Core Invariant & Observation
+dp[k][mask] = min_{sub in mask} max(dp[k - 1][mask ^ sub], cost[sub]). Submask iteration sub = (sub - 1) & mask iterates all submasks in sum binom(N, i) 2^i = 3^N operations.
+
+#### Algorithmic Formulation
+1. Precompute cost[mask] for all 2^N subsets.
+2. dp[1][mask] = cost[mask].
+3. For step from 2 to K: for mask from 1 to 2^N - 1:
+   sub = (mask - 1) & mask; while sub > 0: dp[step][mask] = min(dp[step][mask], max(dp[step - 1][mask ^ sub], cost[sub])); sub = (sub - 1) & mask.
+4. Output dp[K][(1<<N) - 1].
+
+**Complexity**: `Time: O(K * 3^N + N^2 * 2^N), Space: O(K * 2^N).`  
+**Editorial Alignment**: O(3^N) submask iteration for minimax set partition DP.  
+
+#### What This Teaches & Reusable Pattern
+- **Skill Taught**: Minimax set partition dynamic programming, submask iteration idiom, and precomputing subset metric diameters.
+- **Reusable Pattern**: `O(3^N) Minimax Subset Partition DP.`
+
+---
+
+[Back to Dynamic Programming (DP) Index](README.md) |

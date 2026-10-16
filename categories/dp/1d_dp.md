@@ -91,4 +91,32 @@ Enforcing the constraint 'no two consecutive identical choices' requires augment
 
 ---
 
-[Back to Dynamic Programming (DP) Index](README.md) | [Back to Master Categories](../../README.md)
+
+### Multiple of 9 (`[problem:AtCoder-typical90_ap]`)
+
+- **Role**: *Digit Sum Divisibility Invariant & 9-Step Bounded Lookahead DP*
+- **Rating**: `1150` (★4) | **Contest**: [`typical90`](https://atcoder.jp/contests/typical90/tasks/typical90_ap)
+- **Full Analysis**: [AtCoder-typical90_ap Analysis](../../analysis/AtCoder-typical90_ap.md)
+
+#### Problem Statement & Task
+Count the number of positive integers whose digit sum equals K (K <= 10^5) and are multiples of 9. Modulo 10^9+7.
+
+#### Core Invariant & Observation
+If K is not divisible by 9, answer is 0. If K is divisible by 9, the problem reduces to counting sequences of digits 1..9 that sum to K: dp[s] = sum_{d=1}^9 dp[s - d].
+
+#### Algorithmic Formulation
+1. If K % 9 != 0: return 0.
+2. dp[0] = 1.
+3. For s from 1 to K: for d from 1 to min(s, 9): dp[s] = (dp[s] + dp[s - d]) % MOD.
+4. Output dp[K].
+
+**Complexity**: `Time: O(9 * K), Space: O(K).`  
+**Editorial Alignment**: Digit sum divisibility rule combined with 9-step lookahead linear DP.  
+
+#### What This Teaches & Reusable Pattern
+- **Skill Taught**: Divisibility invariants and integer partition DP with restricted digit parts.
+- **Reusable Pattern**: `Bounded Lookahead Linear DP.`
+
+---
+
+[Back to Dynamic Programming (DP) Index](README.md) |

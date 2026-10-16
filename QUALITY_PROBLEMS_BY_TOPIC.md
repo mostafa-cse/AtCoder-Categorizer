@@ -11,6 +11,41 @@ A structured, topic-wise curriculum catalog of high-value AtCoder problems class
 
 # Basics
 
+## Ternary Search & Optimization
+
+### Discrete Golden-Section / Fibonacci Search on Unimodal Functions
+
+- [problem:AtCoder-typical90_ba] **Discrete Dowsing** (Rating: 2600, ★7) — *Interactive problem: array A of length N (N <= 1500) strictly increases then strictly decreases (strictly unim...*
+
+
+## Meet in the Middle
+
+### Meet-in-the-Middle with Cardinality and Value Constraints
+
+- [problem:AtCoder-typical90_ay] **Typical Shop** (Rating: 1750, ★5) — *N items (N <= 40) with price A_i. Choose exactly K items such that total price <= P. Count ways....*
+
+
+## Greedy Algorithms
+
+### Greedy Splitting / Automatic Prerequisite Satisfaction by Diminishing Returns
+
+- [problem:AtCoder-typical90_av] **I will not drop out** (Rating: 800, ★3) — *N problems, time limit K minutes. Problem i awards B_i points for first minute, and additional A_i - B_i point...*
+
+
+## Array Transformations
+
+### Virtual Circular Array Shift via Modulo Pointer Offset
+
+- [problem:AtCoder-typical90_ar] **Shift and Swapping** (Rating: 800, ★3) — *Array of length N, Q queries: (1) swap A_x and A_y; (2) shift array right circularly A = (A_N, A_1, ..., A_{N-...*
+
+
+## Permutations & Brute Force
+
+### Permutation Enumeration with Adjacency Graph Pruning
+
+- [problem:AtCoder-typical90_af] **AtCoder Ekiden** (Rating: 850, ★3) — *N runners (N <= 10) run N sections. Runner i takes A_{i, j} time for section j. M pairs of runners (X_k, Y_k) ...*
+
+
 ## Backtracking & Recursion
 
 ### Recursive Backtracking & Prefix Balance Invariant
@@ -27,6 +62,20 @@ A structured, topic-wise curriculum catalog of high-value AtCoder problems class
 ---
 
 # Data Structures (DS)
+
+## Bitset Optimization
+
+### Batch Bitset Acceleration on DAG Reachability Queries
+
+- [problem:AtCoder-typical90_bg] **Many Graph Queries** (Rating: 2600, ★7) — *Directed Acyclic Graph (DAG) with N <= 60000 vertices, M <= 100000 edges. Q <= 100000 queries: can A_i reach B...*
+
+
+## Two Pointers / Sliding Window
+
+### Two Pointers with Frequency Map / K-Distinct Subarray
+
+- [problem:AtCoder-typical90_ah] **There are few types of elements** (Rating: 1250, ★4) — *Given an array of length N (N <= 10^5) and integer K, find the maximum length of a contiguous subarray contain...*
+
 
 ## Segment Tree / Fenwick Tree
 
@@ -64,6 +113,34 @@ A structured, topic-wise curriculum catalog of high-value AtCoder problems class
 ---
 
 # Dynamic Programming (DP)
+
+## Classic DP
+
+### Longest Bitonic Subsequence via Dual LIS
+
+- [problem:AtCoder-typical90_bh] **Chimera** (Rating: 1600, ★5) — *Given array A of length N (N <= 3 * 10^5), find the maximum length of a bitonic subsequence (strictly increase...*
+
+
+## Bit Related DP
+
+### Minimax Subset Partition Bitmask DP with O(3^N) Submask Iteration
+
+- [problem:AtCoder-typical90_as] **Simple Grouping** (Rating: 2150, ★6) — *N points in 2D plane (N <= 15). Partition points into K non-empty groups. Cost of a group is the maximum squar...*
+
+
+## Intro to DP
+
+### Digit Sum Divisibility Invariant & 9-Step Bounded Lookahead DP
+
+- [problem:AtCoder-typical90_ap] **Multiple of 9** (Rating: 1150, ★4) — *Count the number of positive integers whose digit sum equals K (K <= 10^5) and are multiples of 9. Modulo 10^9...*
+
+
+## DP Optimizations
+
+### Segment Tree Accelerated Range Knapsack DP
+
+- [problem:AtCoder-typical90_ak] **Don't Leave the Spice** (Rating: 1750, ★5) — *Dishes require exact weight W (W <= 10000). N spices with weight range [L_i, R_i] and value V_i. Find maximum ...*
+
 
 ## Classic DP
 
@@ -182,6 +259,13 @@ A structured, topic-wise curriculum catalog of high-value AtCoder problems class
 
 # Game Theory
 
+## Grundy Number / Nim
+
+### Sprague-Grundy Theorem on Multi-Pile Impartial Games
+
+- [problem:AtCoder-typical90_ae] **VS AtCoder** (Rating: 2150, ★6) — *N independent piles with white stones W_i <= 50 and blue stones B_i <= 50. Turn moves: (1) change (W, B) to (W...*
+
+
 ## Impartial Games
 
 ### Sprague-Grundy / Combinatorial Game DP
@@ -191,6 +275,55 @@ A structured, topic-wise curriculum catalog of high-value AtCoder problems class
 ---
 
 # Graph Theory
+
+## Functional Graphs
+
+### Cycle Detection & Periodicity on Functional Graphs (Rho Algorithm)
+
+- [problem:AtCoder-typical90_bf] **Original Calculator** (Rating: 1250, ★4) — *A calculator displays integer x (0 <= x < 10^5). Pressing button replaces x with (x + digit_sum(x)) mod 10^5. ...*
+
+
+## Graph Modeling & Transformations
+
+### Auxiliary Intermediate Node for Clique / Hypergraph Compression in BFS
+
+- [problem:AtCoder-typical90_bb] **Takahashi Number** (Rating: 2150, ★6) — *N authors, M research papers. Paper i is co-authored by K_i authors. Co-authors have collaboration distance 1....*
+
+
+## Minimum Spanning Tree (MST)
+
+### Difference Array Graph Transformation & Minimum Spanning Tree (Kruskal)
+
+- [problem:AtCoder-typical90_aw] **Flip Digits 2** (Rating: 2150, ★6) — *Binary string of length N. M operations with cost C_i flip bits in [L_i, R_i]. Find minimum cost to make it po...*
+
+
+## Shortest Paths
+
+### 0-1 BFS with State Direction / Minimum Turn Path
+
+- [problem:AtCoder-typical90_aq] **Maze Challenge with Lack of Sleep** (Rating: 1350, ★4) — *H x W grid with walls. Start at (r_s, c_s), goal at (r_t, c_t). Moving in the same direction costs 0 turns; ch...*
+
+
+## Network Flow
+
+### Maximum Weight Closure / Project Selection Problem via Min-Cut
+
+- [problem:AtCoder-typical90_an] **Get More Money** (Rating: 2550, ★7) — *N houses with burglary alarms awarding reward A_i. Unlocking house i costs key price W. Opening house i requir...*
+
+
+## Trees
+
+### Contribution to the Sum / Edge Subtree Size Multiplication
+
+- [problem:AtCoder-typical90_am] **Tree Distance** (Rating: 1500, ★5) — *Given a tree with N vertices, compute the sum of distances between all N*(N - 1)/2 pairs of vertices: sum_{1 <...*
+
+
+## Trees & LCA
+
+### Euler Tour DFS Order + LCA for Minimal Subtree on Subset of Vertices
+
+- [problem:AtCoder-typical90_ai] **Preserve Connectivity** (Rating: 2450, ★7) — *Given a tree with N vertices, answer Q queries: each query gives K vertices V_1, ..., V_K. Find the minimum nu...*
+
 
 ## Trees
 
@@ -241,6 +374,13 @@ A structured, topic-wise curriculum catalog of high-value AtCoder problems class
 
 # Geometry
 
+## Convex Hull & Pick's Theorem
+
+### Convex Hull + Pick's Theorem + Shoelace Formula for Lattice Points
+
+- [problem:AtCoder-typical90_ao] **Piles in AtCoder Farm** (Rating: 2600, ★7) — *Given N points in 2D plane, find the number of integer lattice points contained inside or on the boundary of t...*
+
+
 ## Angular Sweep / Polar Angles
 
 ### Polar Angle Sort + Binary Search for Opposite Vector
@@ -262,6 +402,20 @@ A structured, topic-wise curriculum catalog of high-value AtCoder problems class
 
 
 # Math
+
+## Linear Algebra & Basis
+
+### Gaussian Elimination over GF(2) / XOR Basis for Linear Systems
+
+- [problem:AtCoder-typical90_be] **Flip Flap** (Rating: 2200, ★6) — *N switches, M bulbs. Switch i toggles a subset of bulbs. Target state S specifies desired on/off states for ea...*
+
+
+## Coordinate Geometry & Metrics
+
+### 45-Degree Coordinate Rotation / Manhattan to Chebyshev Distance Transformation
+
+- [problem:AtCoder-typical90_aj] **Max Manhattan Distance** (Rating: 1600, ★5) — *Given N points (x_i, y_i), answer Q queries: for point q, find max Manhattan distance |x_q - x_j| + |y_q - y_j...*
+
 
 ## Search Space Invariants & Bounds
 
