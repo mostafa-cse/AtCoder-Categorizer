@@ -9,6 +9,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`1d_dp.md`](1d_dp.md) | Intro to DP | **1D State Recurrences & State Machines** | 4 |
 | [`2d_partially_ordered_lis_asymmetric_sort.md`](2d_partially_ordered_lis_asymmetric_sort.md) | DP Technique | **2d_partially_ordered_lis_asymmetric_sort.md** | 1 |
 | [`amidakuji_non_adjacent_bitmask_dp.md`](amidakuji_non_adjacent_bitmask_dp.md) | DP Technique | **amidakuji_non_adjacent_bitmask_dp.md** | 1 |
+| [`automaton_matrix_exponentiation_banned_substrings.md`](automaton_matrix_exponentiation_banned_substrings.md) | DP Technique | **automaton_matrix_exponentiation_banned_substrings.md** | 1 |
 | [`base10_fast_zeta_transform_carry_free.md`](base10_fast_zeta_transform_carry_free.md) | DP Technique | **base10_fast_zeta_transform_carry_free.md** | 1 |
 | [`bitmask_dp.md`](bitmask_dp.md) | Bit Related DP | **Bitmask DP & Submask Enumeration** | 3 |
 | [`bitmask_dp_contiguous_blocks.md`](bitmask_dp_contiguous_blocks.md) | DP Technique | **bitmask_dp_contiguous_blocks.md** | 1 |
@@ -46,6 +47,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`expected_value_self_loop_dp.md`](expected_value_self_loop_dp.md) | DP Technique | **expected_value_self_loop_dp.md** | 1 |
 | [`forbidden_pattern_last3_dp.md`](forbidden_pattern_last3_dp.md) | DP Technique | **forbidden_pattern_last3_dp.md** | 1 |
 | [`four_way_ray_dp_precomputation.md`](four_way_ray_dp_precomputation.md) | DP Technique | **four_way_ray_dp_precomputation.md** | 1 |
+| [`grammar_rewriting_fibonacci_invariants.md`](grammar_rewriting_fibonacci_invariants.md) | DP Technique | **grammar_rewriting_fibonacci_invariants.md** | 1 |
 | [`grid_dp.md`](grid_dp.md) | Classic DP | **Grid DP & Path Counting with Obstacles** | 1 |
 | [`grid_dp_manhattan_distance.md`](grid_dp_manhattan_distance.md) | DP Technique | **grid_dp_manhattan_distance.md** | 1 |
 | [`grid_dp_row_col_buffering.md`](grid_dp_row_col_buffering.md) | DP Technique | **grid_dp_row_col_buffering.md** | 1 |
@@ -68,6 +70,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`minimum_insertions_lis.md`](minimum_insertions_lis.md) | DP Technique | **minimum_insertions_lis.md** | 1 |
 | [`moment_tracking_grid_path_dp.md`](moment_tracking_grid_path_dp.md) | DP Technique | **moment_tracking_grid_path_dp.md** | 1 |
 | [`multistep_increasing_ratio_dp.md`](multistep_increasing_ratio_dp.md) | DP Technique | **multistep_increasing_ratio_dp.md** | 1 |
+| [`non_duplicate_partition_prefix_sum_dp.md`](non_duplicate_partition_prefix_sum_dp.md) | DP Technique | **non_duplicate_partition_prefix_sum_dp.md** | 1 |
 | [`order_dependent_knapsack_sorting.md`](order_dependent_knapsack_sorting.md) | DP Technique | **order_dependent_knapsack_sorting.md** | 1 |
 | [`partition_dp_modulo_bucketing.md`](partition_dp_modulo_bucketing.md) | DP Technique | **partition_dp_modulo_bucketing.md** | 1 |
 | [`permutation_cycle_lucas_numbers.md`](permutation_cycle_lucas_numbers.md) | DP Technique | **permutation_cycle_lucas_numbers.md** | 1 |
