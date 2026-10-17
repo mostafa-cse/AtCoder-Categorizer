@@ -20,6 +20,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`common_subsequence_count_2d_dp.md`](common_subsequence_count_2d_dp.md) | DP Technique | **common_subsequence_count_2d_dp.md** | 1 |
 | [`complement_graph_dp_subtraction.md`](complement_graph_dp_subtraction.md) | DP Technique | **complement_graph_dp_subtraction.md** | 1 |
 | [`constraint_adaptive_knapsack_master.md`](constraint_adaptive_knapsack_master.md) | DP Technique | **constraint_adaptive_knapsack_master.md** | 1 |
+| [`contiguous_block_placement_dp_marbles.md`](contiguous_block_placement_dp_marbles.md) | DP Technique | **contiguous_block_placement_dp_marbles.md** | 1 |
 | [`convex_hull_trick.md`](convex_hull_trick.md) | Convex Hull Trick (CHT) | **Convex Hull Trick (CHT) & DP Optimization** | 1 |
 | [`dag_minimum_ancestor_cost_dp.md`](dag_minimum_ancestor_cost_dp.md) | DP Technique | **dag_minimum_ancestor_cost_dp.md** | 1 |
 | [`descending_sort_knapsack_exempt_heaviest.md`](descending_sort_knapsack_exempt_heaviest.md) | DP Technique | **descending_sort_knapsack_exempt_heaviest.md** | 1 |
@@ -61,6 +62,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`longest_increasing_subsequence.md`](longest_increasing_subsequence.md) | Classic DP | **Longest Bitonic Subsequence via Dual LIS** | 1 |
 | [`longest_nonoverlapping_common_substring_dp.md`](longest_nonoverlapping_common_substring_dp.md) | DP Technique | **longest_nonoverlapping_common_substring_dp.md** | 1 |
 | [`matrix_exponentiation.md`](matrix_exponentiation.md) | Dp on Different Structures | **Matrix Exponentiation DP** | 1 |
+| [`minimum_clique_partition_submask_dp.md`](minimum_clique_partition_submask_dp.md) | DP Technique | **minimum_clique_partition_submask_dp.md** | 1 |
 | [`minimum_insertions_lis.md`](minimum_insertions_lis.md) | DP Technique | **minimum_insertions_lis.md** | 1 |
 | [`moment_tracking_grid_path_dp.md`](moment_tracking_grid_path_dp.md) | DP Technique | **moment_tracking_grid_path_dp.md** | 1 |
 | [`multistep_increasing_ratio_dp.md`](multistep_increasing_ratio_dp.md) | DP Technique | **multistep_increasing_ratio_dp.md** | 1 |
@@ -81,6 +83,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`subsequence_automaton_wildcards_dp.md`](subsequence_automaton_wildcards_dp.md) | DP Technique | **subsequence_automaton_wildcards_dp.md** | 1 |
 | [`subset_bitmask_dp_prefix_constraints.md`](subset_bitmask_dp_prefix_constraints.md) | DP Technique | **subset_bitmask_dp_prefix_constraints.md** | 1 |
 | [`subsets_of_subsets_knapsack_dp.md`](subsets_of_subsets_knapsack_dp.md) | DP Technique | **subsets_of_subsets_knapsack_dp.md** | 1 |
+| [`three_phase_knapsack_all_segments.md`](three_phase_knapsack_all_segments.md) | DP Technique | **three_phase_knapsack_all_segments.md** | 1 |
 | [`three_resource_knapsack_search.md`](three_resource_knapsack_search.md) | DP Technique | **three_resource_knapsack_search.md** | 1 |
 | [`topological_sort_count_bitmask_dp.md`](topological_sort_count_bitmask_dp.md) | DP Technique | **topological_sort_count_bitmask_dp.md** | 1 |
 | [`tree_dp_independent_set_coloring.md`](tree_dp_independent_set_coloring.md) | DP Technique | **tree_dp_independent_set_coloring.md** | 1 |
