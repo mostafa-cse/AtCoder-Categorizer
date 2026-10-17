@@ -13,3 +13,4 @@ This topic focuses on sum over subsets dp (sos dp) techniques for solving compet
 | Problem ID | Title | Rating | Key Technique / Reduction |
 | :--- | :--- | :--- | :--- |
 | [`AtCoder-abc349_f`](../../analysis/AtCoder-abc349_f.md) | I. Subsequence LCM | 2169 | Find the number of non-empty subsequences with LCM equal to M. Factor M into distinct prime powers p_j^{e_j} (at most k ... |
+| [`AtCoder-arc137_d`](../../analysis/AtCoder-arc137_d.md) | D. Prefix XORs | 2191 | After k prefix XOR operations, A_i contributes to A_N with coefficient C(N - i + k - 1, k - 1) mod 2. By Lucas' theorem,... |

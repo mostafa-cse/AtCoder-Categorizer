@@ -54,6 +54,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`grid_dp_row_item_capacity.md`](grid_dp_row_item_capacity.md) | DP Technique | **grid_dp_row_item_capacity.md** | 1 |
 | [`grid_path_subset_sum_bitset.md`](grid_path_subset_sum_bitset.md) | DP Technique | **grid_path_subset_sum_bitset.md** | 1 |
 | [`grid_strictly_increasing_paths_dag.md`](grid_strictly_increasing_paths_dag.md) | DP Technique | **grid_strictly_increasing_paths_dag.md** | 1 |
+| [`group_size_partition_knapsack_dp.md`](group_size_partition_knapsack_dp.md) | DP Technique | **group_size_partition_knapsack_dp.md** | 0 |
 | [`inclusion_exclusion_dp.md`](inclusion_exclusion_dp.md) | Classic DP | **Inclusion-Exclusion Principle & Combinatorics Grid DP** | 1 |
 | [`independent_xy_subset_sum_bitset.md`](independent_xy_subset_sum_bitset.md) | DP Technique | **independent_xy_subset_sum_bitset.md** | 1 |
 | [`interval_cover_segment_tree_min_dp.md`](interval_cover_segment_tree_min_dp.md) | DP Technique | **interval_cover_segment_tree_min_dp.md** | 1 |
@@ -96,6 +97,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`topological_sort_count_bitmask_dp.md`](topological_sort_count_bitmask_dp.md) | DP Technique | **topological_sort_count_bitmask_dp.md** | 1 |
 | [`tree_dp_independent_set_coloring.md`](tree_dp_independent_set_coloring.md) | DP Technique | **tree_dp_independent_set_coloring.md** | 1 |
 | [`tree_edge_frequencies_subset_sum.md`](tree_edge_frequencies_subset_sum.md) | DP Technique | **tree_edge_frequencies_subset_sum.md** | 1 |
+| [`tree_integers_interval_parity_dp.md`](tree_integers_interval_parity_dp.md) | DP Technique | **tree_integers_interval_parity_dp.md** | 0 |
 | [`tsp_bitmask_asymmetric_metric.md`](tsp_bitmask_asymmetric_metric.md) | DP Technique | **tsp_bitmask_asymmetric_metric.md** | 1 |
 | [`two_constraint_knapsack_dp.md`](two_constraint_knapsack_dp.md) | DP Technique | **two_constraint_knapsack_dp.md** | 1 |
 | [`two_ratio_knapsack_dp.md`](two_ratio_knapsack_dp.md) | DP Technique | **two_ratio_knapsack_dp.md** | 1 |

@@ -13,3 +13,4 @@ This topic focuses on knapsack and basic dynamic programming techniques for solv
 | Problem ID | Title | Rating | Key Technique / Reduction |
 | :--- | :--- | :--- | :--- |
 | [`AtCoder-abc457_f`](../../analysis/AtCoder-abc457_f.md) | F. Second Gap | 2167 | Count permutations P of 1..N such that in every suffix P[i..N], the distance between the largest and 2nd largest element... |
+| [`AtCoder-agc065_b`](../../analysis/AtCoder-agc065_b.md) | B. Erase and Insert | 2193 | Working backwards from i = N down to 1, we maintain the sequence of counts of not-yet-inserted elements between inserted... |
