@@ -816,3 +816,22 @@ This log tracks the rigorous evaluation of AtCoder problems, separating **high-v
 | [problem:AtCoder-abc470_g] | Range Mex Sum | 2094 | **SELECTED** | Data Structures (DS) → Segment Tree Beats | Selected: Archetype for Segment Tree Beats. |
 | [problem:AtCoder-abc359_g] | Sum of Tree Distance | 2095 | **SELECTED** | Graph Theory → Virtual Tree / Auxiliary Tree | Selected: Archetype for Virtual Tree / Auxiliary Tree. |
 | [problem:AtCoder-arc107_d] | Number of Multisets | 2096 | **SELECTED** | Dynamic Programming (DP) → x2 +1 Trick | Selected: Archetype for x2 +1 Trick. |
+
+| [problem:AtCoder-abc370_f] | Cake Division | 2102 | **SELECTED** | Data Structures (DS) → Sparse Table | Selected: Archetype for Sparse Table. |
+| [problem:AtCoder-agc029_c] | Lexicographic constraints | 2103 | **SELECTED** | Basics → Binary Search | Selected: Archetype for Binary Search. |
+| [problem:AtCoder-abc140_f] | Many Slimes | 2105 | **SELECTED** | Basics → Basic Greedy Algorithms | Selected: Archetype for Basic Greedy Algorithms. |
+| [problem:AtCoder-abc342_g] | Retroactive Range Chmax | 2107 | **SELECTED** | Data Structures (DS) → Segment Tree (Point Update Range Query) | Selected: Archetype for Segment Tree (Point Update Range Query). |
+| [problem:AtCoder-abc289_g] | Shopping in AtCoder store | 2109 | **SELECTED** | Dynamic Programming (DP) → Convex Hull Trick (CHT) and Dynamic CHT | Selected: Archetype for Convex Hull Trick (CHT) and Dynamic CHT. |
+| [problem:AtCoder-abc371_f] | Takahashi in Narrow Road | 2109 | **SELECTED** | Data Structures (DS) → Segment Tree with Lazy Propagation | Selected: Archetype for Segment Tree with Lazy Propagation. |
+| [problem:AtCoder-arc100_c] | Or Plus Max | 2111 | **SELECTED** | Dynamic Programming (DP) → Sum Over Subsets DP (SOS DP) | Selected: Archetype for Sum Over Subsets DP (SOS DP). |
+| [problem:AtCoder-abc230_f] | Predilection | 2113 | **SELECTED** | Dynamic Programming (DP) → Knapsack and Basic Dynamic Programming | Selected: Archetype for Knapsack and Basic Dynamic Programming. |
+| [problem:AtCoder-abc343_g] | Compress Strings | 2114 | **SELECTED** | Dynamic Programming (DP) → Bitmask DP | Selected: Archetype for Bitmask DP. |
+| [problem:AtCoder-arc117_d] | Miracle Tree | 2115 | **SELECTED** | Graph Theory → Tree Diameter | Selected: Archetype for Tree Diameter. |
+| [problem:AtCoder-keyence2021_d] | Choosing Up Sides | 2115 | **SELECTED** | Basics → Basic Constructive Algorithms | Selected: Archetype for Basic Constructive Algorithms. |
+| [problem:AtCoder-abc145_f] | Laminate | 2116 | **SELECTED** | Dynamic Programming (DP) → Knapsack and Basic Dynamic Programming | Selected: Archetype for Knapsack and Basic Dynamic Programming. |
+| [problem:AtCoder-arc175_c] | Jumping Through Intervals | 2116 | **SELECTED** | Basics → Basic Greedy Algorithms | Selected: Archetype for Basic Greedy Algorithms. |
+| [problem:AtCoder-abc244_g] | Construct Good Path | 2117 | **SELECTED** | Graph Theory → DFS Tree | Selected: Archetype for DFS Tree. |
+| [problem:AtCoder-arc077_c] | guruguru | 2117 | **SELECTED** | Basics → Difference Array | Selected: Archetype for Difference Array. |
+| [problem:AtCoder-arc183_b] | Near Assignment | 2118 | **SELECTED** | Basics → Basic Constructive Algorithms | Selected: Archetype for Basic Constructive Algorithms. |
+| [problem:AtCoder-abc426_g] | Range Knapsack Query | 2119 | **SELECTED** | Miscellaneous → Divide and Conquer on Queries | Selected: Archetype for Divide and Conquer on Queries. |
+| [problem:AtCoder-agc048_c] | Penguin Skating | 2120 | **SELECTED** | Basics → Two Pointers | Selected: Archetype for Two Pointers. |
