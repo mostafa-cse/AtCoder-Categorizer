@@ -1,0 +1,539 @@
+[
+  {
+    "id": "arc202_c",
+    "contest_id": "arc202",
+    "title": "C. Repunits",
+    "rating": 2274,
+    "domain": "Number Theory",
+    "subtopic": "Multiplicative Functions",
+    "topic": "Mobius Function and Mobius Inversion",
+    "category_file": "categories/number_theory/mobius_inversion_repunit_lcm.md",
+    "slug": "mobius_inversion_repunit_lcm",
+    "core_tags": [
+      "Number Theory",
+      "Möbius Inversion",
+      "Repunits",
+      "Strong Divisibility Sequence",
+      "LCM",
+      "Sieve"
+    ],
+    "invariant": "Repunits $R_n = (10^n - 1)/9$ form a strong divisibility sequence satisfying $\\gcd(R_a, R_b) = R_{\\gcd(a, b)}$. By multiplicative Möbius inversion, $R_n = \\prod_{d | n} f(d)$ where $f(d) = \\prod_{c | d} R_c^{\\mu(d/c)}$, and $\\mathrm{LCM}(R_{A_1}, \\dots, R_{A_k}) = \\prod_{d \\in \\bigcup_{i=1}^k \\mathrm{divisors}(A_i)} f(d)$.",
+    "editorial_reduction": "1. Note that $\\gcd(10^a - 1, 10^b - 1) = 10^{\\gcd(a, b)} - 1$, which implies repunits $R_n = (10^n - 1)/9$ satisfy $\\gcd(R_a, R_b) = R_{\\gcd(a, b)}$.\\n2. For any strong divisibility sequence, the lattice of elements under $\\gcd$ and $\\mathrm{lcm}$ is isomorphic to the divisibility poset of their indices. Decomposing $R_n$ multiplicatively via Möbius inversion yields $R_n = \\prod_{d | n} f(d)$ where $f(d) = \\prod_{c | d} R_c^{\\mu(d/c)} \\pmod{998244353}$.\\n3. The least common multiple of any subset is the product of $f(d)$ over the union of all divisors of the indices: $\\mathrm{LCM}(R_{A_1}, \\dots, R_{A_k}) = \\prod_{d \\in D_k} f(d)$, where $D_k = \\bigcup_{i=1}^k \\mathrm{divisors}(A_i)$.\\n4. Precompute $\\mu(k)$, $R_k$, and $f(d)$ for all $d \\le 200000$ using a linear sieve and divisor transitions in $O(M \\log M)$ where $M = 2 \\times 10^5$. Maintain a global boolean array `seen[d]` and running cumulative product. For each query $A_k$, factorize $A_k$ in $O(d(A_k))$, multiply in $f(d)$ for newly discovered divisors, and output the cumulative LCM in $O(1)$.",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n\nusing namespace std;\n\nstatic const int MOD = 998244353;\n\nlong long power(long long base, long long exp) {\n    long long res = 1;\n    base %= MOD;\n    while (exp > 0) {\n        if (exp % 2 == 1) res = (res * base) % MOD;\n        base = (base * base) % MOD;\n        exp /= 2;\n    }\n    return res;\n}\n\nlong long modInverse(long long n) {\n    return power(n, MOD - 2);\n}\n\nconst int MAXV = 200000;\nint mu[MAXV + 1];\nvector<int> primes;\nbool is_prime[MAXV + 1];\nlong long R[MAXV + 1];\nlong long invR[MAXV + 1];\nlong long f[MAXV + 1];\nvector<int> divisors_list[MAXV + 1];\nbool seen[MAXV + 1];\n\nvoid sieve() {\n    fill(is_prime + 2, is_prime + MAXV + 1, true);\n    mu[1] = 1;\n    for (int i = 2; i <= MAXV; i++) {\n        if (is_prime[i]) {\n            primes.push_back(i);\n            mu[i] = -1;\n        }\n        for (int p : primes) {\n            if (i * p > MAXV) break;\n            is_prime[i * p] = false;\n            if (i % p == 0) {\n                mu[i * p] = 0;\n                break;\n            } else {\n                mu[i * p] = -mu[i];\n            }\n        }\n    }\n\n    long long inv9 = modInverse(9);\n    for (int i = 1; i <= MAXV; i++) {\n        long long num = (power(10, i) - 1 + MOD) % MOD;\n        R[i] = (num * inv9) % MOD;\n        invR[i] = modInverse(R[i]);\n        f[i] = 1;\n    }\n\n    for (int c = 1; c <= MAXV; c++) {\n        for (int d = c; d <= MAXV; d += c) {\n            divisors_list[d].push_back(c);\n            int k = d / c;\n            if (mu[k] == 1) {\n                f[d] = (f[d] * R[c]) % MOD;\n            } else if (mu[k] == -1) {\n                f[d] = (f[d] * invR[c]) % MOD;\n            }\n        }\n    }\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    sieve();\n\n    int n;\n    if (!(cin >> n)) return 0;\n    long long current_lcm = 1;\n    for (int i = 0; i < n; i++) {\n        int a;\n        cin >> a;\n        for (int d : divisors_list[a]) {\n            if (!seen[d]) {\n                seen[d] = true;\n                current_lcm = (current_lcm * f[d]) % MOD;\n            }\n        }\n        cout << current_lcm << \"\\n\";\n    }\n\n    return 0;\n}\n",
+    "sample_tests": [
+      {
+        "input": "3\r\n2 4 6",
+        "output": "11\r\n1111\r\n11222211"
+      },
+      {
+        "input": "1\r\n200000",
+        "output": "202819780"
+      },
+      {
+        "input": "10\r\n47718 21994 98917 104184 160670 190107 125377 29127 7017 177076",
+        "output": "429620650\r\n844699313\r\n355160870\r\n608402385\r\n858856681\r\n605347397\r\n566966598\r\n429324494\r\n370941155\r\n567238109"
+      }
+    ]
+  },
+  {
+    "id": "abc215_g",
+    "contest_id": "abc215",
+    "title": "G. Colorful Candies 2",
+    "rating": 2276,
+    "domain": "Math",
+    "subtopic": "Probabilities and Expected Values",
+    "topic": "Probabilities and Expected Values",
+    "category_file": "categories/math/expected_distinct_colors_hypergeometric_frequency_compression.md",
+    "slug": "expected_distinct_colors_hypergeometric_frequency_compression",
+    "core_tags": [
+      "Math",
+      "Expected Value",
+      "Linearity of Expectation",
+      "Hypergeometric Probability",
+      "Frequency Compression"
+    ],
+    "invariant": "By linearity of expectation, the expected number of distinct colors in a sample of size $K$ equals the sum of probabilities that each color is present: $E[C] = \\sum_{c} (1 - \\binom{N - cnt_c}{K} / \\binom{N}{K})$. Grouping colors by frequency compresses the evaluation to at most $\\sqrt{2N}$ unique sizes.",
+    "editorial_reduction": "1. Express the expected number of distinct colors using indicator random variables for each color: $E_K = \\sum_{c} P(\\text{color } c \\text{ is chosen})$.\\n2. The probability of choosing color $c$ when sampling $K$ candies uniformly without replacement is $1 - \\frac{\\binom{N - cnt_c}{K}}{\\binom{N}{K}}$, where $cnt_c$ is the number of candies of color $c$.\\n3. Summing across all colors gives $E_K = (\\text{total distinct colors}) - \\frac{1}{\\binom{N}{K}} \\sum_{c} \\binom{N - cnt_c}{K}$.\\n4. Since $\\sum_{c} cnt_c = N$, the number of distinct frequency values $s \\in \\{cnt_c\\}$ is bounded by $\\sqrt{2N} \\approx 316$. We compress the sum to $\\sum_{s} \\text{freq}[s] \\cdot \\binom{N - s}{K}$, where $\\text{freq}[s]$ is the number of colors appearing exactly $s$ times.\\n5. For each $K = 1, \\dots, N$, compute the sum over all non-zero frequencies in $O(\\sqrt{N})$ time. Total time complexity is $O(N \\sqrt{N})$, completing comfortably within 0.1s.",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <map>\n#include <algorithm>\n\nusing namespace std;\n\nstatic const int MOD = 998244353;\n\nlong long power(long long base, long long exp) {\n    long long res = 1;\n    base %= MOD;\n    while (exp > 0) {\n        if (exp % 2 == 1) res = (res * base) % MOD;\n        base = (base * base) % MOD;\n        exp /= 2;\n    }\n    return res;\n}\n\nlong long modInverse(long long n) {\n    return power(n, MOD - 2);\n}\n\nconst int MAXN = 50005;\nlong long fact[MAXN];\nlong long invFact[MAXN];\n\nvoid init_fact() {\n    fact[0] = 1;\n    invFact[0] = 1;\n    for (int i = 1; i < MAXN; i++) {\n        fact[i] = (fact[i - 1] * i) % MOD;\n    }\n    invFact[MAXN - 1] = modInverse(fact[MAXN - 1]);\n    for (int i = MAXN - 2; i >= 1; i--) {\n        invFact[i] = (invFact[i + 1] * (i + 1)) % MOD;\n    }\n}\n\nlong long nCr(int n, int r) {\n    if (r < 0 || r > n) return 0;\n    return fact[n] * invFact[r] % MOD * invFact[n - r] % MOD;\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    init_fact();\n\n    int n;\n    if (!(cin >> n)) return 0;\n\n    map<int, int> color_count;\n    for (int i = 0; i < n; i++) {\n        int c;\n        cin >> c;\n        color_count[c]++;\n    }\n\n    int total_colors = color_count.size();\n    map<int, int> freq_count;\n    for (auto const& [col, cnt] : color_count) {\n        freq_count[cnt]++;\n    }\n\n    vector<pair<int, int>> freqs(freq_count.begin(), freq_count.end());\n\n    for (int k = 1; k <= n; k++) {\n        long long inv_ways = modInverse(nCr(n, k));\n        long long sum_unselected = 0;\n        for (auto const& [s, num_cols] : freqs) {\n            long long ways = nCr(n - s, k);\n            if (ways > 0) {\n                sum_unselected = (sum_unselected + 1LL * num_cols * ways) % MOD;\n            }\n        }\n        long long unselected_prob = (sum_unselected * inv_ways) % MOD;\n        long long ans = (total_colors - unselected_prob + MOD) % MOD;\n        cout << ans << \"\\n\";\n    }\n\n    return 0;\n}\n",
+    "sample_tests": [
+      {
+        "input": "3\r\n1 2 2",
+        "output": "1\r\n665496237\r\n2"
+      },
+      {
+        "input": "11\r\n3 1 4 1 5 9 2 6 5 3 5",
+        "output": "1\r\n725995895\r\n532396991\r\n768345657\r\n786495555\r\n937744700\r\n574746754\r\n48399732\r\n707846002\r\n907494873\r\n7"
+      }
+    ]
+  },
+  {
+    "id": "arc175_d",
+    "contest_id": "arc175",
+    "title": "D. LIS on Tree 2",
+    "rating": 2276,
+    "domain": "Basics",
+    "subtopic": "Greedy and Constructive",
+    "topic": "Basic Constructive Algorithms",
+    "category_file": "categories/basics/constructive_tree_permutation_target_lis_sum.md",
+    "slug": "constructive_tree_permutation_target_lis_sum",
+    "core_tags": [
+      "Basics",
+      "Constructive",
+      "Tree",
+      "LIS",
+      "Greedy Subtree Sum"
+    ],
+    "invariant": "In any rooted tree, extending the LIS at vertex $u$ increments the LIS value of all vertices in its subtree $T_u$, contributing exactly $|T_u|$ to $\\sum L_i$. Since subtree sizes form an additive hierarchy, greedy selection by descending subtree size solves the subset sum exactly, and ranking vertices by signed depths $x_u = \\pm d_u$ reconstructs the permutation.",
+    "editorial_reduction": "1. Along any root-to-node path, adding node $u$ either increments the LIS by 1 or leaves it unchanged. Minimum total sum is $N$ (strictly decreasing top-to-bottom); maximum is $N + \\sum_{i=1}^N d_i = \\sum_{i=1}^N |T_i|$. If $K < N$ or $K > N + \\sum d_i$, output `No`.\\n2. If vertex $u$ is chosen to extend the LIS, it adds $|T_u|$ to the total sum $\\sum L_i$. The problem reduces to choosing a subset of vertices $S \\subseteq \\{2, \\dots, N\\}$ such that $\\sum_{u \\in S} |T_u| = K - N$.\\n3. By tree structural induction, greedy selection over $u \\in \\{2, \\dots, N\\}$ sorted by descending $|T_u|$ is guaranteed to achieve $K - N$ if achievable.\\n4. To construct $P$: define $x_1 = 0$; for each $i \\ge 2$, set $x_i = d_i$ if $i \\in S$, and $x_i = -d_i$ if $i \\notin S$. Sorting all vertices by $x_i$ ascending and assigning permutation labels $1, \\dots, N$ ensures that along every branch, vertices in $S$ are strictly increasing while vertices not in $S$ are strictly smaller, achieving the target LIS sum in $O(N \\log N)$.",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <numeric>\n#include <algorithm>\n\nusing namespace std;\n\nint n;\nlong long k;\nvector<vector<int>> adj;\nvector<int> sz;\nvector<int> depth;\nvector<int> parent_node;\nvector<bool> in_S;\n\nvoid dfs(int u, int p, int d) {\n    depth[u] = d;\n    parent_node[u] = p;\n    sz[u] = 1;\n    for (int v : adj[u]) {\n        if (v != p) {\n            dfs(v, u, d + 1);\n            sz[u] += sz[v];\n        }\n    }\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    if (!(cin >> n >> k)) return 0;\n\n    adj.assign(n + 1, vector<int>());\n    for (int i = 0; i < n - 1; i++) {\n        int u, v;\n        cin >> u >> v;\n        adj[u].push_back(v);\n        adj[v].push_back(u);\n    }\n\n    sz.assign(n + 1, 0);\n    depth.assign(n + 1, 0);\n    parent_node.assign(n + 1, 0);\n    dfs(1, 0, 0);\n\n    long long sum_depth = 0;\n    for (int i = 1; i <= n; i++) {\n        sum_depth += depth[i];\n    }\n\n    long long min_val = n;\n    long long max_val = n + sum_depth;\n\n    if (k < min_val || k > max_val) {\n        cout << \"No\\n\";\n        return 0;\n    }\n\n    long long rem = k - n;\n    vector<int> order(n - 1);\n    iota(order.begin(), order.end(), 2);\n    sort(order.begin(), order.end(), [](int a, int b) {\n        return sz[a] > sz[b];\n    });\n\n    in_S.assign(n + 1, false);\n    for (int u : order) {\n        if (sz[u] <= rem) {\n            in_S[u] = true;\n            rem -= sz[u];\n        }\n    }\n\n    if (rem != 0) {\n        cout << \"No\\n\";\n        return 0;\n    }\n\n    vector<pair<int, int>> nodes;\n    nodes.reserve(n);\n    nodes.push_back({0, 1});\n    for (int i = 2; i <= n; i++) {\n        int val = in_S[i] ? depth[i] : -depth[i];\n        nodes.push_back({val, i});\n    }\n\n    sort(nodes.begin(), nodes.end(), [](const pair<int, int>& a, const pair<int, int>& b) {\n        if (a.first != b.first) return a.first < b.first;\n        return a.second < b.second;\n    });\n\n    vector<int> P(n + 1);\n    for (int rank = 1; rank <= n; rank++) {\n        int u = nodes[rank - 1].second;\n        P[u] = rank;\n    }\n\n    cout << \"Yes\\n\";\n    for (int i = 1; i <= n; i++) {\n        cout << P[i] << (i == n ? \"\" : \" \");\n    }\n    cout << \"\\n\";\n\n    return 0;\n}\n",
+    "sample_tests": [
+      {
+        "input": "5 8\r\n1 2\r\n2 3\r\n2 4\r\n4 5",
+        "output": "Yes\r\n3 2 1 4 5"
+      },
+      {
+        "input": "7 21\r\n2 1\r\n7 2\r\n5 1\r\n3 7\r\n2 6\r\n3 4",
+        "output": "No"
+      },
+      {
+        "input": "8 20\r\n3 1\r\n3 8\r\n7 1\r\n7 5\r\n3 2\r\n6 5\r\n4 7",
+        "output": "Yes\r\n2 1 3 5 6 8 4 7"
+      }
+    ]
+  },
+  {
+    "id": "abc143_f",
+    "contest_id": "abc143",
+    "title": "F. Distinct Numbers",
+    "rating": 2277,
+    "domain": "Basics",
+    "subtopic": "Leveraging Monotonicity",
+    "topic": "Binary Search",
+    "category_file": "categories/basics/binary_search_frequency_capped_subset_partition.md",
+    "slug": "binary_search_frequency_capped_subset_partition",
+    "core_tags": [
+      "Basics",
+      "Binary Search",
+      "Prefix Sum",
+      "Gale-Ryser",
+      "Frequency Capping"
+    ],
+    "invariant": "$X$ operations choosing $K$ distinct elements are feasible if and only if the total capped count $\\sum_i \\min(c_i, X) \\ge K \\cdot X$. Inverting this relationship allows determining the maximum $X$ for each $K$ via binary search or suffix-maximum sweep over $K \\le \\lfloor S(X) / X \\rfloor$.",
+    "editorial_reduction": "1. Let $c_1, \\dots, c_m$ be the frequencies of each distinct number in the input. In $X$ operations of size $K$, each distinct number can be chosen at most once per operation, hence at most $\\min(c_i, X)$ times in total.\\n2. By the Gale-Ryser / Hajnal-Szemerédi theorem for bipartite degree sequences, the condition $\\sum_i \\min(c_i, X) \\ge K \\cdot X$ is both necessary and sufficient to form $X$ subsets of size $K$ with distinct elements.\\n3. Let $S(X) = \\sum_i \\min(c_i, X)$. By precomputing the frequency distribution of counts using prefix sums, $S(X)$ can be computed in $O(1)$ for each $X \\in [1, N]$.\\n4. For each $X$, the maximum subset size for which $X$ operations is possible is $K_{max}(X) = \\lfloor S(X) / X \\rfloor$. Setting $\\text{ans}[K_{max}(X)] = \\max(\\text{ans}[K_{max}(X)], X)$ and taking a backward suffix maximum sweep $\\text{ans}[K] = \\max(\\text{ans}[K], \\text{ans}[K+1])$ yields the answer for all $K \\in [1, N]$ in $O(N)$ total time.",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <numeric>\n\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n;\n    if (!(cin >> n)) return 0;\n\n    vector<int> freq(n + 1, 0);\n    for (int i = 0; i < n; i++) {\n        int a;\n        cin >> a;\n        freq[a]++;\n    }\n\n    vector<int> count_of_freq(n + 1, 0);\n    for (int i = 1; i <= n; i++) {\n        if (freq[i] > 0) {\n            count_of_freq[freq[i]]++;\n        }\n    }\n\n    vector<long long> sum_c(n + 1, 0);\n    vector<long long> count_c(n + 1, 0);\n    for (int v = 1; v <= n; v++) {\n        sum_c[v] = sum_c[v - 1] + 1LL * v * count_of_freq[v];\n        count_c[v] = count_c[v - 1] + count_of_freq[v];\n    }\n\n    long long total_elements = count_c[n];\n\n    vector<int> ans(n + 2, 0);\n    for (int x = 1; x <= n; x++) {\n        long long s_x = sum_c[x] + 1LL * x * (total_elements - count_c[x]);\n        int k = s_x / x;\n        if (k > n) k = n;\n        ans[k] = max(ans[k], x);\n    }\n\n    for (int k = n; k >= 1; k--) {\n        ans[k] = max(ans[k], ans[k + 1]);\n    }\n\n    for (int k = 1; k <= n; k++) {\n        cout << ans[k] << \"\\n\";\n    }\n\n    return 0;\n}\n",
+    "sample_tests": [
+      {
+        "input": "3\r\n2 1 2",
+        "output": "3\r\n1\r\n0"
+      },
+      {
+        "input": "5\r\n1 2 3 4 5",
+        "output": "5\r\n2\r\n1\r\n1\r\n1"
+      },
+      {
+        "input": "4\r\n1 3 3 3",
+        "output": "4\r\n1\r\n0\r\n0"
+      }
+    ]
+  },
+  {
+    "id": "abc273_f",
+    "contest_id": "abc273",
+    "title": "F. Hammer 2",
+    "rating": 2277,
+    "domain": "Dynamic Programming (DP)",
+    "subtopic": "Classic DP",
+    "topic": "Interval DP / Range DP / Matrix Chain Multiplication (MCM)",
+    "category_file": "categories/dynamic_programming_dp/interval_dp_1d_coordinate_hammer_wall_reachability.md",
+    "slug": "interval_dp_1d_coordinate_hammer_wall_reachability",
+    "core_tags": [
+      "Dynamic Programming (DP)",
+      "Interval DP",
+      "Coordinate Compression",
+      "1D Navigation"
+    ],
+    "invariant": "On a 1D line starting at 0, the set of visited coordinates always forms a contiguous interval $[l, r]$ containing 0, with the player situated at either $l$ or $r$. Expanding to $l - 1$ or $r + 1$ is valid if and only if any wall encountered has its associated hammer located within $[l, r]$.",
+    "editorial_reduction": "1. Collect all critical points: start 0, goal $X$, wall locations $Y_i$, and hammer locations $Z_i$ ($2N + 2 \\le 3002$ points). Compress coordinates into a sorted array of unique values.\\n2. Define interval DP state: $dp[l][r][0]$ is the minimum distance to have visited the compressed range $[l, r]$ ending at left endpoint $l$; $dp[l][r][1]$ is the minimum distance ending at right endpoint $r$.\\n3. Transitions from state $(l, r, \\text{side})$ expand by 1 step: moving left to $l - 1$ is allowed if $l - 1$ is not a wall or if its required hammer index lies in $[l, r]$; moving right to $r + 1$ is similarly conditioned.\\n4. Once an interval $[l, r]$ covers the goal coordinate $X$, update the global answer $\\text{ans} = \\min(\\text{ans}, dp[l][r][0], dp[l][r][1])$. Total complexity is $O(M^2)$ where $M \\le 3000$, executing in under 0.1s.",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <cmath>\n\nusing namespace std;\n\nconst long long INF = 1e18;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n;\n    long long x;\n    if (!(cin >> n >> x)) return 0;\n\n    vector<long long> y(n), z(n);\n    vector<long long> coords;\n    coords.push_back(0);\n    coords.push_back(x);\n\n    for (int i = 0; i < n; i++) {\n        cin >> y[i];\n        coords.push_back(y[i]);\n    }\n    for (int i = 0; i < n; i++) {\n        cin >> z[i];\n        coords.push_back(z[i]);\n    }\n\n    sort(coords.begin(), coords.end());\n    coords.erase(unique(coords.begin(), coords.end()), coords.end());\n\n    int m = coords.size();\n    int s = lower_bound(coords.begin(), coords.end(), 0) - coords.begin();\n    int g = lower_bound(coords.begin(), coords.end(), x) - coords.begin();\n\n    vector<int> req(m, -1);\n    for (int i = 0; i < n; i++) {\n        int wall_idx = lower_bound(coords.begin(), coords.end(), y[i]) - coords.begin();\n        int hammer_idx = lower_bound(coords.begin(), coords.end(), z[i]) - coords.begin();\n        req[wall_idx] = hammer_idx;\n    }\n\n    vector<vector<vector<long long>>> dp(m, vector<vector<long long>>(m, vector<long long>(2, INF)));\n    dp[s][s][0] = 0;\n    dp[s][s][1] = 0;\n\n    long long ans = INF;\n\n    for (int len = 1; len <= m; len++) {\n        for (int l = 0; l + len - 1 < m; l++) {\n            int r = l + len - 1;\n\n            if (l <= g && g <= r) {\n                ans = min({ans, dp[l][r][0], dp[l][r][1]});\n                continue;\n            }\n\n            for (int side = 0; side < 2; side++) {\n                long long cur_dist = dp[l][r][side];\n                if (cur_dist >= INF) continue;\n\n                long long cur_pos = (side == 0 ? coords[l] : coords[r]);\n\n                if (l > 0) {\n                    int nxt = l - 1;\n                    int needed_hammer = req[nxt];\n                    if (needed_hammer == -1 || (needed_hammer >= l && needed_hammer <= r)) {\n                        long long d = cur_dist + abs(coords[nxt] - cur_pos);\n                        dp[nxt][r][0] = min(dp[nxt][r][0], d);\n                    }\n                }\n\n                if (r + 1 < m) {\n                    int nxt = r + 1;\n                    int needed_hammer = req[nxt];\n                    if (needed_hammer == -1 || (needed_hammer >= l && needed_hammer <= r)) {\n                        long long d = cur_dist + abs(coords[nxt] - cur_pos);\n                        dp[l][nxt][1] = min(dp[l][nxt][1], d);\n                    }\n                }\n            }\n        }\n    }\n\n    if (ans >= INF) {\n        cout << -1 << \"\\n\";\n    } else {\n        cout << ans << \"\\n\";\n    }\n\n    return 0;\n}\n",
+    "sample_tests": [
+      {
+        "input": "3 10\r\n-2 8 -5\r\n5 -10 3",
+        "output": "40"
+      },
+      {
+        "input": "5 -1\r\n10 -20 30 -40 50\r\n-10 20 -30 40 -50",
+        "output": "1"
+      },
+      {
+        "input": "1 100\r\n30\r\n60",
+        "output": "-1"
+      },
+      {
+        "input": "4 865942261\r\n703164879 -531670946 -874856231 -700164975\r\n-941120316 599462305 -649785130 665402307",
+        "output": "4078987507"
+      }
+    ]
+  },
+  {
+    "id": "arc052_c",
+    "contest_id": "arc052",
+    "title": "C. 高橋くんと不思議な道",
+    "rating": 2277,
+    "domain": "Graph Theory",
+    "subtopic": "Shortest Paths",
+    "topic": "Dijkstra's Algorithm",
+    "category_file": "categories/graph_theory/dijkstra_quadratic_b_edge_state_pruning.md",
+    "slug": "dijkstra_quadratic_b_edge_state_pruning",
+    "core_tags": [
+      "Graph Theory",
+      "Shortest Paths",
+      "Dijkstra",
+      "Quadratic Edge Cost",
+      "State Pruning"
+    ],
+    "invariant": "Using $k$ Type B edges incurs quadratic cost $k(k+1)/2$. Since any simple Type A path costs $< N$, taking more than $\\sqrt{2N} \\approx 141$ Type B edges cannot compensate for Type A savings. For $k < B$, we maintain exact Type A cost $dist[u][k]$; for $k \\ge B$, only the minimum $k$ is needed.",
+    "editorial_reduction": "1. Type A edges cost 1 each, while the $k$-th Type B edge costs $k$, so traversing $k$ Type B edges adds $\\sum_{j=1}^k j = \\frac{k(k+1)}{2}$.\\n2. The total cost of reaching vertex $u$ with $a$ Type A edges and $k$ Type B edges is $a + \\frac{k(k+1)}{2}$.\\n3. For $k \\le B = 150$, maintain $dist[u][k]$, the minimum Type A count to reach $u$ with exactly $k$ Type B edges. State transitions in Dijkstra prioritize total cost $a + k(k+1)/2$.\\n4. For $k \\ge B$, each additional Type B edge costs $\\ge 150 > N$. Two paths with $k_1 < k_2$ can never be overtaken by $k_2$ because saving at most $N$ Type A edges cannot offset the quadratic penalty. Thus for $k \\ge B$, we only maintain $\\min(k)$ at each vertex.\\n5. Run Dijkstra on states $(u, k, a)$ with this two-regime pruning. Total state count is $O(N \\sqrt{N} + M)$, which solves the problem in $O(N \\sqrt{N} \\log(N \\sqrt{N}))$.",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <queue>\n#include <tuple>\n#include <algorithm>\n\nusing namespace std;\n\nconst long long INF = 1e18;\n\nstruct Edge {\n    int to;\n    int type;\n};\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n, m;\n    if (!(cin >> n >> m)) return 0;\n\n    vector<vector<Edge>> adj(n);\n    for (int i = 0; i < m; i++) {\n        int c, u, v;\n        cin >> c >> u >> v;\n        adj[u].push_back({v, c});\n        adj[v].push_back({u, c});\n    }\n\n    const int B = 150;\n    vector<vector<int>> dist(n, vector<int>(B, 1e9));\n    vector<pair<int, int>> min_b(n, {1e9, 1e9});\n\n    typedef tuple<long long, int, int, int> State;\n    priority_queue<State, vector<State>, greater<State>> pq;\n\n    dist[0][0] = 0;\n    pq.push({0, 0, 0, 0});\n\n    vector<long long> ans(n, INF);\n\n    while (!pq.empty()) {\n        auto [cost, u, k, a] = pq.top();\n        pq.pop();\n\n        ans[u] = min(ans[u], cost);\n\n        if (k < B) {\n            if (a > dist[u][k]) continue;\n        } else {\n            if (make_pair(k, a) > min_b[u]) continue;\n        }\n\n        for (const auto& e : adj[u]) {\n            int v = e.to;\n            int nk = k + e.type;\n            int na = a + (1 - e.type);\n            long long ncost = na + 1LL * nk * (nk + 1) / 2;\n\n            if (nk < B) {\n                if (na < dist[v][nk]) {\n                    dist[v][nk] = na;\n                    pq.push({ncost, v, nk, na});\n                }\n            } else {\n                pair<int, int> p = {nk, na};\n                if (p < min_b[v]) {\n                    min_b[v] = p;\n                    pq.push({ncost, v, nk, na});\n                }\n            }\n        }\n    }\n\n    for (int i = 0; i < n; i++) {\n        cout << ans[i] << \"\\n\";\n    }\n\n    return 0;\n}\n",
+    "sample_tests": [
+      {
+        "input": "3 3\r\n0 0 1\r\n1 1 2\r\n1 2 0",
+        "output": "0\r\n1\r\n1"
+      },
+      {
+        "input": "7 8\r\n1 0 1\r\n1 1 2\r\n1 2 5\r\n1 5 6\r\n0 1 3\r\n0 3 4\r\n0 4 5\r\n0 2 6",
+        "output": "0\r\n1\r\n3\r\n2\r\n3\r\n4\r\n4"
+      },
+      {
+        "input": "8 9\r\n0 0 1\r\n0 1 2\r\n0 2 3\r\n0 5 6\r\n0 6 7\r\n1 1 3\r\n1 3 4\r\n1 4 5\r\n1 5 7",
+        "output": "0\r\n1\r\n2\r\n2\r\n4\r\n6\r\n7\r\n8"
+      }
+    ]
+  },
+  {
+    "id": "arc080_c",
+    "contest_id": "arc080",
+    "title": "E. Young Maids",
+    "rating": 2277,
+    "domain": "Data Structures (DS)",
+    "subtopic": "Segment Tree",
+    "topic": "Segment Tree (Point Update Range Query)",
+    "category_file": "categories/data_structures_ds/segment_tree_lexicographical_permutation_rmq_pair_peeling.md",
+    "slug": "segment_tree_lexicographical_permutation_rmq_pair_peeling",
+    "core_tags": [
+      "Data Structures (DS)",
+      "Segment Tree",
+      "Priority Queue",
+      "Greedy",
+      "Parity RMQ"
+    ],
+    "invariant": "In any sequence of adjacent pair removals, every removed pair $(x, y)$ originally occupied an even-length interval between them and had alternating parities relative to the subarray boundary. The problem greedily decouples into independent even-length subsegments $[l, pos(x)-1]$, $[pos(x)+1, pos(y)-1]$, and $[pos(y)+1, r]$ managed by a priority queue.",
+    "editorial_reduction": "1. Prepending pairs to $q$ means the first pair in $q$ was the LAST pair removed from $p$. In reverse, to make $q$ lexicographically smallest, we greedily pick the minimum possible $x$ and corresponding $y$ at each step.\\n2. When two elements $x, y$ are removed from an even-length interval $[l, r]$, all elements between them must have been removed in pairs, meaning the number of elements between $x$ and $y$ is even, and the elements before $x$ and after $y$ also have even counts.\\n3. Hence, $x$ must share the same parity as $l$, and $y$ must have opposite parity and appear after $x$. To minimize $(x, y)$, choose $x = \\arg\\min_{i \\equiv l \\pmod 2, i \\in [l, r]} p[i]$ and $y = \\arg\\min_{j \\not\\equiv l \\pmod 2, j \\in [pos(x)+1, r]} p[j]$.\\n4. After choosing $(x, y)$, the interval $[l, r]$ splits into up to 3 even-length intervals: $[l, pos(x)-1]$, $[pos(x)+1, pos(y)-1]$, and $[pos(y)+1, r]$.\\n5. Maintain all active intervals in a `std::priority_queue` keyed by their minimum $x$ value. Finding $(x, y)$ per interval is performed via RMQ on two Segment Trees (one for even indices, one for odd). Overall time is $O(N \\log N)$.",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <queue>\n#include <tuple>\n#include <algorithm>\n\nusing namespace std;\n\nconst int INF = 1e9;\n\nstruct SegmentTree {\n    int n;\n    vector<pair<int, int>> tree;\n\n    void init(int n_) {\n        n = n_;\n        tree.assign(4 * n + 1, {INF, -1});\n    }\n\n    void update(int node, int l, int r, int idx, int val) {\n        if (l == r) {\n            tree[node] = {val, idx};\n            return;\n        }\n        int mid = (l + r) / 2;\n        if (idx <= mid) update(2 * node, l, mid, idx, val);\n        else update(2 * node + 1, mid + 1, r, idx, val);\n        tree[node] = min(tree[2 * node], tree[2 * node + 1]);\n    }\n\n    pair<int, int> query(int node, int l, int r, int ql, int qr) {\n        if (ql > r || qr < l) return {INF, -1};\n        if (ql <= l && r <= qr) return tree[node];\n        int mid = (l + r) / 2;\n        return min(query(2 * node, l, mid, ql, qr), query(2 * node + 1, mid + 1, r, ql, qr));\n    }\n} st[2];\n\nstruct Interval {\n    int l, r;\n    int x_val, x_idx;\n    int y_val, y_idx;\n\n    bool operator>(const Interval& other) const {\n        return x_val > other.x_val;\n    }\n};\n\nInterval make_interval(int l, int r, int n) {\n    int parity_l = l % 2;\n    pair<int, int> qx = st[parity_l].query(1, 0, n - 1, l, r);\n    int x_val = qx.first;\n    int x_idx = qx.second;\n\n    int parity_r = 1 - parity_l;\n    pair<int, int> qy = st[parity_r].query(1, 0, n - 1, x_idx + 1, r);\n    int y_val = qy.first;\n    int y_idx = qy.second;\n\n    return {l, r, x_val, x_idx, y_val, y_idx};\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n;\n    if (!(cin >> n)) return 0;\n\n    vector<int> p(n);\n    st[0].init(n);\n    st[1].init(n);\n\n    for (int i = 0; i < n; i++) {\n        cin >> p[i];\n        st[i % 2].update(1, 0, n - 1, i, p[i]);\n    }\n\n    priority_queue<Interval, vector<Interval>, greater<Interval>> pq;\n    pq.push(make_interval(0, n - 1, n));\n\n    vector<int> q;\n    q.reserve(n);\n\n    while (!pq.empty()) {\n        Interval cur = pq.top();\n        pq.pop();\n\n        q.push_back(cur.x_val);\n        q.push_back(cur.y_val);\n\n        if (cur.l <= cur.x_idx - 1) {\n            pq.push(make_interval(cur.l, cur.x_idx - 1, n));\n        }\n        if (cur.x_idx + 1 <= cur.y_idx - 1) {\n            pq.push(make_interval(cur.x_idx + 1, cur.y_idx - 1, n));\n        }\n        if (cur.y_idx + 1 <= cur.r) {\n            pq.push(make_interval(cur.y_idx + 1, cur.r, n));\n        }\n    }\n\n    for (int i = 0; i < n; i++) {\n        cout << q[i] << (i == n - 1 ? \"\" : \" \");\n    }\n    cout << \"\\n\";\n\n    return 0;\n}\n",
+    "sample_tests": [
+      {
+        "input": "4\r\n3 2 4 1",
+        "output": "3 1 2 4"
+      },
+      {
+        "input": "2\r\n1 2",
+        "output": "1 2"
+      },
+      {
+        "input": "8\r\n4 6 3 2 8 5 7 1",
+        "output": "3 1 2 7 4 6 8 5"
+      }
+    ]
+  },
+  {
+    "id": "arc227_d",
+    "contest_id": "arc227",
+    "title": "D. Median of Binary Strings",
+    "rating": 2277,
+    "domain": "Graph Theory",
+    "subtopic": "Satisfiability",
+    "topic": "2 SAT",
+    "category_file": "categories/graph_theory/two_sat_majority_polymorphism_pairwise_projection.md",
+    "slug": "two_sat_majority_polymorphism_pairwise_projection",
+    "core_tags": [
+      "Graph Theory",
+      "2-SAT",
+      "Universal Algebra",
+      "Majority Polymorphism",
+      "Bitset Projection"
+    ],
+    "invariant": "By universal algebra / clone theory, relations invariant under a majority (median) polymorphism are exactly 2-ary (binary clauses in 2-SAT). Therefore, a binary string $T$ can be generated by iterated median operations if and only if for every pair of coordinates $(j, k)$, the 2-bit projection $(T_j, T_k)$ appears in the initial set of strings.",
+    "editorial_reduction": "1. The coordinate-wise majority operation on 3 binary vectors $D_i = \\text{maj}(A_i, B_i, C_i)$ satisfies the Pigeonhole Principle: out of 3 strings, any two properties holding in at least 2 strings must hold simultaneously in at least one string ($2 + 2 - 3 = 1$).\\n2. Consequently, if a specific pair of bits $(b_1, b_2)$ never appears at positions $(j, k)$ in any initial string $S_1, \\dots, S_N$, it can never appear in any string generated by majority operations.\\n3. Conversely, Baker-Pixley theorem and CSP polymorphism theory establish that 2-consistency is complete for majority polymorphisms: $T$ is derivable if and only if every pairwise restriction $(T_j, T_k)$ is realizable by some $S_i$.\\n4. For all pairs $0 \\le j < k < M$ and bit values $b_1, b_2 \\in \\{0, 1\\}$, precompute whether $(S_{i, j}, S_{i, k}) = (b_1, b_2)$ occurs using `std::bitset<500>` operations: $(\\text{mask}[j][b_1] \\& \\text{mask}[k][b_2]).\\text{any}()$. Precomputation takes $O(M^2 N / 64)$.\\n5. For each query string $T_q$, check all $M(M-1)/2$ coordinate pairs in $O(M^2)$. Total time is $O(M^2 N / 64 + Q M^2)$, running in under 0.05s.",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <bitset>\n\nusing namespace std;\n\nconst int MAXM = 505;\nconst int MAXN = 505;\n\nbitset<MAXN> pos_mask[MAXM][2];\nbool valid_pair[MAXM][MAXM][2][2];\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n, m, q;\n    if (!(cin >> n >> m >> q)) return 0;\n\n    for (int i = 0; i < n; i++) {\n        string s;\n        cin >> s;\n        for (int j = 0; j < m; j++) {\n            pos_mask[j][s[j] - '0'].set(i);\n        }\n    }\n\n    for (int j = 0; j < m; j++) {\n        for (int k = j; k < m; k++) {\n            for (int b1 = 0; b1 < 2; b1++) {\n                for (int b2 = 0; b2 < 2; b2++) {\n                    if ((pos_mask[j][b1] & pos_mask[k][b2]).any()) {\n                        valid_pair[j][k][b1][b2] = true;\n                    }\n                }\n            }\n        }\n    }\n\n    for (int qi = 0; qi < q; qi++) {\n        string t;\n        cin >> t;\n        bool ok = true;\n        for (int j = 0; j < m && ok; j++) {\n            int b1 = t[j] - '0';\n            for (int k = j; k < m; k++) {\n                int b2 = t[k] - '0';\n                if (!valid_pair[j][k][b1][b2]) {\n                    ok = false;\n                    break;\n                }\n            }\n        }\n        if (ok) {\n            cout << \"Yes\\n\";\n        } else {\n            cout << \"No\\n\";\n        }\n    }\n\n    return 0;\n}\n",
+    "sample_tests": [
+      {
+        "input": "3 3 2\n000\n011\n101\n000\n001",
+        "output": "Yes\nYes"
+      },
+      {
+        "input": "2 1 2\n0\n0\n0\n1",
+        "output": "Yes\nNo"
+      }
+    ]
+  },
+  {
+    "id": "abc276_g",
+    "contest_id": "abc276",
+    "title": "G. Count Sequences",
+    "rating": 2278,
+    "domain": "Basics",
+    "subtopic": "Basic Counting",
+    "topic": "Stars and Bars",
+    "category_file": "categories/basics/stars_and_bars_modular_difference_hockey_stick.md",
+    "slug": "stars_and_bars_modular_difference_hockey_stick",
+    "core_tags": [
+      "Basics",
+      "Basic Counting",
+      "Stars and Bars",
+      "Hockey Stick Identity",
+      "Combinatorics"
+    ],
+    "invariant": "Adjacent differences $d_i = a_{i+1} - a_i \\not\\equiv 0 \\pmod 3$ decompose as $x_i + 3y_i$ with $x_i \\in \\{1, 2\\}$. Fixing the count of $x_i = 1$ leaves the non-negative integer solutions to $\\sum y_i \\le L = \\lfloor(M-B)/3\\rfloor$, which evaluates in $O(1)$ via the hockey stick identity.",
+    "editorial_reduction": "1. Let $d_i = a_{i+1} - a_i$. Since $a_i \\le a_{i+1}$ and $a_i \\not\\equiv a_{i+1} \\pmod 3$, each difference satisfies $d_i \\ge 1$ and $d_i \\bmod 3 \\in \\{1, 2\\}$.\\n2. Decompose $d_i = x_i + 3 y_i$ where $x_i \\in \\{1, 2\\}$ and $y_i \\ge 0$. Suppose $c$ of the $N-1$ differences have $x_i = 1$, and $(N-1-c)$ have $x_i = 2$. There are $\\binom{N-1}{c}$ ways to choose their positions.\\n3. The base sum is $B = c + 2(N-1-c)$. The condition $a_N \\le M$ becomes $a_1 + 3\\sum_{i=1}^{N-1} y_i \\le M - B$. For a fixed sum $K = \\sum y_i$, $a_1$ can take any integer value in $[0, M - B - 3K]$, which has $M - B + 1 - 3K$ choices.\\n4. Summing over $K$ from $0$ to $L = \\lfloor(M-B)/3\\rfloor$: $\\sum_{K=0}^L (M-B+1 - 3K) \\binom{K + N - 2}{N - 2} = (M-B+1)\\binom{L+N-1}{N-1} - 3(N-1)\\binom{L+N-1}{N}$ by the hockey stick identity!\\n5. Iterating $c$ from $0$ to $N-1$ computes each term in $O(1)$. Total time is $O(N + M)$ for precomputing factorials.",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nstatic const int MOD = 998244353;\n\nlong long power(long long base, long long exp) {\n    long long res = 1;\n    base %= MOD;\n    while (exp > 0) {\n        if (exp % 2 == 1) res = (res * base) % MOD;\n        base = (base * base) % MOD;\n        exp /= 2;\n    }\n    return res;\n}\n\nlong long modInverse(long long n) {\n    return power(n, MOD - 2);\n}\n\nconst int MAX = 14000005;\nlong long fact[MAX];\nlong long invFact[MAX];\n\nvoid init_fact(int limit) {\n    fact[0] = 1;\n    invFact[0] = 1;\n    for (int i = 1; i <= limit; i++) {\n        fact[i] = (fact[i - 1] * i) % MOD;\n    }\n    invFact[limit] = modInverse(fact[limit]);\n    for (int i = limit - 1; i >= 1; i--) {\n        invFact[i] = (invFact[i + 1] * (i + 1)) % MOD;\n    }\n}\n\nlong long nCr(int n, int r) {\n    if (r < 0 || r > n) return 0;\n    return fact[n] * invFact[r] % MOD * invFact[n - r] % MOD;\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n, m;\n    if (!(cin >> n >> m)) return 0;\n\n    int max_val = n + m / 3 + 5;\n    init_fact(max_val);\n\n    long long ans = 0;\n    for (int c = 0; c < n; c++) {\n        long long B = 1LL * c * 1 + 1LL * (n - 1 - c) * 2;\n        if (B > m) continue;\n\n        int L = (m - B) / 3;\n        long long term1 = (m - B + 1) % MOD * nCr(L + n - 1, n - 1) % MOD;\n        long long term2 = 3LL * (n - 1) % MOD * nCr(L + n - 1, n) % MOD;\n        long long ways_y = (term1 - term2 + MOD) % MOD;\n        long long ways_c = nCr(n - 1, c);\n\n        ans = (ans + ways_c * ways_y) % MOD;\n    }\n\n    cout << ans << \"\\n\";\n\n    return 0;\n}\n",
+    "sample_tests": [
+      {
+        "input": "3 4",
+        "output": "8"
+      },
+      {
+        "input": "276 10000000",
+        "output": "909213205"
+      }
+    ]
+  },
+  {
+    "id": "arc170_d",
+    "contest_id": "arc170",
+    "title": "D. Triangle Card Game",
+    "rating": 2279,
+    "domain": "Game Theory",
+    "subtopic": "Grundy Number / Nim",
+    "topic": "Grundy Number and Basic Game Theory",
+    "category_file": "categories/game_theory/triangle_card_game_minimax_distance_gap_search.md",
+    "slug": "triangle_card_game_minimax_distance_gap_search",
+    "core_tags": [
+      "Game Theory",
+      "Minimax",
+      "Triangle Inequality",
+      "Binary Search",
+      "Extremal Analysis"
+    ],
+    "invariant": "For an opening card $a \\in A$, Bob can win if and only if either playing $B_{\\min}$ prevents any triangle ($|a - B_{\\min}| < c < a + B_{\\min}$ has count 0 in $A \\setminus \\{a\\}$), or there exists $b \\in B$ whose distance to $A \\setminus \\{a\\}$ is at least $a$. Alice wins if she has any opening move where Bob cannot win.",
+    "editorial_reduction": "1. Triangle condition for $(a, b, c)$ is $|a - b| < c < a + b$. Alice chooses $a$, Bob chooses $b$, then Alice chooses $c \\in A \\setminus \\{a\\}$. Alice wins if she can find any valid $c$.\\n2. For Bob to win against $a$: Bob must pick $b$ such that NO $c \\in A \\setminus \\{a\\}$ satisfies $|a - b| < c < a + b$. If $b < a$, Bob is always best off playing his minimum card $b = B_{\\min}$. Thus condition 1 is: no $c \\in A \\setminus \\{a\\}$ lies in $(|a - B_{\\min}|, a + B_{\\min})$.\\n3. If $b \\ge a$, Bob wins if $\\min_{c \\in A \\setminus \\{a\\}} |b - c| \\ge a$. Let $d_1(b)$ be the distance from $b$ to its closest neighbor in $A$, and $d_2(b)$ to its second closest neighbor.\\n4. The maximum distance in $A \\setminus \\{a\\}$ is $\\max(global\\_mx, max\\_d2[a])$, where $global\\_mx = \\max_{b} d_1(b)$ and $max\\_d2[a]$ is the maximum $d_2(b)$ over $b$ whose unique closest neighbor is $a$.\\n5. Bob wins against $a$ if condition 1 or condition 2 holds. If there is any $a$ where Bob loses both, Alice wins. Time complexity per test case is $O(N \\log N)$.",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <cmath>\n\nusing namespace std;\n\nvoid solve_test() {\n    int n;\n    if (!(cin >> n)) return;\n\n    vector<long long> a(n), b(n);\n    for (int i = 0; i < n; i++) cin >> a[i];\n    for (int i = 0; i < n; i++) cin >> b[i];\n\n    sort(a.begin(), a.end());\n    sort(b.begin(), b.end());\n\n    long long b_min = b[0];\n\n    long long global_mx = 0;\n    vector<long long> max_d2(n, 0);\n\n    for (int i = 0; i < n; i++) {\n        long long val = b[i];\n        int pos = lower_bound(a.begin(), a.end(), val) - a.begin();\n\n        vector<pair<long long, int>> cands;\n        for (int offset = -2; offset <= 2; offset++) {\n            int idx = pos + offset;\n            if (idx >= 0 && idx < n) {\n                cands.push_back({abs(val - a[idx]), idx});\n            }\n        }\n        sort(cands.begin(), cands.end());\n\n        long long d1 = cands[0].first;\n        int idx1 = cands[0].second;\n        long long d2 = (cands.size() > 1 ? cands[1].first : d1);\n\n        global_mx = max(global_mx, d1);\n        max_d2[idx1] = max(max_d2[idx1], d2);\n    }\n\n    bool alice_wins = false;\n\n    for (int i = 0; i < n; i++) {\n        long long cur_a = a[i];\n\n        long long low = abs(cur_a - b_min);\n        long long high = cur_a + b_min;\n\n        int cnt = upper_bound(a.begin(), a.end(), high - 1) - upper_bound(a.begin(), a.end(), low);\n        if (low < cur_a && cur_a < high) {\n            cnt--;\n        }\n\n        bool bob_wins_cond1 = (cnt == 0);\n        long long max_dist = max(global_mx, max_d2[i]);\n        bool bob_wins_cond2 = (max_dist >= cur_a);\n\n        if (!bob_wins_cond1 && !bob_wins_cond2) {\n            alice_wins = true;\n            break;\n        }\n    }\n\n    if (alice_wins) {\n        cout << \"Alice\\n\";\n    } else {\n        cout << \"Bob\\n\";\n    }\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int t;\n    if (cin >> t) {\n        while (t--) {\n            solve_test();\n        }\n    }\n    return 0;\n}\n",
+    "sample_tests": [
+      {
+        "input": "3\r\n3\r\n1 2 3\r\n4 5 6\r\n4\r\n6 1 5 10\r\n2 2 4 5\r\n10\r\n3 1 4 1 5 9 2 6 5 3\r\n2 7 1 8 2 8 1 8 2 8",
+        "output": "Bob\r\nAlice\r\nAlice"
+      }
+    ]
+  },
+  {
+    "id": "abc474_g",
+    "contest_id": "abc474",
+    "title": "G. LRUD Moving 2",
+    "rating": 2280,
+    "domain": "Graph Theory",
+    "subtopic": "Hamiltonian Path",
+    "topic": "Hamiltonian Path and Cycle",
+    "category_file": "categories/graph_theory/grid_hamiltonian_path_parity_serpentine_construction.md",
+    "slug": "grid_hamiltonian_path_parity_serpentine_construction",
+    "core_tags": [
+      "Graph Theory",
+      "Hamiltonian Path",
+      "Grid Graph",
+      "Bipartite Parity",
+      "Constructive"
+    ],
+    "invariant": "In an $N \\times N$ grid, start $(1, 1)$ and end $(N, N)$ have identical bipartite colors iff $N$ is odd, so even $N$ has no Hamiltonian path. Net horizontal displacement requires $R - L = N - 1$, and parity matching restricts $K$ to even values in $[N - 1, (N^2 - 1)/2]$, realized via serpentine column-loop folding.",
+    "editorial_reduction": "1. Color the grid as a bipartite chessboard with color $(r + c) \\bmod 2$. A Hamiltonian path visiting all $N^2$ cells has $N^2 - 1$ steps. If $N$ is even, $N^2 - 1$ is odd, which requires start and end to have different colors. But $(1, 1)$ and $(N, N)$ both have color 0. Thus $N$ must be odd.\\n2. Since the path starts at column 1 and ends at column $N$, $R - L = N - 1$. An odd-index matching argument proves that $K$ (number of 'R' moves) must be even and satisfy $N - 1 \\le K \\le (N^2 - 1)/2$.\\n3. Let $M = (N - 1)/2$ and surplus $S = (K - (N - 1))/2$. Partition $S$ into $M$ non-increasing integers $T_1 \\ge T_2 \\ge \\dots \\ge T_M \\ge 0$ such that $\\sum T_i = S$.\\n4. Traverse the grid row pairs with serpentine loops: for each $i = 1 \\dots M$, move right $2T_i$ steps, down 1, left $2T_i$ steps, down 1; then traverse columns with vertical loops of height $2(M - \\sum [T_v \\ge j])$ interspersed with 'R' moves. Time complexity per testcase is $O(N^2)$.",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <string>\n\nusing namespace std;\n\nvoid solve_test() {\n    int n;\n    long long k;\n    if (!(cin >> n >> k)) return;\n\n    if (n % 2 == 0 || k % 2 == 1 || k < n - 1 || k > (1LL * n * n - 1) / 2) {\n        cout << \"No\\n\";\n        return;\n    }\n\n    int m = (n - 1) / 2;\n    long long s = (k - (n - 1)) / 2;\n\n    vector<int> t(m);\n    for (int i = 0; i < m; i++) {\n        t[i] = (s + m - 1 - i) / m;\n    }\n\n    string ans;\n    ans.reserve(n * n);\n\n    for (int v : t) {\n        ans.append(2 * v, 'R');\n        ans.push_back('D');\n        ans.append(2 * v, 'L');\n        ans.push_back('D');\n    }\n\n    for (int j = 1; j <= m; j++) {\n        int cnt = 0;\n        for (int v : t) {\n            if (v >= j) cnt++;\n        }\n        int d = 2 * (m - cnt);\n        ans.push_back('R');\n        ans.append(d, 'U');\n        ans.push_back('R');\n        ans.append(d, 'D');\n    }\n\n    cout << \"Yes\\n\";\n    cout << ans << \"\\n\";\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int t;\n    if (cin >> t) {\n        while (t--) {\n            solve_test();\n        }\n    }\n    return 0;\n}\n",
+    "sample_tests": [
+      {
+        "input": "3\n3 4\n2 1\n5 10",
+        "output": "Yes\nRRDLLDRR\nNo\nYes\nRRRRDDDLLLURRULLLDDDRRRR"
+      }
+    ]
+  },
+  {
+    "id": "abc150_f",
+    "contest_id": "abc150",
+    "title": "F. Xor Shift",
+    "rating": 2281,
+    "domain": "Strings",
+    "subtopic": "String Matching",
+    "topic": "Knuth Morris Pratt (KMP) and Prefix Automaton",
+    "category_file": "categories/strings/kmp_cyclic_xor_difference_matching.md",
+    "slug": "kmp_cyclic_xor_difference_matching",
+    "core_tags": [
+      "Strings",
+      "KMP",
+      "Cyclic Shift",
+      "XOR Differences",
+      "Pattern Matching"
+    ],
+    "invariant": "The relation $a_{(i+k) \\bmod N} \\oplus x = b_i$ eliminates $x$ upon taking adjacent circular XOR differences $A'_j = a_{(j+1) \\bmod N} \\oplus a_j$ and $B'_i = b_{(i+1) \\bmod N} \\oplus b_i$. A valid cyclic shift $k$ corresponds exactly to an exact match of pattern $B'$ in the doubled text $A' A'$, found via KMP in $O(N)$.",
+    "editorial_reduction": "1. The problem asks for all pairs $(k, x)$ such that $a_{(i+k) \\bmod N} \\oplus x = b_i$ for all $0 \\le i < N$.\\n2. For $i = 0$, $x = a_k \\oplus b_0$. For any adjacent pair of indices, XORing equations gives $a_{(i+1+k) \\bmod N} \\oplus a_{(i+k) \\bmod N} = b_{i+1} \\oplus b_i$, completely eliminating $x$.\\n3. Define difference sequences $A'_j = a_{(j+1) \\bmod N} \\oplus a_j$ and $B'_i = b_{(i+1) \\bmod N} \\oplus b_i$. A shift $k$ is valid if and only if $A'_{(i+k) \\bmod N} = B'_i$ for all $0 \\le i < N$. Once this holds, setting $x = a_k \\oplus b_0$ satisfies all equations by induction.\\n4. Finding all valid shifts $k$ is equivalent to finding all occurrences of pattern $B'$ of length $N$ in the doubled text $A' A'$ of length $2N - 1$.\\n5. Run the Knuth-Morris-Pratt (KMP) algorithm over integer arrays in $O(N)$ time and space, printing each $(k, a_k \\oplus b_0)$ in ascending order of $k$.",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nvector<int> compute_pi(const vector<int>& p) {\n    int m = p.size();\n    vector<int> pi(m, 0);\n    for (int i = 1; i < m; i++) {\n        int j = pi[i - 1];\n        while (j > 0 && p[i] != p[j]) {\n            j = pi[j - 1];\n        }\n        if (p[i] == p[j]) j++;\n        pi[i] = j;\n    }\n    return pi;\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n;\n    if (!(cin >> n)) return 0;\n\n    vector<int> a(n), b(n);\n    for (int i = 0; i < n; i++) cin >> a[i];\n    for (int i = 0; i < n; i++) cin >> b[i];\n\n    vector<int> diff_a(2 * n);\n    vector<int> diff_b(n);\n\n    for (int i = 0; i < n; i++) {\n        diff_a[i] = a[(i + 1) % n] ^ a[i];\n        diff_a[i + n] = diff_a[i];\n        diff_b[i] = b[(i + 1) % n] ^ b[i];\n    }\n\n    vector<int> pi = compute_pi(diff_b);\n\n    int j = 0;\n    for (int i = 0; i < 2 * n - 1; i++) {\n        while (j > 0 && diff_a[i] != diff_b[j]) {\n            j = pi[j - 1];\n        }\n        if (diff_a[i] == diff_b[j]) {\n            j++;\n        }\n        if (j == n) {\n            int k = i - n + 1;\n            if (k < n) {\n                int x = a[k] ^ b[0];\n                cout << k << \" \" << x << \"\\n\";\n            }\n            j = pi[j - 1];\n        }\n    }\n\n    return 0;\n}\n",
+    "sample_tests": [
+      {
+        "input": "3\r\n0 2 1\r\n1 2 3",
+        "output": "1 3"
+      },
+      {
+        "input": "5\r\n0 0 0 0 0\r\n2 2 2 2 2",
+        "output": "0 2\r\n1 2\r\n2 2\r\n3 2\r\n4 2"
+      },
+      {
+        "input": "6\r\n0 1 3 7 6 4\r\n1 5 4 6 2 3",
+        "output": "2 2\r\n5 5"
+      },
+      {
+        "input": "2\r\n1 2\r\n0 0",
+        "output": ""
+      }
+    ]
+  },
+  {
+    "id": "arc223_d",
+    "contest_id": "arc223",
+    "title": "D. Xpectation of Cards in Hand with Laboratory",
+    "rating": 2281,
+    "domain": "Math",
+    "subtopic": "Probabilities and Expected Values",
+    "topic": "Gambler's Ruin",
+    "category_file": "categories/math/gamblers_ruin_reflection_principle_first_passage_expectation.md",
+    "slug": "gamblers_ruin_reflection_principle_first_passage_expectation",
+    "core_tags": [
+      "Math",
+      "Expected Value",
+      "Gambler's Ruin",
+      "Reflection Principle",
+      "Catalan",
+      "Ballot Theorem"
+    ],
+    "invariant": "Each card drawn from the deck advances a random walk in $(a, b)$ where the hand runs out of draw cards exactly when $b - a = K$ for the first time. The number of paths hitting this absorbing barrier is given by the reflection principle $\\binom{a+b-1}{a} - \\binom{a+b-1}{a-1}$, while paths never reaching it yield the full deck hand size $B$.",
+    "editorial_reduction": "1. Drawing 2 cards and discarding 1 draw card leaves the net count of draw cards in hand as $\\frac{a - b + K}{2}$. The hand runs out of draw cards iff $b = a + K$.\\n2. By the reflection principle (ballot theorem), the number of card sequences where $b = a + K$ occurs for the first time at step $a + b$ is $(\\binom{a+b-1}{a} - \\binom{a+b-1}{a-1}) \\times \\binom{A-a+B-b}{A-a}$. At this moment, exactly $b$ normal cards are in hand.\\n3. If the deck is exhausted before the hand runs out of draw cards (which can only happen if $B < A + K$), the path never hits the line $b - a = K$. The number of such sequences is $\\binom{A+B}{A} - \\binom{A+B}{A+K}$, and the final hand contains all $B$ normal cards. If $B \\ge A + K$, this event has probability 0.\\n4. Summing the product of final hand sizes and their corresponding path counts, then dividing by $\\binom{A+B}{A}$, yields the expected hand size in $O(A + B)$ time.",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n\nusing namespace std;\n\nstatic const int MOD = 998244353;\n\nlong long power(long long base, long long exp) {\n    long long res = 1;\n    base %= MOD;\n    while (exp > 0) {\n        if (exp % 2 == 1) res = (res * base) % MOD;\n        base = (base * base) % MOD;\n        exp /= 2;\n    }\n    return res;\n}\n\nlong long modInverse(long long n) {\n    return power(n, MOD - 2);\n}\n\nconst int MAX = 20000005;\nlong long fact[MAX];\nlong long invFact[MAX];\n\nvoid init_fact(int limit) {\n    fact[0] = 1;\n    invFact[0] = 1;\n    for (int i = 1; i <= limit; i++) {\n        fact[i] = (fact[i - 1] * i) % MOD;\n    }\n    invFact[limit] = modInverse(fact[limit]);\n    for (int i = limit - 1; i >= 1; i--) {\n        invFact[i] = (invFact[i + 1] * (i + 1)) % MOD;\n    }\n}\n\nlong long nCr(int n, int r) {\n    if (r < 0 || r > n) return 0;\n    return fact[n] * invFact[r] % MOD * invFact[n - r] % MOD;\n}\n\nvoid solve_test() {\n    int A, B, K;\n    if (!(cin >> A >> B >> K)) return;\n\n    long long total_arrangements = nCr(A + B, A);\n\n    long long ways_exhausted = 0;\n    if (B < A + K) {\n        ways_exhausted = (nCr(A + B, A) - nCr(A + B, A + K) + MOD) % MOD;\n    }\n    long long sum_hand = (1LL * B * ways_exhausted) % MOD;\n\n    int max_a = min(A, B - K);\n    for (int a = 0; a <= max_a; a++) {\n        int b = a + K;\n        int step = a + b;\n        long long ways_first = (nCr(step - 1, a) - nCr(step - 1, a - 1) + MOD) % MOD;\n        long long ways_rem = nCr(A - a + B - b, A - a);\n        long long ways = ways_first * ways_rem % MOD;\n        sum_hand = (sum_hand + 1LL * b * ways) % MOD;\n    }\n\n    long long ans = (sum_hand * modInverse(total_arrangements)) % MOD;\n    cout << ans << \"\\n\";\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    init_fact(20000000);\n\n    int t;\n    if (cin >> t) {\n        while (t--) {\n            solve_test();\n        }\n    }\n    return 0;\n}\n",
+    "sample_tests": [
+      {
+        "input": "4\n2 2 3\n1 2 1\n10 20 4\n20 10 4",
+        "output": "2\n332748119\n944679050\n774829082"
+      }
+    ]
+  },
+  {
+    "id": "arc151_d",
+    "contest_id": "arc151",
+    "title": "D. Binary Representations and Queries",
+    "rating": 2282,
+    "domain": "Math",
+    "subtopic": "Convolution",
+    "topic": "Fast Walsh Hadamard Transform (FWHT) and its Variations",
+    "category_file": "categories/math/fwht_tensor_product_independent_bit_transformations.md",
+    "slug": "fwht_tensor_product_independent_bit_transformations",
+    "core_tags": [
+      "Math",
+      "FWHT",
+      "Linear Algebra",
+      "Tensor Product",
+      "Fast Walsh-Hadamard Transform"
+    ],
+    "invariant": "Each query $(X_i, Y_i)$ applies an elementary $2 \\times 2$ shear matrix along dimension $X_i$ on the $N$-dimensional hypercube. Transformations acting on distinct bit dimensions commute; matrix multiplication accumulates operations per bit $X$, which are then applied via the FWHT butterfly algorithm in $O(Q + N 2^N)$.",
+    "editorial_reduction": "1. For a query $(X, Y)$, pairs of indices differing only at bit $X$ are updated independently: if $Y = 0$, $\\begin{pmatrix} A_u \\\\ A_v \\end{pmatrix} \\gets \\begin{pmatrix} 1 & 0 \\\\ 1 & 1 \\end{pmatrix} \\begin{pmatrix} A_u \\\\ A_v \\end{pmatrix}$; if $Y = 1$, $\\begin{pmatrix} A_u \\\\ A_v \\end{pmatrix} \\gets \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix} \\begin{pmatrix} A_u \\\\ A_v \\end{pmatrix}$.\\n2. In the hypercube tensor product representation, a transformation on bit $X_1$ and a transformation on bit $X_2$ commute whenever $X_1 \\ne X_2$. Thus, queries on each bit $X \\in [0, N-1]$ can be aggregated independently.\\n3. For each bit $X$, multiply the sequence of $2 \\times 2$ matrices in order to obtain the net transformation matrix $M_X$.\\n4. Apply each $M_X$ across all $2^{N-1}$ pairs using the Fast Walsh-Hadamard Transform (FWHT) / SOS-DP butterfly sweep. Total time complexity is $O(Q + N 2^N)$, executing in ~0.03s for $N = 18$.",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nstatic const int MOD = 998244353;\n\nstruct Mat2 {\n    long long a, b, c, d;\n};\n\nMat2 mul(const Mat2& m1, const Mat2& m2) {\n    return {\n        (m1.a * m2.a + m1.b * m2.c) % MOD,\n        (m1.a * m2.b + m1.b * m2.d) % MOD,\n        (m1.c * m2.a + m1.d * m2.c) % MOD,\n        (m1.c * m2.b + m1.d * m2.d) % MOD\n    };\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n, q;\n    if (!(cin >> n >> q)) return 0;\n\n    int sz = 1 << n;\n    vector<long long> a(sz);\n    for (int i = 0; i < sz; i++) cin >> a[i];\n\n    vector<Mat2> trans(n, {1, 0, 0, 1});\n\n    for (int i = 0; i < q; i++) {\n        int x, y;\n        cin >> x >> y;\n        Mat2 cur;\n        if (y == 0) {\n            cur = {1, 0, 1, 1};\n        } else {\n            cur = {1, 1, 0, 1};\n        }\n        trans[x] = mul(cur, trans[x]);\n    }\n\n    for (int bit = 0; bit < n; bit++) {\n        Mat2 m = trans[bit];\n        for (int mask = 0; mask < sz; mask++) {\n            if (!(mask & (1 << bit))) {\n                int u = mask;\n                int v = mask | (1 << bit);\n                long long au = a[u];\n                long long av = a[v];\n                a[u] = (m.a * au + m.b * av) % MOD;\n                a[v] = (m.c * au + m.d * av) % MOD;\n            }\n        }\n    }\n\n    for (int i = 0; i < sz; i++) {\n        cout << a[i] << (i == sz - 1 ? \"\" : \" \");\n    }\n    cout << \"\\n\";\n\n    return 0;\n}\n",
+    "sample_tests": [
+      {
+        "input": "2 2\r\n0 1 2 3\r\n1 1\r\n0 0",
+        "output": "2 6 2 5"
+      },
+      {
+        "input": "3 10\r\n606248357 338306877 919152167 981537317 808873985 845549408 680941783 921035119\r\n1 1\r\n0 0\r\n0 0\r\n0 0\r\n0 1\r\n0 1\r\n0 1\r\n2 0\r\n2 0\r\n2 0",
+        "output": "246895115 904824001 157201385 744260759 973709546 964549010 61683812 205420980"
+      }
+    ]
+  },
+  {
+    "id": "codefestival_2016_qualC_d",
+    "contest_id": "code-festival-2016-qualc",
+    "title": "D. Friction",
+    "rating": 2283,
+    "domain": "Dynamic Programming (DP)",
+    "subtopic": "Classic DP",
+    "topic": "Edit Distance",
+    "category_file": "categories/dynamic_programming_dp/edit_distance_column_sinking_friction_alignment.md",
+    "slug": "edit_distance_column_sinking_friction_alignment",
+    "core_tags": [
+      "Dynamic Programming (DP)",
+      "Edit Distance",
+      "Alignment DP",
+      "Grid Decomposition",
+      "Independent Columns"
+    ],
+    "invariant": "Total friction cost decomposes additively into independent interactions between adjacent column pairs $(j, j+1)$. The relative sequence of sinking operations for two adjacent columns corresponds to a 2D alignment grid walk from $(0, 0)$ to $(H, H)$, isomorphic to Edit Distance DP.",
+    "editorial_reduction": "1. Friction only occurs between horizontally adjacent columns. Because any collection of valid pairwise sinking schedules can be realized by a global linear extension, the minimum total cost equals the sum of independent pairwise minimums over $j = 0, \\dots, W-2$.\\n2. For adjacent columns $j$ and $j+1$, let $i$ and $k$ be the number of times columns $j$ and $j+1$ have been lowered. The blocks remaining in column $j$ are originally at $r \\in [0, H - 1 - i]$ situated at row $r + i$, and in column $j+1$ at $s \\in [0, H - 1 - k]$ situated at row $s + k$.\\n3. Two blocks are horizontally adjacent when $r + i = s + k \\iff s = r + i - k$. The number of matching colors at state $(i, k)$ is $\\text{cost}(i, k) = \\sum_{r = \\max(0, k - i)}^{H - 1 - i} [c_{r, j} == c_{r + i - k, j+1}]$.\\n4. The optimal lowering schedule is computed via edit distance / grid alignment DP: $DP(i, k) = \\min(DP(i+1, k) + \\text{cost}(i, k), DP(i, k+1) + \\text{cost}(i, k))$, with base case $DP(H, H) = 0$.\\n5. Computing the DP for all $W - 1$ column pairs takes $O(W H^2)$ total operations, which finishes in ~0.04s for $H, W \\le 300$.",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int h, w;\n    if (!(cin >> h >> w)) return 0;\n\n    vector<string> grid(h);\n    for (int i = 0; i < h; i++) {\n        cin >> grid[i];\n    }\n\n    long long total_ans = 0;\n\n    for (int j = 0; j < w - 1; j++) {\n        vector<vector<int>> match_cost(h + 1, vector<int>(h + 1, 0));\n        for (int i = 0; i <= h; i++) {\n            for (int k = 0; k <= h; k++) {\n                int cnt = 0;\n                int start_r = max(0, k - i);\n                int end_r = h - i;\n                for (int r = start_r; r < end_r; r++) {\n                    int s = r + i - k;\n                    if (s >= 0 && s < h - k) {\n                        if (grid[r][j] == grid[s][j + 1]) {\n                            cnt++;\n                        }\n                    }\n                }\n                match_cost[i][k] = cnt;\n            }\n        }\n\n        vector<vector<int>> dp(h + 1, vector<int>(h + 1, 1e9));\n        dp[h][h] = 0;\n\n        for (int i = h; i >= 0; i--) {\n            for (int k = h; k >= 0; k--) {\n                if (i == h && k == h) continue;\n                int cur = 1e9;\n                if (i + 1 <= h) {\n                    cur = min(cur, dp[i + 1][k] + match_cost[i][k]);\n                }\n                if (k + 1 <= h) {\n                    cur = min(cur, dp[i][k + 1] + match_cost[i][k]);\n                }\n                dp[i][k] = cur;\n            }\n        }\n\n        total_ans += dp[0][0];\n    }\n\n    cout << total_ans << \"\\n\";\n\n    return 0;\n}\n",
+    "sample_tests": [
+      {
+        "input": "2 3\r\nrrr\r\nbrg",
+        "output": "2"
+      },
+      {
+        "input": "6 3\r\nxya\r\nxya\r\nayz\r\nayz\r\nxaz\r\nxaz",
+        "output": "0"
+      },
+      {
+        "input": "4 2\r\nay\r\nxa\r\nxy\r\nay",
+        "output": "0"
+      },
+      {
+        "input": "5 5\r\naaaaa\r\nabbba\r\nababa\r\nabbba\r\naaaaa",
+        "output": "24"
+      },
+      {
+        "input": "7 10\r\nxxxxxxxxxx\r\nccccxxffff\r\ncxxcxxfxxx\r\ncxxxxxffff\r\ncxxcxxfxxx\r\nccccxxfxxx\r\nxxxxxxxxxx",
+        "output": "130"
+      }
+    ]
+  },
+  {
+    "id": "agc032_c",
+    "contest_id": "agc032",
+    "title": "C. Three Circuits",
+    "rating": 2284,
+    "domain": "Graph Theory",
+    "subtopic": "Eulerian Path",
+    "topic": "Eulerian Path and Cycle",
+    "category_file": "categories/graph_theory/eulerian_three_circuit_degree_decomposition.md",
+    "slug": "eulerian_three_circuit_degree_decomposition",
+    "core_tags": [
+      "Graph Theory",
+      "Eulerian Path",
+      "Circuit Partition",
+      "Degree Analysis",
+      "Topological Decomposition"
+    ],
+    "invariant": "Partitioning edges into circuits requires every vertex to have an even degree. If $\\max \\deg \\ge 6$ or the count of degree-4 vertices $c_4 \\ge 3$, 3 circuits always exist; if $c_4 \\le 1$, impossible; if $c_4 = 2$, 3 circuits exist iff the two degree-4 vertices are connected by 2 paths and have independent simple loops, decidable via path tracing.",
+    "editorial_reduction": "1. Every circuit is an Eulerian subgraph, so all vertex degrees must be even. If any vertex has an odd degree, output `No`.\\n2. Since degree-2 vertices only subdivide paths, branching points must have degree $\\ge 4$. If any vertex has degree $\\ge 6$, edges can be paired into $\\ge 3$ intersecting cycles, yielding `Yes`.\\n3. If max degree is 4: count vertices with degree 4 ($c_4$). If $c_4 \\ge 3$, routing through the 3 branching nodes always permits $\\ge 3$ edge-disjoint circuits (`Yes`). If $c_4 \\le 1$, the graph is a single cycle or figure-eight, which can only decompose into at most 2 circuits (`No`).\\n4. For $c_4 = 2$ with degree-4 vertices $u$ and $v$: if all 4 paths from $u$ terminate at $v$ (4-strand theta graph), any circuit must alternate between $u$ and $v$ and thus consume an even number of paths, allowing at most $\\lfloor 4 / 2 \\rfloor = 2$ circuits (`No`). However, if at least one path from $u$ returns to $u$ without visiting $v$, the graph decomposes into a loop at $u$, a loop at $v$, and 2 paths between $u$ and $v$, giving exactly 3 circuits (`Yes`).\\n5. Path tracing from $u$ along degree-2 paths runs in $O(N + M)$ time.",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n, m;\n    if (!(cin >> n >> m)) return 0;\n\n    vector<vector<int>> adj(n + 1);\n    vector<int> deg(n + 1, 0);\n\n    for (int i = 0; i < m; i++) {\n        int u, v;\n        cin >> u >> v;\n        adj[u].push_back(v);\n        adj[v].push_back(u);\n        deg[u]++;\n        deg[v]++;\n    }\n\n    for (int i = 1; i <= n; i++) {\n        if (deg[i] % 2 != 0) {\n            cout << \"No\\n\";\n            return 0;\n        }\n    }\n\n    int c4 = 0;\n    bool has_ge6 = false;\n    vector<int> deg4_nodes;\n\n    for (int i = 1; i <= n; i++) {\n        if (deg[i] >= 6) {\n            has_ge6 = true;\n        } else if (deg[i] == 4) {\n            c4++;\n            deg4_nodes.push_back(i);\n        }\n    }\n\n    if (has_ge6 || c4 >= 3) {\n        cout << \"Yes\\n\";\n        return 0;\n    }\n\n    if (c4 <= 1) {\n        cout << \"No\\n\";\n        return 0;\n    }\n\n    int u = deg4_nodes[0];\n    int v = deg4_nodes[1];\n\n    bool loop_at_u = false;\n    for (int start_nbr : adj[u]) {\n        int prev = u;\n        int cur = start_nbr;\n        while (cur != u && cur != v) {\n            int nxt = -1;\n            for (int neighbor : adj[cur]) {\n                if (neighbor != prev) {\n                    nxt = neighbor;\n                    break;\n                }\n            }\n            prev = cur;\n            cur = nxt;\n        }\n        if (cur == u) {\n            loop_at_u = true;\n            break;\n        }\n    }\n\n    if (loop_at_u) {\n        cout << \"Yes\\n\";\n    } else {\n        cout << \"No\\n\";\n    }\n\n    return 0;\n}\n",
+    "sample_tests": [
+      {
+        "input": "7 9\r\n1 2\r\n1 3\r\n2 3\r\n1 4\r\n1 5\r\n4 5\r\n1 6\r\n1 7\r\n6 7",
+        "output": "Yes"
+      },
+      {
+        "input": "3 3\r\n1 2\r\n2 3\r\n3 1",
+        "output": "No"
+      },
+      {
+        "input": "18 27\r\n17 7\r\n12 15\r\n18 17\r\n13 18\r\n13 6\r\n5 7\r\n7 1\r\n14 5\r\n15 11\r\n7 6\r\n1 9\r\n5 4\r\n18 16\r\n4 6\r\n7 2\r\n7 11\r\n6 3\r\n12 14\r\n5 2\r\n10 5\r\n7 8\r\n10 15\r\n3 15\r\n9 8\r\n7 15\r\n5 16\r\n18 15",
+        "output": "Yes"
+      }
+    ]
+  }
+]

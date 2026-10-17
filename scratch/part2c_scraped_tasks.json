@@ -1,0 +1,694 @@
+{
+  "arc202_c": {
+    "id": "arc202_c",
+    "contest_id": "arc202",
+    "title": "C",
+    "url": "https://atcoder.jp/contests/arc202/tasks/arc202_c",
+    "statement": "配点 : 900 点 問題文 正整数 n に対して R_n を「 1 を n 個並べてできる文字列を 10 進表記された整数と解釈したもの」として定義します。例えば R_3 = 111 です。 正整数列 A = (A_1, A_2, \\dots, A_N) が与えられます。 k = 1, 2, \\dots, N について \\mathrm{LCM}(R_{A_1}, R_{A_2}, \\dots, R_{A_k}) \\bmod 998244353 を計算してください。ここで \\mathrm{LCM} は最小公倍数を計算する関数とします。 制約 1 \\leq N \\leq 2 \\times 10^5 1 \\leq A_i \\leq 2 \\times 10^5 入力される値は全て整数 入力 入力は以下の形式で標準入力から与えられる。 N A_1 A_2 \\dots A_N 出力 N 行出力せよ。 k 行目には \\mathrm{LCM}(R_{A_1}, R_{A_2}, \\dots, R_{A_k}) \\bmod 998244353 を出力せよ。 入力例 1 3 2 4 6 出力例 1 11 1111 11222211 k=1 について、 \\mathrm{LCM}(11) \\bmod 998244353 = 11 です。 k=2 について、 \\mathrm{LCM}(11,1111) \\bmod 998244353= 1111 です。 k=3 について、 \\mathrm{LCM}(11,1111,111111) \\bmod 998244353= 11222211 です。 入力例 2 1 200000 出力例 2 202819780 入力例 3 10 47718 21994 98917 104184 160670 190107 125377 29127 7017 177076 出力例 3 429620650 844699313 355160870 608402385 858856681 605347397 566966598 429324494 370941155 567238109 Score : 900 points Problem Statement For a positive integer n , define R_n as \"the integer obtained by interpreting a string of n consecutive 1 s as a decimal number\". For example, R_3 = 111 . You are given a positive integer sequence A = (A_1, A_2, \\dots, A_N) . For k = 1, 2, \\dots, N , calculate \\mathrm{LCM}(R_{A_1}, R_{A_2}, \\dots, R_{A_k}) \\bmod 998244353 . Here, \\mathrm{LCM} is the function that calculates the least common multiple. Constraints 1 \\leq N \\leq 2 \\times 10^5 1 \\leq A_i \\leq 2 \\times 10^5 All input values are integers. Input The input is given from Standard Input in the following format: N A_1 A_2 \\dots A_N Output Output N lines. The k -th line should contain \\mathrm{LCM}(R_{A_1}, R_{A_2}, \\dots, R_{A_k}) \\bmod 998244353 . Sample Input 1 3 2 4 6 Sample Output 1 11 1111 11222211 For k=1 , \\mathrm{LCM}(11) \\bmod 998244353 = 11 . For k=2 , \\mathrm{LCM}(11,1111) \\bmod 998244353= 1111 . For k=3 , \\mathrm{LCM}(11,1111,111111) \\bmod 998244353= 11222211 . Sample Input 2 1 200000 Sample Output 2 202819780 Sample Input 3 10 47718 21994 98917 104184 160670 190107 125377 29127 7017 177076 Sample Output 3 429620650 844699313 355160870 608402385 858856681 605347397 566966598 429324494 370941155 567238109",
+    "samples": [
+      {
+        "input": "3\r\n2 4 6",
+        "output": "11\r\n1111\r\n11222211"
+      },
+      {
+        "input": "1\r\n200000",
+        "output": "202819780"
+      },
+      {
+        "input": "10\r\n47718 21994 98917 104184 160670 190107 125377 29127 7017 177076",
+        "output": "429620650\r\n844699313\r\n355160870\r\n608402385\r\n858856681\r\n605347397\r\n566966598\r\n429324494\r\n370941155\r\n567238109"
+      },
+      {
+        "input": "3\r\n2 4 6",
+        "output": "11\r\n1111\r\n11222211"
+      },
+      {
+        "input": "1\r\n200000",
+        "output": "202819780"
+      },
+      {
+        "input": "10\r\n47718 21994 98917 104184 160670 190107 125377 29127 7017 177076",
+        "output": "429620650\r\n844699313\r\n355160870\r\n608402385\r\n858856681\r\n605347397\r\n566966598\r\n429324494\r\n370941155\r\n567238109"
+      }
+    ],
+    "raw_pres": [
+      "<var>N</var>\r\n<var>A_1</var> <var>A_2</var> <var>\\dots</var> <var>A_N</var>",
+      "3\r\n2 4 6",
+      "11\r\n1111\r\n11222211",
+      "1\r\n200000",
+      "202819780",
+      "10\r\n47718 21994 98917 104184 160670 190107 125377 29127 7017 177076",
+      "429620650\r\n844699313\r\n355160870\r\n608402385\r\n858856681\r\n605347397\r\n566966598\r\n429324494\r\n370941155\r\n567238109",
+      "<var>N</var>\r\n<var>A_1</var> <var>A_2</var> <var>\\dots</var> <var>A_N</var>",
+      "3\r\n2 4 6",
+      "11\r\n1111\r\n11222211",
+      "1\r\n200000",
+      "202819780",
+      "10\r\n47718 21994 98917 104184 160670 190107 125377 29127 7017 177076",
+      "429620650\r\n844699313\r\n355160870\r\n608402385\r\n858856681\r\n605347397\r\n566966598\r\n429324494\r\n370941155\r\n567238109"
+    ]
+  },
+  "abc215_g": {
+    "id": "abc215_g",
+    "contest_id": "abc215",
+    "title": "G",
+    "url": "https://atcoder.jp/contests/abc215/tasks/abc215_g",
+    "statement": "配点 : 600 点 問題文 N 個のキャンディが左右一列に並んでいます。 それぞれのキャンディは、色 1 、色 2 、 \\ldots 、色 10^9 の、 10^9 種類の色のうちいずれかの色をしています。 i = 1, 2, \\ldots, N について、左から i 番目のキャンディの色は色 c_i です。 高橋君は並んでいる N 個のキャンディのうち K 個を選び、選んだ K 個のキャンディをすべてもらいます。 ここで、 N 個のキャンディから K 個を選ぶ組み合わせの個数は二項係数を用いて \\binom{N}{K} 個と表せますが、 高橋君は \\binom{N}{K} 通りの選び方のうちいずれか一つを等確率でランダムに選びます。 高橋君はいろいろな色のキャンディを食べたいので、もらうキャンディに含まれる色の種類数が多いほどうれしい気持ちになります。 K = 1, 2, \\ldots, N のそれぞれの場合について、高橋君がもらうキャンディに含まれる色の種類数の期待値を求めてください。 ここで、求める答えは有理数となることが証明できます。答えとなる有理数を注記で述べるように \\bmod 998244353 で出力してください。 注記 有理数を出力する際は、まずその有理数を分数 \\frac{y}{x} として表してください。ここで、 x, y は整数であり、 x は 998244353 で割り切れてはなりません（この問題の制約下で、そのような表現は必ず可能です）。そして、 xz \\equiv y \\pmod{998244353} を満たすような 0 以上 998244352 以下の唯一の整数 z を出力してください。 制約 1 \\leq N \\leq 5 \\times 10^4 1 \\leq c_i \\leq 10^9 入力はすべて整数 入力 入力は以下の形式で標準入力から与えられる。 N c_1 c_2 \\ldots c_N 出力 N 行出力せよ。 i 行目には K = i の場合における高橋君がもらうキャンディに含まれる色の種類数の期待値を、注記に述べるように \\bmod 998244353 で出力せよ。 入力例 1 3 1 2 2 出力例 1 1 665496237 2 K = 1 のとき、高橋君がもらうキャンディの組み合わせは、「 1 番目のみ」「 2 番目のみ」「 3 番目のみ」の 3 通りがあります。 いずれの場合も、含まれる色は 1 種類です。よって、含まれる色の種類数の期待値は 1 となります。 K = 2 のとき、高橋君がもらうキャンディの組み合わせは、「 1 番目と 2 番目」「 2 番目と 3 番目」「 1 番目と 3 番目」の 3 通りがあります。 「 1 番目と 2 番目」をもらう場合、含まれる色は 2 種類 「 2 番目と 3 番目」をもらう場合、含まれる色は 1 種類 「 1 番目と 3 番目」をもらう場合、含まれる色は 2 種類 となりますから、含まれる色の種類数の期待値は、 \\frac{1}{3} \\cdot 2 + \\frac{1}{3} \\cdot 1 + \\frac{1}{3} \\cdot 2 = \\frac{5}{3} です。 注記に述べたように、 \\bmod 998244353 で出力することに注意してください。 K = 3 のとき、高橋君がもらうキャンディの組み合わせは、「 1, 2, 3 番目のすべて」の 1 通りのみであり、含まれる色は 2 種類です。 よって、含まれる色の種類数の期待値は 2 となります。 入力例 2 11 3 1 4 1 5 9 2 6 5 3 5 出力例 2 1 725995895 532396991 768345657 786495555 937744700 574746754 48399732 707846002 907494873 7 Score : 600 points Problem Statement There are N candies arranged in a row from left to right. Each candy has one of the following 10^9 colors: Color 1 , Color 2 , \\ldots , Color 10^9 . For each i = 1, 2, \\ldots, N , the i -th candy from the left has Color c_i . Takahashi will choose K from the N candies and get those K candies. There are \\binom{N}{K} ways to choose K from the N candies, where \\binom{N}{K} is a binomial coefficient. Takahashi will randomly select one of these \\binom{N}{K} ways with equal probability. Because Takahashi wants to eat colorful candies, the more variety of colors his candies have, the happier he will be. For each scenario K = 1, 2, \\ldots, N , find the expected value of the number of different colors Takahashi's candies will have. We can prove that the sought value is a rational number. Print this rational number modulo 9",
+    "samples": [
+      {
+        "input": "3\r\n1 2 2",
+        "output": "1\r\n665496237\r\n2"
+      },
+      {
+        "input": "11\r\n3 1 4 1 5 9 2 6 5 3 5",
+        "output": "1\r\n725995895\r\n532396991\r\n768345657\r\n786495555\r\n937744700\r\n574746754\r\n48399732\r\n707846002\r\n907494873\r\n7"
+      },
+      {
+        "input": "3\r\n1 2 2",
+        "output": "1\r\n665496237\r\n2"
+      },
+      {
+        "input": "11\r\n3 1 4 1 5 9 2 6 5 3 5",
+        "output": "1\r\n725995895\r\n532396991\r\n768345657\r\n786495555\r\n937744700\r\n574746754\r\n48399732\r\n707846002\r\n907494873\r\n7"
+      }
+    ],
+    "raw_pres": [
+      "<var>N</var>\r\n<var>c_1</var> <var>c_2</var> <var>\\ldots</var> <var>c_N</var>",
+      "3\r\n1 2 2",
+      "1\r\n665496237\r\n2",
+      "11\r\n3 1 4 1 5 9 2 6 5 3 5",
+      "1\r\n725995895\r\n532396991\r\n768345657\r\n786495555\r\n937744700\r\n574746754\r\n48399732\r\n707846002\r\n907494873\r\n7",
+      "<var>N</var>\r\n<var>c_1</var> <var>c_2</var> <var>\\ldots</var> <var>c_N</var>",
+      "3\r\n1 2 2",
+      "1\r\n665496237\r\n2",
+      "11\r\n3 1 4 1 5 9 2 6 5 3 5",
+      "1\r\n725995895\r\n532396991\r\n768345657\r\n786495555\r\n937744700\r\n574746754\r\n48399732\r\n707846002\r\n907494873\r\n7"
+    ]
+  },
+  "arc175_d": {
+    "id": "arc175_d",
+    "contest_id": "arc175",
+    "title": "D",
+    "url": "https://atcoder.jp/contests/arc175/tasks/arc175_d",
+    "statement": "配点 : 700 点 問題文 頂点に 1 から N の番号がついた N 頂点の木があります．木の i 番目の辺は頂点 u_i と頂点 v_i を双方向に結んでいます． (1,\\ldots,N) の順列 P=(P_1,\\ldots,P_N) に対し f(P) を以下で定めます． 頂点 i\\ (1\\leq i\\leq N) に対し，頂点 1 から頂点 i への単純パスを (v_1=1,v_2,\\ldots,v_k=i) として， (P_{v_1},P_{v_2},\\ldots,P_{v_k}) の最長増加部分列の長さを L_i とする． f(P) = \\sum_{i=1}^N L_i と定める． 整数 K が与えられます． f(P)=K を満たす (1,\\ldots,N) の順列 P が存在するか判定し，存在する場合は一つ示してください． 最長増加部分列とは 数列の 部分列 とは，数列から 0 個以上の要素を取り除いた後，残りの要素を元の順序で連結して得られる数列のことをいいます． 例えば， (10,30) は (10,20,30) の部分列ですが， (20,10) は (10,20,30) の部分列ではありません． 数列の 最長増加部分列 とは，数列の狭義単調増加な部分列の中で列の長さが最大のものを指します． 単純パスとは グラフ G 上の頂点 X,Y に対して，頂点列 (v_1,v_2, \\ldots, v_k) であって， v_1=X , v_k=Y かつ， 1\\leq i\\leq k-1 に対して v_i と v_{i+1} が辺で結ばれているようなものを頂点 X から頂点 Y への ウォーク と呼びます． さらに， v_1,v_2, \\ldots, v_k がすべて異なるようなものを頂点 X から頂点 Y への 単純パス (あるいは単に パス ) と呼びます． 制約 入力される数値は全て整数 2 \\leq N \\leq 2\\times 10^5 1\\leq K \\leq 10^{11} 1\\leq u_i,v_i\\leq N 与えられるグラフは木 入力 入力は以下の形式で標準入力から与えられる． N K u_1 v_1 \\vdots u_{N-1} v_{N-1} 出力 f(P)=K を満たす順列 P が存在しない場合， No を出力せよ． f(P)=K を満たす順列 P が存在する場合，以下の形式で出力せよ． Yes P_1 \\ldots P_N 条件を満たす順列 P が複数存在する場合，どれを出力しても正解とみなされる． 入力例 1 5 8 1 2 2 3 2 4 4 5 出力例 1 Yes 3 2 1 4 5 P=(3,2,1,4,5) のとき， f(P) は以下のように定まります． 頂点 1 から頂点 1 への単純パスは (1) であり， (P_1)=(3) の最長増加部分列の長さは 1 である．よって L_1 = 1 である． 頂点 1 から頂点 2 への単純パスは (1,2) であり， (P_1,P_2)=(3,2) の最長増加部分列の長さは 1 である．よって L_2 = 1 である． 頂点 1 から頂点 3 への単純パスは (1,2,3) であり， (P_1,P_2,P_3)=(3,2,1) の最長増加部分列の長さは 1 である．よって L_3 = 1 である． 頂点 1 から頂点 4 への単純パスは (1,2,4) であり， (P_1,P_2,P_4)=(3,2,4) の最長増加部分列の長さは 2 である．よって L_4 = 2 である． 頂点 1 から頂点 5 への単純パスは (1,2,4,5) であり， (P_1,P_2,P_4,P_5)=(3,2,4,5) の最長増加部分列の長さは 3 である．よって L_5 = 3 である． 以上より， f(P)=1+1+1+2+3= 8 である． このことから，出力例の P は f(P)=8 という条件を満たすことが分かります．この他にも，例えば P=(3,2,4,5,1) も条件を満たします． 入力例 2 7 21 2 1 7 2 5 1 3 7 2 6 3 4 出力例 2 No f(P) = 21 を満たす順列 P は存在しないことが証明できます． 入力例 3 8 20 3 1 3 8 7 1 7 5 3 2 6 5 4 7 出力例 3 Yes 2 1 3 5 6 8 4 7 Score: 700 points Problem Statement There is a tree with N vertices numbered 1 to N . The i -th edge of the tree connects vertices u_i and v_i bidirectionally. For a permutation P=(P_1,\\ldots,P_N) of (1,\\ldots,N) , we define f(P) as follows: For each vertex i\\ (1\\leq i\\leq N) , let (v_1=1,v_2,\\ldots,v_k=i) be the simple path from vertex 1 to vertex i , and let L_i be the length of a longest increasing subsequence of (P_{v_1},P_{v_2},\\ldots,P_{v_k}) . We define f(P) = \\sum_{i=1}^N L_i . You are given an integer K . Determine whether there is a permutation P of (1,\\ldots,N) such that f(P)=K . If it exists, present one such permutation. ",
+    "samples": [
+      {
+        "input": "5 8\r\n1 2\r\n2 3\r\n2 4\r\n4 5",
+        "output": "Yes\r\n3 2 1 4 5"
+      },
+      {
+        "input": "7 21\r\n2 1\r\n7 2\r\n5 1\r\n3 7\r\n2 6\r\n3 4",
+        "output": "No"
+      },
+      {
+        "input": "8 20\r\n3 1\r\n3 8\r\n7 1\r\n7 5\r\n3 2\r\n6 5\r\n4 7",
+        "output": "Yes\r\n2 1 3 5 6 8 4 7"
+      },
+      {
+        "input": "5 8\r\n1 2\r\n2 3\r\n2 4\r\n4 5",
+        "output": "Yes\r\n3 2 1 4 5"
+      },
+      {
+        "input": "7 21\r\n2 1\r\n7 2\r\n5 1\r\n3 7\r\n2 6\r\n3 4",
+        "output": "No"
+      },
+      {
+        "input": "8 20\r\n3 1\r\n3 8\r\n7 1\r\n7 5\r\n3 2\r\n6 5\r\n4 7",
+        "output": "Yes\r\n2 1 3 5 6 8 4 7"
+      }
+    ],
+    "raw_pres": [
+      "<var>N</var> <var>K</var>\r\n<var>u_1</var> <var>v_1</var>\r\n<var>\\vdots</var>\r\n<var>u_{N-1}</var> <var>v_{N-1}</var>",
+      "Yes\r\n<var>P_1</var> <var>\\ldots</var> <var>P_N</var>",
+      "5 8\r\n1 2\r\n2 3\r\n2 4\r\n4 5",
+      "Yes\r\n3 2 1 4 5",
+      "7 21\r\n2 1\r\n7 2\r\n5 1\r\n3 7\r\n2 6\r\n3 4",
+      "No",
+      "8 20\r\n3 1\r\n3 8\r\n7 1\r\n7 5\r\n3 2\r\n6 5\r\n4 7",
+      "Yes\r\n2 1 3 5 6 8 4 7",
+      "<var>N</var> <var>K</var>\r\n<var>u_1</var> <var>v_1</var>\r\n<var>\\vdots</var>\r\n<var>u_{N-1}</var> <var>v_{N-1}</var>",
+      "Yes\r\n<var>P_1</var> <var>\\ldots</var> <var>P_N</var>",
+      "5 8\r\n1 2\r\n2 3\r\n2 4\r\n4 5",
+      "Yes\r\n3 2 1 4 5",
+      "7 21\r\n2 1\r\n7 2\r\n5 1\r\n3 7\r\n2 6\r\n3 4",
+      "No",
+      "8 20\r\n3 1\r\n3 8\r\n7 1\r\n7 5\r\n3 2\r\n6 5\r\n4 7",
+      "Yes\r\n2 1 3 5 6 8 4 7"
+    ]
+  },
+  "abc143_f": {
+    "id": "abc143_f",
+    "contest_id": "abc143",
+    "title": "F",
+    "url": "https://atcoder.jp/contests/abc143/tasks/abc143_f",
+    "statement": "配点 : 600 点 問題文 高橋くんは N 枚のカードを持っています。 i 番目のカードには整数 A_i が書かれています。 高橋くんは整数 K を選びます。そして、以下の操作を何度か繰り返します。 書かれている整数が互いに異なるちょうど K 枚のカードを選び、食べる（食べたカードは消滅する） K = 1,2, \\ldots, N のそれぞれに対して、操作を行える最大の回数を求めてください。 制約 1 \\le N \\le 3 \\times 10^5 1 \\le A_i \\le N 入力はすべて整数 入力 入力は以下の形式で標準入力から与えられる。 N A_1 A_2 \\ldots A_N 出力 N 個の整数を出力せよ。 t (1 \\le t \\le N) 個目には、 K=t のときの答えを出力せよ。 入力例 1 3 2 1 2 出力例 1 3 1 0 K = 1 のとき、操作を以下のように行うことができます。 1 枚目のカードを選び、食べる 2 枚目のカードを選び、食べる 3 枚目のカードを選び、食べる また、 K = 2 のとき、操作を以下のように行うことができます。 1 枚目のカードと 2 枚目のカードを選び、食べる K = 3 のときは、操作を行うことができません。 1 枚目のカードと 3 枚目のカードを同時に選べないことに注意してください。 入力例 2 5 1 2 3 4 5 出力例 2 5 2 1 1 1 入力例 3 4 1 3 3 3 出力例 3 4 1 0 0 Score : 600 points Problem Statement Takahashi has N cards. The i -th of these cards has an integer A_i written on it. Takahashi will choose an integer K , and then repeat the following operation some number of times: Choose exactly K cards such that the integers written on them are all different, and eat those cards. (The eaten cards disappear.) For each K = 1,2, \\ldots, N , find the maximum number of times Takahashi can do the operation. Constraints 1 \\le N \\le 3 \\times 10^5 1 \\le A_i \\le N All values in input are integers. Input Input is given from Standard Input in the following format: N A_1 A_2 \\ldots A_N Output Print N integers. The t -th (1 \\le t \\le N) of them should be the answer for the case K=t . Sample Input 1 3 2 1 2 Sample Output 1 3 1 0 For K = 1 , we can do the operation as follows: Choose the first card to eat. Choose the second card to eat. Choose the third card to eat. For K = 2 , we can do the operation as follows: Choose the first and second cards to eat. For K = 3 , we cannot do the operation at all. Note that we cannot choose the first and third cards at the same time. Sample Input 2 5 1 2 3 4 5 Sample Output 2 5 2 1 1 1 Sample Input 3 4 1 3 3 3 Sample Output 3 4 1 0 0",
+    "samples": [
+      {
+        "input": "3\r\n2 1 2",
+        "output": "3\r\n1\r\n0"
+      },
+      {
+        "input": "5\r\n1 2 3 4 5",
+        "output": "5\r\n2\r\n1\r\n1\r\n1"
+      },
+      {
+        "input": "4\r\n1 3 3 3",
+        "output": "4\r\n1\r\n0\r\n0"
+      },
+      {
+        "input": "3\r\n2 1 2",
+        "output": "3\r\n1\r\n0"
+      },
+      {
+        "input": "5\r\n1 2 3 4 5",
+        "output": "5\r\n2\r\n1\r\n1\r\n1"
+      },
+      {
+        "input": "4\r\n1 3 3 3",
+        "output": "4\r\n1\r\n0\r\n0"
+      }
+    ],
+    "raw_pres": [
+      "<var>N</var>\r\n<var>A_1</var> <var>A_2</var> <var>\\ldots</var> <var>A_N</var>",
+      "3\r\n2 1 2",
+      "3\r\n1\r\n0",
+      "5\r\n1 2 3 4 5",
+      "5\r\n2\r\n1\r\n1\r\n1",
+      "4\r\n1 3 3 3",
+      "4\r\n1\r\n0\r\n0",
+      "<var>N</var>\r\n<var>A_1</var> <var>A_2</var> <var>\\ldots</var> <var>A_N</var>",
+      "3\r\n2 1 2",
+      "3\r\n1\r\n0",
+      "5\r\n1 2 3 4 5",
+      "5\r\n2\r\n1\r\n1\r\n1",
+      "4\r\n1 3 3 3",
+      "4\r\n1\r\n0\r\n0"
+    ]
+  },
+  "abc273_f": {
+    "id": "abc273_f",
+    "contest_id": "abc273",
+    "title": "F",
+    "url": "https://atcoder.jp/contests/abc273/tasks/abc273_f",
+    "statement": "配点 : 500 点 問題文 数直線の原点に高橋君がいます。高橋君は座標 X にあるゴールに移動しようとしています。 また、数直線上に N 枚の壁と N 本のハンマーがあります。 座標 Y_1,Y_2,\\dots,Y_N にはそれぞれタイプ 1,2,\\dots,N の壁があります。 最初、高橋君は壁を超えて移動することができません。 座標 Z_1,Z_2,\\dots,Z_N にはそれぞれタイプ 1,2,\\dots,N のハンマーがあります。 高橋君はハンマーのある座標に着くとそこにあるハンマーを手に入れます。 タイプ i のハンマーはタイプ i の壁を破壊するための専用のもので、タイプ i のハンマーを手に入れた後でなら、タイプ i の壁を破壊して通過できるようになります。 高橋君がゴールに到達することが可能か判定し、可能であれば移動距離の最小値を求めてください。 制約 入力は全て整数 1 \\le N \\le 1500 1 \\le |X|,|Y_i|,|Z_i| \\le 10^9 合計 2 \\times N + 1 個の座標 X,Y_i,Z_i は相異なる 入力 入力は以下の形式で標準入力から与えられる。 N X Y_1 Y_2 \\dots Y_N Z_1 Z_2 \\dots Z_N 出力 高橋君がゴールに到達することが可能であれば移動距離の最小値を整数として出力せよ。 不可能であれば -1 と出力せよ。 入力例 1 3 10 -2 8 -5 5 -10 3 出力例 1 40 以下の手順により、移動距離 40 で高橋くんがゴールに到達でき、これが移動距離の最小です。 座標 0 から高橋君が行動を開始する。 座標 3 に行く。タイプ 3 のハンマーを手に入れる。 座標 5 に行く。タイプ 1 のハンマーを手に入れる。 座標 -2 に行く。タイプ 1 の壁を破壊する。 座標 -5 に行く。タイプ 3 の壁を破壊する。 座標 -10 に行く。タイプ 2 のハンマーを手に入れる。 座標 8 に行く。タイプ 2 の壁を破壊する。 座標 10 に行く。ここがゴールである。 入力例 2 5 -1 10 -20 30 -40 50 -10 20 -30 40 -50 出力例 2 1 ゴールに移動するために、ハンマーを手に入れる必要も壁を破壊する必要もない場合もあります。 入力例 3 1 100 30 60 出力例 3 -1 高橋君がタイプ 1 のハンマーを手に入れることは不可能であり、ゴールに辿り着くこともできません。 入力例 4 4 865942261 703164879 -531670946 -874856231 -700164975 -941120316 599462305 -649785130 665402307 出力例 4 4078987507 Score : 500 points Problem Statement Takahashi is at the origin of a number line. Takahashi wants to reach the goal at coordinate X . Also, there are N walls and N hammers on the number line. At coordinates Y_1,Y_2,\\dots,Y_N are walls of types 1,2,\\dots,N , respectively. Initially, Takahashi cannot get over the walls. At coordinates Z_1,Z_2,\\dots,Z_N are hammers of types 1,2,\\dots,N , respectively. When he arrives at a coordinate with a hammer, he obtains the hammer. The hammer of type i is dedicated to destroying the wall of type i . After he obtains the hammer of type i , he can destroy the wall of type i and get over it. Determine if he can reach the goal. If he can, find the minimum distance he travels. Constraints All values in the input are integers. 1 \\le N \\le 1500 1 \\le |X|,|Y_i|,|Z_i| \\le 10^9 The (2 \\times N + 1) coordinates X,Y_i and Z_i are distinct. Input The input is given from Standard Input in the following format: N X Y_1 Y_2 \\dots Y_N Z_1 Z_2 \\dots Z_N Output If Takahashi can reach the goal, print the minimum possible distance he travels as an integer. Otherwise, print -1 . Sample Input 1 3 10 -2 8 -5 5 -10 3 Sample Output 1 40 Takahashi can reach the goal by traveling a distance of 40 as follows, which is the minimum possible: He starts at coordinate 0 . He moves to co",
+    "samples": [
+      {
+        "input": "3 10\r\n-2 8 -5\r\n5 -10 3",
+        "output": "40"
+      },
+      {
+        "input": "5 -1\r\n10 -20 30 -40 50\r\n-10 20 -30 40 -50",
+        "output": "1"
+      },
+      {
+        "input": "1 100\r\n30\r\n60",
+        "output": "-1"
+      },
+      {
+        "input": "4 865942261\r\n703164879 -531670946 -874856231 -700164975\r\n-941120316 599462305 -649785130 665402307",
+        "output": "4078987507"
+      },
+      {
+        "input": "3 10\r\n-2 8 -5\r\n5 -10 3",
+        "output": "40"
+      },
+      {
+        "input": "5 -1\r\n10 -20 30 -40 50\r\n-10 20 -30 40 -50",
+        "output": "1"
+      },
+      {
+        "input": "1 100\r\n30\r\n60",
+        "output": "-1"
+      },
+      {
+        "input": "4 865942261\r\n703164879 -531670946 -874856231 -700164975\r\n-941120316 599462305 -649785130 665402307",
+        "output": "4078987507"
+      }
+    ],
+    "raw_pres": [
+      "<var>N</var> <var>X</var>\r\n<var>Y_1</var> <var>Y_2</var> <var>\\dots</var> <var>Y_N</var>\r\n<var>Z_1</var> <var>Z_2</var> <var>\\dots</var> <var>Z_N</var>",
+      "3 10\r\n-2 8 -5\r\n5 -10 3",
+      "40",
+      "5 -1\r\n10 -20 30 -40 50\r\n-10 20 -30 40 -50",
+      "1",
+      "1 100\r\n30\r\n60",
+      "-1",
+      "4 865942261\r\n703164879 -531670946 -874856231 -700164975\r\n-941120316 599462305 -649785130 665402307",
+      "4078987507",
+      "<var>N</var> <var>X</var>\r\n<var>Y_1</var> <var>Y_2</var> <var>\\dots</var> <var>Y_N</var>\r\n<var>Z_1</var> <var>Z_2</var> <var>\\dots</var> <var>Z_N</var>",
+      "3 10\r\n-2 8 -5\r\n5 -10 3",
+      "40",
+      "5 -1\r\n10 -20 30 -40 50\r\n-10 20 -30 40 -50",
+      "1",
+      "1 100\r\n30\r\n60",
+      "-1",
+      "4 865942261\r\n703164879 -531670946 -874856231 -700164975\r\n-941120316 599462305 -649785130 665402307",
+      "4078987507"
+    ]
+  },
+  "arc052_c": {
+    "id": "arc052_c",
+    "contest_id": "arc052",
+    "title": "C",
+    "url": "https://atcoder.jp/contests/arc052/tasks/arc052_c",
+    "statement": "問題文 町 0 から町 N-1 までの N 個の町があります。 これらは M 個の双方向に行き来可能な道で結ばれています。 道にはタイプ A とタイプ B の二種類の道があります。 タイプ A の道を通ると、コストが 1 かかります。 タイプ B の道を通るとき、コストが (今まで通ったタイプ B の道の本数) + 1 かかります。 ただし、 i ( 1 &le; i &le; M ) 本目の道は、町 A_i と町 B_i を結び、 C_i が 0 のときはタイプ A 、 C_i が 1 のときはタイプ B とします。 全ての町において、町 0 からその町までの移動にかかる最小コストをそれぞれ求めてください。 ただし、町 0 から到達できない町は存在しないものとします。 制約 与えられる数字はすべて整数 1 ≤ N ≤ 10^4 1 ≤ M ≤ 10^5 0 ≤ A_i, B_i ≤ N - 1 0 ≤ C_i ≤ 1 入力 入力は以下の形式で標準入力から与えられる。 N M C_1 A_1 B_1 C_2 A_2 B_2 : C_M A_M B_M 出力 出力は N 行からなる。 i 行目 ( 1 ≤ i ≤ N )には、町 0 から町 i-1 への移動でかかるコストを出力せよ。",
+    "samples": [],
+    "raw_pres": [
+      "<var>N</var> <var>M</var>\r\n<var>C_1</var> <var>A_1</var> <var>B_1</var>\r\n<var>C_2</var> <var>A_2</var> <var>B_2</var>\r\n<var>:</var>\r\n<var>C_M</var> <var>A_M</var> <var>B_M</var>",
+      "3 3\r\n0 0 1\r\n1 1 2\r\n1 2 0",
+      "0\r\n1\r\n1",
+      "7 8\r\n1 0 1\r\n1 1 2\r\n1 2 5\r\n1 5 6\r\n0 1 3\r\n0 3 4\r\n0 4 5\r\n0 2 6",
+      "0\r\n1\r\n3\r\n2\r\n3\r\n4\r\n4",
+      "8 9\r\n0 0 1\r\n0 1 2\r\n0 2 3\r\n0 5 6\r\n0 6 7\r\n1 1 3\r\n1 3 4\r\n1 4 5\r\n1 5 7",
+      "0\r\n1\r\n2\r\n2\r\n4\r\n6\r\n7\r\n8"
+    ]
+  },
+  "arc080_c": {
+    "id": "arc080_c",
+    "contest_id": "arc080",
+    "title": "E",
+    "url": "https://atcoder.jp/contests/arc080/tasks/arc080_c",
+    "statement": "配点 : 800 点 問題文 N を正の偶数とします。 (1, 2, ..., N) の順列 p = (p_1, p_2, ..., p_N) があります。 すぬけ君は、次の手続きによって (1, 2, ..., N) の順列 q を作ろうとしています。 まず、空の数列 q を用意します。 p が空になるまで、次の操作を繰り返します。 p の隣り合う 2 つの要素を選び、順に x , y とする。 x , y を p から取り除き (このとき、 p は 2 だけ短くなる)、 x , y をこの順のまま q の先頭へ追加する。 p が空になったとき、 q は (1, 2, ..., N) の順列になっています。 辞書順で最小の q を求めてください。 制約 N は偶数である。 2 ≤ N ≤ 2 × 10^5 p は (1, 2, ..., N) の順列である。 入力 入力は以下の形式で標準入力から与えられる。 N p_1 p_2 ... p_N 出力 辞書順で最小の q を空白区切りで出力せよ。 入力例 1 4 3 2 4 1 出力例 1 3 1 2 4 次の順に操作を行えばよいです。 p q (3, 2, 4, 1) () ↓ ↓ (3, 1) (2, 4) ↓ ↓ () (3, 1, 2, 4) 入力例 2 2 1 2 出力例 2 1 2 入力例 3 8 4 6 3 2 8 5 7 1 出力例 3 3 1 2 7 4 6 8 5 次の順に操作を行えばよいです。 p q (4, 6, 3, 2, 8, 5, 7, 1) () ↓ ↓ (4, 6, 3, 2, 7, 1) (8, 5) ↓ ↓ (3, 2, 7, 1) (4, 6, 8, 5) ↓ ↓ (3, 1) (2, 7, 4, 6, 8, 5) ↓ ↓ () (3, 1, 2, 7, 4, 6, 8, 5) Score : 800 points Problem Statement Let N be a positive even number. We have a permutation of (1, 2, ..., N) , p = (p_1, p_2, ..., p_N) . Snuke is constructing another permutation of (1, 2, ..., N) , q , following the procedure below. First, let q be an empty sequence. Then, perform the following operation until p becomes empty: Select two adjacent elements in p , and call them x and y in order. Remove x and y from p (reducing the length of p by 2 ), and insert x and y , preserving the original order, at the beginning of q . When p becomes empty, q will be a permutation of (1, 2, ..., N) . Find the lexicographically smallest permutation that can be obtained as q . Constraints N is an even number. 2 ≤ N ≤ 2 × 10^5 p is a permutation of (1, 2, ..., N) . Input Input is given from Standard Input in the following format: N p_1 p_2 ... p_N Output Print the lexicographically smallest permutation, with spaces in between. Sample Input 1 4 3 2 4 1 Sample Output 1 3 1 2 4 The solution above is obtained as follows: p q (3, 2, 4, 1) () ↓ ↓ (3, 1) (2, 4) ↓ ↓ () (3, 1, 2, 4) Sample Input 2 2 1 2 Sample Output 2 1 2 Sample Input 3 8 4 6 3 2 8 5 7 1 Sample Output 3 3 1 2 7 4 6 8 5 The solution above is obtained as follows: p q (4, 6, 3, 2, 8, 5, 7, 1) () ↓ ↓ (4, 6, 3, 2, 7, 1) (8, 5) ↓ ↓ (3, 2, 7, 1) (4, 6, 8, 5) ↓ ↓ (3, 1) (2, 7, 4, 6, 8, 5) ↓ ↓ () (3, 1, 2, 7, 4, 6, 8, 5)",
+    "samples": [
+      {
+        "input": "4\r\n3 2 4 1",
+        "output": "3 1 2 4"
+      },
+      {
+        "input": "2\r\n1 2",
+        "output": "1 2"
+      },
+      {
+        "input": "8\r\n4 6 3 2 8 5 7 1",
+        "output": "3 1 2 7 4 6 8 5"
+      },
+      {
+        "input": "4\r\n3 2 4 1",
+        "output": "3 1 2 4"
+      },
+      {
+        "input": "2\r\n1 2",
+        "output": "1 2"
+      },
+      {
+        "input": "8\r\n4 6 3 2 8 5 7 1",
+        "output": "3 1 2 7 4 6 8 5"
+      }
+    ],
+    "raw_pres": [
+      "<var>N</var>\r\n<var>p_1</var> <var>p_2</var> <var>...</var> <var>p_N</var>",
+      "4\r\n3 2 4 1",
+      "3 1 2 4",
+      "2\r\n1 2",
+      "1 2",
+      "8\r\n4 6 3 2 8 5 7 1",
+      "3 1 2 7 4 6 8 5",
+      "<var>N</var>\r\n<var>p_1</var> <var>p_2</var> <var>...</var> <var>p_N</var>",
+      "4\r\n3 2 4 1",
+      "3 1 2 4",
+      "2\r\n1 2",
+      "1 2",
+      "8\r\n4 6 3 2 8 5 7 1",
+      "3 1 2 7 4 6 8 5"
+    ]
+  },
+  "arc227_d": {
+    "id": "arc227_d",
+    "contest_id": "arc227",
+    "title": "D",
+    "url": "https://atcoder.jp/contests/arc227/tasks/arc227_d",
+    "statement": "配点 : 700 点 問題文 0 と 1 からなる長さ M の文字列 S_1,S_2,\\ldots,S_N が与えられます。 はじめ、黒板には S_1,S_2,\\ldots,S_N が書かれています。 あなたは次の操作を 0 回以上行うことができます。 黒板に書かれている文字列から、同じ文字列を複数回選んでもよいものとして 3 つ選び、それぞれ A,B,C とする。次の条件を満たす長さ M の文字列 D を新たに黒板に書く。 i=1,2,\\ldots,M のそれぞれについて、 A,B,C,D の i 文字目をそれぞれ A_i,B_i,C_i,D_i としたとき、 D_i は A_i,B_i,C_i のうち少なくとも 2 つと等しい。 Q 個の文字列 T_1,T_2,\\ldots,T_Q が与えられます。 i=1,2,\\ldots,Q のそれぞれについて、はじめの状態から操作を行うことで、 T_i が黒板に書かれている状態にできるか判定してください。 制約 1 \\leq N \\leq 500 1 \\leq M \\leq 500 1 \\leq Q \\leq 500 S_i は 0 と 1 からなる長さ M の文字列 (1 \\leq i \\leq N) T_i は 0 と 1 からなる長さ M の文字列 (1 \\leq i \\leq Q) 入力される数値はすべて整数 入力 入力は以下の形式で標準入力から与えられる。 N M Q S_1 S_2 \\vdots S_N T_1 T_2 \\vdots T_Q 出力 Q 行出力せよ。 i 行目には、 T_i が黒板に書かれている状態にできるなら Yes 、できないなら No と出力せよ。 入力例 1 3 3 2 000 011 101 000 001 出力例 1 Yes Yes T_1 ははじめから黒板に書かれています。 T_2 は 001 です。 000 、 011 、 101 の 3 つを選ぶ操作を行うと、 001 を黒板に新たに書くことができます。 入力例 2 2 1 2 0 0 0 1 出力例 2 Yes No はじめに黒板に書かれている文字列はどちらも 0 であり、操作によって新たに書かれる文字列も 0 です。よって、 1 が黒板に書かれている状態にできません。 Score : 700 points Problem Statement You are given length- M strings S_1,S_2,\\ldots,S_N consisting of 0 and 1 . Initially, S_1,S_2,\\ldots,S_N are written on the blackboard. You can perform the following operation zero or more times. Choose three strings from those written on the blackboard, allowing the same string to be chosen multiple times, and call them A,B,C . Newly write on the blackboard a string D of length M satisfying the following condition: For each i=1,2,\\ldots,M , letting A_i,B_i,C_i,D_i denote the i -th characters of A,B,C,D , respectively, D_i is equal to at least two of A_i,B_i,C_i . You are given Q strings T_1,T_2,\\ldots,T_Q . For each i=1,2,\\ldots,Q , determine whether it is possible to make T_i be written on the blackboard by performing operations starting from the initial state. Constraints 1 \\leq N \\leq 500 1 \\leq M \\leq 500 1 \\leq Q \\leq 500 S_i is a string of length M consisting of 0 and 1 . (1 \\leq i \\leq N) T_i is a string of length M consisting of 0 and 1 . (1 \\leq i \\leq Q) All input values are integers. Input The input is given from Standard Input in the following format: N M Q S_1 S_2 \\vdots S_N T_1 T_2 \\vdots T_Q Output Output Q lines. The i -th line should contain Yes if T_i can be made to be written on the blackboard, and No otherwise. Sample Input 1 3 3 2 000 011 101 000 001 Sample Output 1 Yes Yes T_1 is written on the blackboard from the beginning. T_2 is 001 . If we perform the operation choosing the three strings 000 , 011 , 101 , we can newly write 001 on the blackb",
+    "samples": [
+      {
+        "input": "3 3 2\n000\n011\n101\n000\n001",
+        "output": "Yes\nYes"
+      },
+      {
+        "input": "2 1 2\n0\n0\n0\n1",
+        "output": "Yes\nNo"
+      },
+      {
+        "input": "3 3 2\n000\n011\n101\n000\n001",
+        "output": "Yes\nYes"
+      },
+      {
+        "input": "2 1 2\n0\n0\n0\n1",
+        "output": "Yes\nNo"
+      }
+    ],
+    "raw_pres": [
+      "<var>N</var> <var>M</var> <var>Q</var>\n<var>S_1</var>\n<var>S_2</var>\n<var>\\vdots</var>\n<var>S_N</var>\n<var>T_1</var>\n<var>T_2</var>\n<var>\\vdots</var>\n<var>T_Q</var>",
+      "3 3 2\n000\n011\n101\n000\n001",
+      "Yes\nYes",
+      "2 1 2\n0\n0\n0\n1",
+      "Yes\nNo",
+      "<var>N</var> <var>M</var> <var>Q</var>\n<var>S_1</var>\n<var>S_2</var>\n<var>\\vdots</var>\n<var>S_N</var>\n<var>T_1</var>\n<var>T_2</var>\n<var>\\vdots</var>\n<var>T_Q</var>",
+      "3 3 2\n000\n011\n101\n000\n001",
+      "Yes\nYes",
+      "2 1 2\n0\n0\n0\n1",
+      "Yes\nNo"
+    ]
+  },
+  "abc276_g": {
+    "id": "abc276_g",
+    "contest_id": "abc276",
+    "title": "G",
+    "url": "https://atcoder.jp/contests/abc276/tasks/abc276_g",
+    "statement": "配点 : 600 点 問題文 以下の条件を満たす項数 N の整数列 A=(a_1,a_2,\\ldots,a_N) の個数を 998244353 で割った余りを求めてください。 0 \\leq a_1 \\leq a_2 \\leq \\ldots \\leq a_N \\leq M i=1,2,\\ldots,N-1 それぞれについて、「 a_i を 3 で割った余り」と「 a_{i+1} を 3 で割った余り」が異なる 制約 2 \\leq N \\leq 10^7 1 \\leq M \\leq 10^7 入力はすべて整数 入力 入力は以下の形式で標準入力から与えられる。 N M 出力 答えを出力せよ。 入力例 1 3 4 出力例 1 8 以下の 8 個が条件を満たします。 (0,1,2) (0,1,3) (0,2,3) (0,2,4) (1,2,3) (1,2,4) (1,3,4) (2,3,4) 入力例 2 276 10000000 出力例 2 909213205 個数を 998244353 で割った余りを求めてください。 Score : 600 points Problem Statement Find the number of sequences of integers with N terms, A=(a_1,a_2,\\ldots,a_N) , that satisfy the following conditions, modulo 998244353 . 0 \\leq a_1 \\leq a_2 \\leq \\ldots \\leq a_N \\leq M . For each i=1,2,\\ldots,N-1 , the remainder when a_i is divided by 3 is different from the remainder when a_{i+1} is divided by 3 . Constraints 2 \\leq N \\leq 10^7 1 \\leq M \\leq 10^7 All values in the input are integers. Input The input is given from Standard Input in the following format: N M Output Print the answer. Sample Input 1 3 4 Sample Output 1 8 Here are the eight sequences that satisfy the conditions. (0,1,2) (0,1,3) (0,2,3) (0,2,4) (1,2,3) (1,2,4) (1,3,4) (2,3,4) Sample Input 2 276 10000000 Sample Output 2 909213205 Be sure to find the count modulo 998244353 .",
+    "samples": [
+      {
+        "input": "3 4",
+        "output": "8"
+      },
+      {
+        "input": "276 10000000",
+        "output": "909213205"
+      },
+      {
+        "input": "3 4",
+        "output": "8"
+      },
+      {
+        "input": "276 10000000",
+        "output": "909213205"
+      }
+    ],
+    "raw_pres": [
+      "<var>N</var> <var>M</var>",
+      "3 4",
+      "8",
+      "276 10000000",
+      "909213205",
+      "<var>N</var> <var>M</var>",
+      "3 4",
+      "8",
+      "276 10000000",
+      "909213205"
+    ]
+  },
+  "arc170_d": {
+    "id": "arc170_d",
+    "contest_id": "arc170",
+    "title": "D",
+    "url": "https://atcoder.jp/contests/arc170/tasks/arc170_d",
+    "statement": "配点 : 700 点 問題文 Alice と Bob でゲームをします． はじめ，Alice, Bob はそれぞれ N 枚のカードを持っていて，Alice が持っている i 番目のカードには整数 A_i が，Bob が持っている i 番目のカードには整数 B_i が書かれてます． ゲームは以下の手順で行われます． 何も書かれていない黒板を用意する． Alice が持っているカードを一枚食べ，食べたカードに書かれた整数を黒板に書く． 次に，Bob が持っているカードを一枚食べ，食べたカードに書かれた整数を黒板に書く． 最後に，Alice が持っているカードを一枚食べ，食べたカードに書かれた整数を黒板に書く． 黒板に書かれた 3 個の整数を 3 辺の長さとする（非退化な）三角形が存在すれば Alice の勝ちで，そうでないとき Bob の勝ちです． 両者が最適な行動をするとき，どちらが勝つか判定してください． T 個のテストケースが与えられるので，それぞれについて答えてください． 制約 1 \\leq T \\leq 10^5 2\\leq N\\leq 2\\times 10^5 1\\leq A_i,B_i\\leq 10^9 入力される数値は全て整数 1 つの入力に含まれるテストケースについて， N の総和は 2\\times 10^5 以下 入力 入力は以下の形式で標準入力から与えられる． T \\mathrm{case}_1 \\vdots \\mathrm{case}_T 各ケースは以下の形式で与えられる． N A_1 \\ldots A_N B_1 \\ldots B_N 出力 T 行出力せよ． i 行目 (1 \\leq i \\leq T) には， i 番目のテストケースについて，Alice が勝つ場合 Alice を，Bob が勝つ場合 Bob を出力せよ． 入力例 1 3 3 1 2 3 4 5 6 4 6 1 5 10 2 2 4 5 10 3 1 4 1 5 9 2 6 5 3 2 7 1 8 2 8 1 8 2 8 出力例 1 Bob Alice Alice 1 番目のテストケースでは，例えばゲームは以下のように進行します． Alice が 2 を書かれたカードを食べ，黒板に 2 を書く． Bob が 4 を書かれたカードを食べ，黒板に 4 を書く． Alice が 1 を書かれたカードを食べ，黒板に 1 を書く． 黒板に書かれた数は 2,4,1 であり， 3 辺の長さが 2,4,1 であるような三角形は存在しないので Bob の勝ちとなる． このテストケースについて，上記の手順が必ずしも両者にとって最適な行動とは限りませんが，両者が最適な行動をした場合勝利するのは Bob であることが示せます． Score: 700 points Problem Statement Alice and Bob will play a game. Initially, Alice and Bob each have N cards, with the i -th card of Alice having the integer A_i written on it, and the i -th card of Bob having the integer B_i written on it. The game proceeds as follows: Prepare a blackboard with nothing written on it. Alice eats one of her cards and writes the integer from the eaten card on the blackboard. Next, Bob eats one of his cards and writes the integer from the eaten card on the blackboard. Finally, Alice eats one more of her cards and writes the integer from the eaten card on the blackboard. If it is possible to form a (non-degenerate) triangle with the side lengths of the three integers written on the blackboard, Alice wins; otherwise, Bob wins. Determine who wins when both players act optimally. Solve each of the T given test cases. Constraints 1 \\leq T \\leq 10^5 2 \\leq N \\leq 2 \\times 10^5 1 \\leq A_i, B_i \\leq 10^9 All input values are integers. The sum of N over all test cases in a single input is at most 2 \\times 10^5 . Input The input is given from Standard Input in the following format: T \\mathrm{case}_1 \\vdots \\mathrm{case}_T Each case is given in the following format: N A_1 \\ldots A_N B_1 \\ldots B_N Output Print T lines. The i -th line (1 \\leq i \\leq T) should contain Alice if Alice wins for ",
+    "samples": [
+      {
+        "input": "3\r\n3\r\n1 2 3\r\n4 5 6\r\n4\r\n6 1 5 10\r\n2 2 4 5\r\n10\r\n3 1 4 1 5 9 2 6 5 3\r\n2 7 1 8 2 8 1 8 2 8",
+        "output": "Bob\r\nAlice\r\nAlice"
+      },
+      {
+        "input": "3\r\n3\r\n1 2 3\r\n4 5 6\r\n4\r\n6 1 5 10\r\n2 2 4 5\r\n10\r\n3 1 4 1 5 9 2 6 5 3\r\n2 7 1 8 2 8 1 8 2 8",
+        "output": "Bob\r\nAlice\r\nAlice"
+      }
+    ],
+    "raw_pres": [
+      "<var>T</var>\r\n<var>\\mathrm{case}_1</var>\r\n<var>\\vdots</var>\r\n<var>\\mathrm{case}_T</var>",
+      "<var>N</var>\r\n<var>A_1</var> <var>\\ldots</var> <var>A_N</var>\r\n<var>B_1</var> <var>\\ldots</var> <var>B_N</var>",
+      "3\r\n3\r\n1 2 3\r\n4 5 6\r\n4\r\n6 1 5 10\r\n2 2 4 5\r\n10\r\n3 1 4 1 5 9 2 6 5 3\r\n2 7 1 8 2 8 1 8 2 8",
+      "Bob\r\nAlice\r\nAlice",
+      "<var>T</var>\r\n<var>\\mathrm{case}_1</var>\r\n<var>\\vdots</var>\r\n<var>\\mathrm{case}_T</var>",
+      "<var>N</var>\r\n<var>A_1</var> <var>\\ldots</var> <var>A_N</var>\r\n<var>B_1</var> <var>\\ldots</var> <var>B_N</var>",
+      "3\r\n3\r\n1 2 3\r\n4 5 6\r\n4\r\n6 1 5 10\r\n2 2 4 5\r\n10\r\n3 1 4 1 5 9 2 6 5 3\r\n2 7 1 8 2 8 1 8 2 8",
+      "Bob\r\nAlice\r\nAlice"
+    ]
+  },
+  "abc474_g": {
+    "id": "abc474_g",
+    "contest_id": "abc474",
+    "title": "G",
+    "url": "https://atcoder.jp/contests/abc474/tasks/abc474_g",
+    "statement": "配点 : 575 点 問題文 正整数 N,K が与えられます。 N\\times N のマス目があり、上から r 行目、左から c 列目のマスをマス (r,c) と表します。 はじめ、コマがマス (1,1) に置かれています。 あなたは以下の操作をちょうど N^2-1 回行い、最終的にコマをマス (N,N) に移動させます： 現在いるマスから、上下左右に隣接するマスへコマを 1 マス移動させる。 ただし、移動中に N^2 個のすべてのマスをそれぞれちょうど 1 回ずつ訪れなければなりません。 ここで、最初にコマが置かれているマス (1,1) も訪れたマスに含めます。 右へ 1 マス移動する操作の回数がちょうど K 回となるような操作列が存在するか判定し、存在する場合はそのような操作列を 1 つ求めてください。 T 個のテストケースが与えられるので、それぞれについて答えを求めてください。 制約 1\\le T\\le 5\\times 10^3 2\\le N\\le 10^3 0\\le K\\le N^2-1 全てのテストケースにおける N^2 の総和は 10^6 以下 入力される値は全て整数 入力 入力は以下の形式で標準入力から与えられる。 T \\text{case}_1 \\text{case}_2 \\vdots \\text{case}_T 各テストケースは以下の形式で与えられる。 N K 出力 各テストケースに対する答えを順に改行区切りで出力せよ。 各テストケースについて、条件を満たす操作列が存在しない場合は No を出力せよ。 条件を満たす操作列が存在する場合、以下の形式で操作列を出力せよ。 Yes S_1S_2\\dots S_{N^2-1} ただし、 S_k は k 回目の移動を表し、以下のいずれかとする。 左に 1 マス移動する場合は S_k= L 右に 1 マス移動する場合は S_k= R 上に 1 マス移動する場合は S_k= U 下に 1 マス移動する場合は S_k= D 条件を満たす操作列が複数存在する場合、どれを出力しても正答となる。 入力例 1 3 3 4 2 1 5 10 出力例 1 Yes RRDLLDRR No Yes RRRRDDDLLLURRULLLDDDRRRR 1 番目のテストケースについて考えます。 マス (1,1) から順にマス (1,2),(1,3),(2,3),(2,2),(2,1),(3,1),(3,2),(3,3) と移動させることで右に 1 マス進む操作を 4 回行いマス (3,3) に到達することができます。 Score : 575 points Problem Statement You are given positive integers N and K . There is an N\\times N grid. The cell at the r -th row from the top and the c -th column from the left is denoted as cell (r,c) . Initially, a piece is placed on cell (1,1) . You will perform the following operation exactly N^2-1 times so that the piece ends up in cell (N,N) : Move the piece one cell to a cell vertically or horizontally adjacent to the cell it is currently on. Here, over the course of the movement, each of the N^2 cells must be visited exactly once. Cell (1,1) , where the piece is initially placed, is considered visited. Determine whether there exists a sequence of operations where the piece moves one cell to the right exactly K times, and if it exists, find one such sequence. You are given T test cases; solve each of them. Constraints 1\\le T\\le 5\\times 10^3 2\\le N\\le 10^3 0\\le K\\le N^2-1 The sum of N^2 over all test cases is at most 10^6 . All input values are integers. Input The input is given from Standard Input in the following format: T \\text{case}_1 \\text{case}_2 \\vdots \\text{case}_T Each test case is given in the following format: N K Output Output the answers for the test cases in order, separated by newlines. For each test case, if there is no sequence of operations satisfying the condition, output No . If there exists a sequence of operations satisfying the condition, output it in ",
+    "samples": [
+      {
+        "input": "3\n3 4\n2 1\n5 10",
+        "output": "Yes\nRRDLLDRR\nNo\nYes\nRRRRDDDLLLURRULLLDDDRRRR"
+      },
+      {
+        "input": "3\n3 4\n2 1\n5 10",
+        "output": "Yes\nRRDLLDRR\nNo\nYes\nRRRRDDDLLLURRULLLDDDRRRR"
+      }
+    ],
+    "raw_pres": [
+      "<var>T</var>\n<var>\\text{case}_1</var>\n<var>\\text{case}_2</var>\n<var>\\vdots</var>\n<var>\\text{case}_T</var>",
+      "<var>N</var> <var>K</var>",
+      "Yes\n<var>S_1S_2\\dots S_{N^2-1}</var>",
+      "3\n3 4\n2 1\n5 10",
+      "Yes\nRRDLLDRR\nNo\nYes\nRRRRDDDLLLURRULLLDDDRRRR",
+      "<var>T</var>\n<var>\\text{case}_1</var>\n<var>\\text{case}_2</var>\n<var>\\vdots</var>\n<var>\\text{case}_T</var>",
+      "<var>N</var> <var>K</var>",
+      "Yes\n<var>S_1S_2\\dots S_{N^2-1}</var>",
+      "3\n3 4\n2 1\n5 10",
+      "Yes\nRRDLLDRR\nNo\nYes\nRRRRDDDLLLURRULLLDDDRRRR"
+    ]
+  },
+  "abc150_f": {
+    "id": "abc150_f",
+    "contest_id": "abc150",
+    "title": "F",
+    "url": "https://atcoder.jp/contests/abc150/tasks/abc150_f",
+    "statement": "配点 : 600 点 問題文 非負整数からなる長さ N の数列 a=\\{a_0,\\ldots,a_{N-1}\\} と b=\\{b_0,\\ldots,b_{N-1}\\} が与えられます。 すぬけ君は 0 \\leq k &lt; N を満たす整数 k と、 0 以上の整数 x を決めて、新しく長さ N の数列 a'=\\{a_0',\\ldots,a_{N-1}'\\} を次のようにして作ります。 a_i'= a_{i+k \\mod N}\\ XOR \\ x a' が b と等しくなるような (k,x) の組を全て求めてください。 \\text{ XOR } とは 整数 A, B のビットごとの排他的論理和 a \\text{ XOR } b は、以下のように定義されます。 A \\text{ XOR } B を二進表記した際の 2^k ( k \\geq 0 ) の位の数は、 A, B を二進表記した際の 2^k の位の数のうち一方のみが 1 であれば 1 、そうでなければ 0 である。 例えば、 3 \\text{ XOR } 5 = 6 となります (二進表記すると: 011 \\text{ XOR } 101 = 110 )。 制約 1 \\leq N \\leq 2 \\times 10^5 0 \\leq a_i,b_i &lt; 2^{30} 入力中のすべての値は整数である。 入力 入力は以下の形式で標準入力から与えられる。 N a_0 a_1 ... a_{N-1} b_0 b_1 ... b_{N-1} 出力 a' と b が等しくなるような (k,x) の組を、 1 行に 1 組ずつ、 k の昇順 ( k が等しいものは x の昇順) にすべて出力せよ。 このような組が存在しない場合の出力は空でよい。 入力例 1 3 0 2 1 1 2 3 出力例 1 1 3 (k,x)=(1,3) のとき、 a_0'=(a_1\\ XOR \\ 3)=1 a_1'=(a_2\\ XOR \\ 3)=2 a_2'=(a_0\\ XOR \\ 3)=3 となり、 a' は b と等しくなります。 入力例 2 5 0 0 0 0 0 2 2 2 2 2 出力例 2 0 2 1 2 2 2 3 2 4 2 入力例 3 6 0 1 3 7 6 4 1 5 4 6 2 3 出力例 3 2 2 5 5 入力例 4 2 1 2 0 0 出力例 4 条件を満たすような組が存在しないこともあります。 Score : 600 points Problem Statement Given are two sequences a=\\{a_0,\\ldots,a_{N-1}\\} and b=\\{b_0,\\ldots,b_{N-1}\\} of N non-negative integers each. Snuke will choose an integer k such that 0 \\leq k &lt; N and an integer x not less than 0 , to make a new sequence of length N , a'=\\{a_0',\\ldots,a_{N-1}'\\} , as follows: a_i'= a_{i+k \\mod N}\\ XOR \\ x Find all pairs (k,x) such that a' will be equal to b . What is \\text{ XOR } ? The XOR of integers A and B , A \\text{ XOR } B , is defined as follows: When A \\text{ XOR } B is written in base two, the digit in the 2^k 's place ( k \\geq 0 ) is 1 if either A or B , but not both, has 1 in the 2^k 's place, and 0 otherwise. For example, 3 \\text{ XOR } 5 = 6 . (In base two: 011 \\text{ XOR } 101 = 110 .) Constraints 1 \\leq N \\leq 2 \\times 10^5 0 \\leq a_i,b_i &lt; 2^{30} All values in input are integers. Input Input is given from Standard Input in the following format: N a_0 a_1 ... a_{N-1} b_0 b_1 ... b_{N-1} Output Print all pairs (k, x) such that a' and b will be equal, using one line for each pair, in ascending order of k (ascending order of x for pairs with the same k ). If there are no such pairs, the output should be empty. Sample Input 1 3 0 2 1 1 2 3 Sample Output 1 1 3 If (k,x)=(1,3) , a_0'=(a_1\\ XOR \\ 3)=1 a_1'=(a_2\\ XOR \\ 3)=2 a_2'=(a_0\\ XOR \\ 3)=3 and we have a' = b . Sample Input 2 5 0 0 0 0 0 2 2 2 2 2 Sample Output 2 0 2 1 2 2 2 3 2 4 2 Sample Input 3 6 0 1 3 7 6 4 1 5 4 6 2 3 Sample Ou",
+    "samples": [
+      {
+        "input": "3\r\n0 2 1\r\n1 2 3",
+        "output": "1 3"
+      },
+      {
+        "input": "5\r\n0 0 0 0 0\r\n2 2 2 2 2",
+        "output": "0 2\r\n1 2\r\n2 2\r\n3 2\r\n4 2"
+      },
+      {
+        "input": "6\r\n0 1 3 7 6 4\r\n1 5 4 6 2 3",
+        "output": "2 2\r\n5 5"
+      },
+      {
+        "input": "2\r\n1 2\r\n0 0",
+        "output": ""
+      },
+      {
+        "input": "3\r\n0 2 1\r\n1 2 3",
+        "output": "1 3"
+      },
+      {
+        "input": "5\r\n0 0 0 0 0\r\n2 2 2 2 2",
+        "output": "0 2\r\n1 2\r\n2 2\r\n3 2\r\n4 2"
+      },
+      {
+        "input": "6\r\n0 1 3 7 6 4\r\n1 5 4 6 2 3",
+        "output": "2 2\r\n5 5"
+      },
+      {
+        "input": "2\r\n1 2\r\n0 0",
+        "output": ""
+      }
+    ],
+    "raw_pres": [
+      "<var>N</var>\r\n<var>a_0</var> <var>a_1</var> <var>...</var> <var>a_{N-1}</var>\r\n<var>b_0</var> <var>b_1</var> <var>...</var> <var>b_{N-1}</var>",
+      "3\r\n0 2 1\r\n1 2 3",
+      "1 3",
+      "5\r\n0 0 0 0 0\r\n2 2 2 2 2",
+      "0 2\r\n1 2\r\n2 2\r\n3 2\r\n4 2",
+      "6\r\n0 1 3 7 6 4\r\n1 5 4 6 2 3",
+      "2 2\r\n5 5",
+      "2\r\n1 2\r\n0 0",
+      "",
+      "<var>N</var>\r\n<var>a_0</var> <var>a_1</var> <var>...</var> <var>a_{N-1}</var>\r\n<var>b_0</var> <var>b_1</var> <var>...</var> <var>b_{N-1}</var>",
+      "3\r\n0 2 1\r\n1 2 3",
+      "1 3",
+      "5\r\n0 0 0 0 0\r\n2 2 2 2 2",
+      "0 2\r\n1 2\r\n2 2\r\n3 2\r\n4 2",
+      "6\r\n0 1 3 7 6 4\r\n1 5 4 6 2 3",
+      "2 2\r\n5 5",
+      "2\r\n1 2\r\n0 0",
+      ""
+    ]
+  },
+  "arc223_d": {
+    "id": "arc223_d",
+    "contest_id": "arc223",
+    "title": "D",
+    "url": "https://atcoder.jp/contests/arc223/tasks/arc223_d",
+    "statement": "配点 : 600 点 問題文 ドローカード A 枚と普通のカード B 枚があります。 これら A+B 枚のカードからなる順列は (A+B)! 通りありますが、そのうちの 1 つを一様ランダムに選び、その順番に上下に積み重ねて山札とします。 そして山札の上から K 枚を引き、手札にします。 手札にドローカードが 1 枚以上ある限り、以下の操作を繰り返します。 手札にあるドローカードを 1 枚捨てる。捨てたカードは手札からなくなり、山札にも戻らない。 山札にあるカードの枚数を c として、山札の上から \\min(c,2) 枚のカードを手札に加える。 最終的な手札のカード枚数の期待値を \\text{mod } 998244353 で求めてください。 1 つの入力につき、 T 個のテストケースを解いてください。 \\text{mod } {998244353} の定義 この問題の制約のもとでは、求める答えは有理数であることが証明でき、さらにこれを既約分数 \\frac{P}{Q} で表した時、 Q {{}\\not\\equiv{}} 0 \\pmod{998244353} となることが証明できます。 よって、 R \\times Q \\equiv P \\pmod{998244353}, 0 \\leq R &lt 998244353 を満たす整数 R が一意に定まります。 この R を答えてください。 制約 1 \\leq T \\leq 10^5 1 \\leq A,B 1 \\leq K \\leq A+B \\leq 10^7 すべてのテストケースにおける A+B の総和は 10^7 以下 入力される値はすべて整数 入力 入力は以下の形式で標準入力から与えられる。 T \\mathrm{case}_1 \\mathrm{case}_2 \\vdots \\mathrm{case}_T 各テストケース \\mathrm{case}_t は以下の形式で与えられる。 A B K 出力 答えを合計 T 行で出力せよ。 t 行目には、 t 番目のテストケースの答えを出力せよ。 入力例 1 4 2 2 3 1 2 1 10 20 4 20 10 4 出力例 1 2 332748119 944679050 774829082 1 つ目のテストケースでは、最初の手札にドローカードが必ず 1 枚以上あり、山札にあるカードの枚数は 1 枚です。 操作を 1 回行うと手札にはドローカードが 1 枚と普通のカードが 2 枚あることになります。 もう一度操作を行って手札にはドローカードが 0 枚と普通のカードが 2 枚ある状態になります。 2 つ目のテストケースでは、最初に引くカードがドローカードと普通のカードの場合で最終的な手札の枚数はそれぞれ 2,1 枚となります。期待値は \\frac{1}{3} \\times 2 + \\frac{2}{3} \\times 1 = \\frac{4}{3} です。 Score : 600 points Problem Statement There are A \"draw\" cards and B normal cards. Among the (A+B)! permutations of these A+B cards, one is chosen uniformly at random, and the cards are stacked top to bottom in that order to form a deck. Then, K cards are drawn from the top of the deck and placed in your hand. As long as your hand contains at least one draw card, repeat the following operation: Discard one draw card from your hand. The discarded card is removed from your hand and does not return to the deck. Let c be the number of cards remaining in the deck. Add \\min(c,2) cards from the top of the deck to your hand. Find the expected number, modulo 998244353 , of cards in your final hand. Solve T test cases per input. Definition of modulo 998244353 Under the constraints of this problem, it can be proved that the answer is a rational number, and that when it is expressed as an irreducible fraction \\frac{P}{Q} , it satisfies Q {{}\\not\\equiv{}} 0 \\pmod{998244353} . Thus, the integer R satisfying R \\times Q \\equiv P \\pmod{998244353}, 0 \\leq R &lt 998244353 is uniquely determined. Output this R . Constraints 1 \\leq T \\leq 10^5 1 \\leq A, B 1 \\leq K \\leq A+B \\leq 10^7 The sum of A+B over all test cases is at most 10^7 . All input values are inte",
+    "samples": [
+      {
+        "input": "4\n2 2 3\n1 2 1\n10 20 4\n20 10 4",
+        "output": "2\n332748119\n944679050\n774829082"
+      },
+      {
+        "input": "4\n2 2 3\n1 2 1\n10 20 4\n20 10 4",
+        "output": "2\n332748119\n944679050\n774829082"
+      }
+    ],
+    "raw_pres": [
+      "<var>T</var>  \n<var>\\mathrm{case}_1</var>  \n<var>\\mathrm{case}_2</var>  \n<var>\\vdots</var>  \n<var>\\mathrm{case}_T</var>",
+      "<var>A</var> <var>B</var> <var>K</var>",
+      "4\n2 2 3\n1 2 1\n10 20 4\n20 10 4",
+      "2\n332748119\n944679050\n774829082",
+      "<var>T</var>  \n<var>\\mathrm{case}_1</var>  \n<var>\\mathrm{case}_2</var>  \n<var>\\vdots</var>  \n<var>\\mathrm{case}_T</var>",
+      "<var>A</var> <var>B</var> <var>K</var>",
+      "4\n2 2 3\n1 2 1\n10 20 4\n20 10 4",
+      "2\n332748119\n944679050\n774829082"
+    ]
+  },
+  "arc151_d": {
+    "id": "arc151_d",
+    "contest_id": "arc151",
+    "title": "D",
+    "url": "https://atcoder.jp/contests/arc151/tasks/arc151_d",
+    "statement": "配点 : 700 点 問題文 長さ 2^N の整数列 A = (A_0, A_1, \\ldots, A_{2^N-1}) が与えられます。 また、 Q 個のクエリが与えられます。 i = 1, 2, \\ldots, Q について、 i 番目のクエリでは 2 つの整数 X_i, Y_i が与えられ、下記の操作を行います。 j = 0, 1, 2, \\ldots, 2^N-1 の順に下記の手順を行う。 まず、 j の N 桁の 2 進数表現を b_{N-1}b_{N-2}\\ldots b_0 とおく。また、 b_{N-1}b_{N-2}\\ldots b_0 から b_{X_i} を反転（ 0 ならば 1 に、 1 ならば 0 に変更）させて得られる 2 進数表現によって表される整数を j' とおく。 そして、 b_{X_i} = Y_i ならば、 A_{j'} に A_j の値を加算する。 すべてのクエリを入力で与えられる順番に実行した後の A の各要素を 998244353 で割ったあまりを出力してください。 N 桁の 2 進数表現とは？ 非負整数 X ( 0 \\leq X ) の N 桁の 2 進数表現とは、 0 と 1 のみからなり下記の条件を満たす唯一の、長さ N の列 b_{N-1}b_{N-2}\\ldots b_0 です。 \\sum_{i = 0}^{N-1} b_i \\cdot 2^i = X 制約 1 \\leq N \\leq 18 1 \\leq Q \\leq 2 \\times 10^5 0 \\leq A_i \\lt 998244353 0 \\leq X_i \\leq N-1 Y_i \\in \\lbrace 0, 1\\rbrace 入力はすべて整数 入力 入力は以下の形式で標準入力から与えられる。 N Q A_0 A_1 \\ldots A_{2^N-1} X_1 Y_1 X_2 Y_2 \\vdots X_Q Y_Q 出力 i = 0, 1, \\ldots, 2^N-1 について、すべてのクエリを実行した後の A_i を 998244353 で割ったあまり A'_i を、下記の形式にしたがって空白区切りで出力せよ。 A'_0 A'_1 \\ldots A'_{2^N-1} 入力例 1 2 2 0 1 2 3 1 1 0 0 出力例 1 2 6 2 5 1 番目のクエリに対する操作は次の通りです。 j = 0 のとき、 b_1b_0 = 00, j' = 2 です。 b_1 \\neq 1 であるので、加算の手順は行いません。 j = 1 のとき、 b_1b_0 = 01, j' = 3 です。 b_1 \\neq 1 であるので、加算の手順は行いません。 j = 2 のとき、 b_1b_0 = 10, j' = 0 です。 b_1 = 1 であるので、 A_0 に A_2 の値を加算します。その結果、 A = (2, 1, 2, 3) となります。 j = 3 のとき、 b_1b_0 = 11, j' = 1 です。 b_1 = 1 であるので、 A_1 に A_3 の値を加算します。その結果、 A = (2, 4, 2, 3) となります。 2 番目のクエリに対する操作は次の通りです。 j = 0 のとき、 b_1b_0 = 00, j' = 1 です。 b_0 = 0 であるので、 A_1 に A_0 の値を加算します。その結果、 A = (2, 6, 2, 3) となります。 j = 1 のとき、 b_1b_0 = 01, j' = 0 です。 b_0 \\neq 0 であるので、加算の手順は行いません。 j = 2 のとき、 b_1b_0 = 10, j' = 3 です。 b_0 = 0 であるので、 A_3 に A_2 の値を加算します。その結果、 A = (2, 6, 2, 5) となります。 j = 3 のとき、 b_1b_0 = 11, j' = 2 です。 b_0 \\neq 0 であるので、加算の手順は行いません。 以上より、すべてのクエリを実行した後の A は (2, 6, 2, 5) です。 入力例 2 3 10 606248357 338306877 919152167 981537317 808873985 845549408 680941783 921035119 1 1 0 0 0 0 0 0 0 1 0 1 0 1 2 0 2 0 2 0 出力例 2 246895115 904824001 157201385 744260759 973709546 964549010 61683812 205420980 Score : 700 points Problem Statement You are given an integer sequence A = (A_0, A_1, \\ldots, A_{2^N-1}) of length 2^N . Additionally, Q queries are given. For each i = 1, 2, \\ldots, Q , the i -th query is represented by two integers X_i and Y_i and asks you to perform the operation below. For each j = 0, 1, 2, \\ldots, 2^N-1 in this order, do the following. First, let b_{N-1}b_{N-2}\\ldots b_0 be the binary representation of j with N digits. Additionally, let j' be the integer represented by the binary representation b_{N-1}b_{N-2}\\ldots b_",
+    "samples": [
+      {
+        "input": "2 2\r\n0 1 2 3\r\n1 1\r\n0 0",
+        "output": "2 6 2 5"
+      },
+      {
+        "input": "3 10\r\n606248357 338306877 919152167 981537317 808873985 845549408 680941783 921035119\r\n1 1\r\n0 0\r\n0 0\r\n0 0\r\n0 1\r\n0 1\r\n0 1\r\n2 0\r\n2 0\r\n2 0",
+        "output": "246895115 904824001 157201385 744260759 973709546 964549010 61683812 205420980"
+      },
+      {
+        "input": "2 2\r\n0 1 2 3\r\n1 1\r\n0 0",
+        "output": "2 6 2 5"
+      },
+      {
+        "input": "3 10\r\n606248357 338306877 919152167 981537317 808873985 845549408 680941783 921035119\r\n1 1\r\n0 0\r\n0 0\r\n0 0\r\n0 1\r\n0 1\r\n0 1\r\n2 0\r\n2 0\r\n2 0",
+        "output": "246895115 904824001 157201385 744260759 973709546 964549010 61683812 205420980"
+      }
+    ],
+    "raw_pres": [
+      "<var>N</var> <var>Q</var>\r\n<var>A_0</var> <var>A_1</var> <var>\\ldots</var> <var>A_{2^N-1}</var>\r\n<var>X_1</var> <var>Y_1</var>\r\n<var>X_2</var> <var>Y_2</var>\r\n<var>\\vdots</var>\r\n<var>X_Q</var> <var>Y_Q</var>",
+      "<var>A'_0</var> <var>A'_1</var> <var>\\ldots</var> <var>A'_{2^N-1}</var>",
+      "2 2\r\n0 1 2 3\r\n1 1\r\n0 0",
+      "2 6 2 5",
+      "3 10\r\n606248357 338306877 919152167 981537317 808873985 845549408 680941783 921035119\r\n1 1\r\n0 0\r\n0 0\r\n0 0\r\n0 1\r\n0 1\r\n0 1\r\n2 0\r\n2 0\r\n2 0",
+      "246895115 904824001 157201385 744260759 973709546 964549010 61683812 205420980",
+      "<var>N</var> <var>Q</var>\r\n<var>A_0</var> <var>A_1</var> <var>\\ldots</var> <var>A_{2^N-1}</var>\r\n<var>X_1</var> <var>Y_1</var>\r\n<var>X_2</var> <var>Y_2</var>\r\n<var>\\vdots</var>\r\n<var>X_Q</var> <var>Y_Q</var>",
+      "<var>A'_0</var> <var>A'_1</var> <var>\\ldots</var> <var>A'_{2^N-1}</var>",
+      "2 2\r\n0 1 2 3\r\n1 1\r\n0 0",
+      "2 6 2 5",
+      "3 10\r\n606248357 338306877 919152167 981537317 808873985 845549408 680941783 921035119\r\n1 1\r\n0 0\r\n0 0\r\n0 0\r\n0 1\r\n0 1\r\n0 1\r\n2 0\r\n2 0\r\n2 0",
+      "246895115 904824001 157201385 744260759 973709546 964549010 61683812 205420980"
+    ]
+  },
+  "codefestival_2016_qualC_d": {
+    "id": "codefestival_2016_qualC_d",
+    "contest_id": "code-festival-2016-qualc",
+    "title": "D",
+    "url": "https://atcoder.jp/contests/code-festival-2016-qualc/tasks/codefestival_2016_qualC_d",
+    "statement": "配点 : 800 点 問題文 高橋君の部屋には縦 H 行、横 W 列、 H \\times W 個のブロックからなるオブジェがあります。 各ブロックには色がついています。色は英小文字( a - z ) で表されます。上から i 個目、左から j 個目のブロックの色は c_{i,j} です。 あまり見栄えが良くないため高橋君はこのオブジェを解体しようとしています。解体作業は以下の操作の繰り返しになります。 W 個の列のうち一つを選び、その列を一段沈める。その列の一番下にあったブロックは消滅する。 同じ色のブロックは引き寄せ合う力を持つため、この操作にかかるコストは、「選んだ列のブロックと(操作前に)横に隣り合っているブロックで、色が同じもの の個数」になります。 高橋君はこの作業を H \\times W 回行うことで全てのブロックを消滅させオブジェを解体します。操作する列の順番をうまく選ぶことによって、解体にかかるコストの総和を最小化してください。 制約 1≦H≦300 2≦W≦300 c_{i,j} は英小文字( a - z ) 部分点 W=3 を満たすデータセットに正解すると、 300 点が与えられる。 入力 入力は以下の形式で標準入力から与えられる。 H W c_{1,1}c_{1,2} .. c_{1,W} c_{2,1}c_{2,2} .. c_{2,W} : c_{H,1}c_{H,2} .. c_{H,W} 出力 解体にかかるコストの総和の最小値を出力せよ。 入力例 1 2 3 rrr brg 出力例 1 2 例えば下図のような順で操作するとコストの総和は 2 に出来て、これが最小値です。 入力例 2 6 3 xya xya ayz ayz xaz xaz 出力例 2 0 はじめに真ん中の列を全て沈め、次に左の列を全て沈め、最後に右の列を全て沈めることでコスト 0 を達成できます。 入力例 3 4 2 ay xa xy ay 出力例 3 0 右の列を一段沈める→左の列を一段沈める→右の段を全て沈める→左の段を全て沈める とすることでコスト 0 にすることが可能です。 入力例 4 5 5 aaaaa abbba ababa abbba aaaaa 出力例 4 24 入力例 5 7 10 xxxxxxxxxx ccccxxffff cxxcxxfxxx cxxxxxffff cxxcxxfxxx ccccxxfxxx xxxxxxxxxx 出力例 5 130 Score : 800 points Problem Statement Mr. Takahashi has in his room an art object with H rows and W columns, made up of H \\times W blocks. Each block has a color represented by a lowercase English letter ( a - z ). The color of the block at the i -th row and j -th column is c_{i,j} . Mr. Takahashi would like to dismantle the object, finding it a bit kitschy for his tastes. The dismantling is processed by repeating the following operation: Choose one of the W columns and push down that column one row. The block at the bottom of that column disappears. Each time the operation is performed, a cost is incurred. Since blocks of the same color have a property to draw each other together, the cost of the operation is the number of the pairs of blocks (p, q) such that: The block p is in the selected column. The two blocks p and q are horizontally adjacent (before pushing down the column). The two blocks p and q have the same color. Mr. Takahashi dismantles the object by repeating the operation H \\times W times to get rid of all the blocks. Compute the minimum total cost to dismantle the object. Constraints 1 ≤ H ≤ 300 2 ≤ W ≤ 300 All characters c_{i,j} are lowercase English letters ( a - z ). Partial Score In test cases worth 300 points, W = 3 . Input The input is given from Standard Input in the following format: H W c_{1,1}c_{1,2} .. c_{1,W} c_{2,1}c_{2,2} .. c_{2,W} : c_{H,1}c_{H,2} .. c_{H,W} Output Print the minimum total cost to",
+    "samples": [
+      {
+        "input": "2 3\r\nrrr\r\nbrg",
+        "output": "2"
+      },
+      {
+        "input": "6 3\r\nxya\r\nxya\r\nayz\r\nayz\r\nxaz\r\nxaz",
+        "output": "0"
+      },
+      {
+        "input": "4 2\r\nay\r\nxa\r\nxy\r\nay",
+        "output": "0"
+      },
+      {
+        "input": "5 5\r\naaaaa\r\nabbba\r\nababa\r\nabbba\r\naaaaa",
+        "output": "24"
+      },
+      {
+        "input": "7 10\r\nxxxxxxxxxx\r\nccccxxffff\r\ncxxcxxfxxx\r\ncxxxxxffff\r\ncxxcxxfxxx\r\nccccxxfxxx\r\nxxxxxxxxxx",
+        "output": "130"
+      },
+      {
+        "input": "2 3\r\nrrr\r\nbrg",
+        "output": "2"
+      },
+      {
+        "input": "6 3\r\nxya\r\nxya\r\nayz\r\nayz\r\nxaz\r\nxaz",
+        "output": "0"
+      },
+      {
+        "input": "4 2\r\nay\r\nxa\r\nxy\r\nay",
+        "output": "0"
+      },
+      {
+        "input": "5 5\r\naaaaa\r\nabbba\r\nababa\r\nabbba\r\naaaaa",
+        "output": "24"
+      },
+      {
+        "input": "7 10\r\nxxxxxxxxxx\r\nccccxxffff\r\ncxxcxxfxxx\r\ncxxxxxffff\r\ncxxcxxfxxx\r\nccccxxfxxx\r\nxxxxxxxxxx",
+        "output": "130"
+      }
+    ],
+    "raw_pres": [
+      "<var>H</var> <var>W</var>\r\n<var>c_{1,1}c_{1,2}</var>..<var>c_{1,W}</var>\r\n<var>c_{2,1}c_{2,2}</var>..<var>c_{2,W}</var>\r\n<var>:</var>\r\n<var>c_{H,1}c_{H,2}</var>..<var>c_{H,W}</var>",
+      "2 3\r\nrrr\r\nbrg",
+      "2",
+      "6 3\r\nxya\r\nxya\r\nayz\r\nayz\r\nxaz\r\nxaz",
+      "0",
+      "4 2\r\nay\r\nxa\r\nxy\r\nay",
+      "0",
+      "5 5\r\naaaaa\r\nabbba\r\nababa\r\nabbba\r\naaaaa",
+      "24",
+      "7 10\r\nxxxxxxxxxx\r\nccccxxffff\r\ncxxcxxfxxx\r\ncxxxxxffff\r\ncxxcxxfxxx\r\nccccxxfxxx\r\nxxxxxxxxxx",
+      "130",
+      "<var>H</var> <var>W</var>\r\n<var>c_{1,1}c_{1,2}</var>..<var>c_{1,W}</var>\r\n<var>c_{2,1}c_{2,2}</var>..<var>c_{2,W}</var>\r\n<var>:</var>\r\n<var>c_{H,1}c_{H,2}</var>..<var>c_{H,W}</var>",
+      "2 3\r\nrrr\r\nbrg",
+      "2",
+      "6 3\r\nxya\r\nxya\r\nayz\r\nayz\r\nxaz\r\nxaz",
+      "0",
+      "4 2\r\nay\r\nxa\r\nxy\r\nay",
+      "0",
+      "5 5\r\naaaaa\r\nabbba\r\nababa\r\nabbba\r\naaaaa",
+      "24",
+      "7 10\r\nxxxxxxxxxx\r\nccccxxffff\r\ncxxcxxfxxx\r\ncxxxxxffff\r\ncxxcxxfxxx\r\nccccxxfxxx\r\nxxxxxxxxxx",
+      "130"
+    ]
+  },
+  "agc032_c": {
+    "id": "agc032_c",
+    "contest_id": "agc032",
+    "title": "C",
+    "url": "https://atcoder.jp/contests/agc032/tasks/agc032_c",
+    "statement": "配点 : 800 点 問題文 N 頂点 M 本の辺からなる単純かつ連結な無向グラフが与えられます。 頂点には 1 から N の番号が、辺には 1 から M の番号がついています。 辺 i は頂点 a_i と b_i を双方向につなぐ辺です。 全ての辺をちょうど 1 回ずつ使って 3 つのサーキットを作ることが可能かどうかを判定してください。 注釈 サーキットとは辺素だが頂点素とは限らない閉路のことをいう。 制約 入力はすべて整数である。 1 \\leq N,M \\leq 10^{5} 1 \\leq a_i, b_i \\leq N 与えられるグラフは単純かつ連結。 入力 入力は以下の形式で標準入力から与えられる。 N M a_1 b_1 : a_M b_M 出力 全ての辺をちょうど 1 回ずつ使って 3 つのサーキットを作ることが可能ならば Yes を、不可能ならば No を出力せよ。 入力例 1 7 9 1 2 1 3 2 3 1 4 1 5 4 5 1 6 1 7 6 7 出力例 1 Yes 以下の図のように、全ての辺をちょうど 1 回ずつ使って 3 つのサーキットを作ることができます。 入力例 2 3 3 1 2 2 3 3 1 出力例 2 No 3 つのサーキットを作る必要があります。 入力例 3 18 27 17 7 12 15 18 17 13 18 13 6 5 7 7 1 14 5 15 11 7 6 1 9 5 4 18 16 4 6 7 2 7 11 6 3 12 14 5 2 10 5 7 8 10 15 3 15 9 8 7 15 5 16 18 15 出力例 3 Yes Score : 800 points Problem Statement You are given a simple connected undirected graph consisting of N vertices and M edges. The vertices are numbered 1 to N , and the edges are numbered 1 to M . Edge i connects Vertex a_i and b_i bidirectionally. Determine if three circuits (see Notes) can be formed using each of the edges exactly once. Notes A circuit is a cycle allowing repetitions of vertices but not edges. Constraints All values in input are integers. 1 \\leq N,M \\leq 10^{5} 1 \\leq a_i, b_i \\leq N The given graph is simple and connected. Input Input is given from Standard Input in the following format: N M a_1 b_1 : a_M b_M Output If three circuits can be formed using each of the edges exactly once, print Yes ; if they cannot, print No . Sample Input 1 7 9 1 2 1 3 2 3 1 4 1 5 4 5 1 6 1 7 6 7 Sample Output 1 Yes Three circuits can be formed using each of the edges exactly once, as follows: Sample Input 2 3 3 1 2 2 3 3 1 Sample Output 2 No Three circuits are needed. Sample Input 3 18 27 17 7 12 15 18 17 13 18 13 6 5 7 7 1 14 5 15 11 7 6 1 9 5 4 18 16 4 6 7 2 7 11 6 3 12 14 5 2 10 5 7 8 10 15 3 15 9 8 7 15 5 16 18 15 Sample Output 3 Yes",
+    "samples": [
+      {
+        "input": "7 9\r\n1 2\r\n1 3\r\n2 3\r\n1 4\r\n1 5\r\n4 5\r\n1 6\r\n1 7\r\n6 7",
+        "output": "Yes"
+      },
+      {
+        "input": "3 3\r\n1 2\r\n2 3\r\n3 1",
+        "output": "No"
+      },
+      {
+        "input": "18 27\r\n17 7\r\n12 15\r\n18 17\r\n13 18\r\n13 6\r\n5 7\r\n7 1\r\n14 5\r\n15 11\r\n7 6\r\n1 9\r\n5 4\r\n18 16\r\n4 6\r\n7 2\r\n7 11\r\n6 3\r\n12 14\r\n5 2\r\n10 5\r\n7 8\r\n10 15\r\n3 15\r\n9 8\r\n7 15\r\n5 16\r\n18 15",
+        "output": "Yes"
+      },
+      {
+        "input": "7 9\r\n1 2\r\n1 3\r\n2 3\r\n1 4\r\n1 5\r\n4 5\r\n1 6\r\n1 7\r\n6 7",
+        "output": "Yes"
+      },
+      {
+        "input": "3 3\r\n1 2\r\n2 3\r\n3 1",
+        "output": "No"
+      },
+      {
+        "input": "18 27\r\n17 7\r\n12 15\r\n18 17\r\n13 18\r\n13 6\r\n5 7\r\n7 1\r\n14 5\r\n15 11\r\n7 6\r\n1 9\r\n5 4\r\n18 16\r\n4 6\r\n7 2\r\n7 11\r\n6 3\r\n12 14\r\n5 2\r\n10 5\r\n7 8\r\n10 15\r\n3 15\r\n9 8\r\n7 15\r\n5 16\r\n18 15",
+        "output": "Yes"
+      }
+    ],
+    "raw_pres": [
+      "<var>N</var> <var>M</var>\r\n<var>a_1</var> <var>b_1</var>\r\n<var>:</var>\r\n<var>a_M</var> <var>b_M</var>",
+      "7 9\r\n1 2\r\n1 3\r\n2 3\r\n1 4\r\n1 5\r\n4 5\r\n1 6\r\n1 7\r\n6 7",
+      "Yes",
+      "3 3\r\n1 2\r\n2 3\r\n3 1",
+      "No",
+      "18 27\r\n17 7\r\n12 15\r\n18 17\r\n13 18\r\n13 6\r\n5 7\r\n7 1\r\n14 5\r\n15 11\r\n7 6\r\n1 9\r\n5 4\r\n18 16\r\n4 6\r\n7 2\r\n7 11\r\n6 3\r\n12 14\r\n5 2\r\n10 5\r\n7 8\r\n10 15\r\n3 15\r\n9 8\r\n7 15\r\n5 16\r\n18 15",
+      "Yes",
+      "<var>N</var> <var>M</var>\r\n<var>a_1</var> <var>b_1</var>\r\n<var>:</var>\r\n<var>a_M</var> <var>b_M</var>",
+      "7 9\r\n1 2\r\n1 3\r\n2 3\r\n1 4\r\n1 5\r\n4 5\r\n1 6\r\n1 7\r\n6 7",
+      "Yes",
+      "3 3\r\n1 2\r\n2 3\r\n3 1",
+      "No",
+      "18 27\r\n17 7\r\n12 15\r\n18 17\r\n13 18\r\n13 6\r\n5 7\r\n7 1\r\n14 5\r\n15 11\r\n7 6\r\n1 9\r\n5 4\r\n18 16\r\n4 6\r\n7 2\r\n7 11\r\n6 3\r\n12 14\r\n5 2\r\n10 5\r\n7 8\r\n10 15\r\n3 15\r\n9 8\r\n7 15\r\n5 16\r\n18 15",
+      "Yes"
+    ]
+  }
+}
