@@ -134,7 +134,7 @@ def audit_status():
         quality = f.read()
 
     selected_in_log = re.findall(r"\[problem:AtCoder-([^\]]+)\].*?\*\*SELECTED\*\*", sel_log)
-    rejected_in_log = re.findall(r"\[problem:AtCoder-([^\]]+)\].*?\*\*REJECTED\*\*", sel_log)
+    rejected_in_log = re.findall(r"\[problem:AtCoder-([^\]]+)\].*?\*\*REJECTED.*?\*\*", sel_log)
     in_quality = re.findall(r"\[problem:AtCoder-([^\]]+)\]", quality)
     analysis_files = [f[8:-3] for f in os.listdir(ANALYSIS_DIR) if f.startswith("AtCoder-") and f.endswith(".md")]
 

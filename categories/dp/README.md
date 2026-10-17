@@ -47,6 +47,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`expected_value_self_loop_dp.md`](expected_value_self_loop_dp.md) | DP Technique | **expected_value_self_loop_dp.md** | 1 |
 | [`forbidden_pattern_last3_dp.md`](forbidden_pattern_last3_dp.md) | DP Technique | **forbidden_pattern_last3_dp.md** | 1 |
 | [`four_way_ray_dp_precomputation.md`](four_way_ray_dp_precomputation.md) | DP Technique | **four_way_ray_dp_precomputation.md** | 1 |
+| [`gold_rush_2d_divide_and_conquer_range_dp.md`](gold_rush_2d_divide_and_conquer_range_dp.md) | DP Technique | **gold_rush_2d_divide_and_conquer_range_dp.md** | 0 |
 | [`grammar_rewriting_fibonacci_invariants.md`](grammar_rewriting_fibonacci_invariants.md) | DP Technique | **grammar_rewriting_fibonacci_invariants.md** | 1 |
 | [`grid_dp.md`](grid_dp.md) | Classic DP | **Grid DP & Path Counting with Obstacles** | 1 |
 | [`grid_dp_manhattan_distance.md`](grid_dp_manhattan_distance.md) | DP Technique | **grid_dp_manhattan_distance.md** | 1 |
@@ -86,6 +87,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`set_cover_bitmask_dp.md`](set_cover_bitmask_dp.md) | DP Technique | **set_cover_bitmask_dp.md** | 1 |
 | [`shifted_zero_sum_knapsack_average.md`](shifted_zero_sum_knapsack_average.md) | DP Technique | **shifted_zero_sum_knapsack_average.md** | 1 |
 | [`skip_budget_dp_select_half.md`](skip_budget_dp_select_half.md) | DP Technique | **skip_budget_dp_select_half.md** | 1 |
+| [`sort_permutation_cyclic_chords_interval_dp.md`](sort_permutation_cyclic_chords_interval_dp.md) | DP Technique | **sort_permutation_cyclic_chords_interval_dp.md** | 0 |
 | [`string_dp.md`](string_dp.md) | Classic DP | **Subsequence Matching DP / Automaton DP** | 1 |
 | [`subarray_deletion_knapsack_dp.md`](subarray_deletion_knapsack_dp.md) | DP Technique | **subarray_deletion_knapsack_dp.md** | 1 |
 | [`subsequence_automaton_wildcards_dp.md`](subsequence_automaton_wildcards_dp.md) | DP Technique | **subsequence_automaton_wildcards_dp.md** | 1 |
