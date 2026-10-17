@@ -15,6 +15,8 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`bitmask_dp_contiguous_blocks.md`](bitmask_dp_contiguous_blocks.md) | DP Technique | **bitmask_dp_contiguous_blocks.md** | 1 |
 | [`bitwise_carry_dp_xor_zero.md`](bitwise_carry_dp_xor_zero.md) | DP Technique | **bitwise_carry_dp_xor_zero.md** | 1 |
 | [`bitwise_digit_dp_upper_bound.md`](bitwise_digit_dp_upper_bound.md) | DP Technique | **bitwise_digit_dp_upper_bound.md** | 1 |
+| [`boundary_constrained_prefix_ball_passing_dp.md`](boundary_constrained_prefix_ball_passing_dp.md) | DP Technique | **boundary_constrained_prefix_ball_passing_dp.md** | 0 |
+| [`bounded_knapsack_average_deviation_sliding_window.md`](bounded_knapsack_average_deviation_sliding_window.md) | DP Technique | **bounded_knapsack_average_deviation_sliding_window.md** | 0 |
 | [`bounded_step_grid_dp_infinite_stay.md`](bounded_step_grid_dp_infinite_stay.md) | DP Technique | **bounded_step_grid_dp_infinite_stay.md** | 1 |
 | [`circular_segment_decomposition_dp.md`](circular_segment_decomposition_dp.md) | DP Technique | **circular_segment_decomposition_dp.md** | 1 |
 | [`coin_change_dual_exponential_bases.md`](coin_change_dual_exponential_bases.md) | DP Technique | **coin_change_dual_exponential_bases.md** | 1 |
@@ -66,6 +68,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`knapsack_three_colors_triangle_inequality_complementary_counting.md`](knapsack_three_colors_triangle_inequality_complementary_counting.md) | DP Technique | **knapsack_three_colors_triangle_inequality_complementary_counting.md** | 0 |
 | [`lazy_segment_tree_dp.md`](lazy_segment_tree_dp.md) | DP Optimizations | **DP Optimization using Lazy Segment Tree** | 1 |
 | [`lexicographical_unbounded_knapsack.md`](lexicographical_unbounded_knapsack.md) | DP Technique | **lexicographical_unbounded_knapsack.md** | 1 |
+| [`logarithmic_halving_operations_greedy_dp.md`](logarithmic_halving_operations_greedy_dp.md) | DP Technique | **logarithmic_halving_operations_greedy_dp.md** | 0 |
 | [`longest_chord_chain_nested_intervals_lis.md`](longest_chord_chain_nested_intervals_lis.md) | DP Technique | **longest_chord_chain_nested_intervals_lis.md** | 0 |
 | [`longest_increasing_subsequence.md`](longest_increasing_subsequence.md) | Classic DP | **Longest Bitonic Subsequence via Dual LIS** | 1 |
 | [`longest_nonoverlapping_common_substring_dp.md`](longest_nonoverlapping_common_substring_dp.md) | DP Technique | **longest_nonoverlapping_common_substring_dp.md** | 1 |
@@ -88,6 +91,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`segment_tree_dp.md`](segment_tree_dp.md) | DP Optimizations | **Segment Tree Accelerated Range Knapsack DP** | 1 |
 | [`set_cover_bitmask_dp.md`](set_cover_bitmask_dp.md) | DP Technique | **set_cover_bitmask_dp.md** | 1 |
 | [`shifted_zero_sum_knapsack_average.md`](shifted_zero_sum_knapsack_average.md) | DP Technique | **shifted_zero_sum_knapsack_average.md** | 1 |
+| [`sierpinski_gasket_fractal_path_cycle_dp.md`](sierpinski_gasket_fractal_path_cycle_dp.md) | DP Technique | **sierpinski_gasket_fractal_path_cycle_dp.md** | 0 |
 | [`skip_budget_dp_select_half.md`](skip_budget_dp_select_half.md) | DP Technique | **skip_budget_dp_select_half.md** | 1 |
 | [`sort_permutation_cyclic_chords_interval_dp.md`](sort_permutation_cyclic_chords_interval_dp.md) | DP Technique | **sort_permutation_cyclic_chords_interval_dp.md** | 0 |
 | [`sorted_and_sorted_adjacent_swaps_2d_dp.md`](sorted_and_sorted_adjacent_swaps_2d_dp.md) | DP Technique | **sorted_and_sorted_adjacent_swaps_2d_dp.md** | 0 |
@@ -97,6 +101,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`subsequence_cumulative_sums_distinct_canonical_dp.md`](subsequence_cumulative_sums_distinct_canonical_dp.md) | DP Technique | **subsequence_cumulative_sums_distinct_canonical_dp.md** | 0 |
 | [`subsequence_lcm_sos_dp_inclusion_exclusion.md`](subsequence_lcm_sos_dp_inclusion_exclusion.md) | DP Technique | **subsequence_lcm_sos_dp_inclusion_exclusion.md** | 0 |
 | [`subset_bitmask_dp_prefix_constraints.md`](subset_bitmask_dp_prefix_constraints.md) | DP Technique | **subset_bitmask_dp_prefix_constraints.md** | 1 |
+| [`subset_sum_complement_symmetry_bitset_median.md`](subset_sum_complement_symmetry_bitset_median.md) | DP Technique | **subset_sum_complement_symmetry_bitset_median.md** | 0 |
 | [`subsets_of_subsets_knapsack_dp.md`](subsets_of_subsets_knapsack_dp.md) | DP Technique | **subsets_of_subsets_knapsack_dp.md** | 1 |
 | [`three_phase_knapsack_all_segments.md`](three_phase_knapsack_all_segments.md) | DP Technique | **three_phase_knapsack_all_segments.md** | 1 |
 | [`three_resource_knapsack_search.md`](three_resource_knapsack_search.md) | DP Technique | **three_resource_knapsack_search.md** | 1 |
