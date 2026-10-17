@@ -835,3 +835,22 @@ This log tracks the rigorous evaluation of AtCoder problems, separating **high-v
 | [problem:AtCoder-arc183_b] | Near Assignment | 2118 | **SELECTED** | Basics → Basic Constructive Algorithms | Selected: Archetype for Basic Constructive Algorithms. |
 | [problem:AtCoder-abc426_g] | Range Knapsack Query | 2119 | **SELECTED** | Miscellaneous → Divide and Conquer on Queries | Selected: Archetype for Divide and Conquer on Queries. |
 | [problem:AtCoder-agc048_c] | Penguin Skating | 2120 | **SELECTED** | Basics → Two Pointers | Selected: Archetype for Two Pointers. |
+
+| [problem:AtCoder-abc182_f] | Valid payments | 2121 | **SELECTED** | Dynamic Programming (DP) → Digit DP | Selected: Archetype for Digit DP. |
+| [problem:AtCoder-abc229_g] | Longest Y | 2121 | **SELECTED** | Basics → Binary Search | Selected: Archetype for Binary Search. |
+| [problem:AtCoder-abc243_f] | Lottery | 2125 | **SELECTED** | Dynamic Programming (DP) → Knapsack and Basic Dynamic Programming | Selected: Archetype for Knapsack and Basic Dynamic Programming. |
+| [problem:AtCoder-abc235_f] | Variety of Digits | 2129 | **SELECTED** | Dynamic Programming (DP) → Digit DP | Selected: Archetype for Digit DP. |
+| [problem:AtCoder-agc021_b] | Holes | 2130 | **SELECTED** | Geometry → Convex Hull(2D) | Selected: Archetype for Convex Hull(2D). |
+| [problem:AtCoder-agc046_c] | Shift | 2130 | **SELECTED** | Dynamic Programming (DP) → Knapsack and Basic Dynamic Programming | Selected: Archetype for Knapsack and Basic Dynamic Programming. |
+| [problem:AtCoder-code_festival_2017_qualc_d] | Yet Another Palindrome Partitioning | 2132 | **SELECTED** | Dynamic Programming (DP) → Bitmask DP | Selected: Archetype for Bitmask DP. |
+| [problem:AtCoder-aising2020_e] | Camel Train | 2133 | **SELECTED** | Basics → Basic Greedy Algorithms | Selected: Archetype for Basic Greedy Algorithms. |
+| [problem:AtCoder-abc286_g] | Unique Walk | 2135 | **SELECTED** | Graph Theory → Eulerian Path and Cycle | Selected: Archetype for Eulerian Path and Cycle. |
+| [problem:AtCoder-nikkei2019_2_qual_c] | Swaps | 2136 | **SELECTED** | Basics → Basic Constructive Algorithms | Selected: Archetype for Basic Constructive Algorithms. |
+| [problem:AtCoder-arc136_c] | Circular Addition | 2137 | **SELECTED** | Basics → Basic Constructive Algorithms | Selected: Archetype for Basic Constructive Algorithms. |
+| [problem:AtCoder-abc307_f] | Virus 2 | 2139 | **SELECTED** | Graph Theory → Dijkstra's Algorithm | Selected: Archetype for Dijkstra's Algorithm. |
+| [problem:AtCoder-abc368_e] | Train Delay | 2140 | **SELECTED** | Dynamic Programming (DP) → DP on Trees and DAGs | Selected: Archetype for DP on Trees and DAGs. |
+| [problem:AtCoder-abc342_f] | Black Jack | 2141 | **SELECTED** | Math → Probabilities and Expected Values | Selected: Archetype for Probabilities and Expected Values. |
+| [problem:AtCoder-arc020_3] | A mod B Problem | 2141 | **SELECTED** | Math → Matrix Exponentiation | Selected: Archetype for Matrix Exponentiation. |
+| [problem:AtCoder-abc132_f] | Small Products | 2143 | **SELECTED** | Dynamic Programming (DP) → Knapsack and Basic Dynamic Programming | Selected: Archetype for Knapsack and Basic Dynamic Programming. |
+| [problem:AtCoder-arc123_d] | Inc, Dec - Decomposition | 2143 | **SELECTED** | Dynamic Programming (DP) → Slope Trick | Selected: Archetype for Slope Trick. |
+| [problem:AtCoder-abc212_g] | Power Pair | 2150 | **SELECTED** | Number Theory → Euler's Totient Function / Phi Function | Selected: Archetype for Euler's Totient Function / Phi Function. |
