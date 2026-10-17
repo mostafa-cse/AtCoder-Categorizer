@@ -66,6 +66,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`knapsack_three_colors_triangle_inequality_complementary_counting.md`](knapsack_three_colors_triangle_inequality_complementary_counting.md) | DP Technique | **knapsack_three_colors_triangle_inequality_complementary_counting.md** | 0 |
 | [`lazy_segment_tree_dp.md`](lazy_segment_tree_dp.md) | DP Optimizations | **DP Optimization using Lazy Segment Tree** | 1 |
 | [`lexicographical_unbounded_knapsack.md`](lexicographical_unbounded_knapsack.md) | DP Technique | **lexicographical_unbounded_knapsack.md** | 1 |
+| [`longest_chord_chain_nested_intervals_lis.md`](longest_chord_chain_nested_intervals_lis.md) | DP Technique | **longest_chord_chain_nested_intervals_lis.md** | 0 |
 | [`longest_increasing_subsequence.md`](longest_increasing_subsequence.md) | Classic DP | **Longest Bitonic Subsequence via Dual LIS** | 1 |
 | [`longest_nonoverlapping_common_substring_dp.md`](longest_nonoverlapping_common_substring_dp.md) | DP Technique | **longest_nonoverlapping_common_substring_dp.md** | 1 |
 | [`matrix_exponentiation.md`](matrix_exponentiation.md) | Dp on Different Structures | **Matrix Exponentiation DP** | 1 |
@@ -89,6 +90,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`shifted_zero_sum_knapsack_average.md`](shifted_zero_sum_knapsack_average.md) | DP Technique | **shifted_zero_sum_knapsack_average.md** | 1 |
 | [`skip_budget_dp_select_half.md`](skip_budget_dp_select_half.md) | DP Technique | **skip_budget_dp_select_half.md** | 1 |
 | [`sort_permutation_cyclic_chords_interval_dp.md`](sort_permutation_cyclic_chords_interval_dp.md) | DP Technique | **sort_permutation_cyclic_chords_interval_dp.md** | 0 |
+| [`sorted_and_sorted_adjacent_swaps_2d_dp.md`](sorted_and_sorted_adjacent_swaps_2d_dp.md) | DP Technique | **sorted_and_sorted_adjacent_swaps_2d_dp.md** | 0 |
 | [`string_dp.md`](string_dp.md) | Classic DP | **Subsequence Matching DP / Automaton DP** | 1 |
 | [`subarray_deletion_knapsack_dp.md`](subarray_deletion_knapsack_dp.md) | DP Technique | **subarray_deletion_knapsack_dp.md** | 1 |
 | [`subsequence_automaton_wildcards_dp.md`](subsequence_automaton_wildcards_dp.md) | DP Technique | **subsequence_automaton_wildcards_dp.md** | 1 |
@@ -100,6 +102,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`three_resource_knapsack_search.md`](three_resource_knapsack_search.md) | DP Technique | **three_resource_knapsack_search.md** | 1 |
 | [`topological_sort_count_bitmask_dp.md`](topological_sort_count_bitmask_dp.md) | DP Technique | **topological_sort_count_bitmask_dp.md** | 1 |
 | [`tree_dp_independent_set_coloring.md`](tree_dp_independent_set_coloring.md) | DP Technique | **tree_dp_independent_set_coloring.md** | 1 |
+| [`tree_dp_swap_on_tree_degree_factorial_subgraphs.md`](tree_dp_swap_on_tree_degree_factorial_subgraphs.md) | DP Technique | **tree_dp_swap_on_tree_degree_factorial_subgraphs.md** | 0 |
 | [`tree_edge_frequencies_subset_sum.md`](tree_edge_frequencies_subset_sum.md) | DP Technique | **tree_edge_frequencies_subset_sum.md** | 1 |
 | [`tree_integers_interval_parity_dp.md`](tree_integers_interval_parity_dp.md) | DP Technique | **tree_integers_interval_parity_dp.md** | 0 |
 | [`tsp_bitmask_asymmetric_metric.md`](tsp_bitmask_asymmetric_metric.md) | DP Technique | **tsp_bitmask_asymmetric_metric.md** | 1 |
