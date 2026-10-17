@@ -7,6 +7,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | Topic File | Subtopic | Topic / Skill | Problems Count |
 |---|---|---|---|
 | [`1d_dp.md`](1d_dp.md) | Intro to DP | **1D State Recurrences & State Machines** | 4 |
+| [`2d_partially_ordered_lis_asymmetric_sort.md`](2d_partially_ordered_lis_asymmetric_sort.md) | DP Technique | **2d_partially_ordered_lis_asymmetric_sort.md** | 1 |
 | [`amidakuji_non_adjacent_bitmask_dp.md`](amidakuji_non_adjacent_bitmask_dp.md) | DP Technique | **amidakuji_non_adjacent_bitmask_dp.md** | 1 |
 | [`bitmask_dp.md`](bitmask_dp.md) | Bit Related DP | **Bitmask DP & Submask Enumeration** | 3 |
 | [`bitmask_dp_contiguous_blocks.md`](bitmask_dp_contiguous_blocks.md) | DP Technique | **bitmask_dp_contiguous_blocks.md** | 1 |
@@ -61,13 +62,16 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`longest_nonoverlapping_common_substring_dp.md`](longest_nonoverlapping_common_substring_dp.md) | DP Technique | **longest_nonoverlapping_common_substring_dp.md** | 1 |
 | [`matrix_exponentiation.md`](matrix_exponentiation.md) | Dp on Different Structures | **Matrix Exponentiation DP** | 1 |
 | [`minimum_insertions_lis.md`](minimum_insertions_lis.md) | DP Technique | **minimum_insertions_lis.md** | 1 |
+| [`moment_tracking_grid_path_dp.md`](moment_tracking_grid_path_dp.md) | DP Technique | **moment_tracking_grid_path_dp.md** | 1 |
 | [`multistep_increasing_ratio_dp.md`](multistep_increasing_ratio_dp.md) | DP Technique | **multistep_increasing_ratio_dp.md** | 1 |
 | [`order_dependent_knapsack_sorting.md`](order_dependent_knapsack_sorting.md) | DP Technique | **order_dependent_knapsack_sorting.md** | 1 |
+| [`partition_dp_modulo_bucketing.md`](partition_dp_modulo_bucketing.md) | DP Technique | **partition_dp_modulo_bucketing.md** | 1 |
 | [`permutation_cycle_lucas_numbers.md`](permutation_cycle_lucas_numbers.md) | DP Technique | **permutation_cycle_lucas_numbers.md** | 1 |
 | [`prefix_sum_2d_rectangle_envelope.md`](prefix_sum_2d_rectangle_envelope.md) | DP Technique | **prefix_sum_2d_rectangle_envelope.md** | 1 |
 | [`prefix_sum_dp.md`](prefix_sum_dp.md) | DP Optimizations | **Prefix Sum Optimized DP** | 3 |
 | [`prefix_sum_partition_dp.md`](prefix_sum_partition_dp.md) | DP Technique | **prefix_sum_partition_dp.md** | 1 |
 | [`queen_grid_dp_prefix_sums.md`](queen_grid_dp_prefix_sums.md) | DP Technique | **queen_grid_dp_prefix_sums.md** | 1 |
+| [`rollback_lis_on_tree_dfs.md`](rollback_lis_on_tree_dfs.md) | DP Technique | **rollback_lis_on_tree_dfs.md** | 1 |
 | [`segment_tree_dp.md`](segment_tree_dp.md) | DP Optimizations | **Segment Tree Accelerated Range Knapsack DP** | 1 |
 | [`set_cover_bitmask_dp.md`](set_cover_bitmask_dp.md) | DP Technique | **set_cover_bitmask_dp.md** | 1 |
 | [`shifted_zero_sum_knapsack_average.md`](shifted_zero_sum_knapsack_average.md) | DP Technique | **shifted_zero_sum_knapsack_average.md** | 1 |
@@ -75,6 +79,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`string_dp.md`](string_dp.md) | Classic DP | **Subsequence Matching DP / Automaton DP** | 1 |
 | [`subarray_deletion_knapsack_dp.md`](subarray_deletion_knapsack_dp.md) | DP Technique | **subarray_deletion_knapsack_dp.md** | 1 |
 | [`subsequence_automaton_wildcards_dp.md`](subsequence_automaton_wildcards_dp.md) | DP Technique | **subsequence_automaton_wildcards_dp.md** | 1 |
+| [`subset_bitmask_dp_prefix_constraints.md`](subset_bitmask_dp_prefix_constraints.md) | DP Technique | **subset_bitmask_dp_prefix_constraints.md** | 1 |
 | [`subsets_of_subsets_knapsack_dp.md`](subsets_of_subsets_knapsack_dp.md) | DP Technique | **subsets_of_subsets_knapsack_dp.md** | 1 |
 | [`three_resource_knapsack_search.md`](three_resource_knapsack_search.md) | DP Technique | **three_resource_knapsack_search.md** | 1 |
 | [`topological_sort_count_bitmask_dp.md`](topological_sort_count_bitmask_dp.md) | DP Technique | **topological_sort_count_bitmask_dp.md** | 1 |

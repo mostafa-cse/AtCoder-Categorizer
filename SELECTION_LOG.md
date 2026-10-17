@@ -588,3 +588,51 @@ This log tracks the rigorous evaluation of AtCoder problems, separating **high-v
 | [problem:AtCoder-arc201_c] | Prefix Covering | 1789 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Prefix covering casework drill. |
 | [problem:AtCoder-arc211_c] | Forest | 1792 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Forest query drill. |
 | [problem:AtCoder-arc180_b] | Improve Inversions | 1797 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc permutation inversion drill. |
+
+| [problem:AtCoder-arc100_b] | Equal Cut | 1801 | **SELECTED** | Basics → 4-Partition Array Optimization via Monotonic Two-Pointer Sweep | Selected: Archetype for 4-Partition Array Optimization via Monotonic Two-Pointer Sweep. |
+| [problem:AtCoder-arc150_c] | Path and Subsequence | 1802 | **SELECTED** | Graph Theory → Worst-Case Subsequence Matching on Graph via 0-1 BFS | Selected: Archetype for Worst-Case Subsequence Matching on Graph via 0-1 BFS. |
+| [problem:AtCoder-arc157_c] | YY Square | 1802 | **SELECTED** | Dynamic Programming → Moment-Tracking Grid Path DP (E[X^2] Expansion) | Selected: Archetype for Moment-Tracking Grid Path DP (E[X^2] Expansion). |
+| [problem:AtCoder-abc038_d] | プレゼント | 1804 | **SELECTED** | Dynamic Programming → 2D Partially-Ordered LIS via Asymmetric Sorting (w ascending, h descending) | Selected: Archetype for 2D Partially-Ordered LIS via Asymmetric Sorting (w ascending, h descending). |
+| [problem:AtCoder-abc199_d] | RGB Coloring 2 | 1804 | **SELECTED** | Basics → DFS Tree Order Backtracking on Small-Graph 3-Coloring with Root Symmetry | Selected: Archetype for DFS Tree Order Backtracking on Small-Graph 3-Coloring with Root Symmetry. |
+| [problem:AtCoder-arc143_c] | Piles of Pebbles | 1805 | **SELECTED** | Game Theory → Periodic Round Invariant Modulo (X + Y) on Multi-Pile Pebble Game | Selected: Archetype for Periodic Round Invariant Modulo (X + Y) on Multi-Pile Pebble Game. |
+| [problem:AtCoder-arc041_c] | ウサギ跳び | 1808 | **SELECTED** | Basics → 1D Compression Invariant on Converging Directed Clusters | Selected: Archetype for 1D Compression Invariant on Converging Directed Clusters. |
+| [problem:AtCoder-arc102_b] | All Your Paths are Different Lengths | 1810 | **SELECTED** | Basics → Base-2 Doubling DAG Construction for Exact Path Interval [0, L - 1] | Selected: Archetype for Base-2 Doubling DAG Construction for Exact Path Interval [0, L - 1]. |
+| [problem:AtCoder-arc128_c] | Max Dot | 1810 | **SELECTED** | Basics → Convex Monotonic Variable Assignment via Suffix Average Efficiency | Selected: Archetype for Convex Monotonic Variable Assignment via Suffix Average Efficiency. |
+| [problem:AtCoder-abc199_e] | Permutation | 1814 | **SELECTED** | Dynamic Programming → Subset Bitmask DP with Prefix Count Constraints | Selected: Archetype for Subset Bitmask DP with Prefix Count Constraints. |
+| [problem:AtCoder-arc064_b] | An Ordinary Game | 1814 | **SELECTED** | Game Theory → Combinatorial Game Parity Determined by Boundary Endpoints | Selected: Archetype for Combinatorial Game Parity Determined by Boundary Endpoints. |
+| [problem:AtCoder-abc312_g] | Avoid Straight Line | 1819 | **SELECTED** | Combinatorics → Tree Non-Collinear Triplet Counting via Junction Center Decomposition | Selected: Archetype for Tree Non-Collinear Triplet Counting via Junction Center Decomposition. |
+| [problem:AtCoder-abc207_e] | Mod i | 1820 | **SELECTED** | Dynamic Programming → Partition DP with Modulo Remainder State Bucketing | Selected: Archetype for Partition DP with Modulo Remainder State Bucketing. |
+| [problem:AtCoder-abc211_e] | Red Polyomino | 1823 | **SELECTED** | Basics → Grid Connected Polyomino Generation with Canonical Deduplication | Selected: Archetype for Grid Connected Polyomino Generation with Canonical Deduplication. |
+| [problem:AtCoder-arc037_c] | 億マス計算 | 1824 | **SELECTED** | Basics → Binary Search on Answer for K-th Matrix Product / Multi-Set Item | Selected: Archetype for Binary Search on Answer for K-th Matrix Product / Multi-Set Item. |
+| [problem:AtCoder-arc126_c] | Maximize GCD | 1824 | **SELECTED** | Number Theory → Harmonic Range Sum with Prefix Aggregates for Maximum GCD | Selected: Archetype for Harmonic Range Sum with Prefix Aggregates for Maximum GCD. |
+| [problem:AtCoder-abc186_f] | Rook on Grid | 1833 | **SELECTED** | Data Structures (DS) → 2D Obstacle Grid Sweep-Line with Fenwick Tree Deduplication | Selected: Archetype for 2D Obstacle Grid Sweep-Line with Fenwick Tree Deduplication. |
+| [problem:AtCoder-abc297_g] | Constrained Nim 2 | 1834 | **SELECTED** | Game Theory → Sprague-Grundy Closed Form for Bounded-Move Nim: (X mod (L+R)) / L | Selected: Archetype for Sprague-Grundy Closed Form for Bounded-Move Nim: (X mod (L+R)) / L. |
+| [problem:AtCoder-abc008_3] | コイン | 1836 | **SELECTED** | Combinatorics → Linearity of Expectation over Permutations via Divisor Relative Rank | Selected: Archetype for Linearity of Expectation over Permutations via Divisor Relative Rank. |
+| [problem:AtCoder-arc050_b] | 花束 | 1838 | **SELECTED** | Basics → Binary Search on Answer for Dual-Recipe Resource Allocation | Selected: Archetype for Binary Search on Answer for Dual-Recipe Resource Allocation. |
+| [problem:AtCoder-abc128_e] | Roadwork | 1840 | **SELECTED** | Data Structures (DS) → Time-Space Diagonal Projection (S_i - X_i) Sweep-Line with Active Multiset | Selected: Archetype for Time-Space Diagonal Projection (S_i - X_i) Sweep-Line with Active Multiset. |
+| [problem:AtCoder-abc368_g] | Add and Multiply Queries | 1841 | **SELECTED** | Data Structures (DS) → Exponential Growth Sparse Set Skipping with Fenwick Range Sum | Selected: Archetype for Exponential Growth Sparse Set Skipping with Fenwick Range Sum. |
+| [problem:AtCoder-abc011_4] | 大ジャンプ | 1843 | **SELECTED** | Math → 45-Degree Grid Rotation Decomposing 2D Random Walk into Independent 1D Walks | Selected: Archetype for 45-Degree Grid Rotation Decomposing 2D Random Walk into Independent 1D Walks. |
+| [problem:AtCoder-abc023_d] | 射撃王 | 1843 | **SELECTED** | Basics → Binary Search on Answer with Feasibility Deadline Verification | Selected: Archetype for Binary Search on Answer with Feasibility Deadline Verification. |
+| [problem:AtCoder-abc165_f] | LIS on Tree | 1843 | **SELECTED** | Dynamic Programming → Rollback LIS on Tree via DFS Call-Stack Undo | Selected: Archetype for Rollback LIS on Tree via DFS Call-Stack Undo. |
+| [problem:AtCoder-abc155_d] | Pairs | 1845 | **SELECTED** | Basics → Binary Search on K-th Pair Product with Sign-Partitioned Two Pointers | Selected: Archetype for Binary Search on K-th Pair Product with Sign-Partitioned Two Pointers. |
+| [problem:AtCoder-arc181_c] | Row and Column Order | 1801 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Permutation row/column casework drill. |
+| [problem:AtCoder-arc201_b] | Binary Knapsack | 1808 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Binary knapsack casework drill. |
+| [problem:AtCoder-arc166_c] | LU / RD Marking | 1813 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Grid marking drill. |
+| [problem:AtCoder-arc130_c] | Digit Sum Minimization | 1814 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Digit sum rearrangement drill. |
+| [problem:AtCoder-abc392_g] | Fine Triplets | 1817 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Triplet arithmetic progression drill. |
+| [problem:AtCoder-arc122_c] | Calculator | 1818 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Calculator operations simulation. |
+| [problem:AtCoder-arc200_a] | Dot Product | 1821 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc dot product drill. |
+| [problem:AtCoder-arc212_c] | ABS Ball | 1825 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ball placement simulation. |
+| [problem:AtCoder-arc218_c] | Amidakuji | 1826 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc amidakuji query drill. |
+| [problem:AtCoder-arc123_c] | 1, 2, 3 - Decomposition | 1827 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Digit decomposition casework. |
+| [problem:AtCoder-abc242_g] | Range Pairing Query | 1828 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Subsumed by Mo's algorithm archetype abc293_g. |
+| [problem:AtCoder-abc425_f] | Inserting Process | 1831 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Process simulation drill. |
+| [problem:AtCoder-arc013_3] | 笑いをとれるかな？ | 1831 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — 3D Nim simulation drill. |
+| [problem:AtCoder-arc023_3] | タコヤ木 | 1833 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Tree permutation drill. |
+| [problem:AtCoder-arc217_b] | Not High Element | 1834 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Element condition drill. |
+| [problem:AtCoder-arc069_c] | Frequency | 1835 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Frequency sweep casework drill. |
+| [problem:AtCoder-abc061_d] | Score Attack | 1838 | **REJECTED** | Basics → Implementation | REJECTED (DUPLICATE) — Duplicate of abc137_e (Bellman-Ford negative cycle reachability). |
+| [problem:AtCoder-arc094_c] | Tozan and Gezan | 1843 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Invariant game casework drill. |
+| [problem:AtCoder-arc024_3] | だれじゃ | 1844 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Substring search drill. |
+| [problem:AtCoder-arc210_c] | Fair Coin Partition | 1846 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Coin partition casework drill. |
+| [problem:AtCoder-arc208_c] | Mod of XOR | 1849 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Modulo XOR drill. |
