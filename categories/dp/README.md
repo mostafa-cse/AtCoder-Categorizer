@@ -63,6 +63,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`knapsack.md`](knapsack.md) | Intro to DP | **Knapsack DP & Dual State Inversion** | 2 |
 | [`knapsack_addition_and_rollback.md`](knapsack_addition_and_rollback.md) | DP Technique | **knapsack_addition_and_rollback.md** | 1 |
 | [`knapsack_small_weight_variance.md`](knapsack_small_weight_variance.md) | DP Technique | **knapsack_small_weight_variance.md** | 1 |
+| [`knapsack_three_colors_triangle_inequality_complementary_counting.md`](knapsack_three_colors_triangle_inequality_complementary_counting.md) | DP Technique | **knapsack_three_colors_triangle_inequality_complementary_counting.md** | 0 |
 | [`lazy_segment_tree_dp.md`](lazy_segment_tree_dp.md) | DP Optimizations | **DP Optimization using Lazy Segment Tree** | 1 |
 | [`lexicographical_unbounded_knapsack.md`](lexicographical_unbounded_knapsack.md) | DP Technique | **lexicographical_unbounded_knapsack.md** | 1 |
 | [`longest_increasing_subsequence.md`](longest_increasing_subsequence.md) | Classic DP | **Longest Bitonic Subsequence via Dual LIS** | 1 |
@@ -91,6 +92,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`string_dp.md`](string_dp.md) | Classic DP | **Subsequence Matching DP / Automaton DP** | 1 |
 | [`subarray_deletion_knapsack_dp.md`](subarray_deletion_knapsack_dp.md) | DP Technique | **subarray_deletion_knapsack_dp.md** | 1 |
 | [`subsequence_automaton_wildcards_dp.md`](subsequence_automaton_wildcards_dp.md) | DP Technique | **subsequence_automaton_wildcards_dp.md** | 1 |
+| [`subsequence_cumulative_sums_distinct_canonical_dp.md`](subsequence_cumulative_sums_distinct_canonical_dp.md) | DP Technique | **subsequence_cumulative_sums_distinct_canonical_dp.md** | 0 |
 | [`subsequence_lcm_sos_dp_inclusion_exclusion.md`](subsequence_lcm_sos_dp_inclusion_exclusion.md) | DP Technique | **subsequence_lcm_sos_dp_inclusion_exclusion.md** | 0 |
 | [`subset_bitmask_dp_prefix_constraints.md`](subset_bitmask_dp_prefix_constraints.md) | DP Technique | **subset_bitmask_dp_prefix_constraints.md** | 1 |
 | [`subsets_of_subsets_knapsack_dp.md`](subsets_of_subsets_knapsack_dp.md) | DP Technique | **subsets_of_subsets_knapsack_dp.md** | 1 |
