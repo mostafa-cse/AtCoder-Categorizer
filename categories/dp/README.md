@@ -10,16 +10,21 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`amidakuji_non_adjacent_bitmask_dp.md`](amidakuji_non_adjacent_bitmask_dp.md) | DP Technique | **amidakuji_non_adjacent_bitmask_dp.md** | 1 |
 | [`bitmask_dp.md`](bitmask_dp.md) | Bit Related DP | **Bitmask DP & Submask Enumeration** | 3 |
 | [`bitmask_dp_contiguous_blocks.md`](bitmask_dp_contiguous_blocks.md) | DP Technique | **bitmask_dp_contiguous_blocks.md** | 1 |
+| [`bitwise_carry_dp_xor_zero.md`](bitwise_carry_dp_xor_zero.md) | DP Technique | **bitwise_carry_dp_xor_zero.md** | 1 |
 | [`bitwise_digit_dp_upper_bound.md`](bitwise_digit_dp_upper_bound.md) | DP Technique | **bitwise_digit_dp_upper_bound.md** | 1 |
+| [`bounded_step_grid_dp_infinite_stay.md`](bounded_step_grid_dp_infinite_stay.md) | DP Technique | **bounded_step_grid_dp_infinite_stay.md** | 1 |
 | [`circular_segment_decomposition_dp.md`](circular_segment_decomposition_dp.md) | DP Technique | **circular_segment_decomposition_dp.md** | 1 |
 | [`coin_change_dual_exponential_bases.md`](coin_change_dual_exponential_bases.md) | DP Technique | **coin_change_dual_exponential_bases.md** | 1 |
 | [`color_segments_left_right_dp.md`](color_segments_left_right_dp.md) | DP Technique | **color_segments_left_right_dp.md** | 1 |
 | [`common_subsequence_count_2d_dp.md`](common_subsequence_count_2d_dp.md) | DP Technique | **common_subsequence_count_2d_dp.md** | 1 |
 | [`complement_graph_dp_subtraction.md`](complement_graph_dp_subtraction.md) | DP Technique | **complement_graph_dp_subtraction.md** | 1 |
+| [`constraint_adaptive_knapsack_master.md`](constraint_adaptive_knapsack_master.md) | DP Technique | **constraint_adaptive_knapsack_master.md** | 1 |
 | [`convex_hull_trick.md`](convex_hull_trick.md) | Convex Hull Trick (CHT) | **Convex Hull Trick (CHT) & DP Optimization** | 1 |
 | [`dag_minimum_ancestor_cost_dp.md`](dag_minimum_ancestor_cost_dp.md) | DP Technique | **dag_minimum_ancestor_cost_dp.md** | 1 |
+| [`descending_sort_knapsack_exempt_heaviest.md`](descending_sort_knapsack_exempt_heaviest.md) | DP Technique | **descending_sort_knapsack_exempt_heaviest.md** | 1 |
 | [`diamond_pattern_vertical_runs.md`](diamond_pattern_vertical_runs.md) | DP Technique | **diamond_pattern_vertical_runs.md** | 1 |
 | [`digit_dp.md`](digit_dp.md) | Digit DP | **Digit DP & Prefix Bound Relaxation** | 1 |
+| [`digit_dp_banned_digits_base8.md`](digit_dp_banned_digits_base8.md) | DP Technique | **digit_dp_banned_digits_base8.md** | 1 |
 | [`digit_dp_carry_banknotes_payment.md`](digit_dp_carry_banknotes_payment.md) | DP Technique | **digit_dp_carry_banknotes_payment.md** | 1 |
 | [`digit_dp_counting_occurrences.md`](digit_dp_counting_occurrences.md) | DP Technique | **digit_dp_counting_occurrences.md** | 1 |
 | [`digit_dp_disjoint_bits_sum_xor.md`](digit_dp_disjoint_bits_sum_xor.md) | DP Technique | **digit_dp_disjoint_bits_sum_xor.md** | 1 |
@@ -41,6 +46,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`grid_dp_manhattan_distance.md`](grid_dp_manhattan_distance.md) | DP Technique | **grid_dp_manhattan_distance.md** | 1 |
 | [`grid_dp_row_col_buffering.md`](grid_dp_row_col_buffering.md) | DP Technique | **grid_dp_row_col_buffering.md** | 1 |
 | [`grid_dp_row_item_capacity.md`](grid_dp_row_item_capacity.md) | DP Technique | **grid_dp_row_item_capacity.md** | 1 |
+| [`grid_path_subset_sum_bitset.md`](grid_path_subset_sum_bitset.md) | DP Technique | **grid_path_subset_sum_bitset.md** | 1 |
 | [`grid_strictly_increasing_paths_dag.md`](grid_strictly_increasing_paths_dag.md) | DP Technique | **grid_strictly_increasing_paths_dag.md** | 1 |
 | [`inclusion_exclusion_dp.md`](inclusion_exclusion_dp.md) | Classic DP | **Inclusion-Exclusion Principle & Combinatorics Grid DP** | 1 |
 | [`independent_xy_subset_sum_bitset.md`](independent_xy_subset_sum_bitset.md) | DP Technique | **independent_xy_subset_sum_bitset.md** | 1 |
@@ -66,6 +72,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`shifted_zero_sum_knapsack_average.md`](shifted_zero_sum_knapsack_average.md) | DP Technique | **shifted_zero_sum_knapsack_average.md** | 1 |
 | [`string_dp.md`](string_dp.md) | Classic DP | **Subsequence Matching DP / Automaton DP** | 1 |
 | [`subarray_deletion_knapsack_dp.md`](subarray_deletion_knapsack_dp.md) | DP Technique | **subarray_deletion_knapsack_dp.md** | 1 |
+| [`subsequence_automaton_wildcards_dp.md`](subsequence_automaton_wildcards_dp.md) | DP Technique | **subsequence_automaton_wildcards_dp.md** | 1 |
 | [`subsets_of_subsets_knapsack_dp.md`](subsets_of_subsets_knapsack_dp.md) | DP Technique | **subsets_of_subsets_knapsack_dp.md** | 1 |
 | [`three_resource_knapsack_search.md`](three_resource_knapsack_search.md) | DP Technique | **three_resource_knapsack_search.md** | 1 |
 | [`topological_sort_count_bitmask_dp.md`](topological_sort_count_bitmask_dp.md) | DP Technique | **topological_sort_count_bitmask_dp.md** | 1 |
