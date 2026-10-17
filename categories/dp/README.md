@@ -9,6 +9,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`1d_dp.md`](1d_dp.md) | Intro to DP | **1D State Recurrences & State Machines** | 4 |
 | [`2d_partially_ordered_lis_asymmetric_sort.md`](2d_partially_ordered_lis_asymmetric_sort.md) | DP Technique | **2d_partially_ordered_lis_asymmetric_sort.md** | 1 |
 | [`amidakuji_non_adjacent_bitmask_dp.md`](amidakuji_non_adjacent_bitmask_dp.md) | DP Technique | **amidakuji_non_adjacent_bitmask_dp.md** | 1 |
+| [`base10_fast_zeta_transform_carry_free.md`](base10_fast_zeta_transform_carry_free.md) | DP Technique | **base10_fast_zeta_transform_carry_free.md** | 1 |
 | [`bitmask_dp.md`](bitmask_dp.md) | Bit Related DP | **Bitmask DP & Submask Enumeration** | 3 |
 | [`bitmask_dp_contiguous_blocks.md`](bitmask_dp_contiguous_blocks.md) | DP Technique | **bitmask_dp_contiguous_blocks.md** | 1 |
 | [`bitwise_carry_dp_xor_zero.md`](bitwise_carry_dp_xor_zero.md) | DP Technique | **bitwise_carry_dp_xor_zero.md** | 1 |
@@ -53,6 +54,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`grid_strictly_increasing_paths_dag.md`](grid_strictly_increasing_paths_dag.md) | DP Technique | **grid_strictly_increasing_paths_dag.md** | 1 |
 | [`inclusion_exclusion_dp.md`](inclusion_exclusion_dp.md) | Classic DP | **Inclusion-Exclusion Principle & Combinatorics Grid DP** | 1 |
 | [`independent_xy_subset_sum_bitset.md`](independent_xy_subset_sum_bitset.md) | DP Technique | **independent_xy_subset_sum_bitset.md** | 1 |
+| [`interval_cover_segment_tree_min_dp.md`](interval_cover_segment_tree_min_dp.md) | DP Technique | **interval_cover_segment_tree_min_dp.md** | 1 |
 | [`interval_dp.md`](interval_dp.md) | Classic DP | **Interval DP & Range Merging** | 4 |
 | [`knapsack.md`](knapsack.md) | Intro to DP | **Knapsack DP & Dual State Inversion** | 2 |
 | [`knapsack_addition_and_rollback.md`](knapsack_addition_and_rollback.md) | DP Technique | **knapsack_addition_and_rollback.md** | 1 |
