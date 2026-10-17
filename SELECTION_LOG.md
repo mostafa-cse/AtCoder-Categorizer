@@ -561,3 +561,30 @@ This log tracks the rigorous evaluation of AtCoder problems, separating **high-v
 | [problem:AtCoder-abc475_e] | Quiz Competition: Qualifiers | 1737 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Routine quiz simulation. |
 | [problem:AtCoder-abc458_f] | Critical Misread | 1744 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc string query casework. |
 | [problem:AtCoder-abc432_d] | Suddenly, A Tempest | 1745 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc tempest grid drill. |
+
+| [problem:AtCoder-abc023_c] | 収集王 | 1752 | **SELECTED** | Basics → Row/Column Candy Count with Sparse Cell Adjustment | Selected: Archetype for Row/Column Candy Count with Sparse Cell Adjustment. |
+| [problem:AtCoder-abc293_g] | Triple Index | 1753 | **SELECTED** | Data Structures (DS) → Mo's Algorithm for Range Triples C(c, 3) | Selected: Archetype for Mo's Algorithm for Range Triples C(c, 3). |
+| [problem:AtCoder-abc161_e] | Yutori | 1760 | **SELECTED** | Basics → Mandatory Task Identification via Leftmost vs Rightmost Greedy Schedules | Selected: Archetype for Mandatory Task Identification via Leftmost vs Rightmost Greedy Schedules. |
+| [problem:AtCoder-abc146_e] | Rem of Sum is Num | 1762 | **SELECTED** | Data Structures (DS) → Prefix Sum Shift Transformation (S_i - i) mod K with Sliding Window Map | Selected: Archetype for Prefix Sum Shift Transformation (S_i - i) mod K with Sliding Window Map. |
+| [problem:AtCoder-abc162_f] | Select Half | 1764 | **SELECTED** | Dynamic Programming → Non-Adjacent Selection via Skip-Budget DP | Selected: Archetype for Non-Adjacent Selection via Skip-Budget DP. |
+| [problem:AtCoder-abc353_g] | Merchant Takahashi | 1765 | **SELECTED** | Data Structures (DS) → Segment Tree Optimization for 1D Manhattan Distance DP | Selected: Archetype for Segment Tree Optimization for 1D Manhattan Distance DP. |
+| [problem:AtCoder-arc117_c] | Tricolor Pyramid | 1768 | **SELECTED** | Math → Cellular Automaton Modulo 3 Linearity via Pascal & Lucas' Theorem | Selected: Archetype for Cellular Automaton Modulo 3 Linearity via Pascal & Lucas' Theorem. |
+| [problem:AtCoder-arc064_c] | Cosmic Rays | 1769 | **SELECTED** | Graph Theory → Continuous Euclidean Distance on Circular Barriers via Dense Dijkstra | Selected: Archetype for Continuous Euclidean Distance on Circular Barriers via Dense Dijkstra. |
+| [problem:AtCoder-abc126_f] | XOR Matching | 1770 | **SELECTED** | Basics → Constructive XOR Palindromic Sandwich Sequence | Selected: Archetype for Constructive XOR Palindromic Sandwich Sequence. |
+| [problem:AtCoder-abc154_f] | Many Many Paths | 1775 | **SELECTED** | Combinatorics → Double Hockey-Stick Identity on Grid Path Combinations | Selected: Archetype for Double Hockey-Stick Identity on Grid Path Combinations. |
+| [problem:AtCoder-abc010_4] | 浮気予防 | 1777 | **SELECTED** | Graph Theory → Min-Cut / Max-Flow Model on Network Disconnection | Selected: Archetype for Min-Cut / Max-Flow Model on Network Disconnection. |
+| [problem:AtCoder-abc377_g] | Edit to Match | 1782 | **SELECTED** | Data Structures (DS) → Trie-Accelerated Prefix Edit Distance / LCS Minimization | Selected: Archetype for Trie-Accelerated Prefix Edit Distance / LCS Minimization. |
+| [problem:AtCoder-abc192_f] | Potion | 1783 | **SELECTED** | Dynamic Programming → Exact Cardinality Modulo Remainder Knapsack DP | Selected: Archetype for Exact Cardinality Modulo Remainder Knapsack DP. |
+| [problem:AtCoder-abc339_g] | Smaller Sum | 1792 | **SELECTED** | Data Structures (DS) → Persistent Segment Tree for Online Range Value-Bounded Sum | Selected: Archetype for Persistent Segment Tree for Online Range Value-Bounded Sum. |
+| [problem:AtCoder-abc171_f] | Strivore | 1795 | **SELECTED** | Combinatorics → Canonical Greedy Subsequence Embedding / Distinct Superstring Counting | Selected: Archetype for Canonical Greedy Subsequence Embedding / Distinct Superstring Counting. |
+| [problem:AtCoder-arc089_b] | Checker | 1797 | **SELECTED** | Basics → 2D Periodic Chessboard Coordinate Reduction and 2D Prefix Sums | Selected: Archetype for 2D Periodic Chessboard Coordinate Reduction and 2D Prefix Sums. |
+| [problem:AtCoder-abc465_f] | Sjeltzer? | 1754 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc string query casework. |
+| [problem:AtCoder-arc222_b] | Circular RPS | 1756 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc rock paper scissors cycle drill. |
+| [problem:AtCoder-arc215_c] | Strong Surname | 1767 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — String casework drill. |
+| [problem:AtCoder-arc179_c] | Beware of Overflow | 1771 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Interactive overflow simulation. |
+| [problem:AtCoder-arc195_c] | Hamiltonian Pieces | 1777 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Piece placement drill. |
+| [problem:AtCoder-arc192_b] | Fennec VS. Snuke 2 | 1783 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc tree game drill. |
+| [problem:AtCoder-arc209_b] | Minimize Even Palindrome | 1787 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Palindrome reduction casework. |
+| [problem:AtCoder-arc201_c] | Prefix Covering | 1789 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Prefix covering casework drill. |
+| [problem:AtCoder-arc211_c] | Forest | 1792 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Forest query drill. |
+| [problem:AtCoder-arc180_b] | Improve Inversions | 1797 | **REJECTED** | Basics → Implementation | REJECTED (BASIC LOGIC BUILDING) — Ad-hoc permutation inversion drill. |

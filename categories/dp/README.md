@@ -36,6 +36,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`dp_range_transitions_prefix_sums.md`](dp_range_transitions_prefix_sums.md) | DP Technique | **dp_range_transitions_prefix_sums.md** | 1 |
 | [`dual_partition_subset_sum_bitset.md`](dual_partition_subset_sum_bitset.md) | DP Technique | **dual_partition_subset_sum_bitset.md** | 1 |
 | [`edit_distance_sequence_alignment.md`](edit_distance_sequence_alignment.md) | DP Technique | **edit_distance_sequence_alignment.md** | 1 |
+| [`exact_cardinality_modulo_knapsack.md`](exact_cardinality_modulo_knapsack.md) | DP Technique | **exact_cardinality_modulo_knapsack.md** | 1 |
 | [`exchange_argument_dp.md`](exchange_argument_dp.md) | Classic DP | **Greedy Exchange Argument & Knapsack DP** | 1 |
 | [`expected_value_backward_induction_3d.md`](expected_value_backward_induction_3d.md) | DP Technique | **expected_value_backward_induction_3d.md** | 1 |
 | [`expected_value_dp.md`](expected_value_dp.md) | Intro to DP | **Probability & Expected Value DP** | 2 |
@@ -70,6 +71,7 @@ Curated collection of high-value problems in **Dynamic Programming (DP)** partit
 | [`segment_tree_dp.md`](segment_tree_dp.md) | DP Optimizations | **Segment Tree Accelerated Range Knapsack DP** | 1 |
 | [`set_cover_bitmask_dp.md`](set_cover_bitmask_dp.md) | DP Technique | **set_cover_bitmask_dp.md** | 1 |
 | [`shifted_zero_sum_knapsack_average.md`](shifted_zero_sum_knapsack_average.md) | DP Technique | **shifted_zero_sum_knapsack_average.md** | 1 |
+| [`skip_budget_dp_select_half.md`](skip_budget_dp_select_half.md) | DP Technique | **skip_budget_dp_select_half.md** | 1 |
 | [`string_dp.md`](string_dp.md) | Classic DP | **Subsequence Matching DP / Automaton DP** | 1 |
 | [`subarray_deletion_knapsack_dp.md`](subarray_deletion_knapsack_dp.md) | DP Technique | **subarray_deletion_knapsack_dp.md** | 1 |
 | [`subsequence_automaton_wildcards_dp.md`](subsequence_automaton_wildcards_dp.md) | DP Technique | **subsequence_automaton_wildcards_dp.md** | 1 |
