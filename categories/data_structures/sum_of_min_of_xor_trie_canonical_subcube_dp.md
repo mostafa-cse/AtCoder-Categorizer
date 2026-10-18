@@ -13,3 +13,4 @@ This topic focuses on trie on strings and bits techniques for solving competitiv
 | Problem ID | Title | Rating | Key Technique / Reduction |
 | :--- | :--- | :--- | :--- |
 | [`AtCoder-abc425_g`](../../analysis/AtCoder-abc425_g.md) | Sum of Min of XOR | 2205 | Binary Trie DP precalculating subtree minimum XOR sums over complete subcubes combined with canonical prefix decompositi... |
+| [`AtCoder-arc127_d`](../../analysis/AtCoder-arc127_d.md) | D. Sum of Min of Xor | 2593 | Compute $\sum_{1 \le i < j \le N} \min(A_i \oplus A_j, B_i \oplus B_j)$ for sequences $A$ and $B$ with values $< 2^{18}$... |
