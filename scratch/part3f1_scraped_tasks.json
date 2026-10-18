@@ -1,0 +1,267 @@
+{
+  "abc227_e": {
+    "id": "abc227_e",
+    "contest_id": "abc227",
+    "title": "E. Swap",
+    "difficulty": 2377,
+    "statement": "\n\n\n配点 : 500 点\n\n\n問題文K, E, Y のみからなる文字列 S が与えられます。\nS の隣接する 2 文字を入れ替える操作を K 回まで行えるとき、作ることができる文字列は何種類ありますか？\n\n\n\n\n制約\n2 \\leq |S| \\leq 30\n0 \\leq K \\leq 10^9\nS は K, E, Y のみからなる\n\n\n\n\n\n\n\n入力入力は以下の形式で標準入力から与えられる。\nS\r\nK\r\n\n\n\n\n\n出力答えを出力せよ。  \n\n\n\n\n\n\n入力例 1KEY\r\n1\r\n\n\n\n\n\n出力例 13\r\n\nKEY に対して 1 回以下の操作を行うことで得られる文字列は KEY, EKY, KYE の 3 種類です。\n\n\n\n\n\n入力例 2KKEE\r\n2\r\n\n\n\n\n\n出力例 24\r\n\nKKEE に対して 2 回以下の操作を行うことで得られる文字列は KKEE, KEKE, EKKE, KEEK の 4 種類です。\n\n\n\n\n\n入力例 3KKEEYY\r\n1000000000\r\n\n\n\n\n\n出力例 390\r\n\n\n\n\nScore : 500 points\n\n\nProblem StatementGiven is a string S consisting of K, E, Y.\nHow many strings are there that can be obtained with at most K swaps of two adjacent characters in S?\n\n\n\n\nConstraints\n2 \\leq |S| \\leq 30\n0 \\leq K \\leq 10^9\nS consists of K, E, Y.\n\n\n\n\n\n\n\nInputInput is given from Standard Input in the following format:\nS\r\nK\r\n\n\n\n\n\nOutputPrint the answer.\n\n\n\n\n\n\nSample Input 1KEY\r\n1\r\n\n\n\n\n\nSample Output 13\r\n\nWith at most one swap, there are three strings that can be obtained: KEY, EKY, KYE.\n\n\n\n\n\nSample Input 2KKEE\r\n2\r\n\n\n\n\n\nSample Output 24\r\n\nWith at most two swaps, there are four strings that can be obtained: KKEE, KEKE, EKKE, KEEK.\n\n\n\n\n\nSample Input 3KKEEYY\r\n1000000000\r\n\n\n\n\n\nSample Output 390\r\n\n\n\n\n",
+    "samples": [
+      {
+        "input": "KEY\r\n1\r\n",
+        "output": "3\r\n"
+      },
+      {
+        "input": "KKEE\r\n2\r\n",
+        "output": "4\r\n"
+      },
+      {
+        "input": "KKEEYY\r\n1000000000\r\n",
+        "output": "90\r\n"
+      }
+    ]
+  },
+  "abc373_g": {
+    "id": "abc373_g",
+    "contest_id": "abc373",
+    "title": "G. No Cross Matching",
+    "difficulty": 2377,
+    "statement": "\n\n\n配点 : 600 点\n\n\n問題文2 次元平面上に P_1,P_2,\\ldots,P_N, Q_1,Q_2,\\ldots,Q_N の 2N 個の点があります。\nP_i の座標は (A_i,B_i)、Q_i の座標は (C_i,D_i) です。\n同一直線上に異なる 3 点が存在することはありません。\n(1,2,\\ldots,N) の順列であるような数列 R=(R_1,R_2,\\ldots,R_N) であって以下の条件を満たすような R が存在するか判定し、存在する場合は 1 つ求めてください。\n\n1 以上 N 以下のすべての整数 i について 線分 i を P_i と Q_{R_i} を端点とする線分としたとき、どの線分 i と線分 j (1 \\leq  i < j \\leq N) も互いに交差しない。\n\n\n\n\n\n制約\n1 \\leq N \\leq 300\n0 \\leq A_i,B_i,C_i,D_i \\leq 5000 (1 \\leq i \\leq N)\n(A_i,B_i) \\neq (A_j,B_j) (1 \\leq i < j \\leq N)\n(C_i,D_i) \\neq (C_j,D_j) (1 \\leq i < j \\leq N)\n(A_i,B_i) \\neq (C_j,D_j) (1 \\leq i,j \\leq N)\n同一直線上に異なる 3 点が存在することはない\n入力はすべて整数\n\n\n\n\n\n\n\n入力入力は以下の形式で標準入力から与えられる。\nN\nA_1 B_1\nA_2 B_2\n\\vdots \nA_N B_N\nC_1 D_1\nC_2 D_2\n\\vdots\nC_N D_N\n\n\n\n\n\n出力条件を満たす R が存在しない場合は -1 と出力せよ。\n存在する場合は R_1,R_2,\\ldots,R_N を空白区切りで出力せよ。答えが複数存在する場合はどれを出力してもかまわない。\n\n\n\n\n\n\n入力例 13\n0 0\n2 4\n4 2\n0 2\n2 0\n4 4\n\n\n\n\n\n出力例 12 1 3\n\n以下の図のように点が並んでいます。\n\nR=(2,1,3) とすることで 3 本の線分は互いに交差しません。また、 R を (1,2,3),(1,3,2),(2,3,1),(3,1,2) のいずれにしても正しい答えとなります。\n\n\n\n\n\n入力例 28\n59 85\n60 57\n72 12\n3 27\n16 58\n41 94\n77 64\n97 20\n32 37\n7 2\n57 94\n35 70\n38 60\n97 100\n5 76\n38 8\n\n\n\n\n\n出力例 23 5 8 2 7 4 6 1\n\n\n\n\nScore : 600 points\n\n\nProblem StatementThere are 2N points P_1,P_2,\\ldots,P_N, Q_1,Q_2,\\ldots,Q_N on a two-dimensional plane.\nThe coordinates of P_i are (A_i, B_i), and the coordinates of Q_i are (C_i, D_i).\nNo three different points lie on the same straight line.\nDetermine whether there exists a permutation R = (R_1, R_2, \\ldots, R_N) of (1, 2, \\ldots, N) that satisfies the following condition. If such an R exists, find one.\n\nFor each integer i from 1 through N, let segment i be the line segment connecting P_i and Q_{R_i}.  Then, segment i and segment j (1 \\leq  i < j \\leq N) never intersect.\n\n\n\n\n\nConstraints\n1 \\leq N \\leq 300\n0 \\leq A_i, B_i, C_i, D_i \\leq 5000 (1 \\leq i \\leq N)\n(A_i, B_i) \\neq (A_j, B_j) (1 \\leq i < j \\leq N)\n(C_i, D_i) \\neq (C_j, D_j) (1 \\leq i < j \\leq N)\n(A_i, B_i) \\neq (C_j, D_j) (1 \\leq i, j \\leq N)\nNo three different points lie on the same straight line.\nAll input values are integers.\n\n\n\n\n\n\n\nInputThe input is given from Standard Input in the following format:\nN\nA_1 B_1\nA_2 B_2\n\\vdots \nA_N B_N\nC_1 D_1\nC_2 D_2\n\\vdots\nC_N D_N\n\n\n\n\n\nOutputIf there is no R satisfying the condition, print -1.\nIf such an R exists, print R_1, R_2, \\ldots, R_N separated by spaces. If there are multiple solutions, you may print any of them.\n\n\n\n\n\n\nSample Input 13\n0 0\n2 4\n4 2\n0 2\n2 0\n4 4\n\n\n\n\n\nSample Output 12 1 3\n\nThe points are arranged as shown in the following figure.\n\nBy setting R = (2, 1, 3), the three line segments do not cross each other. Also, any of R = (1, 2, 3), (1, 3, 2), (2, 3, 1), and (3, 1, 2) is a valid answer.\n\n\n\n\n\nSample Input 28\n59 85\n60 57\n72 12\n3 27\n16 58\n41 94\n77 64\n97 20\n32 37\n7 2\n57 94\n35 70\n38 60\n97 100\n5 76\n38 8\n\n\n\n\n\nSample Output 23 5 8 2 7 4 6 1\n\n\n\n\n",
+    "samples": [
+      {
+        "input": "3\n0 0\n2 4\n4 2\n0 2\n2 0\n4 4\n",
+        "output": "2 1 3\n"
+      },
+      {
+        "input": "8\n59 85\n60 57\n72 12\n3 27\n16 58\n41 94\n77 64\n97 20\n32 37\n7 2\n57 94\n35 70\n38 60\n97 100\n5 76\n38 8\n",
+        "output": "3 5 8 2 7 4 6 1\n"
+      }
+    ]
+  },
+  "arc171_d": {
+    "id": "arc171_d",
+    "contest_id": "arc171",
+    "title": "D. Rolling Hash",
+    "difficulty": 2377,
+    "statement": "\n\n\n配点 : 600 点\n\n\n問題文非負整数 P, B が与えられます。P は素数で、1 \\leq B \\leq P-1 です。\r\n非負整数列 X=(x_1,x_2,\\dots,x_n) に対して X のハッシュ値 \\mathrm{hash}(X) を次のように定義します。\n\\displaystyle \\mathrm{hash}(X) = \\left(\\sum_{i=1}^n x_i B^{n-i}\\right) \\bmod P\nM 個の整数対 (L_1, R_1), (L_2, R_2), \\dots, (L_M, R_M) が与えられます。\r\n次の条件を満たす長さ N の非負整数列 A=(A_1, A_2, \\dots, A_N) は存在しますか？\n\nすべての i (1 \\leq i \\leq M) について次の条件が成り立つ。\nA の L_i 番目から R_i 番目までの要素を取り出して出来る数列 (A_{L_i}, A_{L_i + 1}, \\dots, A_{R_i}) を s とおいたとき、\\mathrm{hash}(s) \\neq 0 である。\n\n\n\n\n\n\n\n制約\n2 \\leq P \\leq 10^9\nP は素数\n1 \\leq B \\leq P - 1\n1 \\leq N \\leq 16\n1 \\leq M \\leq \\frac{N(N+1)}{2}\n1 \\leq L_i \\leq R_i \\leq N\ni \\neq j ならば (L_i, R_i) \\neq (L_j, R_j)\n入力される値はすべて整数\n\n\n\n\n\n\n\n入力入力は以下の形式で標準入力から与えられる。\nP B N M\r\nL_1 R_1\r\nL_2 R_2\r\n\\vdots\r\nL_M R_M\r\n\n\n\n\n\n出力問題文の条件を満たす数列が存在すれば Yes を、存在しなければ No を出力せよ。\n\n\n\n\n\n\n入力例 13 2 3 3\r\n1 1\r\n1 2\r\n2 3\r\n\n\n\n\n\n出力例 1Yes\r\n\n数列 A = (2, 0, 4) は \\mathrm{hash}((A_1)) = 2, \\mathrm{hash}((A_1, A_2)) = 1, \\mathrm{hash}((A_2, A_3)) = 1 であるため問題文の条件を満たす数列です。\n\n\n\n\n\n入力例 22 1 3 3\r\n1 1\r\n2 3\r\n1 3\r\n\n\n\n\n\n出力例 2No\r\n\n問題文の条件を満たす数列は存在しません。\n\n\n\n\n\n入力例 3998244353 986061415 6 11\r\n1 5\r\n2 2\r\n2 5\r\n2 6\r\n3 4\r\n3 5\r\n3 6\r\n4 4\r\n4 5\r\n4 6\r\n5 6\r\n\n\n\n\n\n出力例 3Yes\r\n\n\n\n\nScore: 600 points\n\n\nProblem StatementYou are given non-negative integers P and B. Here, P is prime, and 1 \\leq B \\leq P-1.\r\nFor a sequence of non-negative integers X=(x_1,x_2,\\dots,x_n), the hash value \\mathrm{hash}(X) is defined as follows.\n\\displaystyle \\mathrm{hash}(X) = \\left(\\sum_{i=1}^n x_i B^{n-i}\\right) \\bmod P\nYou are given M pairs of integers (L_1, R_1), (L_2, R_2), \\dots, (L_M, R_M).\r\nIs there a sequence of non-negative integers A=(A_1, A_2, \\dots, A_N) of length N that satisfies the condition below?\n\nFor all i (1 \\leq i \\leq M), the following condition holds:\nLet s be the sequence (A_{L_i}, A_{L_i + 1}, \\dots, A_{R_i}) obtained by taking the L_i-th to the R_i-th elements of A. Then, \\mathrm{hash}(s) \\neq 0.\n\n\n\n\n\n\n\nConstraints\n2 \\leq P \\leq 10^9\nP is prime.\n1 \\leq B \\leq P - 1\n1 \\leq N \\leq 16\n1 \\leq M \\leq \\frac{N(N+1)}{2}\n1 \\leq L_i \\leq R_i \\leq N\n(L_i, R_i) \\neq (L_j, R_j) if i \\neq j.\nAll input values are integers.\n\n\n\n\n\n\n\nInputThe input is given from Standard Input in the following format:\nP B N M\r\nL_1 R_1\r\nL_2 R_2\r\n\\vdots\r\nL_M R_M\r\n\n\n\n\n\nOutputIf there is a sequence that satisfies the condition in the problem statement, print Yes; otherwise, print No.\n\n\n\n\n\n\nSample Input 13 2 3 3\r\n1 1\r\n1 2\r\n2 3\r\n\n\n\n\n\nSample Output 1Yes\r\n\nThe sequence A = (2, 0, 4) satisfies the condition because \\mathrm{hash}((A_1)) = 2, \\mathrm{hash}((A_1, A_2)) = 1, \\mathrm{hash}((A_2, A_3)) = 1.\n\n\n\n\n\nSample Input 22 1 3 3\r\n1 1\r\n2 3\r\n1 3\r\n\n\n\n\n\nSample Output 2No\r\n\nNo sequence satisfies the condition.\n\n\n\n\n\nSample Input 3998244353 986061415 6 11\r\n1 5\r\n2 2\r\n2 5\r\n2 6\r\n3 4\r\n3 5\r\n3 6\r\n4 4\r\n4 5\r\n4 6\r\n5 6\r\n\n\n\n\n\nSample Output 3Yes\r\n\n\n\n\n",
+    "samples": [
+      {
+        "input": "3 2 3 3\r\n1 1\r\n1 2\r\n2 3\r\n",
+        "output": "Yes\r\n"
+      },
+      {
+        "input": "2 1 3 3\r\n1 1\r\n2 3\r\n1 3\r\n",
+        "output": "No\r\n"
+      },
+      {
+        "input": "998244353 986061415 6 11\r\n1 5\r\n2 2\r\n2 5\r\n2 6\r\n3 4\r\n3 5\r\n3 6\r\n4 4\r\n4 5\r\n4 6\r\n5 6\r\n",
+        "output": "Yes\r\n"
+      }
+    ]
+  },
+  "arc188_c": {
+    "id": "arc188_c",
+    "contest_id": "arc188",
+    "title": "C. Honest or Liar or Confused",
+    "difficulty": 2377,
+    "statement": "\n\n\n配点 : 700 点\n\n\n問題文1 から N までの番号がついた N 人の村人が住む村があります。\n各村人は、正直者であるか嘘つきであるかのどちらかです。また、村人のうち何人かは混乱しています。\nあなたは、村人による証言を M 個手に入れました。この証言は、i=1,2, \\ldots ,M に対して A_i, B_i, C_i で与えられ、\n\nC_i=0 であれば、村人 A_i が村人 B_i を正直者であると証言したこと\nC_i=1 であれば、村人 A_i が村人 B_i を嘘つきであると証言したこと\n\nを表します。\n全ての村人は、他の全ての村人について正直者と嘘つきのどちらであるかを知っており、あなたに対して次のような規則で証言を行ったことが分かっています。\n\n混乱していない正直者は必ず正しい証言をする。\n混乱していない嘘つきは必ず嘘の証言をする。\n混乱している正直者は必ず嘘の証言をする。\n混乱している嘘つきは必ず正しい証言をする。\n\nすなわち、混乱していなければ正直者は正しい証言を、嘘つきは嘘の証言をしますが、混乱していると逆になります。\nあなたは混乱している村人の組を予想することにしました。\n混乱している村人の組を決めると、与えられた M 個の証言からなる証言の組が「矛盾する」かどうかが定まります。\nここで、証言の組が「矛盾する」というのは、各村人が正直者であるか嘘つきであるかをどのように決めても、証言の組の中に、村人が行う証言の規則に反するものが存在することを意味します。\n与えられた証言の組が矛盾しないような混乱している村人の組を 1 つ見つけてください。\nただし、どのような村人の組が混乱しているとしても与えられた証言の組が矛盾する場合は、そのことを指摘してください。\n\n\n\n\n制約\n2 \\leq N \\leq 2 \\times 10^5\n0 \\leq M \\leq \\mathrm{min} \\lbrace 2 \\times 10^5,N(N-1) \\rbrace \n1 \\leq A_i, B_i \\leq N, A_i \\neq B_i\ni\\neq j のとき A_i\\neq A_j または B_i\\neq B_j\nC_i=0 または C_i=1\n入力される値はすべて整数である\n\n\n\n\n\n\n\n入力入力は以下の形式で標準入力から与えられる。\nN M\nA_1 B_1 C_1\nA_2 B_2 C_2\n\\vdots\nA_M B_M C_M\n\n\n\n\n\n出力与えられた証言の組が矛盾しないような混乱している村人の組が存在するとき、混乱している村人の組を表す長さ N の文字列を出力せよ。このとき出力される文字列では、村人 i が混乱している場合 i 文字目が 1、そうでない場合 i 文字目が 0 であるようにせよ。\nそのような混乱している村人の組が存在しないとき、-1 と出力せよ。\n\n\n\n\n\n\n入力例 13 3\n1 2 1\n1 3 0\n2 3 0\n\n\n\n\n\n出力例 1010\n\n村人 1 が混乱していない正直者、村人 2 が混乱している嘘つき、村人 3 が混乱していない正直者であると仮定します。\nこのとき、村人 1 は、村人 2 が嘘つきである、村人 3 が正直者であると正しい証言をします。\nまた、村人 2 は嘘つきですが混乱しているため、村人 3 が正直者であると正しい証言をします。\nしたがって、与えられた証言が全て村人の証言の規則通りに得られるため、村人 2 のみ混乱していることを表す 010 は正当な出力の 1 つです。\n\n\n\n\n\n入力例 23 6\n1 2 1\n1 3 0\n2 1 1\n2 3 0\n3 1 1\n3 2 0\n\n\n\n\n\n出力例 2-1\n\n村人 2,3 が混乱していると仮定してみます。\nこのとき、各村人が正直者であるかどうかについて 2^3=8 通りの組み合わせがあります。\nこのうち、例えば、「村人 1 が（混乱していない）正直者、村人 2 が（混乱している）嘘つき、村人 3 が（混乱している）正直者」であるとすると、村人 2 は規則によれば正しい証言をするはずですが、村人 1 を嘘つきであると嘘の証言をしています。\n他の組み合わせに対しても、同様に規則に反する証言が生じることを確認できます。\nしたがって、村人 2,3 が混乱しているとすると、与えられた証言の組は矛盾します。\n実は、このケースでは、どのような村人の組が混乱しているとしても与えられた証言の組は矛盾します。\n\n\n\n\n\n入力例 33 0\n\n\n\n\n\n出力例 3000\n\n混乱している人数は任意であり、題意の条件が満たされるならば 0 人や全員でもよいです。\n\n\n\nScore : 700 points\n\n\nProblem StatementThere is a village with N villagers numbered from 1 to N.\nEach villager is honest or a liar. Additionally, some villagers are confused.\nYou have obtained M testimonies from the villagers. Each testimony is given by A_i, B_i, C_i for i=1,2,\\ldots,M, representing:\n\nIf C_i=0, villager A_i testified that villager B_i is honest.\nIf C_i=1, villager A_i testified that villager B_i is a liar.\n\nAll villagers know whether every other villager is honest or a liar, and you know that they made their testimonies to you according to the following rules:\n\nAn honest villager who is not confused always tells the truth.\nA liar who is not confused always tells lies.\nA confused honest villager always tells lies.\nA confused liar always tells the truth.\n\nIn other words, if they are not confused, honest villagers always tell the truth, and liars always tell lies, but if they are confused, it is reversed.\nYou have decided to guess the set of villagers who are confused.\nGiven a choice of villagers who are confused, whether the set of testimonies \"contradicts\" or not is determined.\nHere, a set of testimonies is said to contradict if, no matter how you assign honest or liar statuses to the villagers, there is at least one testimony that violates the villagers' testimony rules.\nFind a set of confused villagers such that the given set of testimonies does not contradict.\nIf no such set of confused villagers exists, indicate that fact.\n\n\n\n\nConstraints\n2 \\leq N \\leq 2 \\times 10^5\n0 \\leq M \\leq \\mathrm{min} \\lbrace 2 \\times 10^5,N(N-1) \\rbrace \n1 \\leq A_i, B_i \\leq N, A_i \\neq B_i\nA_i \\neq A_j or B_i \\neq B_j for i \\neq j.\nC_i = 0 or 1.\nAll input values are integers.\n\n\n\n\n\n\n\nInputThe input is given from Standard Input in the following format:\nN M\nA_1 B_1 C_1\nA_2 B_2 C_2\n\\vdots\nA_M B_M C_M\n\n\n\n\n\nOutputIf there exists a set of confused villagers such that the given set of testimonies does not contradict, print a string of length N representing the set of confused villagers. In this string, the i-th character should be 1 if villager i is confused, and 0 otherwise.\nIf no such set of confused villagers exists, print -1.\n\n\n\n\n\n\nSample Input 13 3\n1 2 1\n1 3 0\n2 3 0\n\n\n\n\n\nSample Output 1010\n\nSuppose villager 1 is an honest villager who is not confused, villager 2 is a confused liar, and villager 3 is an honest villager who is not confused.\nIn this case, villager 1 correctly testifies that villager 2 is a liar and villager 3 is honest.\nAlso, villager 2, who is a liar but confused, tells the truth and testifies that villager 3 is honest.\nTherefore, all given testimonies are consistent with the villagers' testimony rules, so 010, indicating that only villager 2 is confused, is one valid output.\n\n\n\n\n\nSample Input 23 6\n1 2 1\n1 3 0\n2 1 1\n2 3 0\n3 1 1\n3 2 0\n\n\n\n\n\nSample Output 2-1\n\nSuppose villagers 2 and 3 are confused.\nIn this case, there are 2^3=8 possible combinations for whether each villager is honest or a liar.\nAmong them, for example, if villager 1 is an honest villager who is not confused, villager 2 is a confused liar, and villager 3 is a confused honest villager, then according to the rules, villager 2 should tell the truth, but they falsely testify that villager 1 is a liar.\nYou can confirm that also in other combinations, there will be some testimonies that violate the rules.\nTherefore, if villagers 2 and 3 are confused, the given set of testimonies contradicts.\nIn fact, in this test case, no matter which villagers are confused, the given set of testimonies contradicts.\n\n\n\n\n\nSample Input 33 0\n\n\n\n\n\nSample Output 3000\n\nThere may be any number of confused villagers, possibly zero or all.\n\n\n\n",
+    "samples": [
+      {
+        "input": "3 3\n1 2 1\n1 3 0\n2 3 0\n",
+        "output": "010\n"
+      },
+      {
+        "input": "3 6\n1 2 1\n1 3 0\n2 1 1\n2 3 0\n3 1 1\n3 2 0\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "3 0\n",
+        "output": "000\n"
+      }
+    ]
+  },
+  "agc039_c": {
+    "id": "agc039_c",
+    "contest_id": "agc039",
+    "title": "C. Division by Two with Something",
+    "difficulty": 2379,
+    "statement": "\n\n\n配点 : 800 点\n\n\n問題文整数 N, X が与えられます。0 以上 X 以下のすべての整数 k に対し、\r\nk に以下の操作を繰り返すことによって次に k に戻るまでの操作回数 (戻らない場合 0) を足し合わせた値を 998244353 で割ったあまりを求めてください。\n\n現在の整数が奇数なら、1 を引いて 2 で割る。そうでなければ、2 で割って 2^{N-1} を足す。\n\n\n\n\n\n制約\n1 \\leq N \\leq 2\\times 10^5\n0 \\leq X < 2^N\nX は 2 進表記でちょうど N 桁与えられる (X が N 桁より少ない場合、leading zero をつけて与えられる。)\n入力はすべて整数である\n\n\n\n\n\n\n\n入力入力は以下の形式で標準入力から与えられる。\nN\r\nX\r\n\n\n\n\n\n出力0 以上 X 以下のすべての整数に対し、\r\n操作を繰り返すことによってもとの整数に戻るまでの操作回数 (戻らない場合 0) を足し合わせた値を 998244353 で割ったあまりを出力せよ。\n\n\n\n\n\n\n入力例 13\r\n111\r\n\n\n\n\n\n出力例 140\r\n\n例えば、k=3 のとき、操作によって整数は 1,0,4,6,7,3 と順に変化します。したがって、k=3 のときの操作回数は 6 です。\n\n\n\n\n\n入力例 26\r\n110101\r\n\n\n\n\n\n出力例 2616\r\n\n\n\n\n\n\n入力例 330\r\n001110011011011101010111011100\r\n\n\n\n\n\n出力例 3549320998\r\n\n\n\n\nScore : 800 points\n\n\nProblem StatementGiven are integers N and X. For each integer k between 0 and X (inclusive), find the answer to the following question, then compute the sum of all those answers, modulo 998244353.\n\nLet us repeat the following operation on the integer k. Operation: if the integer is currently odd, subtract 1 from it and divide it by 2; otherwise, divide it by 2 and add 2^{N-1} to it. How many operations need to be performed until k returns to its original value? (The answer is considered to be 0 if k never returns to its original value.)\n\n\n\n\n\nConstraints\n1 \\leq N \\leq 2\\times 10^5\n0 \\leq X < 2^N\nX is given in binary and has exactly N digits. (In case X has less than N digits, it is given with leading zeroes.)\nAll values in input are integers.\n\n\n\n\n\n\n\nInputInput is given from Standard Input in the following format:\nN\r\nX\r\n\n\n\n\n\nOutputPrint the sum of the answers to the questions for the integers between 0 and X (inclusive), modulo 998244353.\n\n\n\n\n\n\nSample Input 13\r\n111\r\n\n\n\n\n\nSample Output 140\r\n\nFor example, for k=3, the operation changes k as follows: 1,0,4,6,7,3. Therefore the answer for k=3 is 6.\n\n\n\n\n\nSample Input 26\r\n110101\r\n\n\n\n\n\nSample Output 2616\r\n\n\n\n\n\n\nSample Input 330\r\n001110011011011101010111011100\r\n\n\n\n\n\nSample Output 3549320998\r\n\n\n\n\n",
+    "samples": [
+      {
+        "input": "3\r\n111\r\n",
+        "output": "40\r\n"
+      },
+      {
+        "input": "6\r\n110101\r\n",
+        "output": "616\r\n"
+      },
+      {
+        "input": "30\r\n001110011011011101010111011100\r\n",
+        "output": "549320998\r\n"
+      }
+    ]
+  },
+  "abc303_f": {
+    "id": "abc303_f",
+    "contest_id": "abc303",
+    "title": "F. Damage over Time",
+    "difficulty": 2381,
+    "statement": "\n\n\n配点 : 525 点\n\n\n問題文あなたの前に体力 H のモンスターが現れ、ターン制の戦闘が開始しました。 　\nあなたは、ターン 1,2,… のそれぞれに呪文 1,…,N の N 種類の呪文のうち一つを唱えます。　　\nターン i に呪文 j を唱えると、その呪文の効果としてターン i,i+1,…,i+t_j －1 のそれぞれでモンスターの体力が d_j 減ります。\nモンスターの体力を 0 以下にすることが可能な最も早いターンを求めてください。\n\n\n\n\n制約\n1 \\leq N \\leq 3 \\times 10^5\n1 \\leq H \\leq 10^{18}\n1 \\leq t_i,d_i \\leq 10^9\n入力はすべて整数\n\n\n\n\n\n\n\n入力入力は以下の形式で標準入力から与えられる。\nN H\r\nt_1 d_1\r\n\\vdots\r\nt_N d_N\r\n\n\n\n\n\n出力答えを出力せよ。\n\n\n\n\n\n\n入力例 12 20\r\n2 2\r\n5 1\r\n\n\n\n\n\n出力例 16\r\n\n以下のようにするとターン 6 にモンスターの体力を 0 以下に出来ます。これが最も早いターンです。\n\nターン 1 に魔法 1 を使う。ターン 1 に使った魔法の効果でモンスターの体力が 2 減り、18 になる。\nターン 2 に魔法 2 を使う。ターン 1,2 に使った魔法の効果でモンスターの体力が 2+1=3 減り、15 になる。\nターン 3 に魔法 1 を使う。ターン 2,3 に使った魔法の効果でモンスターの体力が 1+2=3 減り、12 になる。\nターン 4 に魔法 2 を使う。ターン 2,3,4 に使った魔法の効果でモンスターの体力が 1+2+1=4 減り、8 になる。\nターン 5 に魔法 1 を使う。ターン 2,4,5 に使った魔法の効果でモンスターの体力が 1+1+2=4 減り、4 になる。\nターン 6 に魔法 2 を使う。ターン 2,4,5,6 に使った魔法の効果でモンスターの体力が 1+1+2+1=5 減り、-1 になる。\n\n\n\n\n\n\n入力例 210 200\r\n1 21\r\n1 1\r\n1 1\r\n8 4\r\n30 1\r\n3 1\r\n10 2\r\n8 1\r\n9 1\r\n4 4\r\n\n\n\n\n\n出力例 29\r\n\n\n\n\nScore : 525 points\n\n\nProblem StatementA monster with health H has appeared in front of you, and a turn-based battle has started.\nIn each turn 1,2,…, you cast one of N spells, spells 1,…,N.\nIf you cast spell i in turn j, the monster's health reduces by d_i in each turn j,j+1,…,j+t_i －1.\nFind the earliest turn that you can make the monster's health 0 or less.\n\n\n\n\nConstraints\n1 \\leq N \\leq 3 \\times 10^5\n1 \\leq H \\leq 10^{18}\n1 \\leq t_i,d_i \\leq 10^9\nAll values in the input are integers.\n\n\n\n\n\n\n\nInputThe input is given from Standard Input in the following format:\nN H\r\nt_1 d_1\r\n\\vdots\r\nt_N d_N\r\n\n\n\n\n\nOutputPrint the answer.\n\n\n\n\n\n\nSample Input 12 20\r\n2 2\r\n5 1\r\n\n\n\n\n\nSample Output 16\r\n\nThe following procedure makes the monster's health 0 or less in turn 6, which is the earliest.\n\nCast spell 1 in turn 1. Due to the spell cast in turn 1, the monster's health reduces by 2 and becomes 18.\nCast spell 2 in turn 2. Due to the spells cast in turns 1 and 2, the monster's health reduces by 2+1=3 and becomes 15.\nCast spell 1 in turn 3. Due to the spells cast in turns 2 and 3, the monster's health reduces by 1+2=3 and becomes 12.\nCast spell 2 in turn 4. Due to the spells cast in turns 2,3 and 4, the monster's health reduces by 1+2+1=4 and becomes 8.\nCast spell 1 in turn 5. Due to the spells cast in turns 2,4 and 5, the monster's health reduces by 1+1+2=4 and becomes 4.\nCast spell 2 in turn 6. Due to the spells cast in turns 2,4,5 and 6, the monster's health reduces by 1+1+2+1=5 and becomes -1.\n\n\n\n\n\n\nSample Input 210 200\r\n1 21\r\n1 1\r\n1 1\r\n8 4\r\n30 1\r\n3 1\r\n10 2\r\n8 1\r\n9 1\r\n4 4\r\n\n\n\n\n\nSample Output 29\r\n\n\n\n\n",
+    "samples": [
+      {
+        "input": "2 20\r\n2 2\r\n5 1\r\n",
+        "output": "6\r\n"
+      },
+      {
+        "input": "10 200\r\n1 21\r\n1 1\r\n1 1\r\n8 4\r\n30 1\r\n3 1\r\n10 2\r\n8 1\r\n9 1\r\n4 4\r\n",
+        "output": "9\r\n"
+      }
+    ]
+  },
+  "arc152_d": {
+    "id": "arc152_d",
+    "contest_id": "arc152",
+    "title": "D. Halftree",
+    "difficulty": 2381,
+    "statement": "\n\n\n配点 : 700 点\n\n\n問題文頂点に 0 から N-1 までの番号がついた N 頂点の無向グラフがあり、はじめ、辺はありません。\r\nこのグラフに、あなたは好きなように辺を追加することができます。\r\nそして、あなたが辺をすべて追加し終えた後に、与えられる K を用いて以下の操作がちょうど 1 回行われます。\n\nあなたが追加した各辺について、両端の頂点を u,v とするとき、\r\n2 頂点 (u+K) \\mathrm{mod} N と (v+K) \\mathrm{mod} N の間に辺が追加される。\r\nただし、この 2 頂点間にもともと辺が存在する場合も新しく辺が追加されるため、その場合は操作後には多重辺となる。\n\n与えられた N,K に対して、操作後のグラフが木となるようにするとき、あなたが追加するべき辺の組を求めてください。\r\nそのような辺の組が存在しない場合はそのことを指摘してください。\n\n\n\n\n制約\n2\\leq N\\leq 2\\times 10^5\n1\\leq K\\leq N-1\n入力される値はすべて整数である\n\n\n\n\n\n\n\n入力入力は以下の形式で標準入力から与えられる。\nN K\r\n\n\n\n\n\n出力題意を満たす辺の組が存在する場合、辺の数を M、 i 番目の辺が結ぶ 2 頂点を a_i,b_i として、以下の形式で出力せよ。\r\nただし、 0\\leq M\\leq N でなければならず、全て整数で出力せよ。出力される辺や頂点の順序は問わない。\nM\r\na_1 b_1\r\na_2 b_2\r\n\\vdots\r\na_M b_M\r\n\n解が複数存在する場合、どれを出力しても正解とみなされる。\n題意を満たす辺の組が存在しない場合、-1 と出力せよ。\n\n\n\n\n\n\n入力例 15 2\r\n\n\n\n\n\n出力例 12\r\n2 3\r\n2 4\r\n\n操作を行うと、辺 4-0 と 4-1 が追加されます。\r\nしたがって、木が生成されますので、これは正当な出力の 1 つとなります。 \n\n\n\n\n\n入力例 22 1\r\n\n\n\n\n\n出力例 2-1\r\n\n操作後のグラフが木となるような方法が存在しません。\n\n\n\n\n\n入力例 37 1\r\n\n\n\n\n\n出力例 33\r\n0 1\r\n2 3\r\n4 5\r\n\n\n\n\nScore : 700 points\n\n\nProblem StatementWe have an undirected graph with N vertices numbered 0 through N-1 and no edges at first.\r\nYou may add edges to this graph as you like.\r\nWhen you are done with adding edges, the following operation will be performed once using a given integer K.\n\nFor each edge you have added, let u and v be its endpoints, and an edge will be added between two vertices (u+K) \\mathrm{mod} N and (v+K) \\mathrm{mod} N.\r\nThis edge will be added even if there is already an edge between these vertices, resulting in multi-edges.\n\nFor the given N and K, find a set of edges that you should add so that the graph will be a tree after the operation.\r\nIf there is no such set of edges, indicate that fact.\n\n\n\n\nConstraints\n2\\leq N\\leq 2\\times 10^5\n1\\leq K\\leq N-1\nAll values in the input are integers.\n\n\n\n\n\n\n\nInputThe input is given from Standard Input in the following format:\nN K\r\n\n\n\n\n\nOutputIf there is a set of edges that satisfies the requirement, let M be the number of edges, and a_i and b_i be the two vertices connected by the i-th edge, and print a solution in the following format.\r\nHere, 0\\leq M\\leq N must hold, and all values must be integers. The edges may be printed in any order, as well as the endpoints of an edge.\nM\r\na_1 b_1\r\na_2 b_2\r\n\\vdots\r\na_M b_M\r\n\nIf multiple solutions exist, any of them will be accepted.\nIf no set of edges satisfies the requirement, print -1.\n\n\n\n\n\n\nSample Input 15 2\r\n\n\n\n\n\nSample Output 12\r\n2 3\r\n2 4\r\n\nThe operation will add the edges 4-0 and 4-1.\r\nThen, the graph will be a tree, so this is a legitimate output.\n\n\n\n\n\nSample Input 22 1\r\n\n\n\n\n\nSample Output 2-1\r\n\nThere is no way to have a tree after the operation.\n\n\n\n\n\nSample Input 37 1\r\n\n\n\n\n\nSample Output 33\r\n0 1\r\n2 3\r\n4 5\r\n\n\n\n\n",
+    "samples": [
+      {
+        "input": "5 2\r\n",
+        "output": "2\r\n2 3\r\n2 4\r\n"
+      },
+      {
+        "input": "2 1\r\n",
+        "output": "-1\r\n"
+      },
+      {
+        "input": "7 1\r\n",
+        "output": "3\r\n0 1\r\n2 3\r\n4 5\r\n"
+      }
+    ]
+  },
+  "donuts_2015_4": {
+    "id": "donuts_2015_4",
+    "contest_id": "donuts-2015",
+    "title": "D. ドーナツの箱詰め",
+    "difficulty": 2383,
+    "statement": "\n\n\n\n問題文\nドーナツ屋の店員の須藤なつきさんはドーナツの箱詰めの担当です。なつきさんは今、K 個のドーナツを N 個の箱に箱詰めしようとしています。箱 i (1 ≦ i ≦ N) の体積は C_i で、どの箱もドーナツを 1 つ入れることができます。\nなつきさんは全ての箱を使いたいと思っています。しかし、ドーナツの個数よりも箱の個数の方が多いため、箱の中に箱を入れ子にすることによって箱を使い切ることにしました。各箱の中には、ドーナツまたは箱のいずれか一方を必ずちょうど 1 個入れることにしました。箱 i には箱 i よりも体積が小さい箱を入れることができます。また、中に入れる箱の中にさらに箱やドーナツが入っていた場合でもその箱は 1 個として数えます。箱 i の中に箱 j を入れた場合には、箱 i と箱 j の間に C_{i} - C_{j} の量の緩衝材を入れなければなりません。このとき、必要な緩衝材の量の和の最小値を求めてください。\nまた、なつきさんはとても不器用なので箱詰めの途中で箱を潰してしまうことがあります。なつきさんが箱を潰すごとに、その時点で残っている箱を全て使って箱詰めをするときに必要な緩衝材の量の和の最小値を求めてください。なつきさんは合計 Q 個の箱を潰し、i 個目に潰した箱は箱 D_i です。\n\n\n\n\n\n\n入力\n入力は以下の形式で標準入力から与えられる。\n\r\nN K\r\nC_1 C_2 ... C_N\r\nQ\r\nD_1\r\nD_2\r\n:\r\nD_Q\r\n\n\n1 行目には、2 つの整数 N (1 ≦ N ≦ 200,000), K (1 ≦ K ≦ N) が空白区切りで与えられる。これは、はじめに箱が N 個とドーナツが K 個あるということを表す。\n2 行目には、箱の体積を表す N 個の整数が空白区切りで与えられる。このうち i 番目の整数 C_i (1 ≦ C_i ≦ 200,000) は、箱 i の体積を表す。ただし、p \\neq q のとき C_p \\neq C_q であることが保証される。\n3 行目には、なつきさんが潰した箱の個数を表す整数 Q (0 ≦ Q ≦ N-K) が与えられる。\n4 行目からの Q 行には、なつきさんが潰した箱の情報が与えられる。このうち i 行目には、整数 D_i (1 ≦ D_i ≦ N) が与えられる。これは、なつきさんが i 個目に潰した箱が箱 D_i であることを表す。ただし、p \\neq q のとき D_p \\neq D_q であることが保証される。\n\n\n\n\n\n部分点\nこの問題には部分点が設定されている。\n\nQ = 0 かつ K = 2 を満たすデータセット 1 に正解した場合は、15 点が与えられる。\nQ = 0 を満たすデータセット 2 に正解した場合は、上記とは別に 25 点が与えられる。\nK = 2 を満たすデータセット 3 に正解した場合は、上記とは別に 30 点が与えられる。\n\n\n\n\n\n出力\n出力は Q+1 行からなる。1 行目には、N 個の箱を全て使って箱詰めをするときに必要な緩衝材の量の和の最小値を出力し、2 行目から Q+1 行目までのうち i (1 ≦ i ≦ Q) 行目には、i 個目までの箱を潰した時点で残っている箱を全て使って箱詰めをするときに必要な緩衝材の量の和の最小値を出力せよ。出力の末尾にも改行を入れること。\n\n\n\n\n\n\n入力例1\n\r\n5 4\r\n1 9 3 7 4\r\n0\r\n\n\n\n\n\n出力例1\n\r\n1\r\n\nこのケースでは図のような箱詰めの仕方をすると必要な緩衝材の量が 1 となり最小となります。青い部分は緩衝材を入れる部分を表しています。\n\nまた、このケースではなつきさんは箱を 1 個も潰しません。\n\n\n\n\n\n入力例2\n\r\n4 2\r\n6 5 10 2\r\n2\r\n3\r\n1\r\n\n\n\n\n\n出力例2\n\r\n4\r\n1\r\n0\r\n\nこのケースでは図のような箱詰めの仕方をすると良いです。青い部分は緩衝材を入れる部分を表しています。\n\n\n\n\n\n\n入力例3\n\r\n7 3\r\n2 12 3 13 7 17 1\r\n4\r\n4\r\n3\r\n1\r\n6\r\n\n\n\n\n\n出力例3\n\r\n7\r\n6\r\n6\r\n5\r\n0\r\n\n\n\n\n",
+    "samples": [
+      {
+        "input": "\r\n5 4\r\n1 9 3 7 4\r\n0\r\n",
+        "output": "\r\n1\r\n"
+      },
+      {
+        "input": "\r\n4 2\r\n6 5 10 2\r\n2\r\n3\r\n1\r\n",
+        "output": "\r\n4\r\n1\r\n0\r\n"
+      },
+      {
+        "input": "\r\n7 3\r\n2 12 3 13 7 17 1\r\n4\r\n4\r\n3\r\n1\r\n6\r\n",
+        "output": "\r\n7\r\n6\r\n6\r\n5\r\n0\r\n"
+      }
+    ]
+  },
+  "dwango2016qual_c": {
+    "id": "dwango2016qual_c",
+    "contest_id": "dwango2016-prelims",
+    "title": "C. メンテナンス明け",
+    "difficulty": 2384,
+    "statement": "\n問題文\nデータセンターから出ると、外はもう高く太陽が昇っていた。\nとにかく眠かった。午前2時頃から始まったニコニコ一斉メンテナンスは、予定通り午前10時頃に終了した。超過勤務ではなかったとはいえ、僕は生活リズムをずらすのがあまり得意ではないので、メンテナンス開始前にあまり睡眠を取れなかったのだ。一刻も早く家に帰って布団にダイブしたい・・・が、その前に電車を寝過ごすことなく無事に帰れるのかという不安があった。\nN 個の駅と、 M 路線の電車からなる電車網がある。各路線は上り下り両方向に利用でき、ある路線が同じ駅に2回以上停車することはない。\n僕はこの電車網を使って、駅 src から駅 dst へ移動したい。 しかし電車に乗り、その路線の停車駅間を移動しているときはいつでも眠り込んでしまう可能性がある。 眠ってしまった場合、本来降りるはずだった駅を通り過ぎて、その進行方向の終点の駅まで乗り続けてしまう。 終点の駅で目を覚ました後はすっきりするので、それ以降は電車を乗り過ごすことはなく、好きな経路で目的の駅まで移動できるだろう。\n厄介なことに、僕は仕事中にエナジードリンクを飲んでしまっていて、まだ体からカフェインが抜けていない。つまり、移動中のどのタイミングに眠り込んでしまうかは全く予想できないのだ。\nうまく移動経路を選んで、最も悪いタイミングで眠り込んだときの最終的な移動時間が最小になるようにしたい。そのような場合の移動時間はいくらだろうか？\n\n入力\n入力は以下の形式で与えられる。\n\n\r\nN M src dst\r\nL_{0}\r\ns_{0,0} s_{0,1} ... s_{0,L_{0}-1}\r\nw_{0,0} w_{0,1} ... w_{0,L_{0}-2}\r\nL_{1}\r\ns_{1,0} s_{1,1} ... s_{1,L_{1}-1}\r\nw_{1,0} w_{1,1} ... w_{1,L_{1}-2}\r\n:\r\n\n\n最初の行に N, M, src, dst (0 \\leq src, dst < N) が与えられ、続く行に路線の情報が与えられる。\n各路線の情報は3行で与えられる。 最初の行にはその路線に含まれる駅の数 L_{i} が与えられる。 2行目にはその路線が停車する駅が順に与えられる。 3行目には駅間の移動所要時間を表す L_{i} - 1 個の整数が与えられ、その j 番目の数はその路線の j 番目の駅と j+1 番目の駅の間の所要時間を示す（どちらの駅からどちらの駅に向かう場合でも所要時間は等しい）。路線の j 番目の駅から j+1 番目の駅への移動中に寝過ごした場合は L_{i} - 1 番目の駅まで移動することになり、路線の j+1 番目の駅から j 番目の駅への移動中に寝過ごした場合は 0 番目の駅まで移動することになる。同じ駅間を直接繋ぐ路線は複数あるかもしれないし、そのような場合には路線によって所要時間が異なるかもしれないことに注意せよ。\n入力は以下の制約を満たす。\n\n2 \\leq N \\leq 25,252\n2 \\leq L_{i} (0 \\leq i < M)\nL_{0} + L_{1} + ... + L_{M-1} \\leq 252,525\n1 \\leq w_{i,j} \\leq 2,525\nsrc \\neq dst\nどの路線も同じ駅に2回以上停まることはない。すなわち、j \\neq k ならば s_{i,j} \\neq s_{i,k}\nsrc と dst 間の経路は1つ以上存在する\n\n配点\n部分点が設定されており、50 点分のデータセットは追加で以下の制約を満たす。\n\nN \\leq 252\nL_{0} + L_{1} + ... + L_{M-1} \\leq 525\nw_{i,j} \\leq 25\n\n出力\n問題文中で問われる移動時間を1行に出力せよ。出力の最後に改行を忘れないこと。\n\n入力例1\n5 2 0 3\r\n3\r\n0 1 2\r\n1 2\r\n3\r\n1 3 4\r\n1 1\n出力例1\n6\n駅 0 から 1 に移動するときに寝過ごしてしまう可能性があるため、最適な経路は 0 - 1 - 2 - 1 - 3 となり、そのコストは 6 である。\n入力例2\n5 2 0 3\r\n3\r\n0 1 2\r\n1 1\r\n3\r\n1 3 4\r\n1 3\n出力例2\n8\n入力例1と同形の電車網だが、駅間の移動時間だけが異なる。これにより、駅 0 - 1 間で寝過ごすよりも 1 - 3 間で寝過ごす方が所要時間が長くなってしまう。\n移動中のどのタイミングで眠り込んでしまうかはコントロールできないことに注意せよ。 駅 0 - 1 - 2 間をどのように移動したとしても、ここで寝過ごすような経路を考えることはできない。駅 3 に辿り着くためには必ず駅 1 - 3 間を移動しなければならず、ここで寝過ごした方が悪い結果が得られてしまうためである。\n入力例3\n4 2 0 1\r\n3\r\n0 1 2\r\n1 3\r\n3\r\n0 3 1\r\n1 1\n出力例3\n2\n最初の路線を使うと、寝過ごした場合に遠くまで運ばれてしまう。2つ目の路線は終着駅が目的地なので、どこで寝過ごそうとも時間 2 で目的地に辿り着くことが保証される。\n",
+    "samples": [
+      {
+        "input": "5 2 0 3\n3\n0 1 2\n1 2\n3\n1 3 4\n1 1\n",
+        "output": "6\n"
+      },
+      {
+        "input": "5 2 0 3\n3\n0 1 2\n1 1\n3\n1 3 4\n1 3\n",
+        "output": "8\n"
+      },
+      {
+        "input": "4 2 0 1\n3\n0 1 2\n1 3\n3\n0 3 1\n1 1\n",
+        "output": "2\n"
+      }
+    ]
+  },
+  "abc337_f": {
+    "id": "abc337_f",
+    "contest_id": "abc337",
+    "title": "F. Usual Color Ball Problems",
+    "difficulty": 2386,
+    "statement": "\n\n\n配点 : 550 点\n\n\n問題文正整数 N, M, K と、長さ N の正整数列 (C_1, C_2, \\ldots, C_N) が与えられるので、\r\nr = 0, 1, 2, \\ldots, N-1 の場合それぞれについて、下記の問題の答えを出力してください。\n\n色がついた N 個のボールからなる列があり、i = 1, 2, \\ldots, N について、列の先頭から i 番目にあるボールの色は C_i です。\r\nまた、1 から M の番号がつけられた M 個の空の箱があります。\n下記の手順を行った後に箱に入っているボールの総数を求めてください。\n\n\nまず、下記の操作を r 回行う。\n\n列の先頭のボール 1 個を列の最後尾に移動する。\n\n\n\nその後、列にボールが 1 個以上残っている限り、下記の操作を繰り返す。\n\n列の先頭のボールと同じ色のボールが既に 1 個以上 K 個未満入っている箱が存在する場合、その箱に列の先頭のボールを入れる。\nそのような箱が存在しない場合、\n空の箱が存在するなら、そのうち番号が最小のものに、列の先頭のボールを入れる。\n空の箱が存在しない場合、列の先頭のボールをどの箱にも入れず、食べる。\n\n\n\n\n\n\n\n\n\n\n制約\n入力される値はすべて整数\n1 \\leq N \\leq 2 \\times 10^5\n1 \\leq M, K \\leq N\n1 \\leq C_i \\leq N\n\n\n\n\n\n\n\n入力入力は以下の形式で標準入力から与えられる。\nN M K\r\nC_1 C_2 \\ldots C_N\r\n\n\n\n\n\n出力r = 0, 1, 2, \\ldots, N-1 のそれぞれの場合の問題の答え X_r を下記の通りに N 行にわたって出力せよ。\nX_0\r\nX_1\r\n\\vdots\r\nX_{N-1}\r\n\n\n\n\n\n\n\n入力例 17 2 2\r\n1 2 3 5 2 5 4\r\n\n\n\n\n\n出力例 13\r\n3\r\n3\r\n4\r\n4\r\n3\r\n2\r\n\n例として、r = 1 の場合の手順を説明します。\r\nまず「列の先頭のボール 1 個を列の最後尾に移動する」ことを 1 回行い、ボールの色の列は (2, 3, 5, 2, 5, 4, 1) となります。\r\nその後、ボールを箱に入れていく操作を下記の通りに行います。\n\n1 回目の操作：先頭のボールの色は 2 です。色 2 のボールが 1 個以上 2 個未満入った箱は存在しないため、先頭のボールを空の箱のうち番号が最小の箱 1 に入れます。\n2 回目の操作：先頭のボールの色は 3 です。色 3 のボールが 1 個以上 2 個未満入った箱は存在しないため、先頭のボールを空の箱のうち番号が最小の箱 2 に入れます。\n3 回目の操作：先頭のボールの色は 5 です。色 5 のボールが 1 個以上 2 個未満入った箱も空の箱も存在しないため、先頭のボールを食べます。\n4 回目の操作：先頭のボールの色は 2 です。色 2 のボールが 1 個以上 2 個未満入った箱として箱 1 が存在するため、先頭のボールを箱 1 に入れます。\n5 回目の操作：先頭のボールの色は 5 です。色 5 のボールが 1 個以上 2 個未満入った箱も空の箱も存在しないため、先頭のボールを食べます。\n6 回目の操作：先頭のボールの色は 4 です。色 4 のボールが 1 個以上 2 個未満入った箱も空の箱も存在しないため、先頭のボールを食べます。\n7 回目の操作：先頭のボールの色は 1 です。色 1 のボールが 1 個以上 2 個未満入った箱も空の箱も存在しないため、先頭のボールを食べます。\n\n最終的に箱に入っているボールの総数は 3 個であるので、r = 1 の問題の答えは 3 です。\n\n\n\n\n\n入力例 220 5 4\r\n20 2 20 2 7 3 11 20 3 8 7 9 1 11 8 20 2 18 11 18\r\n\n\n\n\n\n出力例 214\r\n14\r\n14\r\n14\r\n13\r\n13\r\n13\r\n11\r\n8\r\n9\r\n9\r\n11\r\n13\r\n14\r\n14\r\n14\r\n14\r\n14\r\n14\r\n13\r\n\n\n\n\nScore: 550 points\n\n\nProblem StatementYou are given positive integers N, M, K, and a sequence of positive integers of length N, (C_1, C_2, \\ldots, C_N). For each r = 0, 1, 2, \\ldots, N-1, print the answer to the following problem.\n\nThere is a sequence of N colored balls. For i = 1, 2, \\ldots, N, the color of the i-th ball from the beginning of the sequence is C_i.\r\nAdditionally, there are M empty boxes numbered 1 to M.\nDetermine the total number of balls in the boxes after performing the following steps.\n\n\nFirst, perform the following operation r times.\n\nMove the frontmost ball in the sequence to the end of the sequence.\n\n\n\nThen, repeat the following operation as long as at least one ball remains in the sequence.\n\nIf there is a box that already contains at least one but fewer than K balls of the same color as the frontmost ball in the sequence, put the frontmost ball into that box.\nIf there is no such box,\nIf there is an empty box, put the frontmost ball into the one with the smallest box number.\nIf there are no empty boxes, eat the frontmost ball without putting it into any box.\n\n\n\n\n\n\n\n\n\n\nConstraints\nAll input values are integers.\n1 \\leq N \\leq 2 \\times 10^5\n1 \\leq M, K \\leq N\n1 \\leq C_i \\leq N\n\n\n\n\n\n\n\nInputThe input is given from Standard Input in the following format:\nN M K\r\nC_1 C_2 \\ldots C_N\r\n\n\n\n\n\nOutputPrint the answer X_r to the problem for each r = 0, 1, 2, \\ldots, N-1 over N lines as follows:\nX_0\r\nX_1\r\n\\vdots\r\nX_{N-1}\r\n\n\n\n\n\n\n\nSample Input 17 2 2\r\n1 2 3 5 2 5 4\r\n\n\n\n\n\nSample Output 13\r\n3\r\n3\r\n4\r\n4\r\n3\r\n2\r\n\nFor example, let us explain the procedure for r = 1.\r\nFirst, perform the operation \"Move the frontmost ball in the sequence to the end of the sequence\" once, and the sequence of ball colors becomes (2, 3, 5, 2, 5, 4, 1).\r\nThen, proceed with the operation of putting balls into boxes as follows:\n\nFirst operation: The color of the frontmost ball is 2. There is no box with at least one but fewer than two balls of color 2, so put the frontmost ball into the empty box with the smallest box number, box 1.\nSecond operation: The color of the frontmost ball is 3. There is no box with at least one but fewer than two balls of color 3, so put the frontmost ball into the empty box with the smallest box number, box 2.\nThird operation: The color of the frontmost ball is 5. There is no box with at least one but fewer than two balls of color 5 and no empty boxes, so eat the frontmost ball.\nFourth operation: The color of the frontmost ball is 2. There is a box, box 1, with at least one but fewer than two balls of color 2, so put the frontmost ball into box 1.\nFifth operation: The color of the frontmost ball is 5. There is no box with at least one but fewer than two balls of color 5 and no empty boxes, so eat the frontmost ball.\nSixth operation: The color of the frontmost ball is 4. There is no box with at least one but fewer than two balls of color 4 and no empty boxes, so eat the frontmost ball.\nSeventh operation: The color of the frontmost ball is 1. There is no box with at least one but fewer than two balls of color 1 and no empty boxes, so eat the frontmost ball.\n\nThe final total number of balls in the boxes is 3, so the answer to the problem for r = 1 is 3.\n\n\n\n\n\nSample Input 220 5 4\r\n20 2 20 2 7 3 11 20 3 8 7 9 1 11 8 20 2 18 11 18\r\n\n\n\n\n\nSample Output 214\r\n14\r\n14\r\n14\r\n13\r\n13\r\n13\r\n11\r\n8\r\n9\r\n9\r\n11\r\n13\r\n14\r\n14\r\n14\r\n14\r\n14\r\n14\r\n13\r\n\n\n\n\n",
+    "samples": [
+      {
+        "input": "7 2 2\r\n1 2 3 5 2 5 4\r\n",
+        "output": "3\r\n3\r\n3\r\n4\r\n4\r\n3\r\n2\r\n"
+      },
+      {
+        "input": "20 5 4\r\n20 2 20 2 7 3 11 20 3 8 7 9 1 11 8 20 2 18 11 18\r\n",
+        "output": "14\r\n14\r\n14\r\n14\r\n13\r\n13\r\n13\r\n11\r\n8\r\n9\r\n9\r\n11\r\n13\r\n14\r\n14\r\n14\r\n14\r\n14\r\n14\r\n13\r\n"
+      }
+    ]
+  },
+  "abc479_g": {
+    "id": "abc479_g",
+    "contest_id": "abc479",
+    "title": "G. Tuning",
+    "difficulty": 2386,
+    "statement": "\n\n\n配点 : 600 点\n\n\n問題文長さ N の整数列 A=(A_1,A_2,\\dots,A_N), B=(B_1,B_2,\\dots,B_N) が与えられます。\r\n長さ N の 有理数 の列 c=(c_1,c_2,\\dots,c_N), d=(d_1,d_2,\\dots,d_N) であって、以下の条件を満たすものを考えます。\n\n全ての 1 \\le i,j \\le N について、 (A_i+c_i)(B_j+d_j)=(A_j+c_j)(B_i+d_i)\n\n\\displaystyle \\sum_{i=1}^{N} \\left ( |c_i|+|d_i| \\right ) としてありうる最小値を求めてください。\n本問題の答えは、分母が正・分子が非負である既約分数 p/q としてただ一通りに表現できることが証明できます。\r\nこの p,q を出力してください。\n\n\n\n\n制約\n入力は全て整数\n2 \\le N \\le 2 \\times 10^5\n|A_i|, |B_i| \\le 10^6\n\n\n\n\n\n\n\n入力入力は以下の形式で標準入力から与えられる。\nN\r\nA_1 A_2 \\dots A_N\r\nB_1 B_2 \\dots B_N\r\n\n\n\n\n\n出力本問題の答えが、分母が正・分子が非負である既約分数 p/q として表現されるとき、以下の形式で出力せよ。\np q\r\n\n\n\n\n\n\n\n入力例 13\r\n4 1 -8\r\n3 1 -6\r\n\n\n\n\n\n出力例 11 4\r\n\n例えば、 c=(0,0,0),d=(0,-\\frac{1}{4},0) とすることができ、 \\sum_{i=1}^{N} \\left ( |c_i|+|d_i| \\right ) = \\frac{1}{4} を達成します。\r\nまた、これより \\sum_{i=1}^{N} \\left ( |c_i|+|d_i| \\right ) を小さくすることはできません。\n\n\n\n\n\n入力例 22\r\n2 2\r\n3 3\r\n\n\n\n\n\n出力例 20 1\r\n\n答えが 0 である場合は 0/1 と表現されるため、 0 1 と出力してください。\n\n\n\n\n\n入力例 310\r\n855263 -919070 120736 -779959 -789624 789495 -541451 139160 -406547 32421\r\n-612084 -707431 843213 834659 -424146 549941 -799392 -553082 732456 357127\r\n\n\n\n\n\n出力例 3635454493436 120459\r\n\n\n\n\nScore : 600 points\n\n\nProblem StatementYou are given length-N integer sequences A=(A_1,A_2,\\dots,A_N) and B=(B_1,B_2,\\dots,B_N).\r\nConsider length-N sequences of rational numbers c=(c_1,c_2,\\dots,c_N) and d=(d_1,d_2,\\dots,d_N) that satisfy the following condition.\n\n(A_i+c_i)(B_j+d_j)=(A_j+c_j)(B_i+d_i) for all 1 \\le i,j \\le N.\n\nFind the minimum possible value of \\displaystyle \\sum_{i=1}^{N} \\left ( |c_i|+|d_i| \\right ).\nIt can be proved that the answer to this problem can be uniquely represented as an irreducible fraction p/q with a positive denominator and a non-negative numerator.\r\nOutput these p and q.\n\n\n\n\nConstraints\nAll input values are integers.\n2 \\le N \\le 2 \\times 10^5\n|A_i|, |B_i| \\le 10^6\n\n\n\n\n\n\n\nInputThe input is given from Standard Input in the following format:\nN\r\nA_1 A_2 \\dots A_N\r\nB_1 B_2 \\dots B_N\r\n\n\n\n\n\nOutputWhen the answer to this problem is represented as an irreducible fraction p/q with a positive denominator and a non-negative numerator, output it in the following format:\np q\r\n\n\n\n\n\n\n\nSample Input 13\r\n4 1 -8\r\n3 1 -6\r\n\n\n\n\n\nSample Output 11 4\r\n\nFor example, you can set c=(0,0,0),d=(0,-\\frac{1}{4},0), which achieves \\sum_{i=1}^{N} \\left ( |c_i|+|d_i| \\right ) = \\frac{1}{4}.\r\nAlso, \\sum_{i=1}^{N} \\left ( |c_i|+|d_i| \\right ) cannot be made smaller than this.\n\n\n\n\n\nSample Input 22\r\n2 2\r\n3 3\r\n\n\n\n\n\nSample Output 20 1\r\n\nIf the answer is 0, it is represented as 0/1, so output 0 1.\n\n\n\n\n\nSample Input 310\r\n855263 -919070 120736 -779959 -789624 789495 -541451 139160 -406547 32421\r\n-612084 -707431 843213 834659 -424146 549941 -799392 -553082 732456 357127\r\n\n\n\n\n\nSample Output 3635454493436 120459\r\n\n\n\n\n",
+    "samples": [
+      {
+        "input": "3\r\n4 1 -8\r\n3 1 -6\r\n",
+        "output": "1 4\r\n"
+      },
+      {
+        "input": "2\r\n2 2\r\n3 3\r\n",
+        "output": "0 1\r\n"
+      },
+      {
+        "input": "10\r\n855263 -919070 120736 -779959 -789624 789495 -541451 139160 -406547 32421\r\n-612084 -707431 843213 834659 -424146 549941 -799392 -553082 732456 357127\r\n",
+        "output": "635454493436 120459\r\n"
+      }
+    ]
+  },
+  "abc135_f": {
+    "id": "abc135_f",
+    "contest_id": "abc135",
+    "title": "F. Strings of Eternity",
+    "difficulty": 2388,
+    "statement": "\n\n\n配点 : 600 点\n\n\n問題文英小文字からなる二つの文字列 s, t が与えられます。次の条件を満たす非負整数 i の個数が有限であるか判定し、有限である場合はそのような i の最大値を求めてください。\n\nある非負整数 j が存在し、t を i 個連結して得られる文字列は、s を j 個連結して得られる文字列の部分文字列である。\n\n\n\n\n\n注記\n\n文字列 a が文字列 b の部分文字列であるとは、ある整数 x (0 \\leq x \\leq |b| - |a|) が存在して任意の整数 y (1 \\leq y \\leq |a|) に対して a_y = b_{x+y} であることです。\n\n\n任意の文字列に対し、それを 0 個連結して得られる文字列は空文字列であるとします。また、上記の定義より、空文字列は任意の文字列の部分文字列です。したがって、任意の二つの文字列 s, t に対して i = 0 は問題文中の条件を満たします。\n\n\n\n\n\n\n制約\n1 \\leq |s| \\leq 5 \\times 10^5\n1 \\leq |t| \\leq 5 \\times 10^5\ns, t は英小文字からなる。\n\n\n\n\n\n\n\n入力入力は以下の形式で標準入力から与えられる。\ns\r\nt\r\n\n\n\n\n\n出力条件を満たす非負整数 i の個数が有限である場合はそのような i の最大値を、無限である場合は -1 を出力せよ。\n\n\n\n\n\n\n入力例 1abcabab\r\nab\r\n\n\n\n\n\n出力例 13\r\n\nt を 3 個連結して得られる文字列 ababab は、s を 2 個連結して得られる文字列 abcabababcabab の部分文字列であるため、i = 3 は条件を満たします。\n一方で、t を 4 個連結して得られる文字列 abababab は、s を何個連結しても部分文字列として現れないため、i = 4 は条件を満たしません。\n同様に、5 以上の任意の整数も条件を満たしません。よって条件を満たす非負整数 i の個数は有限で、その最大値は 3 です。\n\n\n\n\n\n入力例 2aa\r\naaaaaaa\r\n\n\n\n\n\n出力例 2-1\r\n\n任意の非負整数 i に対し、t を i 個連結して得られる文字列は、s を 4i 個連結して得られる文字列の部分文字列です。したがって条件を満たす非負整数 i は無限に存在します。\n\n\n\n\n\n入力例 3aba\r\nbaaab\r\n\n\n\n\n\n出力例 30\r\n\n注記で述べたように、i = 0 は必ず条件を満たします。\n\n\n\nScore : 600 points\n\n\nProblem StatementGiven are two strings s and t consisting of lowercase English letters. Determine if the number of non-negative integers i satisfying the following condition is finite, and find the maximum value of such i if the number is finite.\n\nThere exists a non-negative integer j such that the concatenation of i copies of t is a substring of the concatenation of j copies of s.\n\n\n\n\n\nNotes\n\nA string a is a substring of another string b if and only if there exists an integer x (0 \\leq x \\leq |b| - |a|) such that, for any y (1 \\leq y \\leq |a|), a_y = b_{x+y} holds.\n\n\nWe assume that the concatenation of zero copies of any string is the empty string. From the definition above, the empty string is a substring of any string. Thus, for any two strings s and t, i = 0 satisfies the condition in the problem statement.\n\n\n\n\n\n\nConstraints\n1 \\leq |s| \\leq 5 \\times 10^5\n1 \\leq |t| \\leq 5 \\times 10^5\ns and t consist of lowercase English letters.\n\n\n\n\n\n\n\nInputInput is given from Standard Input in the following format:\ns\r\nt\r\n\n\n\n\n\nOutputIf the number of non-negative integers i satisfying the following condition is finite, print the maximum value of such i; if the number is infinite, print -1.\n\n\n\n\n\n\nSample Input 1abcabab\r\nab\r\n\n\n\n\n\nSample Output 13\r\n\nThe concatenation of three copies of t, ababab, is a substring of the concatenation of two copies of s, abcabababcabab, so i = 3 satisfies the condition.\nOn the other hand, the concatenation of four copies of t, abababab, is not a substring of the concatenation of any number of copies of s, so i = 4 does not satisfy the condition.\nSimilarly, any integer greater than 4 does not satisfy the condition, either. Thus, the number of non-negative integers i satisfying the condition is finite, and the maximum value of such i is 3.\n\n\n\n\n\nSample Input 2aa\r\naaaaaaa\r\n\n\n\n\n\nSample Output 2-1\r\n\nFor any non-negative integer i, the concatenation of i copies of t is a substring of the concatenation of 4i copies of s. Thus, there are infinitely many non-negative integers i that satisfy the condition.\n\n\n\n\n\nSample Input 3aba\r\nbaaab\r\n\n\n\n\n\nSample Output 30\r\n\nAs stated in Notes, i = 0 always satisfies the condition.\n\n\n\n",
+    "samples": [
+      {
+        "input": "abcabab\r\nab\r\n",
+        "output": "3\r\n"
+      },
+      {
+        "input": "aa\r\naaaaaaa\r\n",
+        "output": "-1\r\n"
+      },
+      {
+        "input": "aba\r\nbaaab\r\n",
+        "output": "0\r\n"
+      }
+    ]
+  },
+  "abc325_g": {
+    "id": "abc325_g",
+    "contest_id": "abc325",
+    "title": "G. offence",
+    "difficulty": 2388,
+    "statement": "\n\n\n配点 : 575 点\n\n\n問題文文字列 S が与えられます。文字列 S に対して以下の操作を 0 回以上繰り返し行うことで得られる文字列の長さの最小値を求めてください。\n\n文字列の中で of が連続する箇所および 0 以上 K 以下の整数 i を 1 つ選ぶ。その後、of およびその後ろに連続する i 文字を文字列から取り除く。\n\n\n\n\n\n制約\n0 \\leq K < |S| \\leq 300\nK は整数\nS は英小文字からなる文字列\n\n\n\n\n\n\n\n入力入力は以下の形式で標準入力から与えられる。\nS\r\nK\r\n\n\n\n\n\n出力答えを出力せよ。\n\n\n\n\n\n\n入力例 1keyofscience\r\n3\r\n\n\n\n\n\n出力例 17\r\n\n4, 5 文字目に連続する of を選び、i = 3 とすることで keyofscience から ofsci を取り除き、 keyence を得ます。\r\n操作の繰り返しにより文字列の長さを 6 以下にすることはできないため、7 が答えとなります。\n\n\n\n\n\n入力例 2oofsifffence\r\n3\r\n\n\n\n\n\n出力例 22\r\n\n\n\n\n\n\n入力例 3ooofff\r\n5\r\n\n\n\n\n\n出力例 30\r\n\n\n\n\n\n\n入力例 4okeyencef\r\n4\r\n\n\n\n\n\n出力例 49\r\n\n\n\n\nScore : 575 points\n\n\nProblem StatementYou are given a string S. Find the minimum length of a string that can be obtained by performing the following operation on the string S zero or more times.\n\nChoose a contiguous occurrence of of in the string and an integer i between 0 and K, inclusive. Then, remove the of and the following i characters from the string.\n\n\n\n\n\nConstraints\n0 \\leq K < |S| \\leq 300\nK is an integer.\nS is a string consisting of lowercase English letters.\n\n\n\n\n\n\n\nInputThe input is given from Standard Input in the following format:\nS\r\nK\r\n\n\n\n\n\nOutputPrint the answer.\n\n\n\n\n\n\nSample Input 1keyofscience\r\n3\r\n\n\n\n\n\nSample Output 17\r\n\nBy choosing the of formed by the fourth and fifth characters and setting i = 3, you can remove ofsci from keyofscience and get keyence.\r\nIt is impossible to reduce the length of the string to 6 or less by repeating the operation, so the answer is 7.\n\n\n\n\n\nSample Input 2oofsifffence\r\n3\r\n\n\n\n\n\nSample Output 22\r\n\n\n\n\n\n\nSample Input 3ooofff\r\n5\r\n\n\n\n\n\nSample Output 30\r\n\n\n\n\n\n\nSample Input 4okeyencef\r\n4\r\n\n\n\n\n\nSample Output 49\r\n\n\n\n\n",
+    "samples": [
+      {
+        "input": "keyofscience\r\n3\r\n",
+        "output": "7\r\n"
+      },
+      {
+        "input": "oofsifffence\r\n3\r\n",
+        "output": "2\r\n"
+      },
+      {
+        "input": "ooofff\r\n5\r\n",
+        "output": "0\r\n"
+      },
+      {
+        "input": "okeyencef\r\n4\r\n",
+        "output": "9\r\n"
+      }
+    ]
+  }
+}
