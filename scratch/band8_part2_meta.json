@@ -1,0 +1,450 @@
+[
+  {
+    "id": "arc184_d",
+    "name": "D - Erase Balls 2D",
+    "contest": "arc184",
+    "rating": 2804,
+    "domain": "Dynamic Programming (DP)",
+    "subtopic": "Dp on Different Structures",
+    "topic": "DP on Trees and DAGs",
+    "category_file": "categories/dynamic_programming/quadrant_erasure_antichain_grid_dp.md",
+    "key_idea": "Given N balls on a 2D grid with permutation coordinates (X_i, Y_i), any chosen ball k erases all balls in its bottom-left and top-right quadrants. Find the number of distinct subsets of balls that can remain after any sequence of operations modulo 998244353.",
+    "observation": "Any non-empty remaining set must form an antichain (strictly decreasing sequence of Y coordinates when ordered by X). Furthermore, a set is reachable if and only if it is maximal among antichains: no omitted ball between adjacent elements i and j could have survived without being erased by one of the selected balls. By adding sentinel boundary points at (0, N+1) and (N+1, 0), transition from i to j (with i < j, P_i > P_j) is valid if and only if no point k in between has empty rectangular regions (i, k, P_j, P_k) and (k+1, j, P_k+1, P_i). This yields an O(N^3) DP over the DAG of valid transitions.",
+    "algorithm": "1. Add boundary sentinel points (0, N+1) and (N+1, 0) and sort points by X.\n2. Precompute 2D prefix sums for rectangle point counts rect_sum(xl, xr, yl, yr).\n3. Define dp[j] as the number of reachable maximal prefixes ending at point j, with dp[0] = 1.\n4. For each pair (i, j) with i < j and P_i > P_j, test if transition is maximal: for every intermediate k in (i, j) with P_j < P_k < P_i, verify that either rect_sum(i, k, P_j, P_k) > 0 or rect_sum(k+1, j, P_k+1, P_i) > 0.\n5. If maximal, add dp[i] to dp[j] modulo 998244353.\n6. Output dp[N+1].",
+    "time_complexity": "O(N^3)",
+    "space_complexity": "O(N^2)",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nconst int MOD = 998244353;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n;\n    if (!(cin >> n)) return 0;\n\n    vector<int> P(n + 2);\n    for (int i = 0; i < n; ++i) {\n        int x, y;\n        cin >> x >> y;\n        P[x] = y;\n    }\n    P[0] = n + 1;\n    P[n + 1] = 0;\n    n += 2;\n\n    vector<vector<int>> r_cnt(n + 1, vector<int>(n + 1, 0));\n    for (int i = 0; i < n; ++i) {\n        ++r_cnt[i + 1][P[i] + 1];\n    }\n    for (int i = 0; i < n; ++i) {\n        for (int j = 0; j <= n; ++j) {\n            r_cnt[i + 1][j] += r_cnt[i][j];\n        }\n    }\n    for (int i = 0; i <= n; ++i) {\n        for (int j = 0; j < n; ++j) {\n            r_cnt[i][j + 1] += r_cnt[i][j];\n        }\n    }\n\n    auto rect_sum = [&](const int xl, const int xr, const int yl, const int yr) {\n        return r_cnt[xr][yr] - r_cnt[xr][yl] - r_cnt[xl][yr] + r_cnt[xl][yl];\n    };\n\n    vector<long long> dp(n, 0);\n    dp[0] = 1;\n    for (int i = 0; i < n; ++i) {\n        for (int j = i + 1; j < n; ++j) {\n            if (P[i] < P[j]) {\n                continue;\n            }\n\n            bool is_maximal = true;\n            for (int k = i + 1; k < j; ++k) {\n                if (P[k] > P[i] || P[k] < P[j]) {\n                    continue;\n                }\n                const int a = rect_sum(i, k, P[j], P[k]);\n                const int b = rect_sum(k + 1, j, P[k] + 1, P[i]);\n                if (a == 0 && b == 0) {\n                    is_maximal = false;\n                    break;\n                }\n            }\n\n            if (is_maximal) {\n                dp[j] = (dp[j] + dp[i]) % MOD;\n            }\n        }\n    }\n\n    cout << dp[n - 1] << \"\\n\";\n    return 0;\n}\n",
+    "samples": [
+      {
+        "input": "3\n1 3\n2 1\n3 2\n",
+        "output": "3\n"
+      },
+      {
+        "input": "4\n4 2\n2 1\n3 3\n1 4\n",
+        "output": "3\n"
+      }
+    ]
+  },
+  {
+    "id": "agc064_d",
+    "name": "D - Red and Blue Chips",
+    "contest": "agc064",
+    "rating": 2808,
+    "domain": "Miscellaneous",
+    "subtopic": "General",
+    "topic": "Functional Graphs",
+    "category_file": "categories/miscellaneous/colored_chips_functional_graph_cycles.md",
+    "key_idea": "Given an N-character string S of R and B chips with square N guaranteed to be blue, chips at square i are repeatedly merged onto higher-indexed blue squares j. Determine the number of distinct color sequences in the final stack at square N modulo 998244353.",
+    "observation": "Deleting the last B and stripping trailing Rs leaves S = R^{c_B} B ... R^{c_1} B. The final pile corresponds to partitioning the R chips into B blocks of sizes (l_1, ..., l_B) extracted greedily. Sorting l into descending order l'_1 >= ... >= l'_B >= 0, dominance inequalities require sum_{q=0}^p l'_q >= sum_{q=0}^p c_q for all p, where l'_0 = R - sum l'_i. Equivalently, the suffix sums of l' are bounded by the suffix sums of c. Counting permutations with multiplicity factor B! / prod(f_i!) reduces to an integer partition DP in O(R^3) time.",
+    "algorithm": "1. Strip the final 'B' and all trailing 'R's from S. If empty or no 'B' remains, return 1.\n2. Split the remaining string by 'B' to extract block sizes c_1, ..., c_B of 'R's and compute total R.\n3. Compute suffix sums suf_c[m] = sum_{q=B-m+1}^B c_q.\n4. Define dp[m][s] as the coefficient sum over placing m elements with sum s <= suf_c[m].\n5. For each value v from 0 to R, transition by choosing cnt copies of v, updating next_dp[m + cnt][s + cnt * v] += dp[m][s] / cnt!.\n6. Multiply dp[B][s] by B! and sum over valid total sums s <= suf_c[B] modulo 998244353.",
+    "time_complexity": "O(R^3) = O(N^3)",
+    "space_complexity": "O(B * R) = O(N^2)",
+    "cpp_solution": "#include <iostream>\n#include <string>\n#include <vector>\n#include <numeric>\n\nusing namespace std;\n\nconst int MOD = 998244353;\n\nlong long power(long long base, long long exp) {\n    long long res = 1;\n    base %= MOD;\n    while (exp > 0) {\n        if (exp % 2 == 1) res = (res * base) % MOD;\n        base = (base * base) % MOD;\n        exp /= 2;\n    }\n    return res;\n}\n\nlong long modInverse(long long n) {\n    return power(n, MOD - 2);\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n;\n    if (!(cin >> n)) return 0;\n    string s;\n    cin >> s;\n\n    // Delete last 'B'\n    size_t last_b = s.rfind('B');\n    if (last_b == string::npos) {\n        cout << 1 << \"\\n\";\n        return 0;\n    }\n    s = s.substr(0, last_b);\n\n    // Strip trailing 'R's\n    while (!s.empty() && s.back() == 'R') {\n        s.pop_back();\n    }\n    if (s.empty() || s.find('B') == string::npos) {\n        cout << 1 << \"\\n\";\n        return 0;\n    }\n\n    // Split by 'B'\n    // S = R^{c_B} B R^{c_{B-1}} B ... R^{c_1} B\n    vector<int> c_list;\n    int current_r = 0;\n    for (char ch : s) {\n        if (ch == 'R') {\n            current_r++;\n        } else {\n            c_list.push_back(current_r);\n            current_r = 0;\n        }\n    }\n    int B = (int)c_list.size();\n    vector<int> c(B + 1, 0);\n    for (int i = 1; i <= B; ++i) {\n        c[i] = c_list[B - i];\n    }\n    int R = 0;\n    for (int i = 1; i <= B; ++i) R += c[i];\n\n    vector<int> suf_c(B + 1, 0);\n    for (int m = 1; m <= B; ++m) {\n        suf_c[m] = suf_c[m - 1] + c[B - m + 1];\n    }\n\n    vector<long long> fact(B + 1, 1), inv(B + 1, 1);\n    for (int i = 1; i <= B; ++i) {\n        fact[i] = (fact[i - 1] * i) % MOD;\n    }\n    inv[B] = modInverse(fact[B]);\n    for (int i = B - 1; i >= 0; --i) {\n        inv[i] = (inv[i + 1] * (i + 1)) % MOD;\n    }\n\n    // dp[m][s]\n    vector<vector<int>> dp(B + 1, vector<int>(R + 1, 0));\n    // For v = 0, we can take cnt copies of 0:\n    for (int cnt = 0; cnt <= B; ++cnt) {\n        dp[cnt][0] = inv[cnt];\n    }\n\n    for (int v = 1; v <= R; ++v) {\n        vector<vector<int>> next_dp = dp;\n        for (int cnt = 1; cnt <= B && cnt * v <= R; ++cnt) {\n            long long term = inv[cnt];\n            int v_sum = cnt * v;\n            for (int m = 0; m <= B - cnt; ++m) {\n                int max_s = suf_c[m];\n                int nm = m + cnt;\n                int max_ns = suf_c[nm];\n                for (int s = 0; s <= max_s; ++s) {\n                    if (!dp[m][s]) continue;\n                    int ns = s + v_sum;\n                    if (ns <= max_ns) {\n                        next_dp[nm][ns] = (next_dp[nm][ns] + dp[m][s] * term) % MOD;\n                    }\n                }\n            }\n        }\n        dp = move(next_dp);\n    }\n\n    long long ans = 0;\n    for (int s = 0; s <= suf_c[B]; ++s) {\n        ans = (ans + dp[B][s]) % MOD;\n    }\n    ans = (ans * fact[B]) % MOD;\n\n    cout << ans << \"\\n\";\n    return 0;\n}\n",
+    "samples": [
+      {
+        "input": "4\r\nRBRB\n",
+        "output": "2\n"
+      },
+      {
+        "input": "20\r\nRRBRRRBBRBBBBRBRBRBB\n",
+        "output": "92378\n"
+      }
+    ]
+  },
+  {
+    "id": "arc139_d",
+    "name": "D - Priority Queue",
+    "contest": "arc139",
+    "rating": 2816,
+    "domain": "Math",
+    "subtopic": "Probabilities and Expected Values",
+    "topic": "Probabilities and Expected Values",
+    "category_file": "categories/math/multiset_threshold_indicator_zero_one_principle.md",
+    "key_idea": "Given a multiset A of N integers in [1, M], repeat K times: insert a uniformly chosen integer in [1, M] and erase the X-th smallest element. Find the sum of multiset element sums across all M^K operation sequences modulo 998244353.",
+    "observation": "By the 0-1 principle, sum_{a in A} a = sum_{v=1}^M sum_{a in A} [a >= v]. For any fixed threshold v, map elements >= v to 1 and < v to 0. An inserted 1 increases the count of ones c by 1 iff c <= N - X, while an inserted 0 decreases c by 1 iff c > N - X + 1. Thus c = N - X + 1 is an absorbing boundary! Crucially, the final count of 1s depends solely on the total number of inserted 1s j, independent of insertion order: final_c = min(N - X + 1, c_0 + j) if c_0 <= N - X + 1, and max(N - X + 1, c_0 - (K - j)) otherwise.",
+    "algorithm": "1. Compute prefix frequencies of initial elements >= v for all v in [1, M].\n2. Add the baseline contribution of v = 1: N * M^K mod 998244353.\n3. For each threshold v in [2, M], let c0 = count(A_i >= v), p1 = M - v + 1, p0 = v - 1.\n4. Iterate over the number of inserted 1s j from 0 to K. The probability weight is C(K, j) * p1^j * p0^(K - j).\n5. Determine the deterministic final count of 1s: min(N - X + 1, c0 + j) if c0 <= N - X + 1 else max(N - X + 1, c0 - (K - j)).\n6. Accumulate over all v and j modulo 998244353.",
+    "time_complexity": "O(M * K)",
+    "space_complexity": "O(K)",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nconst int MOD = 998244353;\n\nlong long power(long long base, long long exp) {\n    long long res = 1;\n    base %= MOD;\n    while (exp > 0) {\n        if (exp % 2 == 1) res = (res * base) % MOD;\n        base = (base * base) % MOD;\n        exp /= 2;\n    }\n    return res;\n}\n\nlong long modInverse(long long n) {\n    return power(n, MOD - 2);\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n, m, k, x;\n    if (!(cin >> n >> m >> k >> x)) return 0;\n\n    vector<int> a(n);\n    vector<int> count_ge(m + 2, 0);\n    for (int i = 0; i < n; ++i) {\n        cin >> a[i];\n        count_ge[a[i]]++;\n    }\n    for (int v = m; v >= 1; --v) {\n        count_ge[v] += count_ge[v + 1];\n    }\n\n    vector<long long> fact(k + 1, 1), inv(k + 1, 1);\n    for (int i = 1; i <= k; ++i) {\n        fact[i] = (fact[i - 1] * i) % MOD;\n    }\n    inv[k] = modInverse(fact[k]);\n    for (int i = k - 1; i >= 0; --i) {\n        inv[i] = (inv[i + 1] * (i + 1)) % MOD;\n    }\n\n    auto nCr = [&](int n_val, int r_val) -> long long {\n        if (r_val < 0 || r_val > n_val) return 0;\n        return fact[n_val] * inv[r_val] % MOD * inv[n_val - r_val] % MOD;\n    };\n\n    // Contribution of v = 1: each of the m^k scenarios ends with n elements, all >= 1.\n    long long ans = (1LL * n * power(m, k)) % MOD;\n\n    vector<long long> pow_p1(k + 1, 1), pow_p0(k + 1, 1);\n\n    for (int v = 2; v <= m; ++v) {\n        int c0 = count_ge[v];\n        long long p1 = m - v + 1;\n        long long p0 = v - 1;\n\n        pow_p1[0] = 1;\n        pow_p0[0] = 1;\n        for (int i = 1; i <= k; ++i) {\n            pow_p1[i] = (pow_p1[i - 1] * p1) % MOD;\n            pow_p0[i] = (pow_p0[i - 1] * p0) % MOD;\n        }\n\n        long long sum_v = 0;\n        for (int j = 0; j <= k; ++j) {\n            long long ways = nCr(k, j) * pow_p1[j] % MOD * pow_p0[k - j] % MOD;\n            int final_c = 0;\n            if (c0 <= n - x + 1) {\n                final_c = min(n - x + 1, c0 + j);\n            } else {\n                final_c = max(n - x + 1, c0 - (k - j));\n            }\n            sum_v = (sum_v + ways * final_c) % MOD;\n        }\n        ans = (ans + sum_v) % MOD;\n    }\n\n    cout << ans << \"\\n\";\n    return 0;\n}\n",
+    "samples": [
+      {
+        "input": "2 4 2 1\r\n1 3\n",
+        "output": "99\n"
+      },
+      {
+        "input": "5 9 6 3\r\n3 7 1 9 9\n",
+        "output": "15411789\n"
+      }
+    ]
+  },
+  {
+    "id": "abc296_h",
+    "name": "Ex - Unite",
+    "contest": "abc296",
+    "rating": 2822,
+    "domain": "Miscellaneous",
+    "subtopic": "General",
+    "topic": "Broken Profile DP / Plug DP",
+    "category_file": "categories/miscellaneous/grid_connected_component_plug_profile_dp.md",
+    "key_idea": "Given an N x M grid (M <= 7) with black and white cells containing at least one black cell, find the minimum number of white cells to paint black so that all black cells form a single connected component.",
+    "observation": "Because M <= 7, this is a canonical Broken Profile / Plug DP problem. When processing cell by cell (i, j), we maintain the connectivity profile of the frontier of length M+1 (the latest cell of each column). The partition of frontier black cells into connected components has at most B_7 = 877 states, which can be canonically renumbered. As cells are colored black or left white, components are merged or closed. A closed component cannot be abandoned if there are remaining original black cells.",
+    "algorithm": "1. Generate all canonical frontier partition states for each boundary cut j in 0..M-1.\n2. Initialize DP table dp[state] = 0 for empty frontier state.\n3. For each cell (i, j) in row-major order, transition to cell (i, j+1) by considering both decisions (keep white if allowed, or paint black):\n   a. If keeping white, ensure no isolated black component in the frontier is prematurely abandoned if further black cells exist.\n   b. If painting black, connect with adjacent left and top frontier plugs and renumber the partition.\n4. At the grid end, take the minimum cost among states with at most 1 connected component.\n5. Subtract the original number of black cells to obtain newly painted cells.",
+    "time_complexity": "O(N * M * States)",
+    "space_complexity": "O(States)",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <map>\n#include <algorithm>\n\nusing namespace std;\n\n#define rep(i, n) for(int i = 0; i < (n); ++i)\n#define M 7\n#define INF (int)1e9\n\nint n, m;\nvector<vector<int>> state[M];\nmap<vector<int>, int> rev[M];\nvector<int> tmp;\n\nvoid make_state(int cut, int k, bool pre, int nxt) {\n    if (k == m) {\n        rev[cut][tmp] = state[cut].size();\n        state[cut].push_back(tmp);\n        return;\n    }\n    tmp.push_back(0);\n    make_state(cut, k + 1, false, nxt);\n    tmp.pop_back();\n    if (pre && (k != cut)) {\n        tmp.push_back(tmp[k]);\n        make_state(cut, k + 1, true, nxt);\n        tmp.pop_back();\n    } else {\n        rep(i, nxt) {\n            tmp.push_back(i + 1);\n            make_state(cut, k + 1, true, max(nxt, i + 2));\n            tmp.pop_back();\n        }\n    }\n}\n\nvoid renumbering() {\n    int sz = tmp.size();\n    int c[10], nxt = 1;\n    rep(i, 10) c[i] = 0;\n    rep(i, sz) {\n        if (tmp[i] > 0) {\n            if (c[tmp[i]] == 0) {\n                c[tmp[i]] = nxt;\n                nxt++;\n            }\n            tmp[i] = c[tmp[i]];\n        }\n    }\n}\n\nint judge(int k) {\n    int sz = tmp.size();\n    int cnt = 0, mx = 0;\n    rep(i, sz) {\n        mx = max(mx, tmp[i]);\n        if (tmp[i] == tmp[k]) cnt++;\n    }\n    if (cnt > 1) return 0;\n    if (mx > 1) return -1;\n    return 1;\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    if (!(cin >> n >> m)) return 0;\n\n    vector<string> s(n);\n    int mx = 0;\n    int cnt = 0;\n    int ans = INF;\n\n    rep(i, n) {\n        cin >> s[i];\n        rep(j, m) {\n            if (s[i][j] == '#') {\n                mx = max(mx, i * m + j);\n                cnt++;\n            }\n        }\n    }\n\n    tmp.push_back(0);\n    rep(j, m) make_state(j, 0, false, 1);\n\n    int sz = state[0].size();\n    vector<int> dp(sz, INF), dp2;\n    dp[0] = 0;\n\n    rep(i, n) {\n        rep(j, m) {\n            int nxt_sz = state[(j + 1) % m].size();\n            dp2.assign(nxt_sz, INF);\n            sz = state[j].size();\n            rep(idx, sz) {\n                if (dp[idx] >= INF) continue;\n                tmp = state[j][idx];\n                if ((tmp[j] == 0) && (tmp[j + 1] == 0)) {\n                    if (s[i][j] == '.') {\n                        int to = rev[(j + 1) % m][tmp];\n                        dp2[to] = min(dp2[to], dp[idx]);\n                    }\n                    tmp[j + 1] = 9;\n                    renumbering();\n                    int to = rev[(j + 1) % m][tmp];\n                    dp2[to] = min(dp2[to], dp[idx] + 1);\n                } else if ((tmp[j] == 0) && (tmp[j + 1] > 0)) {\n                    if (s[i][j] == '.') {\n                        int x = judge(j + 1);\n                        if (x == 0) {\n                            tmp[j + 1] = 0;\n                            renumbering();\n                            int to = rev[(j + 1) % m][tmp];\n                            dp2[to] = min(dp2[to], dp[idx]);\n                        }\n                        if ((x == 1) && ((i * m + j) >= mx)) {\n                            ans = min(ans, dp[idx]);\n                        }\n                    }\n                    tmp = state[j][idx];\n                    int to = rev[(j + 1) % m][tmp];\n                    dp2[to] = min(dp2[to], dp[idx] + 1);\n                } else if ((tmp[j] > 0) && (tmp[j + 1] == 0)) {\n                    if (s[i][j] == '.') {\n                        int to = rev[(j + 1) % m][tmp];\n                        dp2[to] = min(dp2[to], dp[idx]);\n                    }\n                    tmp[j + 1] = tmp[j];\n                    int to = rev[(j + 1) % m][tmp];\n                    dp2[to] = min(dp2[to], dp[idx] + 1);\n                } else if (tmp[j] == tmp[j + 1]) {\n                    if (s[i][j] == '.') {\n                        tmp[j + 1] = 0;\n                        int to = rev[(j + 1) % m][tmp];\n                        dp2[to] = min(dp2[to], dp[idx]);\n                    }\n                    tmp = state[j][idx];\n                    int to = rev[(j + 1) % m][tmp];\n                    dp2[to] = min(dp2[to], dp[idx] + 1);\n                } else {\n                    if (s[i][j] == '.') {\n                        int x = judge(j + 1);\n                        if (x == 0) {\n                            tmp[j + 1] = 0;\n                            renumbering();\n                            int to = rev[(j + 1) % m][tmp];\n                            dp2[to] = min(dp2[to], dp[idx]);\n                        }\n                        if ((x == 1) && ((i * m + j) >= mx)) {\n                            ans = min(ans, dp[idx]);\n                        }\n                    }\n                    tmp = state[j][idx];\n                    int x = tmp[j + 1];\n                    rep(ii, m + 1) {\n                        if (tmp[ii] == x) tmp[ii] = tmp[j];\n                    }\n                    renumbering();\n                    int to = rev[(j + 1) % m][tmp];\n                    dp2[to] = min(dp2[to], dp[idx] + 1);\n                }\n            }\n            dp = move(dp2);\n        }\n    }\n\n    sz = dp.size();\n    rep(idx, sz) {\n        if (dp[idx] >= INF) continue;\n        int x = 0;\n        rep(j, m + 1) x = max(x, state[0][idx][j]);\n        if (x <= 1) {\n            ans = min(ans, dp[idx]);\n        }\n    }\n\n    cout << (ans - cnt) << \"\\n\";\n    return 0;\n}\n",
+    "samples": [
+      {
+        "input": "3 5\r\n...#.\r\n.#...\r\n....#\n",
+        "output": "3\n"
+      },
+      {
+        "input": "3 3\r\n###\r\n###\r\n###\n",
+        "output": "0\n"
+      },
+      {
+        "input": "10 1\r\n.\r\n#\r\n.\r\n.\r\n.\r\n.\r\n.\r\n.\r\n#\r\n.\n",
+        "output": "6\n"
+      }
+    ]
+  },
+  {
+    "id": "arc104_e",
+    "name": "E - Random LIS",
+    "contest": "arc104",
+    "rating": 2824,
+    "domain": "Combinatorics",
+    "subtopic": "Partitions",
+    "topic": "Partitions of a Set / Bell Number",
+    "category_file": "categories/combinatorics/ordered_set_partition_random_lis_expectation.md",
+    "key_idea": "Given N <= 6 and upper bounds A_1, ..., A_N, random variables X_i are chosen uniformly from [1, A_i]. Compute the expected length of the Longest Increasing Subsequence (LIS) of X modulo 1000000007.",
+    "observation": "For N <= 6, the relative order of elements X_1, ..., X_N is governed by one of the F(6) = 4683 ordered set partitions (weak orderings). For a fixed weak ordering, the LIS is deterministic. The number of integer assignments Y_1 < Y_2 < ... < Y_k satisfying Y_j <= min_{i in part j} A_i is computed using interval DP over the O(N) coordinate intervals formed by breakpoints {0} union {A_i}.",
+    "algorithm": "1. Generate all set partitions of {0..N-1} into k parts, and all k! orderings of parts to obtain all 4683 ordered set partitions.\n2. For each ordered partition, determine its deterministic LIS value and upper bounds U_rank = min_{r[i] == rank} A_i.\n3. Discretize upper bounds into O(N) intervals (coords[m], coords[m+1]] of length L.\n4. Run interval DP: dp[j] is the number of ways to assign the first j ranks into intervals, choosing c ranks in interval m with comb(L, c) ways.\n5. Multiply dp[k] by the LIS length, accumulate total LIS sum, and divide by prod(A_i) mod 1000000007.",
+    "time_complexity": "O(F(N) * N^2)",
+    "space_complexity": "O(N^2)",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <numeric>\n#include <algorithm>\n\nusing namespace std;\n\nconst int MOD = 1000000007;\n\nlong long power(long long base, long long exp) {\n    long long res = 1;\n    base %= MOD;\n    while (exp > 0) {\n        if (exp % 2 == 1) res = (res * base) % MOD;\n        base = (base * base) % MOD;\n        exp /= 2;\n    }\n    return res;\n}\n\nlong long modInverse(long long n) {\n    return power(n, MOD - 2);\n}\n\nlong long nCr(long long n, int r) {\n    if (r < 0 || r > n) return 0;\n    long long num = 1, den = 1;\n    for (int i = 0; i < r; ++i) {\n        num = (num * ((n - i) % MOD)) % MOD;\n        den = (den * (i + 1)) % MOD;\n    }\n    return num * modInverse(den) % MOD;\n}\n\nint calc_lis(const vector<int>& r) {\n    vector<int> dp;\n    for (int x : r) {\n        auto it = lower_bound(dp.begin(), dp.end(), x);\n        if (it == dp.end()) dp.push_back(x);\n        else *it = x;\n    }\n    return (int)dp.size();\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n;\n    if (!(cin >> n)) return 0;\n\n    vector<int> a(n);\n    long long total_space = 1;\n    for (int i = 0; i < n; ++i) {\n        cin >> a[i];\n        total_space = (total_space * a[i]) % MOD;\n    }\n\n    // Generate all ordered partitions\n    // Recursive generator for set partitions into k parts\n    vector<pair<vector<int>, int>> ordered_partitions;\n\n    auto get_partitions = [&](auto& self, vector<int> elements) -> vector<vector<vector<int>>> {\n        if (elements.empty()) return {{}};\n        int first = elements[0];\n        vector<int> rest(elements.begin() + 1, elements.end());\n        auto sub = self(self, rest);\n        vector<vector<vector<int>>> res;\n        for (const auto& p : sub) {\n            for (size_t i = 0; i < p.size(); ++i) {\n                auto np = p;\n                np[i].insert(np[i].begin(), first);\n                res.push_back(np);\n            }\n            auto np = p;\n            np.insert(np.begin(), {first});\n            res.push_back(np);\n        }\n        return res;\n    };\n\n    vector<int> all_elems(n);\n    iota(all_elems.begin(), all_elems.end(), 0);\n    auto partitions = get_partitions(get_partitions, all_elems);\n\n    for (auto& p : partitions) {\n        int k = (int)p.size();\n        vector<int> perm(k);\n        iota(perm.begin(), perm.end(), 0);\n        do {\n            vector<int> r(n);\n            for (int rank = 0; rank < k; ++rank) {\n                for (int elem : p[perm[rank]]) {\n                    r[elem] = rank;\n                }\n            }\n            ordered_partitions.push_back({r, k});\n        } while (next_permutation(perm.begin(), perm.end()));\n    }\n\n    // Coordinates and intervals\n    vector<int> coords = {0};\n    for (int x : a) coords.push_back(x);\n    sort(coords.begin(), coords.end());\n    coords.erase(unique(coords.begin(), coords.end()), coords.end());\n\n    struct Interval {\n        int left, right, len;\n    };\n    vector<Interval> intervals;\n    for (size_t i = 0; i + 1 < coords.size(); ++i) {\n        intervals.push_back({coords[i] + 1, coords[i + 1], coords[i + 1] - coords[i]});\n    }\n\n    int num_intervals = (int)intervals.size();\n    vector<vector<long long>> comb(num_intervals, vector<long long>(n + 1, 0));\n    for (int m = 0; m < num_intervals; ++m) {\n        for (int c = 0; c <= n; ++c) {\n            comb[m][c] = nCr(intervals[m].len, c);\n        }\n    }\n\n    long long total_lis_sum = 0;\n    for (const auto& [r, k] : ordered_partitions) {\n        int lis_val = calc_lis(r);\n        vector<int> U(k, MOD);\n        for (int i = 0; i < n; ++i) {\n            U[r[i]] = min(U[r[i]], a[i]);\n        }\n\n        vector<long long> dp(k + 1, 0);\n        dp[0] = 1;\n\n        for (int m = 0; m < num_intervals; ++m) {\n            vector<long long> next_dp = dp;\n            int right = intervals[m].right;\n            for (int j = 0; j < k; ++j) {\n                if (!dp[j]) continue;\n                for (int c = 1; j + c <= k; ++c) {\n                    bool ok = true;\n                    for (int t = 0; t < c; ++t) {\n                        if (U[j + t] < right) {\n                            ok = false;\n                            break;\n                        }\n                    }\n                    if (ok) {\n                        next_dp[j + c] = (next_dp[j + c] + dp[j] * comb[m][c]) % MOD;\n                    } else {\n                        break;\n                    }\n                }\n            }\n            dp = move(next_dp);\n        }\n\n        long long ways = dp[k];\n        total_lis_sum = (total_lis_sum + ways * lis_val) % MOD;\n    }\n\n    long long ans = total_lis_sum * modInverse(total_space) % MOD;\n    cout << ans << \"\\n\";\n    return 0;\n}\n",
+    "samples": [
+      {
+        "input": "3\r\n1 2 3\n",
+        "output": "2\n"
+      },
+      {
+        "input": "3\r\n2 1 2\n",
+        "output": "500000005\n"
+      },
+      {
+        "input": "6\r\n8 6 5 10 9 14\n",
+        "output": "959563502\n"
+      }
+    ]
+  },
+  {
+    "id": "arc106_e",
+    "name": "E - Medals",
+    "contest": "arc106",
+    "rating": 2825,
+    "domain": "Dynamic Programming (DP)",
+    "subtopic": "Bit Related DP",
+    "topic": "Sum Over Subsets DP (SOS DP)",
+    "category_file": "categories/dynamic_programming/employee_schedule_halls_marriage_sos_dp.md",
+    "key_idea": "N employees (N <= 18) cycle between working A_i days and resting A_i days. Each day, 1 working employee can receive a medal. Find the minimum days D so that every employee receives at least K medals.",
+    "observation": "This is bipartite matching between N employees (demand K each) and days 1..D (capacity 1). By Hall's Marriage Theorem, a valid matching exists iff for every subset S of employees, the number of days where at least one employee in S works is at least |S| * K. Equivalently, the number of days where the working mask W(d) is a subset of S^c must be at most D - |S| * K. Since D <= 2NK <= 3.6 * 10^6, binary search on D with Fast Walsh-Hadamard / SOS DP on 2^18 masks checks Hall's condition in O(N * 2^N) per step.",
+    "algorithm": "1. Precompute day_mask[d] for each day d in 1..2NK indicating which employees work on day d.\n2. Binary search D in [1, 2NK].\n3. For a candidate D, populate frequency array cnt[mask] for d in 1..D.\n4. Compute SOS DP over all 2^N masks: sos[mask] = sum_{sub in mask} cnt[sub] in O(N 2^N) time.\n5. For every mask T, verify sos[T] <= D - (N - popcount(T)) * K.\n6. Return the minimal valid D.",
+    "time_complexity": "O(N * K + log(NK) * N * 2^N)",
+    "space_complexity": "O(NK + 2^N)",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n, k;\n    if (!(cin >> n >> k)) return 0;\n\n    vector<int> a(n);\n    for (int i = 0; i < n; ++i) {\n        cin >> a[i];\n    }\n\n    int max_d = 2 * n * k;\n    vector<int> day_mask(max_d + 1, 0);\n    for (int i = 0; i < n; ++i) {\n        int period = 2 * a[i];\n        int work_len = a[i];\n        for (int d = 1; d <= max_d; ++d) {\n            if ((d - 1) % period < work_len) {\n                day_mask[d] |= (1 << i);\n            }\n        }\n    }\n\n    int num_masks = 1 << n;\n    vector<int> pop(num_masks, 0);\n    for (int mask = 0; mask < num_masks; ++mask) {\n        pop[mask] = __builtin_popcount(mask);\n    }\n\n    vector<int> sos(num_masks, 0);\n\n    auto check = [&](int D) -> bool {\n        fill(sos.begin(), sos.end(), 0);\n        for (int d = 1; d <= D; ++d) {\n            sos[day_mask[d]]++;\n        }\n\n        for (int i = 0; i < n; ++i) {\n            int bit = 1 << i;\n            for (int mask = 0; mask < num_masks; ++mask) {\n                if (mask & bit) {\n                    sos[mask] += sos[mask ^ bit];\n                }\n            }\n        }\n\n        for (int mask = 0; mask < num_masks; ++mask) {\n            int subset_size = n - pop[mask];\n            if (sos[mask] > D - 1LL * subset_size * k) {\n                return false;\n            }\n        }\n        return true;\n    };\n\n    int low = 1, high = max_d;\n    int ans = high;\n    while (low <= high) {\n        int mid = low + (high - low) / 2;\n        if (check(mid)) {\n            ans = mid;\n            high = mid - 1;\n        } else {\n            low = mid + 1;\n        }\n    }\n\n    cout << ans << \"\\n\";\n    return 0;\n}\n",
+    "samples": [
+      {
+        "input": "3 3\r\n1 2 3\n",
+        "output": "10\n"
+      },
+      {
+        "input": "10 10\r\n1 1 1 1 1 1 1 1 1 1\n",
+        "output": "199\n"
+      },
+      {
+        "input": "2 5\r\n1234 5678\n",
+        "output": "10\n"
+      }
+    ]
+  },
+  {
+    "id": "arc123_e",
+    "name": "E - Training",
+    "contest": "arc123",
+    "rating": 2828,
+    "domain": "Number Theory",
+    "subtopic": "Floor Sum",
+    "topic": "Floor Sum and Mod Sum of Arithmetic Progression",
+    "category_file": "categories/number_theory/arithmetic_level_intersection_floor_sum.md",
+    "key_idea": "Two programmers with starting levels A_X, A_Y gain 1 level every B_X, B_Y menus. Count n in 1..N such that A_X + floor(n / B_X) == A_Y + floor(n / B_Y) across T test cases.",
+    "observation": "Let f(x) = A_X + x/B_X and g(x) = A_Y + x/B_Y with floor functions F(x), G(x). F(x) == G(x) can only hold when f(x) - g(x) is in [-1, 1). In [-1, 0), F(x) in {G(x)-1, G(x)}, so the equality indicator is 1 - G(x) + F(x). In [0, 1), F(x) in {G(x), G(x)+1}, so the indicator is 1 - F(x) + G(x). The range bounds are solved linearly, and prefix sums of floor(A + x/B) over arithmetic progressions evaluate in O(1) time using block division.",
+    "algorithm": "1. If B_X == B_Y, return N if A_X == A_Y else 0.\n2. WLOG assume B_X < B_Y (swapping X and Y if needed), making slope (B_Y - B_X) / (B_X B_Y) strictly positive.\n3. Compute boundary thresholds x_m1, x_0, x_p1 for f(x) - g(x) in [-1, 0) and [0, 1) using ceil division.\n4. For [x_m1, x_0) intersected with [1, N+1), add (R - L) - sum(G) + sum(F).\n5. For [x_0, x_p1) intersected with [1, N+1), add (R - L) - sum(F) + sum(G).\n6. Evaluate prefix floor sums sum_{x=0}^{n-1} floor(A + x/B) = n A + B * q*(q-1)/2 + r*q in O(1).",
+    "time_complexity": "O(1) per test case, O(T) total",
+    "space_complexity": "O(1)",
+    "cpp_solution": "#include <iostream>\n#include <algorithm>\n\nusing namespace std;\n\ntypedef __int128_t int128;\n\nlong long floor_sum_AP(long long n, long long a, long long b) {\n    if (n <= 0) return 0;\n    long long q = n / b;\n    long long r = n % b;\n    int128 sum_div = (int128)b * q * (q - 1) / 2 + (int128)r * q;\n    return (long long)((int128)n * a + sum_div);\n}\n\nlong long range_sum_F(long long L, long long R, long long a, long long b) {\n    if (L >= R) return 0;\n    return floor_sum_AP(R, a, b) - floor_sum_AP(L, a, b);\n}\n\nlong long ceil_div(int128 num, int128 den) {\n    // den > 0\n    if (num >= 0) {\n        return (long long)((num + den - 1) / den);\n    } else {\n        return (long long)(num / den);\n    }\n}\n\nvoid solve() {\n    long long n, ax, bx, ay, by;\n    if (!(cin >> n >> ax >> bx >> ay >> by)) return;\n\n    if (bx == by) {\n        if (ax == ay) cout << n << \"\\n\";\n        else cout << 0 << \"\\n\";\n        return;\n    }\n\n    if (bx > by) {\n        swap(ax, ay);\n        swap(bx, by);\n    }\n\n    int128 den = by - bx;\n    int128 prod = (int128)bx * by;\n    int128 D = ax - ay;\n\n    long long x_m1 = ceil_div((-1 - D) * prod, den);\n    long long x_0  = ceil_div((0 - D) * prod, den);\n    long long x_p1 = ceil_div((1 - D) * prod, den);\n\n    long long ans = 0;\n\n    // Interval 1: [x_m1, x_0)\n    long long L1 = max(1LL, x_m1);\n    long long R1 = min(n + 1, x_0);\n    if (L1 < R1) {\n        long long cnt = R1 - L1;\n        long long sum_F = range_sum_F(L1, R1, ax, bx);\n        long long sum_G = range_sum_F(L1, R1, ay, by);\n        ans += cnt - sum_G + sum_F;\n    }\n\n    // Interval 2: [x_0, x_p1)\n    long long L2 = max(1LL, x_0);\n    long long R2 = min(n + 1, x_p1);\n    if (L2 < R2) {\n        long long cnt = R2 - L2;\n        long long sum_F = range_sum_F(L2, R2, ax, bx);\n        long long sum_G = range_sum_F(L2, R2, ay, by);\n        ans += cnt - sum_F + sum_G;\n    }\n\n    cout << ans << \"\\n\";\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int t;\n    if (cin >> t) {\n        while (t--) {\n            solve();\n        }\n    }\n    return 0;\n}\n",
+    "samples": [
+      {
+        "input": "5\r\n10 5 3 4 2\r\n5 5 3 4 2\r\n100 5 3 4 2\r\n10 5 3 4 3\r\n10 5 10 5 9\n",
+        "output": "6\r\n3\r\n6\r\n0\r\n9\n"
+      }
+    ]
+  },
+  {
+    "id": "agc067_c",
+    "name": "C - Divisibility Homomorphism",
+    "contest": "agc067",
+    "rating": 2829,
+    "domain": "Graph Theory",
+    "subtopic": "Partially Ordered Set (POSET)",
+    "topic": "POSET ft Dilworth's and Mirsky's Theorem",
+    "category_file": "categories/graph_theory/divisibility_preserving_sequence_multiplicative_lattice.md",
+    "key_idea": "Determine whether a prefix sequence (A_1, ..., A_N) of positive integers can be extended to an infinite sequence satisfying a_n <= C * n and a_n | a_m <=> n | m.",
+    "observation": "Divisibility preservation a_n | a_m <=> n | m defines a lattice embedding from the divisibility poset of integers into itself. The linear bound constraint a_n <= C * n forces the prime valuations v_p(a_x) to strictly respect the valuation layers of x: for every prime p <= N, if v_p(x) > v_p(y), then v_p(a_x) > v_p(a_y). Thus, each valuation layer {x : v_p(x) = k} must map to values with v_p(a_x) strictly greater than all values in layer k-1.",
+    "algorithm": "1. Verify that all elements in A are distinct.\n2. Check divisibility on all divisor pairs: for every x in 1..N and multiple y = 2x, 3x, ..., verify A_x | A_y.\n3. Sieve all primes p <= N.\n4. For each prime p, group indices x in 1..N by vx = v_p(x), and compute the minimum and maximum of vax = v_p(A_x) in each layer.\n5. Verify strict layer monotonicity: max v_p(A_x) in layer k must be strictly less than min v_p(A_y) in layer k+1.\n6. Output 'Yes' if all conditions hold, else 'No'.",
+    "time_complexity": "O(N log N + N pi(N))",
+    "space_complexity": "O(N)",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <map>\n#include <algorithm>\n#include <set>\n\nusing namespace std;\n\nvoid solve() {\n    int n;\n    if (!(cin >> n)) return;\n\n    vector<long long> a(n + 1);\n    set<long long> distinct_check;\n    bool all_distinct = true;\n\n    for (int i = 1; i <= n; ++i) {\n        cin >> a[i];\n        if (distinct_check.count(a[i])) {\n            all_distinct = false;\n        }\n        distinct_check.insert(a[i]);\n    }\n\n    if (!all_distinct) {\n        cout << \"No\\n\";\n        return;\n    }\n\n    // Check divisibility: for all x | y, a[x] | a[y]\n    for (int x = 1; x <= n; ++x) {\n        long long ax = a[x];\n        for (int y = 2 * x; y <= n; y += x) {\n            if (a[y] % ax != 0) {\n                cout << \"No\\n\";\n                return;\n            }\n        }\n    }\n\n    // Sieve primes up to n\n    vector<bool> is_prime(n + 1, true);\n    vector<int> primes;\n    for (int p = 2; p <= n; ++p) {\n        if (is_prime[p]) {\n            primes.push_back(p);\n            for (int j = 2 * p; j <= n; j += p) {\n                is_prime[j] = false;\n            }\n        }\n    }\n\n    for (int p : primes) {\n        // Find max v_p(a[x]) for layer k, and min v_p(a[x]) for layer k\n        map<int, pair<int, int>> layers; // k -> {min_v, max_v}\n\n        for (int x = 1; x <= n; ++x) {\n            int vx = 0;\n            int temp_x = x;\n            while (temp_x % p == 0) {\n                vx++;\n                temp_x /= p;\n            }\n\n            int vax = 0;\n            long long temp_ax = a[x];\n            while (temp_ax % p == 0) {\n                vax++;\n                temp_ax /= p;\n            }\n\n            if (layers.find(vx) == layers.end()) {\n                layers[vx] = {vax, vax};\n            } else {\n                layers[vx].first = min(layers[vx].first, vax);\n                layers[vx].second = max(layers[vx].second, vax);\n            }\n        }\n\n        // Check strictly increasing layers\n        int prev_max = -1;\n        for (auto const& [k, bounds] : layers) {\n            if (bounds.first <= prev_max) {\n                cout << \"No\\n\";\n                return;\n            }\n            prev_max = bounds.second;\n        }\n    }\n\n    cout << \"Yes\\n\";\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int t;\n    if (cin >> t) {\n        while (t--) {\n            solve();\n        }\n    }\n    return 0;\n}\n",
+    "samples": [
+      {
+        "input": "5\n5\n1 2 3 4 5\n5\n1 4 9 16 25\n5\n1 4 6 8 10\n5\n1 2 4 4 5\n5\n1 2 3 5 4\n",
+        "output": "Yes\nYes\nYes\nNo\nNo\n"
+      }
+    ]
+  },
+  {
+    "id": "abc293_h",
+    "name": "Ex - Optimal Path Decomposition",
+    "contest": "abc293",
+    "rating": 2831,
+    "domain": "Dynamic Programming (DP)",
+    "subtopic": "Dp on Different Structures",
+    "topic": "DP on Trees and DAGs",
+    "category_file": "categories/dynamic_programming/tree_simple_path_coloring_decomposition_dp.md",
+    "key_idea": "Partition vertices of an N-vertex tree into monochromatic simple paths such that any simple path in the tree intersects at most K colors. Find the minimum possible K.",
+    "observation": "Color monochromatic edges 'black' (weight 0) and inter-color edges 'white' (weight 1). Black edges form vertex-disjoint paths, meaning each vertex has degree at most 2 in black edges. The maximum number of colors on any tree path is (diameter in {0, 1} weights) + 1. By HLD, the optimal K is at most 2 * floor(log2 N) + 1. For a fixed K, tree DP determines whether a {0, 1} weighting with diameter <= K - 1 exists in O(N) time.",
+    "algorithm": "1. Binary search K in [1, N].\n2. Tree DP defines dp[u][0/1]: minimum maximum distance into subtree u when the parent edge has weight 0 or 1, requiring subtree diameter <= K - 1.\n3. For vertex u, sort children by dp[v][1] descending.\n4. Select at most 1 child (for dp0) or at most 2 children (for dp1) to have edge weight 0, keeping others at weight 1.\n5. Check that max1 + max2 <= K - 1 for path through u, minimizing max1.\n6. Binary search returns the minimal valid K.",
+    "time_complexity": "O(N log N)",
+    "space_complexity": "O(N)",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n\nusing namespace std;\n\nconst int INF = 1e9;\n\nint n;\nvector<vector<int>> adj;\n\npair<int, int> dfs(int u, int p, int K, bool& valid) {\n    if (!valid) return {INF, INF};\n\n    vector<pair<int, int>> sons;\n    for (int v : adj[u]) {\n        if (v != p) {\n            auto dp_v = dfs(v, u, K, valid);\n            if (!valid) return {INF, INF};\n            sons.push_back(dp_v);\n        }\n    }\n\n    if (sons.empty()) {\n        return {0, 0};\n    }\n\n    vector<int> cand_indices;\n    int inf_cnt = 0;\n    for (int i = 0; i < (int)sons.size(); ++i) {\n        if (sons[i].second == INF) {\n            cand_indices.push_back(i);\n            inf_cnt++;\n        }\n    }\n    if (inf_cnt > 2) {\n        valid = false;\n        return {INF, INF};\n    }\n\n    vector<int> sorted_indices(sons.size());\n    for (int i = 0; i < (int)sons.size(); ++i) sorted_indices[i] = i;\n    sort(sorted_indices.begin(), sorted_indices.end(), [&](int a, int b) {\n        return sons[a].second > sons[b].second;\n    });\n\n    for (int idx : sorted_indices) {\n        if (find(cand_indices.begin(), cand_indices.end(), idx) == cand_indices.end()) {\n            cand_indices.push_back(idx);\n            if (cand_indices.size() >= 5) break;\n        }\n    }\n\n    int best_dp0 = INF, best_dp1 = INF;\n    int C_size = (int)cand_indices.size();\n\n    // Check subsets of size 0, 1, 2\n    for (int mask = 0; mask < (1 << C_size); ++mask) {\n        int sz = __builtin_popcount(mask);\n        if (sz > 2) continue;\n\n        bool ok = true;\n        // Check if all sons with dp1 == INF are included\n        for (int i = 0; i < C_size; ++i) {\n            int son_idx = cand_indices[i];\n            if (sons[son_idx].second == INF && !(mask & (1 << i))) {\n                ok = false;\n                break;\n            }\n            if ((mask & (1 << i)) && sons[son_idx].first == INF) {\n                ok = false;\n                break;\n            }\n        }\n        if (!ok) continue;\n\n        int max1 = 0, max2 = 0;\n        for (int i = 0; i < (int)sons.size(); ++i) {\n            int val;\n            // Check if i is chosen in mask\n            bool in_s = false;\n            for (int j = 0; j < C_size; ++j) {\n                if (cand_indices[j] == i && (mask & (1 << j))) {\n                    in_s = true;\n                    break;\n                }\n            }\n\n            if (in_s) {\n                val = sons[i].first;\n            } else {\n                val = sons[i].second + 1;\n            }\n\n            if (val > max1) {\n                max2 = max1;\n                max1 = val;\n            } else if (val > max2) {\n                max2 = val;\n            }\n        }\n\n        if (max1 + max2 <= K - 1 && max1 <= K - 1) {\n            if (sz <= 1) best_dp0 = min(best_dp0, max1);\n            if (sz <= 2) best_dp1 = min(best_dp1, max1);\n        }\n    }\n\n    if (best_dp0 == INF && best_dp1 == INF) {\n        valid = false;\n    }\n\n    return {best_dp0, best_dp1};\n}\n\nbool check(int K) {\n    bool valid = true;\n    auto res = dfs(1, 0, K, valid);\n    return valid && (res.first < INF || res.second < INF);\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    if (!(cin >> n)) return 0;\n\n    adj.assign(n + 1, vector<int>());\n    for (int i = 0; i < n - 1; ++i) {\n        int u, v;\n        cin >> u >> v;\n        adj[u].push_back(v);\n        adj[v].push_back(u);\n    }\n\n    int low = 1, high = n;\n    int ans = n;\n    while (low <= high) {\n        int mid = low + (high - low) / 2;\n        if (check(mid)) {\n            ans = mid;\n            high = mid - 1;\n        } else {\n            low = mid + 1;\n        }\n    }\n\n    cout << ans << \"\\n\";\n    return 0;\n}\n",
+    "samples": [
+      {
+        "input": "7\n3 4\n1 5\n4 5\n1 2\n7 4\n1 6\n",
+        "output": "3\n"
+      },
+      {
+        "input": "6\n3 5\n6 4\n6 3\n4 2\n1 5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "9\n1 3\n9 5\n8 7\n2 1\n5 2\n5 8\n4 8\n6 1\n",
+        "output": "3\n"
+      }
+    ]
+  },
+  {
+    "id": "panasonic2020_f",
+    "name": "F - Fractal Shortest Path",
+    "contest": "panasonic2020",
+    "rating": 2834,
+    "domain": "Basics",
+    "subtopic": "Divide and Conquer",
+    "topic": "Divide and Conquer",
+    "category_file": "categories/basics/sierpinski_carpet_fractal_shortest_path.md",
+    "key_idea": "Given a Level 30 Sierpinski carpet fractal of size 3^30 x 3^30 where center blocks of size 3^t x 3^t are solid black obstacles, answer Q queries finding the shortest path distance through white cells between (a, b) and (c, d).",
+    "observation": "On a grid without obstacles, distance is L1 Manhattan distance |x1 - x2| + |y1 - y2|. Black squares form square obstacles of size 3^t for t in 0..30. A path between two points must detour around at most one maximal blocking obstacle of size 3^t at any level. The extra detour around an obstacle of size 3^t is 2 * min(min(x1%3^t, x2%3^t) + 1, 3^t - max(x1%3^t, x2%3^t)). The exact distance equals the Manhattan distance plus 2 * max(extra_x, extra_y).",
+    "algorithm": "1. Convert coordinates to 0-indexed.\n2. Base distance is |x1 - x2| + |y1 - y2|.\n3. For each power of three 3^t for t in 0..34, check if an obstacle at level t lies strictly between (x1, y1) and (x2, y2) using base-3 ternary digit analysis.\n4. If an obstacle of size 3^t separates the coordinates along an axis, compute the minimal detour around its boundary.\n5. The answer is Manhattan distance + 2 * max(detour_x, detour_y).\n6. Answer each query in O(log_3(Grid)) = O(35) time.",
+    "time_complexity": "O(Q * log_3(Grid))",
+    "space_complexity": "O(1)",
+    "cpp_solution": "#include <iostream>\n#include <algorithm>\n#include <cmath>\n\nusing namespace std;\n\ntypedef long long ll;\n\nbool between(ll x, ll y1, ll y2) {\n    if (y1 > y2) swap(y1, y2);\n    y1++;\n    y2--;\n    if (!(y1 <= y2)) return false;\n\n    while (x > 0) {\n        if (x % 3 == 1) {\n            if (y2 - y1 > 3) return true;\n            for (ll y = y1; y <= y2; ++y) {\n                if (y % 3 == 1) return true;\n            }\n        }\n        x /= 3;\n        y1 /= 3;\n        y2 /= 3;\n    }\n    return false;\n}\n\nll get_extra(ll x1, ll y1, ll x2, ll y2) {\n    ll ans = 0;\n    ll three = 1;\n    for (int i = 0; i < 35; ++i) {\n        if (x1 / three == x2 / three && between(x1 / three, y1 / three, y2 / three)) {\n            ll tmp = min(min(x1 % three, x2 % three) + 1, three - max(x1 % three, x2 % three));\n            ans = max(ans, tmp);\n        }\n        if (three > 1e16) break;\n        three *= 3;\n    }\n    return ans;\n}\n\nll get_dist(ll x1, ll y1, ll x2, ll y2) {\n    return abs(x1 - x2) + abs(y1 - y2) + 2 * max(get_extra(x1, y1, x2, y2), get_extra(y1, x1, y2, x2));\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int q;\n    if (cin >> q) {\n        while (q--) {\n            ll a, b, c, d;\n            cin >> a >> b >> c >> d;\n            // 0-based conversion\n            --a; --b; --c; --d;\n            cout << get_dist(a, b, c, d) << \"\\n\";\n        }\n    }\n    return 0;\n}\n",
+    "samples": [
+      {
+        "input": "2\r\n4 2 7 4\r\n9 9 1 9\n",
+        "output": "5\r\n8\n"
+      }
+    ]
+  },
+  {
+    "id": "abc242_h",
+    "name": "Ex - Random Painting",
+    "contest": "abc242",
+    "rating": 2835,
+    "domain": "Combinatorics",
+    "subtopic": "Inclusion Exclusion",
+    "topic": "Principle of Inclusion and Exclusion (PIE)",
+    "category_file": "categories/combinatorics/segment_coverage_min_max_expectation_interval_dp.md",
+    "key_idea": "N cells initially white. M intervals [L_i, R_i] in a box. In each step, draw a random interval and paint its cells black. Find the expected number of steps until all N cells are black modulo 998244353.",
+    "observation": "By Min-Max Expectation, E[max T_i] = sum_{empty != S} (-1)^{|S|+1} E[min_{i in S} T_i]. The time to hit at least one cell in S is a geometric random variable with expectation M / c(S), where c(S) is the number of intervals intersecting S. Crucially, c(S) = M - (intervals disjoint from S). For a chosen subset S = {s_1 < ... < s_k}, an interval is disjoint from S iff it lies entirely within one gap [s_j + 1, s_{j+1} - 1]. An interval DP computes the signed weights sum_{S: c(S) = c} (-1)^{|S|+1} in O(N^2 M) time.",
+    "algorithm": "1. Precompute cnt[l][r]: number of given intervals completely contained in [l, r].\n2. Define dp[i][k]: last chosen element of S is i, with k total disjoint intervals so far, storing sum of (-1)^|S|.\n3. Initialize dp[0][0] = 1.\n4. Transition from i to j in i+1..N+1: add cnt[i+1][j-1] to disjoint count k, multiplying by -1 if j <= N (adding an element to S).\n5. For each disjoint count k, c(S) = M - k. Extract ways = dp[N+1][k] (excluding empty set).\n6. Multiply by (-1) to obtain (-1)^{|S|+1}, and accumulate ways * M * inv(c) modulo 998244353.",
+    "time_complexity": "O(N^2 * M)",
+    "space_complexity": "O(N * M)",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nconst int MOD = 998244353;\n\nlong long power(long long base, long long exp) {\n    long long res = 1;\n    base %= MOD;\n    while (exp > 0) {\n        if (exp % 2 == 1) res = (res * base) % MOD;\n        base = (base * base) % MOD;\n        exp /= 2;\n    }\n    return res;\n}\n\nlong long modInverse(long long n) {\n    return power(n, MOD - 2);\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n, m;\n    if (!(cin >> n >> m)) return 0;\n\n    vector<vector<int>> cnt(n + 2, vector<int>(n + 2, 0));\n    for (int i = 0; i < m; ++i) {\n        int l, r;\n        cin >> l >> r;\n        for (int left = 1; left <= l; ++left) {\n            for (int right = r; right <= n; ++right) {\n                cnt[left][right]++;\n            }\n        }\n    }\n\n    // dp[i][k]\n    vector<vector<long long>> dp(n + 2, vector<long long>(m + 1, 0));\n    dp[0][0] = 1;\n\n    for (int i = 0; i <= n; ++i) {\n        for (int k = 0; k <= m; ++k) {\n            if (!dp[i][k]) continue;\n            long long val = dp[i][k];\n            for (int j = i + 1; j <= n + 1; ++j) {\n                int add_cnt = (i + 1 <= j - 1) ? cnt[i + 1][j - 1] : 0;\n                int nk = k + add_cnt;\n                if (nk <= m) {\n                    long long coeff = (j <= n) ? (MOD - 1) : 1;\n                    dp[j][nk] = (dp[j][nk] + val * coeff) % MOD;\n                }\n            }\n        }\n    }\n\n    long long ans = 0;\n    int total_all = cnt[1][n];\n    for (int k = 0; k <= m; ++k) {\n        int c = m - k;\n        if (c <= 0) continue;\n        long long ways = dp[n + 1][k];\n        if (k == total_all) {\n            ways = (ways - 1 + MOD) % MOD;\n        }\n        long long term = (MOD - ways) % MOD;\n        long long inv_c = modInverse(c);\n        long long contrib = term * m % MOD * inv_c % MOD;\n        ans = (ans + contrib) % MOD;\n    }\n\n    cout << ans << \"\\n\";\n    return 0;\n}\n",
+    "samples": [
+      {
+        "input": "3 3\r\n1 1\r\n1 2\r\n2 3\n",
+        "output": "499122180\n"
+      },
+      {
+        "input": "13 10\r\n3 5\r\n5 9\r\n3 12\r\n1 13\r\n9 11\r\n12 13\r\n2 4\r\n9 12\r\n9 11\r\n7 11\n",
+        "output": "10\n"
+      },
+      {
+        "input": "100 11\r\n22 43\r\n84 93\r\n12 71\r\n49 56\r\n8 11\r\n1 61\r\n13 80\r\n26 83\r\n23 100\r\n80 85\r\n9 89\n",
+        "output": "499122193\n"
+      }
+    ]
+  },
+  {
+    "id": "arc065_c",
+    "name": "E - Manhattan Compass",
+    "contest": "arc065",
+    "rating": 2835,
+    "domain": "Geometry",
+    "subtopic": "Sweep Line",
+    "topic": "Sweep Line Algorithm and Radial Sweep",
+    "category_file": "categories/geometry/manhattan_chebyshev_rotation_connected_pairs_bfs.md",
+    "key_idea": "N points on the plane. A Manhattan compass points to a pair of points with fixed distance D = d(a, b). Compass can move from (p, q) to (p, r) if d(p, r) == d(p, q) == D. Find the number of reachable pairs.",
+    "observation": "Rotate coordinates 45 degrees: (X, Y) = (x + y, x - y), so Manhattan distance becomes Chebyshev distance max(|X_1 - X_2|, |Y_1 - Y_2|) = D. Vertices reachable by the compass are exactly the connected component of {a, b} in the distance-D graph. To run BFS in O(N log N) time, store unvisited points in balanced BSTs ordered by X and Y; deleting visited points ensures each vertex is visited once. Counting distance-D pairs in the component uses binary search on 1D slices.",
+    "algorithm": "1. Rotate points (x, y) -> (x+y, x-y) and compute target distance D = max(|Xa - Xb|, |Ya - Yb|).\n2. Insert all points into two std::map<ll, set<pair<ll, int>>> indexed by X and Y.\n3. Run BFS from a and b: for point (xu, yu), query lines X = xu +- D for Y in [yu - D, yu + D] and lines Y = yu +- D for X in [xu - D, xu + D], queuing and erasing visited points.\n4. Group component points into sorted vectors by X and by Y.\n5. For each point in the component, count pairs with X' = X + D and Y' in [Y - D, Y + D], plus pairs with Y' = Y + D and X' in [X - D + 1, X + D - 1] to avoid corner double-counting.\n6. Output total pair count.",
+    "time_complexity": "O(N log N)",
+    "space_complexity": "O(N)",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <queue>\n#include <map>\n#include <set>\n#include <algorithm>\n\nusing namespace std;\n\ntypedef long long ll;\n\nstruct Point {\n    ll x, y;\n};\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n, a_idx, b_idx;\n    if (!(cin >> n >> a_idx >> b_idx)) return 0;\n    --a_idx; --b_idx;\n\n    vector<Point> orig(n);\n    vector<Point> rot(n);\n    for (int i = 0; i < n; ++i) {\n        cin >> orig[i].x >> orig[i].y;\n        rot[i].x = orig[i].x + orig[i].y;\n        rot[i].y = orig[i].x - orig[i].y;\n    }\n\n    ll D = max(abs(rot[a_idx].x - rot[b_idx].x), abs(rot[a_idx].y - rot[b_idx].y));\n\n    map<ll, set<pair<ll, int>>> by_X, by_Y;\n    for (int i = 0; i < n; ++i) {\n        by_X[rot[i].x].insert({rot[i].y, i});\n        by_Y[rot[i].y].insert({rot[i].x, i});\n    }\n\n    auto remove_pt = [&](int idx) {\n        ll x = rot[idx].x;\n        ll y = rot[idx].y;\n        by_X[x].erase({y, idx});\n        by_Y[y].erase({x, idx});\n    };\n\n    vector<bool> visited(n, false);\n    queue<int> q;\n\n    q.push(a_idx);\n    visited[a_idx] = true;\n    remove_pt(a_idx);\n\n    q.push(b_idx);\n    visited[b_idx] = true;\n    remove_pt(b_idx);\n\n    vector<int> component;\n    component.push_back(a_idx);\n    component.push_back(b_idx);\n\n    while (!q.empty()) {\n        int u = q.front();\n        q.pop();\n        ll xu = rot[u].x;\n        ll yu = rot[u].y;\n\n        // Check line X = xu + D and X = xu - D\n        ll target_X[2] = {xu + D, xu - D};\n        for (ll tx : target_X) {\n            auto map_it = by_X.find(tx);\n            if (map_it == by_X.end()) continue;\n            auto& s = map_it->second;\n            auto it = s.lower_bound({yu - D, -1});\n            vector<int> found;\n            while (it != s.end() && it->first <= yu + D) {\n                found.push_back(it->second);\n                it++;\n            }\n            for (int idx : found) {\n                if (!visited[idx]) {\n                    visited[idx] = true;\n                    q.push(idx);\n                    component.push_back(idx);\n                    remove_pt(idx);\n                }\n            }\n        }\n\n        // Check line Y = yu + D and Y = yu - D\n        ll target_Y[2] = {yu + D, yu - D};\n        for (ll ty : target_Y) {\n            auto map_it = by_Y.find(ty);\n            if (map_it == by_Y.end()) continue;\n            auto& s = map_it->second;\n            auto it = s.lower_bound({xu - D, -1});\n            vector<int> found;\n            while (it != s.end() && it->first <= xu + D) {\n                found.push_back(it->second);\n                it++;\n            }\n            for (int idx : found) {\n                if (!visited[idx]) {\n                    visited[idx] = true;\n                    q.push(idx);\n                    component.push_back(idx);\n                    remove_pt(idx);\n                }\n            }\n        }\n    }\n\n    map<ll, vector<ll>> comp_by_X, comp_by_Y;\n    for (int u : component) {\n        comp_by_X[rot[u].x].push_back(rot[u].y);\n        comp_by_Y[rot[u].y].push_back(rot[u].x);\n    }\n    for (auto& [k, vec] : comp_by_X) sort(vec.begin(), vec.end());\n    for (auto& [k, vec] : comp_by_Y) sort(vec.begin(), vec.end());\n\n    ll ans = 0;\n    for (int u : component) {\n        ll X = rot[u].x;\n        ll Y = rot[u].y;\n\n        // On line X + D: Y' in [Y - D, Y + D]\n        auto itX = comp_by_X.find(X + D);\n        if (itX != comp_by_X.end()) {\n            const auto& vec = itX->second;\n            auto low = lower_bound(vec.begin(), vec.end(), Y - D);\n            auto high = upper_bound(vec.begin(), vec.end(), Y + D);\n            ans += (high - low);\n        }\n\n        // On line Y + D: X' in [X - D + 1, X + D - 1]\n        auto itY = comp_by_Y.find(Y + D);\n        if (itY != comp_by_Y.end()) {\n            const auto& vec = itY->second;\n            auto low = lower_bound(vec.begin(), vec.end(), X - D + 1);\n            auto high = upper_bound(vec.begin(), vec.end(), X + D - 1);\n            ans += (high - low);\n        }\n    }\n\n    cout << ans << \"\\n\";\n    return 0;\n}\n",
+    "samples": [
+      {
+        "input": "5 1 2\r\n1 1\r\n4 3\r\n6 1\r\n5 5\r\n4 8\n",
+        "output": "4\n"
+      },
+      {
+        "input": "6 2 3\r\n1 3\r\n5 3\r\n3 5\r\n8 4\r\n4 7\r\n2 5\n",
+        "output": "4\n"
+      },
+      {
+        "input": "8 1 2\r\n1 5\r\n4 3\r\n8 2\r\n4 7\r\n8 8\r\n3 3\r\n6 6\r\n4 8\n",
+        "output": "7\n"
+      }
+    ]
+  },
+  {
+    "id": "arc103_d",
+    "name": "F - Distance Sums on a Tree",
+    "contest": "arc103",
+    "rating": 2836,
+    "domain": "Graph Theory",
+    "subtopic": "More Tree Stuff",
+    "topic": "Rerooting Technique",
+    "category_file": "categories/graph_theory/tree_reconstruction_distance_sum_centroid_greedy.md",
+    "key_idea": "Given N distinct integers D_1, ..., D_N representing the sum of tree distances from each vertex to all other vertices, reconstruct the tree or determine that none exists.",
+    "observation": "By tree distance properties, moving across edge (u, v) changes the distance sum by D(u) - D(v) = N - 2 * sz(u), where sz(u) is the subtree size of u directed away from v. The vertex with the maximum D_u must be a leaf (sz(u) = 1). Its parent v must uniquely have D(v) = D(u) - (N - 2 * sz(u)). Processing vertices in descending order of D greedily identifies each parent, accumulating subtree sizes. Finally, verifying the distance sum of the centroid/root on the reconstructed tree confirms correctness.",
+    "algorithm": "1. Map each D_i to vertex id i, and sort vertices in descending order of D_i.\n2. Initialize subtree size sz[u] = 1 for all vertices.\n3. For each vertex u from largest to second smallest D:\n   a. Target parent distance is target_D = D[u] - (N - 2 * sz[u]).\n   b. Look up target_D in hash map. If not found or v == u, return -1.\n   c. Add edge (u, v) and update sz[v] += sz[u].\n4. Verify that root (minimum D) has sz[root] == N.\n5. Run BFS from root to compute actual distance sum and verify it matches D[root].\n6. Print the N-1 edges if valid, else -1.",
+    "time_complexity": "O(N log N)",
+    "space_complexity": "O(N)",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <map>\n#include <algorithm>\n#include <queue>\n\nusing namespace std;\n\ntypedef long long ll;\n\nstruct Vertex {\n    ll d;\n    int id;\n};\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n;\n    if (!(cin >> n)) return 0;\n\n    vector<Vertex> items(n);\n    map<ll, int> d_to_id;\n    for (int i = 0; i < n; ++i) {\n        cin >> items[i].d;\n        items[i].id = i + 1;\n        d_to_id[items[i].d] = i + 1;\n    }\n\n    sort(items.begin(), items.end(), [](const Vertex& a, const Vertex& b) {\n        return a.d > b.d;\n    });\n\n    vector<ll> sz(n + 1, 1);\n    vector<pair<int, int>> edges;\n\n    for (int i = 0; i < n - 1; ++i) {\n        ll val = items[i].d;\n        int u = items[i].id;\n        ll s_u = sz[u];\n        ll target_d = val - (n - 2 * s_u);\n\n        auto it = d_to_id.find(target_d);\n        if (it == d_to_id.end()) {\n            cout << -1 << \"\\n\";\n            return 0;\n        }\n        int v = it->second;\n        if (v == u) {\n            cout << -1 << \"\\n\";\n            return 0;\n        }\n        edges.push_back({u, v});\n        sz[v] += s_u;\n    }\n\n    int root = items.back().id;\n    if (sz[root] != n) {\n        cout << -1 << \"\\n\";\n        return 0;\n    }\n\n    // Verify distance sum from root\n    vector<vector<int>> adj(n + 1);\n    for (const auto& e : edges) {\n        adj[e.first].push_back(e.second);\n        adj[e.second].push_back(e.first);\n    }\n\n    vector<int> dist(n + 1, -1);\n    dist[root] = 0;\n    queue<int> q;\n    q.push(root);\n\n    ll actual_sum = 0;\n    int visited_count = 0;\n\n    while (!q.empty()) {\n        int curr = q.front();\n        q.pop();\n        visited_count++;\n        actual_sum += dist[curr];\n\n        for (int nxt : adj[curr]) {\n            if (dist[nxt] == -1) {\n                dist[nxt] = dist[curr] + 1;\n                q.push(nxt);\n            }\n        }\n    }\n\n    if (visited_count != n || actual_sum != items.back().d) {\n        cout << -1 << \"\\n\";\n        return 0;\n    }\n\n    for (const auto& e : edges) {\n        cout << e.first << \" \" << e.second << \"\\n\";\n    }\n    return 0;\n}\n",
+    "samples": [
+      {
+        "input": "7\r\n10\r\n15\r\n13\r\n18\r\n11\r\n14\r\n19\n",
+        "output": "1 2\r\n1 3\r\n1 5\r\n3 4\r\n5 6\r\n6 7\n"
+      },
+      {
+        "input": "2\r\n1\r\n2\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "15\r\n57\r\n62\r\n47\r\n45\r\n42\r\n74\r\n90\r\n75\r\n54\r\n50\r\n66\r\n63\r\n77\r\n87\r\n51\n",
+        "output": "1 10\r\n1 11\r\n2 8\r\n2 15\r\n3 5\r\n3 9\r\n4 5\r\n4 10\r\n5 15\r\n6 12\r\n6 14\r\n7 13\r\n9 12\r\n11 13\n"
+      }
+    ]
+  },
+  {
+    "id": "abc280_g",
+    "name": "G - Do Use Hexagon Grid 2",
+    "contest": "abc280",
+    "rating": 2842,
+    "domain": "Basics",
+    "subtopic": "Leveraging Monotonicity",
+    "topic": "Two Pointers",
+    "category_file": "categories/basics/hexagonal_coordinate_transformation_bounding_box_sweep.md",
+    "key_idea": "On a hexagonal grid, distance is d((i1, j1), (i2, j2)) = max(|i1 - i2|, |j1 - j2|, |(i1 - j1) - (i2 - j2)|). Given N points, count non-empty subsets where all pairwise distances are <= D modulo 998244353.",
+    "observation": "Mapping (X, Y) -> (X, Y, X - Y) embeds the hexagonal metric into 3D Chebyshev space. By Helly's property for L_infinity balls, all pairwise distances are <= D iff all points fit in a bounding box [X, X+D] x [Y, Y+D] x [Z, Z+D]. Subsets are uniquely counted by their coordinate minima (X, Y, Z). For fixed X and Y, maintaining points in the Z-window [Z, Z+D] with two pointers allows evaluating PIE over the 8 boundary conditions in O(1) per step, yielding an O(N^3) total algorithm.",
+    "algorithm": "1. Transform points (X, Y) -> (X, Y, X - Y) and extract unique X and Y coordinates.\n2. Precompute powers of 2 modulo 998244353.\n3. Loop over unique X and filter points in [X, X + D]. Loop over unique Y and filter points in [Y, Y + D].\n4. Sort remaining candidates by z. Use two pointers [l, r) to slide the window [Z, Z + D].\n5. For each distinct Z = z_l, expand r to include z <= Z + D.\n6. Use PIE over 8 subsets of {x > X, y > Y, z > Z} to count valid non-empty subsets with exact minima X, Y, Z.\n7. Sum contributions modulo 998244353.",
+    "time_complexity": "O(N^3)",
+    "space_complexity": "O(N)",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n\nusing namespace std;\n\ntypedef long long ll;\n\nconst int MOD = 998244353;\n\nstruct Point {\n    ll x, y, z;\n};\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n;\n    ll d;\n    if (!(cin >> n >> d)) return 0;\n\n    vector<Point> pts(n);\n    vector<ll> coords_x(n), coords_y(n);\n    for (int i = 0; i < n; ++i) {\n        cin >> pts[i].x >> pts[i].y;\n        pts[i].z = pts[i].x - pts[i].y;\n        coords_x[i] = pts[i].x;\n        coords_y[i] = pts[i].y;\n    }\n\n    sort(coords_x.begin(), coords_x.end());\n    coords_x.erase(unique(coords_x.begin(), coords_x.end()), coords_x.end());\n\n    sort(coords_y.begin(), coords_y.end());\n    coords_y.erase(unique(coords_y.begin(), coords_y.end()), coords_y.end());\n\n    vector<long long> pow2(n + 1, 1);\n    for (int i = 1; i <= n; ++i) {\n        pow2[i] = (pow2[i - 1] * 2) % MOD;\n    }\n\n    long long ans = 0;\n\n    for (ll X : coords_x) {\n        vector<Point> cand1;\n        for (const auto& p : pts) {\n            if (X <= p.x && p.x <= X + d) {\n                cand1.push_back(p);\n            }\n        }\n        if (cand1.empty()) continue;\n\n        for (ll Y : coords_y) {\n            vector<Point> cand2;\n            for (const auto& p : cand1) {\n                if (Y <= p.y && p.y <= Y + d) {\n                    cand2.push_back(p);\n                }\n            }\n            if (cand2.empty()) continue;\n\n            sort(cand2.begin(), cand2.end(), [](const Point& a, const Point& b) {\n                return a.z < b.z;\n            });\n\n            int K = (int)cand2.size();\n            int r = 0;\n            int c[4] = {0, 0, 0, 0};\n\n            auto get_type = [&](const Point& p) -> int {\n                return (p.x == X ? 1 : 0) | (p.y == Y ? 2 : 0);\n            };\n\n            int l = 0;\n            while (l < K) {\n                ll Z = cand2[l].z;\n                int l_end = l;\n                while (l_end < K && cand2[l_end].z == Z) {\n                    l_end++;\n                }\n\n                while (r < K && cand2[r].z <= Z + d) {\n                    c[get_type(cand2[r])]++;\n                    r++;\n                }\n\n                int cz[4] = {0, 0, 0, 0};\n                for (int idx = l; idx < l_end; ++idx) {\n                    cz[get_type(cand2[idx])]++;\n                }\n\n                long long ways_box = 0;\n                for (int mask = 0; mask < 8; ++mask) {\n                    bool bx = (mask & 1) > 0;\n                    bool by = (mask & 2) > 0;\n                    bool bz = (mask & 4) > 0;\n                    int sign = (__builtin_popcount(mask) % 2 == 1) ? -1 : 1;\n\n                    int total_allowed = 0;\n                    for (int t = 0; t < 4; ++t) {\n                        if (bx && (t & 1)) continue;\n                        if (by && (t & 2)) continue;\n                        total_allowed += c[t];\n                        if (bz) total_allowed -= cz[t];\n                    }\n\n                    long long term = pow2[total_allowed];\n                    if (sign == 1) {\n                        ways_box = (ways_box + term) % MOD;\n                    } else {\n                        ways_box = (ways_box - term + MOD) % MOD;\n                    }\n                }\n\n                ans = (ans + ways_box) % MOD;\n\n                for (int idx = l; idx < l_end; ++idx) {\n                    c[get_type(cand2[idx])]--;\n                }\n                l = l_end;\n            }\n        }\n    }\n\n    cout << ans << \"\\n\";\n    return 0;\n}\n",
+    "samples": [
+      {
+        "input": "3 1\r\n0 0\r\n0 1\r\n1 0\n",
+        "output": "5\n"
+      },
+      {
+        "input": "9 1\r\n0 0\r\n0 1\r\n0 2\r\n1 0\r\n1 1\r\n1 2\r\n2 0\r\n2 1\r\n2 2\n",
+        "output": "33\n"
+      },
+      {
+        "input": "5 10000000000\r\n314159265 358979323\r\n846264338 -327950288\r\n-419716939 937510582\r\n-97494459 -230781640\r\n628620899 862803482\n",
+        "output": "31\n"
+      }
+    ]
+  },
+  {
+    "id": "agc071_b",
+    "name": "B - Maximum Bracket Subsequence",
+    "contest": "agc071",
+    "rating": 2842,
+    "domain": "Dynamic Programming (DP)",
+    "subtopic": "Digit DP",
+    "topic": "Digit DP",
+    "category_file": "categories/dynamic_programming/bracket_sequence_subsequence_dfa_prefix_balance_dp.md",
+    "key_idea": "Given N, K and a valid bracket sequence S of length K, count strings T of length N whose lexicographically largest valid bracket subsequence of length K is S modulo 998244353.",
+    "observation": "Valid bracket sequences prefer ')' over '(' for lexicographical maximality. Decompose S into a copies of '()' followed by b prime/splendid bracket sequences (where the first is not '()'). If S = ()^{K/2}, T needs only contain S as a subsequence, yielding sum_{j=K}^N C(j-1, K-1) 2^{N-j}. Otherwise, analyzing the insertion positions of '(' and ')' into the prime components yields rational generating functions: b x^2 / (1-x)^{2a+b+3} for >= 1 insertions, and (b x + 1) / (1-x)^{2a+b+2} for 0 insertions. Extracting coefficients via negative binomial expansion solves the problem in O(1) or O(N) time.",
+    "algorithm": "1. If S equals () repeated K/2 times, compute sum_{j=K}^N C(j-1, K-1) * 2^(N-j) iteratively in O(N) time.\n2. Otherwise, count leading '()' blocks to determine a, and decompose the remainder of S into b prime components.\n3. Let m = N - K be the number of inserted characters.\n4. Contribution from >= 1 insertions is b * C(m - 2 + (2a + b + 3) - 1, (2a + b + 3) - 1).\n5. Contribution from 0 insertions is C(m + (2a + b + 2) - 1, (2a + b + 2) - 1) + b * C(m - 1 + (2a + b + 2) - 1, (2a + b + 2) - 1).\n6. Output the sum modulo 998244353.",
+    "time_complexity": "O(N) for repetitive case, O(K) for general case",
+    "space_complexity": "O(1)",
+    "cpp_solution": "#include <iostream>\n#include <string>\n#include <vector>\n\nusing namespace std;\n\nconst int MOD = 998244353;\n\nlong long power(long long base, long long exp) {\n    long long res = 1;\n    base %= MOD;\n    while (exp > 0) {\n        if (exp % 2 == 1) res = (res * base) % MOD;\n        base = (base * base) % MOD;\n        exp /= 2;\n    }\n    return res;\n}\n\nlong long modInverse(long long n) {\n    return power(n, MOD - 2);\n}\n\nlong long nCr(long long n, int r) {\n    if (r < 0 || r > n) return 0;\n    long long num = 1, den = 1;\n    for (int i = 0; i < r; ++i) {\n        num = (num * ((n - i) % MOD)) % MOD;\n        den = (den * (i + 1)) % MOD;\n    }\n    return num * modInverse(den) % MOD;\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n, k;\n    if (!(cin >> n >> k)) return 0;\n    string s;\n    cin >> s;\n\n    string all_rep = \"\";\n    for (int i = 0; i < k / 2; ++i) all_rep += \"()\";\n\n    if (s == all_rep) {\n        // ans = sum_{j = k}^n comb(j - 1, k - 1) * 2^(n - j)\n        // Maintain comb(j - 1, k - 1) iteratively\n        long long current_comb = 1; // comb(k - 1, k - 1)\n        long long current_pow2 = power(2, n - k);\n        long long inv2 = modInverse(2);\n\n        long long ans = 0;\n        for (int j = k; j <= n; ++j) {\n            ans = (ans + current_comb * current_pow2) % MOD;\n            // update comb(j, k - 1) = comb(j - 1, k - 1) * j / (j - (k - 1))\n            if (j < n) {\n                current_comb = current_comb * j % MOD * modInverse(j - k + 1) % MOD;\n                current_pow2 = current_pow2 * inv2 % MOD;\n            }\n        }\n        cout << ans << \"\\n\";\n        return 0;\n    }\n\n    int a = 0;\n    int idx = 0;\n    while (idx + 1 < k && s.substr(idx, 2) == \"()\") {\n        a++;\n        idx += 2;\n    }\n\n    int b = 0;\n    int bal = 0;\n    for (int i = idx; i < k; ++i) {\n        if (s[i] == '(') bal++;\n        else bal--;\n        if (bal == 0) b++;\n    }\n\n    int m = n - k;\n    int p1 = 2 * a + b + 3;\n    long long term1 = 1LL * b * nCr(1LL * (m - 2) + p1 - 1, p1 - 1) % MOD;\n\n    int p2 = 2 * a + b + 2;\n    long long term2 = (nCr(1LL * m + p2 - 1, p2 - 1) + 1LL * b * nCr(1LL * (m - 1) + p2 - 1, p2 - 1)) % MOD;\n\n    long long ans = (term1 + term2) % MOD;\n    cout << ans << \"\\n\";\n    return 0;\n}\n",
+    "samples": [
+      {
+        "input": "7 4\n(())\n",
+        "output": "20\n"
+      },
+      {
+        "input": "20 4\n()()\n",
+        "output": "1047225\n"
+      },
+      {
+        "input": "71 10\n()(()())()\n",
+        "output": "190654464\n"
+      },
+      {
+        "input": "10000000 28\n(()()(()))(()((()))())()(())\n",
+        "output": "769035381\n"
+      }
+    ]
+  },
+  {
+    "id": "abc297_h",
+    "name": "Ex - Diff Adjacent",
+    "contest": "abc297",
+    "rating": 2855,
+    "domain": "Math",
+    "subtopic": "Polynomial",
+    "topic": "Generating Functions",
+    "category_file": "categories/math/splendid_compositions_adjacent_diff_generating_function.md",
+    "key_idea": "A sequence of positive integers is splendid if all adjacent terms are distinct. Find the sum of lengths of all splendid sequences whose sum of elements is N modulo 998244353.",
+    "observation": "Let f(x, y) be the bivariate generating function where [x^N y^M] f(x, y) is the count of splendid compositions of N with length M. By PIE on adjacent equal elements, g(x, y) = sum_{i=1}^inf x^i y / (1 + x^i y), so f(x, y) = 1 / (1 - g(x, y)). The sum of lengths is given by d/dy f(x, y)|_{y=1} = P(x) / Q(x)^2, where Q(x) = 1 - sum_{i=1}^inf x^i / (1 + x^i) and P(x) = sum_{i=1}^inf x^i / (1 + x^i)^2. Expanding P(x) and Q(x) via divisor sums takes O(N log N) time, followed by NTT polynomial inversion and multiplication.",
+    "algorithm": "1. Compute coefficients of Q(x) = 1 - sum_{i=1}^N sum_{k=1}^{N/i} (-1)^{k-1} x^{ik} in O(N log N) via sieve.\n2. Compute coefficients of P(x) = sum_{i=1}^N sum_{k=1}^{N/i} k * (-1)^{k-1} x^{ik} in O(N log N) via sieve.\n3. Compute polynomial inverse inv_Q = 1 / Q mod x^{N+1} using Newton's method with NTT in O(N log N).\n4. Compute inv_Q2 = inv_Q^2 mod x^{N+1} using NTT multiplication.\n5. Compute h(x) = P(x) * inv_Q2 mod x^{N+1} using NTT.\n6. Output h[N] modulo 998244353.",
+    "time_complexity": "O(N log N)",
+    "space_complexity": "O(N)",
+    "cpp_solution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n\nusing namespace std;\n\nconst int MOD = 998244353;\nconst int G = 3;\n\nlong long power(long long base, long long exp) {\n    long long res = 1;\n    base %= MOD;\n    while (exp > 0) {\n        if (exp % 2 == 1) res = (res * base) % MOD;\n        base = (base * base) % MOD;\n        exp /= 2;\n    }\n    return res;\n}\n\nlong long modInverse(long long n) {\n    return power(n, MOD - 2);\n}\n\nvoid ntt(vector<long long>& a, bool invert) {\n    int n = a.size();\n    for (int i = 1, j = 0; i < n; i++) {\n        int bit = n >> 1;\n        for (; j & bit; bit >>= 1) j ^= bit;\n        j ^= bit;\n        if (i < j) swap(a[i], a[j]);\n    }\n    for (int len = 2; len <= n; len <<= 1) {\n        long long wlen = power(G, (MOD - 1) / len);\n        if (invert) wlen = modInverse(wlen);\n        for (int i = 0; i < n; i += len) {\n            long long w = 1;\n            for (int j = 0; j < len / 2; j++) {\n                long long u = a[i + j];\n                long long v = (a[i + j + len / 2] * w) % MOD;\n                a[i + j] = (u + v >= MOD ? u + v - MOD : u + v);\n                a[i + j + len / 2] = (u - v < 0 ? u - v + MOD : u - v);\n                w = (w * wlen) % MOD;\n            }\n        }\n    }\n    if (invert) {\n        long long n_inv = modInverse(n);\n        for (long long& x : a) x = (x * n_inv) % MOD;\n    }\n}\n\nvector<long long> multiply(vector<long long> const& a, vector<long long> const& b, int max_len) {\n    vector<long long> fa(a.begin(), a.end()), fb(b.begin(), b.end());\n    int n = 1;\n    while (n < (int)(fa.size() + fb.size())) n <<= 1;\n    fa.resize(n);\n    fb.resize(n);\n    ntt(fa, false);\n    ntt(fb, false);\n    for (int i = 0; i < n; i++) fa[i] = (fa[i] * fb[i]) % MOD;\n    ntt(fa, true);\n    if ((int)fa.size() > max_len) fa.resize(max_len);\n    return fa;\n}\n\nvector<long long> poly_inv(const vector<long long>& a, int deg) {\n    vector<long long> res = {modInverse(a[0])};\n    while ((int)res.size() < deg) {\n        int len = res.size() * 2;\n        vector<long long> cur_a(len, 0);\n        for (int i = 0; i < min((int)a.size(), len); ++i) cur_a[i] = a[i];\n\n        vector<long long> cur_res = res;\n        int n = 1;\n        while (n < 2 * len) n <<= 1;\n        cur_a.resize(n);\n        cur_res.resize(n);\n\n        ntt(cur_a, false);\n        ntt(cur_res, false);\n        for (int i = 0; i < n; i++) {\n            long long term = (2 - cur_a[i] * cur_res[i] % MOD + MOD) % MOD;\n            cur_res[i] = (cur_res[i] * term) % MOD;\n        }\n        ntt(cur_res, true);\n        cur_res.resize(len);\n        res = move(cur_res);\n    }\n    res.resize(deg);\n    return res;\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n\n    int n;\n    if (!(cin >> n)) return 0;\n\n    vector<long long> Q(n + 1, 0);\n    vector<long long> P(n + 1, 0);\n\n    Q[0] = 1;\n    for (int i = 1; i <= n; ++i) {\n        long long sign = 1;\n        for (int k = 1; i * k <= n; ++k) {\n            int m = i * k;\n            if (sign == 1) {\n                Q[m] = (Q[m] - 1 + MOD) % MOD;\n                P[m] = (P[m] + k) % MOD;\n            } else {\n                Q[m] = (Q[m] + 1) % MOD;\n                P[m] = (P[m] - k + MOD) % MOD;\n            }\n            sign = -sign;\n        }\n    }\n\n    // inv_Q = 1 / Q mod x^{n+1}\n    vector<long long> inv_Q = poly_inv(Q, n + 1);\n\n    // inv_Q2 = inv_Q^2 mod x^{n+1}\n    vector<long long> inv_Q2 = multiply(inv_Q, inv_Q, n + 1);\n\n    // h = P * inv_Q2 mod x^{n+1}\n    vector<long long> h = multiply(P, inv_Q2, n + 1);\n\n    cout << h[n] << \"\\n\";\n    return 0;\n}\n",
+    "samples": [
+      {
+        "input": "4\n",
+        "output": "8\n"
+      },
+      {
+        "input": "297\n",
+        "output": "475867236\n"
+      },
+      {
+        "input": "123456\n",
+        "output": "771773807\n"
+      }
+    ]
+  }
+]
